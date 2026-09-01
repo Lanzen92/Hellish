@@ -1,0 +1,56 @@
+[
+{
+  "directory": "C:/PROJECTS/practice/build",
+  "command": "C:\\BuildTools\\LLVM\\bin\\clang++.exe -IC:/PROJECTS/practice/include -O0 -std=gnu++20 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -g -Xclang -gcodeview -o CMakeFiles\\Practice_common.dir\\src\\main.cpp.obj -c C:\\PROJECTS\\practice\\src\\main.cpp",
+  "file": "C:/PROJECTS/practice/src/main.cpp",
+  "output": "C:/PROJECTS/practice/build/CMakeFiles/Practice_common.dir/src/main.cpp.obj"
+},
+{
+  "directory": "C:/PROJECTS/practice/build",
+  "command": "C:\\BuildTools\\LLVM\\bin\\clang++.exe -IC:/PROJECTS/practice/include -O0 -std=gnu++20 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -g -Xclang -gcodeview -o CMakeFiles\\Practice_common.dir\\src\\arena.cpp.obj -c C:\\PROJECTS\\practice\\src\\arena.cpp",
+  "file": "C:/PROJECTS/practice/src/arena.cpp",
+  "output": "C:/PROJECTS/practice/build/CMakeFiles/Practice_common.dir/src/arena.cpp.obj"
+},
+{
+  "directory": "C:/PROJECTS/practice/build",
+  "command": "C:\\BuildTools\\LLVM\\bin\\clang++.exe -IC:/PROJECTS/practice/include -O0 -std=gnu++20 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -g -Xclang -gcodeview -o CMakeFiles\\Practice.dir\\src\\main.cpp.obj -c C:\\PROJECTS\\practice\\src\\main.cpp",
+  "file": "C:/PROJECTS/practice/src/main.cpp",
+  "output": "C:/PROJECTS/practice/build/CMakeFiles/Practice.dir/src/main.cpp.obj"
+},
+{
+  "directory": "C:/PROJECTS/practice/build",
+  "command": "C:\\BuildTools\\LLVM\\bin\\clang++.exe -DPractice_game_EXPORTS -IC:/PROJECTS/practice/include -O0 -std=gnu++20 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -g -Xclang -gcodeview -o CMakeFiles\\Practice_game.dir\\src\\arena.cpp.obj -c C:\\PROJECTS\\practice\\src\\arena.cpp",
+  "file": "C:/PROJECTS/practice/src/arena.cpp",
+  "output": "C:/PROJECTS/practice/build/CMakeFiles/Practice_game.dir/src/arena.cpp.obj"
+},
+{
+  "directory": "C:/PROJECTS/practice/build",
+  "command": "C:\\BuildTools\\LLVM\\bin\\clang++.exe -DPractice_game_EXPORTS -IC:/PROJECTS/practice/include -O0 -std=gnu++20 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -g -Xclang -gcodeview -o CMakeFiles\\Practice_game.dir\\src\\game.cpp.obj -c C:\\PROJECTS\\practice\\src\\game.cpp",
+  "file": "C:/PROJECTS/practice/src/game.cpp",
+  "output": "C:/PROJECTS/practice/build/CMakeFiles/Practice_game.dir/src/game.cpp.obj"
+},
+{
+  "directory": "C:/PROJECTS/practice/build",
+  "command": "C:\\BuildTools\\LLVM\\bin\\clang++.exe -DPractice_game_EXPORTS -IC:/PROJECTS/practice/include -O0 -std=gnu++20 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -g -Xclang -gcodeview -o CMakeFiles\\Practice_game.dir\\src\\image.cpp.obj -c C:\\PROJECTS\\practice\\src\\image.cpp",
+  "file": "C:/PROJECTS/practice/src/image.cpp",
+  "output": "C:/PROJECTS/practice/build/CMakeFiles/Practice_game.dir/src/image.cpp.obj"
+},
+{
+  "directory": "C:/PROJECTS/practice/build",
+  "command": "C:\\BuildTools\\LLVM\\bin\\clang++.exe -DPractice_game_EXPORTS -IC:/PROJECTS/practice/include -O0 -std=gnu++20 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -g -Xclang -gcodeview -o CMakeFiles\\Practice_game.dir\\src\\level.cpp.obj -c C:\\PROJECTS\\practice\\src\\level.cpp",
+  "file": "C:/PROJECTS/practice/src/level.cpp",
+  "output": "C:/PROJECTS/practice/build/CMakeFiles/Practice_game.dir/src/level.cpp.obj"
+},
+{
+  "directory": "C:/PROJECTS/practice/build",
+  "command": "C:\\BuildTools\\LLVM\\bin\\clang++.exe -DPractice_game_EXPORTS -IC:/PROJECTS/practice/include -O0 -std=gnu++20 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -g -Xclang -gcodeview -o CMakeFiles\\Practice_game.dir\\src\\levelRenderer.cpp.obj -c C:\\PROJECTS\\practice\\src\\levelRenderer.cpp",
+  "file": "C:/PROJECTS/practice/src/levelRenderer.cpp",
+  "output": "C:/PROJECTS/practice/build/CMakeFiles/Practice_game.dir/src/levelRenderer.cpp.obj"
+},
+{
+  "directory": "C:/PROJECTS/practice/build",
+  "command": "C:\\BuildTools\\LLVM\\bin\\clang++.exe -DPractice_game_EXPORTS -IC:/PROJECTS/practice/include -O0 -std=gnu++20 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -g -Xclang -gcodeview -o CMakeFiles\\Practice_game.dir\\src\\rendering.cpp.obj -c C:\\PROJECTS\\practice\\src\\rendering.cpp",
+  "file": "C:/PROJECTS/practice/src/rendering.cpp",
+  "output": "C:/PROJECTS/practice/build/CMakeFiles/Practice_game.dir/src/rendering.cpp.obj"
+}
+]

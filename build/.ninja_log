@@ -1,0 +1,14 @@
+# ninja log v7
+47	445	8097116381696174	CMakeFiles/Practice_game.dir/src/levelRenderer.cpp.obj	18fbce743ca6eb0d
+32	465	8097116381546128	CMakeFiles/Practice_game.dir/src/game.cpp.obj	c63d79e486bfe896
+52	466	8097116381756178	CMakeFiles/Practice_game.dir/src/rendering.cpp.obj	35738e1fe7e0f21e
+20	469	8097116381426153	CMakeFiles/Practice_common.dir/src/arena.cpp.obj	e1f99a3ab18b4d8d
+28	486	8097116381506140	CMakeFiles/Practice_game.dir/src/arena.cpp.obj	a7a7459d982616a0
+37	629	8097116381596128	CMakeFiles/Practice_game.dir/src/image.cpp.obj	ce25a408825618fa
+15	958	8097116381376110	CMakeFiles/Practice_common.dir/src/main.cpp.obj	d1c8fff3c9095811
+24	969	8097116381476130	CMakeFiles/Practice.dir/src/main.cpp.obj	6dfaaed40d444249
+959	1028	8097116390817626	Practice_common.lib	208b9c38cd9265d9
+1028	1330	8097116391507679	Practice.exe	be962be4d6033410
+42	1934	8097116381646129	CMakeFiles/Practice_game.dir/src/level.cpp.obj	9d26c7fa3e5492d4
+1935	2161	8097116402053742	Practice_game.dll	dbef076861d71fbe
+1935	2161	8097116402053742	Practice_game.lib	dbef076861d71fbe
