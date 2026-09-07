@@ -170,7 +170,7 @@ rule CUSTOM_COMMAND
 # Rule for re-running cmake.
 
 rule RERUN_CMAKE
-  command = C:\BuildTools\CMake\bin\cmake.exe --regenerate-during-build -SC:\PROJECTS\practice -BC:\PROJECTS\practice\build
+  command = C:\BuildTools\CMake\bin\cmake.exe --regenerate-during-build -SC:\Gameprojects\Projects\practice -BC:\Gameprojects\Projects\practice\build
   description = Re-running CMake...
   generator = 1
 

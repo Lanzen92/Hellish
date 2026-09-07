@@ -6,6 +6,7 @@
 
 #include "SDL3/SDL_init.h"
 #include "SDL3/SDL_render.h"
+#include "SDL3/SDL_scancode.h"
 #include "SDL3/SDL_timer.h"
 
 #include "arena.h"
@@ -20,7 +21,7 @@ Uint64 NOW;
 Uint64 PREV;
 
 //Def functions from DLL import.
-typedef void (*Function_Initialize) (GameData* data, SDL_Renderer* renderer);
+typedef void (*Function_Initialize) (GameData* data, SDL_Window* window, SDL_Renderer* renderer);
 typedef bool (*Function_HandleEvents) (GameData* data, SDL_Event event);
 typedef void (*Function_Update) (GameData* data, float dt);
 typedef void (*Function_Draw) (GameData* data, SDL_Renderer* renderer);
@@ -193,9 +194,16 @@ int main() {
   size_t IMAGE_ARENA_SIZE = sizeof(Image) * 1024;
   gameData->arenaImages = Memory::CreateSubArena(arenaMain, IMAGE_ARENA_SIZE);
   gameData->arenaLevels = Memory::CreateSubArena(arenaMain, MEGABYTES(4));
-  gameData->arenaEntities = Memory::CreateSubArena(gameData->arenaLevels, MEGABYTES(2));
 
-  gameData->levels = (LevelData*)Memory::Allocate(gameData->arenaLevels, sizeof(LevelData) * 12);
+  gameData->arenaEntities = Memory::CreateSubArena(gameData->arenaLevels, MEGABYTES(2));
+  gameData->arenaCommands = Memory::CreateSubArena(gameData->arenaLevels, MEGABYTES(1));
+  gameData->levels = (LevelData *)Memory::Allocate(gameData->arenaLevels, sizeof(LevelData) * 12);
+  gameData->keysPrevious = (bool*)Memory::Allocate(gameData->arenaLevels, sizeof(bool) * SDL_SCANCODE_COUNT);
+
+  gameData->commandBuffer = (CommandBuffer*)Memory::Allocate(arenaMain, sizeof(CommandBuffer));
+  gameData->commandBuffer->capacity = 2000;
+  size_t COMMAND_SIZE = sizeof(AnyCommand) * gameData->commandBuffer->capacity;
+  gameData->commandBuffer->allCommands = (AnyCommand*)Memory::Allocate(gameData->arenaCommands, COMMAND_SIZE);
   
   printf("Allocation done \n");
   // ----- MemoryAllocation end ------
@@ -215,13 +223,16 @@ int main() {
   }
 
   SDL_Setup();
-  dll.initialize(gameData, renderer);
+  dll.initialize(gameData, window, renderer);
   
   // gameData->fallback = AssetManagement::LoadSprite(arenaImages, renderer, "fallback.png");
   bool running = true;
   float dt;
+  gameData->dt = &dt;
+  
 
   printf("Initialization done - Jumping to gameloop \n");
+
   while (running) {
     //Each frame, check if dll has changed. 
     DLL_CheckStatus(&dll);

@@ -1,5 +1,5 @@
-C:/PROJECTS/practice/build/CMakeFiles/Practice_common.dir
-C:/PROJECTS/practice/build/CMakeFiles/Practice.dir
-C:/PROJECTS/practice/build/CMakeFiles/Practice_game.dir
-C:/PROJECTS/practice/build/CMakeFiles/edit_cache.dir
-C:/PROJECTS/practice/build/CMakeFiles/rebuild_cache.dir
+C:/Gameprojects/Projects/practice/build/CMakeFiles/Practice_common.dir
+C:/Gameprojects/Projects/practice/build/CMakeFiles/Practice.dir
+C:/Gameprojects/Projects/practice/build/CMakeFiles/Practice_game.dir
+C:/Gameprojects/Projects/practice/build/CMakeFiles/edit_cache.dir
+C:/Gameprojects/Projects/practice/build/CMakeFiles/rebuild_cache.dir

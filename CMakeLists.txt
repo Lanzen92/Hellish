@@ -18,9 +18,20 @@ set(SHARED_SOURCES
 
 )
 
+set(IMGUI
+	${CMAKE_SOURCE_DIR}/src_external/imgui/imgui.cpp
+	${CMAKE_SOURCE_DIR}/src_external/imgui/imgui_draw.cpp
+	${CMAKE_SOURCE_DIR}/src_external/imgui/imgui_tables.cpp
+	${CMAKE_SOURCE_DIR}/src_external/imgui/imgui_widgets.cpp
+	${CMAKE_SOURCE_DIR}/src_external/imgui/imgui_impl_sdlrenderer3.cpp
+	${CMAKE_SOURCE_DIR}/src_external/imgui/imgui_impl_sdl3.cpp
+)
+
+
+
 #Shared static dll
 add_library(${SHARED_LIB_NAME} STATIC ${SHARED_SOURCES})
-target_include_directories(${SHARED_LIB_NAME} PRIVATE include)
+target_include_directories(${SHARED_LIB_NAME} PRIVATE include src_external)
 
 # Automatically find all .cpp files in src/
 # file(GLOB_RECURSE SOURCES "src/*.cpp")
@@ -33,17 +44,16 @@ list(REMOVE_ITEM DLL_EXCLUSIVE ${EXE_EXCLUSIVE})
 
 # Create executable
 add_executable(${PROJECT_NAME} ${EXE_EXCLUSIVE})
-target_include_directories(${PROJECT_NAME} PRIVATE include)
+target_include_directories(${PROJECT_NAME} PRIVATE include src_external)
 target_link_libraries(${PROJECT_NAME} PRIVATE 
 	${LIB_FILES}
 	${WINDOWS_LIBRARIES}
 	${SHARED_LIB_NAME}
 )
 
-
-# Add include directory
-add_library(${DLL_NAME} SHARED ${DLL_EXCLUSIVE})
-target_include_directories(${DLL_NAME} PRIVATE include)
+# Add include directory and ImGui to the shared library
+add_library(${DLL_NAME} SHARED ${DLL_EXCLUSIVE} ${IMGUI})
+target_include_directories(${DLL_NAME} PRIVATE include src_external)
 target_link_libraries(${DLL_NAME} PRIVATE 
 	${LIB_FILES}
 	${SHARED_LIB_NAME}

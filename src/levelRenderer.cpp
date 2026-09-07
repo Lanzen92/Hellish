@@ -16,12 +16,12 @@ void RenderLevel(GameData* gameData, SDL_Renderer* renderer) {
       uint8_t cellType = levelData.GetCell(x, y);
       Image* sprite;
 
-      switch(cellType) {
-        case 1:
+      switch((ID)cellType) {
+        case ID::GROUND:
           sprite = gameData->ground;
           break;
 
-        case 2:
+        case ID::WALL:
           sprite = gameData->wall;
           break;
 
@@ -54,8 +54,11 @@ void RenderEntities(GameData* gameData, SDL_Renderer* renderer) {
     Entity entity = levelData.entityBuffer[i];
 
     switch(entity.id) {
-      case 3:
+      case ID::PLAYER:
         image = gameData->player;
+        break;
+      case ID::BOX:
+        image = gameData->box;
         break;
       default:
         image = gameData->fallback;
