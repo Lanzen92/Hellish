@@ -6,6 +6,7 @@
 #include "levelRenderer.h"
 #include "level.h" 
 #include "devGui.h"
+#include "common.h"
 #include <cstdint>
 
 bool KeyPressed(SDL_Scancode key, const bool* current, const bool* previous) {
@@ -108,45 +109,68 @@ extern "C" {
   void Update(GameData* gameData, float dt) {
     const bool* keys = SDL_GetKeyboardState(nullptr);
 
-    gameData->commandTimestamp++;
+    if (KeyPressed(SDL_SCANCODE_Z, keys, gameData->keysPrevious)) {
+      if (KeyHeld(SDL_SCANCODE_LSHIFT, keys, gameData->keysPrevious)) {
+        Redo(gameData->commandBuffer);
+      }
+      else {
+        Undo(gameData->commandBuffer);
+      }
+    }
 
-    for (int i = 0; i < gameData->GetCurrentLevel()->entityCount; i++) {
+    if (KeyPressed(SDL_SCANCODE_RIGHT, keys, gameData->keysPrevious)) {
+      gameData->inputBuffer[gameData->inputBufferWriteCount++ % gameData->inputBufferCapacity] = {1, 0};
+    }  
+    else if (KeyPressed(SDL_SCANCODE_LEFT, keys, gameData->keysPrevious)) {
+      gameData->inputBuffer[gameData->inputBufferWriteCount++ % gameData->inputBufferCapacity] = {-1, 0};
+    }
+    else if (KeyPressed(SDL_SCANCODE_UP, keys, gameData->keysPrevious)) {
+      gameData->inputBuffer[gameData->inputBufferWriteCount++ % gameData->inputBufferCapacity] = {0, -1};
+    }
+    else if (KeyPressed(SDL_SCANCODE_DOWN, keys, gameData->keysPrevious)) {
+      gameData->inputBuffer[gameData->inputBufferWriteCount++ % gameData->inputBufferCapacity] = {0, 1};
+    }
+
+    bool areEntitiesMoving = false;
+    for  (int i = 0; i < gameData->GetCurrentLevel()->entityCount; i++) {
       Entity* entity = &gameData->GetCurrentLevel()->entityBuffer[i];
-    
-      if (entity->HasBehaviour((Behaviour)(Behaviour::RESPOND_TO_INPUT | Behaviour::CAN_MOVE))) {
-        int xChange = 0;
-        int yChange = 0;
 
-        if (KeyPressed(SDL_SCANCODE_RIGHT, keys, gameData->keysPrevious)) {
-          xChange = 1;
-        }     
-        else if (KeyPressed(SDL_SCANCODE_LEFT, keys, gameData->keysPrevious)) {
-          xChange = -1;
-        }     
-        else if (KeyPressed(SDL_SCANCODE_UP, keys, gameData->keysPrevious)) {
-          yChange = -1;
-        }     
-        else if (KeyPressed(SDL_SCANCODE_DOWN, keys, gameData->keysPrevious)) {
-          yChange = 1;
-        }
-        else if (KeyPressed(SDL_SCANCODE_Z, keys, gameData->keysPrevious)) {
-          if (KeyHeld(SDL_SCANCODE_LSHIFT, keys, gameData->keysPrevious)) {
-            Redo(gameData->commandBuffer);
-          }
-          else {
-            Undo(gameData->commandBuffer);
-          }
-        }
-        
+      if (entity->HasBehaviour(CAN_MOVE) && IsMoving(entity)) {
+        entity->progress01 += MOVE_SPEED * dt;
 
-        if (xChange != 0 || yChange != 0) {
-          TryMove(entity, gameData->GetCurrentLevel(), gameData->commandBuffer,  xChange, yChange, gameData->commandTimestamp);
-
+        if (entity->progress01 >= 1) {
+          entity->progress01 = 0;
+          entity->xPrev = entity->x;
+          entity->yPrev = entity->y;
         }
-      }     
+
+        if (IsMoving(entity)) {
+          areEntitiesMoving = true;
+        }
+      }
+    }
+
+    if (!areEntitiesMoving) {
+      if(gameData->inputBufferReadCount == gameData->inputBufferWriteCount) {
+        return;
+      }
+
+      gameData->commandTimestamp += 1;
+
+      for (int i = 0; i < gameData->GetCurrentLevel()->entityCount; i++) {
+        Entity* entity = &gameData->GetCurrentLevel()->entityBuffer[i];
+
+        if (entity->HasBehaviour((Behaviour)(RESPOND_TO_INPUT | CAN_MOVE))) {
+          int xDir = gameData->inputBuffer[gameData->inputBufferReadCount % gameData->inputBufferCapacity].x;
+          int yDir = gameData->inputBuffer[gameData->inputBufferReadCount % gameData->inputBufferCapacity].y;
+
+          TryMove(entity, gameData->GetCurrentLevel(), gameData->commandBuffer, xDir, yDir, gameData->commandTimestamp);
+        } 
+      }
+
+      gameData->inputBufferReadCount++;
     }
     
-     memcpy((void*)gameData->keysPrevious, keys, SDL_SCANCODE_COUNT * sizeof(bool));   
   }
   
   

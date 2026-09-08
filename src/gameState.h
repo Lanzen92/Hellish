@@ -12,6 +12,11 @@ struct GameData {
   uint32_t commandTimestamp;
   
   ImGuiContext* imGuiContext;
+
+  Position* inputBuffer;
+  int inputBufferCapacity;
+  int inputBufferWriteCount;
+  int inputBufferReadCount;
   
   Image* fallback;
   Image* wall;

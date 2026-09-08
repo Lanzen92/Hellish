@@ -2,14 +2,21 @@
 #include "command.h"
 #include <cstdint>
 
-void Execute(AnyCommand cmd) {
+void Execute(AnyCommand cmd, bool fromRedo = false) {
   switch(cmd.command.type) {
     case CMD_TYPE::NONE:
       break;
     case CMD_TYPE::MOVE:
       MoveCommand mv = cmd.move;
+      mv.entity->xPrev = mv.entity->x;
+      mv.entity->yPrev = mv.entity->y;
       mv.entity->x += mv.xDir;
       mv.entity->y += mv.yDir;
+
+      if (fromRedo) {
+        mv.entity->progress01 = 1;
+      }
+      
       break;
   }
 }
@@ -38,6 +45,7 @@ void Undo(CommandBuffer* commandBuffer) {
       MoveCommand mv = cmd.move;
       mv.entity->x -= mv.xDir;
       mv.entity->y -= mv.yDir;
+      mv.entity->progress01 = 1;
       break;
   }
 
@@ -60,7 +68,7 @@ void Redo(CommandBuffer* commandBuffer){
   }
   
   commandBuffer->index++;
-  Execute(cmd);
+  Execute(cmd, true);
 
   uint32_t timestamp = cmd.command.timestamp;
   if (commandBuffer->index != commandBuffer->head) {

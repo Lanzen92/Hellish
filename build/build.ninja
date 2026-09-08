@@ -177,6 +177,18 @@ build CMakeFiles/Practice_game.dir/src/devGui.cpp.obj: CXX_COMPILER__Practice_ga
   TARGET_PDB = Practice_game.pdb
   TARGET_SUPPORT_DIR = CMakeFiles\Practice_game.dir
 
+build CMakeFiles/Practice_game.dir/src/entity.cpp.obj: CXX_COMPILER__Practice_game_unscanned_Debug C$:/Gameprojects/Projects/practice/src/entity.cpp || cmake_object_order_depends_target_Practice_game
+  CONFIG = Debug
+  DEFINES = -DPractice_game_EXPORTS
+  DEP_FILE = CMakeFiles\Practice_game.dir\src\entity.cpp.obj.d
+  FLAGS = -O0 -std=gnu++20 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -g -Xclang -gcodeview
+  INCLUDES = -IC:/Gameprojects/Projects/practice/include -IC:/Gameprojects/Projects/practice/src_external
+  OBJECT_DIR = CMakeFiles\Practice_game.dir
+  OBJECT_FILE_DIR = CMakeFiles\Practice_game.dir\src
+  TARGET_COMPILE_PDB = CMakeFiles\Practice_game.dir\
+  TARGET_PDB = Practice_game.pdb
+  TARGET_SUPPORT_DIR = CMakeFiles\Practice_game.dir
+
 build CMakeFiles/Practice_game.dir/src/game.cpp.obj: CXX_COMPILER__Practice_game_unscanned_Debug C$:/Gameprojects/Projects/practice/src/game.cpp || cmake_object_order_depends_target_Practice_game
   CONFIG = Debug
   DEFINES = -DPractice_game_EXPORTS
@@ -317,7 +329,7 @@ build CMakeFiles/Practice_game.dir/src_external/imgui/imgui_impl_sdl3.cpp.obj: C
 #############################################
 # Link the shared library Practice_game.dll
 
-build Practice_game.dll Practice_game.lib: CXX_SHARED_LIBRARY_LINKER__Practice_game_Debug CMakeFiles/Practice_game.dir/src/arena.cpp.obj CMakeFiles/Practice_game.dir/src/command.cpp.obj CMakeFiles/Practice_game.dir/src/devGui.cpp.obj CMakeFiles/Practice_game.dir/src/game.cpp.obj CMakeFiles/Practice_game.dir/src/image.cpp.obj CMakeFiles/Practice_game.dir/src/level.cpp.obj CMakeFiles/Practice_game.dir/src/levelRenderer.cpp.obj CMakeFiles/Practice_game.dir/src/rendering.cpp.obj CMakeFiles/Practice_game.dir/src_external/imgui/imgui.cpp.obj CMakeFiles/Practice_game.dir/src_external/imgui/imgui_draw.cpp.obj CMakeFiles/Practice_game.dir/src_external/imgui/imgui_tables.cpp.obj CMakeFiles/Practice_game.dir/src_external/imgui/imgui_widgets.cpp.obj CMakeFiles/Practice_game.dir/src_external/imgui/imgui_impl_sdlrenderer3.cpp.obj CMakeFiles/Practice_game.dir/src_external/imgui/imgui_impl_sdl3.cpp.obj | C$:/Gameprojects/Projects/practice/lib/SDL3.lib C$:/Gameprojects/Projects/practice/lib/SDL3_image.lib Practice_common.lib || Practice_common.lib
+build Practice_game.dll Practice_game.lib: CXX_SHARED_LIBRARY_LINKER__Practice_game_Debug CMakeFiles/Practice_game.dir/src/arena.cpp.obj CMakeFiles/Practice_game.dir/src/command.cpp.obj CMakeFiles/Practice_game.dir/src/devGui.cpp.obj CMakeFiles/Practice_game.dir/src/entity.cpp.obj CMakeFiles/Practice_game.dir/src/game.cpp.obj CMakeFiles/Practice_game.dir/src/image.cpp.obj CMakeFiles/Practice_game.dir/src/level.cpp.obj CMakeFiles/Practice_game.dir/src/levelRenderer.cpp.obj CMakeFiles/Practice_game.dir/src/rendering.cpp.obj CMakeFiles/Practice_game.dir/src_external/imgui/imgui.cpp.obj CMakeFiles/Practice_game.dir/src_external/imgui/imgui_draw.cpp.obj CMakeFiles/Practice_game.dir/src_external/imgui/imgui_tables.cpp.obj CMakeFiles/Practice_game.dir/src_external/imgui/imgui_widgets.cpp.obj CMakeFiles/Practice_game.dir/src_external/imgui/imgui_impl_sdlrenderer3.cpp.obj CMakeFiles/Practice_game.dir/src_external/imgui/imgui_impl_sdl3.cpp.obj | C$:/Gameprojects/Projects/practice/lib/SDL3.lib C$:/Gameprojects/Projects/practice/lib/SDL3_image.lib Practice_common.lib || Practice_common.lib
   CONFIG = Debug
   LANGUAGE_COMPILE_FLAGS = -O0 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -g -Xclang -gcodeview
   LINK_FLAGS = -shared -fuse-ld=lld

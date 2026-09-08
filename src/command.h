@@ -2,7 +2,6 @@
 
 #include "entity.h"
 #include <cstdint>
-#include <winscard.h>
 
 
 enum class CMD_TYPE : uint8_t {

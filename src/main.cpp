@@ -204,6 +204,10 @@ int main() {
   gameData->commandBuffer->capacity = 2000;
   size_t COMMAND_SIZE = sizeof(AnyCommand) * gameData->commandBuffer->capacity;
   gameData->commandBuffer->allCommands = (AnyCommand*)Memory::Allocate(gameData->arenaCommands, COMMAND_SIZE);
+
+  gameData->inputBufferCapacity = 50;
+  size_t RING_BUFFER_SIZE = sizeof(Position) * gameData->inputBufferCapacity;
+  gameData->inputBuffer = (Position*)Memory::Allocate(gameData->arenaLevels, RING_BUFFER_SIZE);
   
   printf("Allocation done \n");
   // ----- MemoryAllocation end ------
@@ -225,7 +229,6 @@ int main() {
   SDL_Setup();
   dll.initialize(gameData, window, renderer);
   
-  // gameData->fallback = AssetManagement::LoadSprite(arenaImages, renderer, "fallback.png");
   bool running = true;
   float dt;
   gameData->dt = &dt;
@@ -263,6 +266,7 @@ int main() {
     }
     
     dll.update(gameData, dt);
+    memcpy((void*)gameData->keysPrevious, SDL_GetKeyboardState(nullptr), SDL_SCANCODE_COUNT * sizeof(bool));   
     dll.draw(gameData, renderer);
 
     //Goal is to keep it as close as possible of the preset FPS. (common.h)

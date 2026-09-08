@@ -3,6 +3,7 @@
 #include <cstdint>
 #include <cassert>
 
+
 enum Behaviour: uint32_t {
   NONE = 0,
   CAN_MOVE = 1 << 0,
@@ -18,11 +19,21 @@ enum class ID : uint8_t {
   BOX = 4
 };
 
+struct Position {
+  int x;
+  int y;
+};
+
+
 struct Entity {
   ID id;
   int x;
   int y;
+  int xPrev;
+  int yPrev;
+  float progress01;
   Behaviour behaviour;
+
 
   bool HasBehaviour(Behaviour flags) {
     return (behaviour & flags) == flags;
@@ -55,3 +66,4 @@ struct Entity {
   }
 };
 
+bool IsMoving(Entity* entity);
