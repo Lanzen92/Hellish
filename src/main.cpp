@@ -5,6 +5,7 @@
 #include <fstream>
 
 #include "SDL3/SDL_init.h"
+#include "SDL3/SDL_keyboard.h"
 #include "SDL3/SDL_render.h"
 #include "SDL3/SDL_scancode.h"
 #include "SDL3/SDL_timer.h"
@@ -13,6 +14,7 @@
 #include "common.h"
 #include "gameState.h"
 #include "image.h"
+#include "input.h"
 
 SDL_Window* window;
 SDL_Renderer* renderer;
@@ -20,13 +22,14 @@ SDL_Renderer* renderer;
 Uint64 NOW;
 Uint64 PREV;
 
-//Def functions from DLL import.
+//Def functions (singatures) from DLL import.
 typedef void (*Function_Initialize) (GameData* data, SDL_Window* window, SDL_Renderer* renderer);
 typedef bool (*Function_HandleEvents) (GameData* data, SDL_Event event);
 typedef void (*Function_Update) (GameData* data, float dt);
 typedef void (*Function_Draw) (GameData* data, SDL_Renderer* renderer);
 typedef void (*Function_OnQuit) (SDL_Renderer* renderer);
 
+// Function pointers.
 constexpr const char* NAME_OF_FUNC_INIT = "Initialize";
 constexpr const char* NAME_OF_FUNC_HANDLE_EVENT = "HandleEvents";
 constexpr const char* NAME_OF_FUNC_UPDATE = "Update";
@@ -198,7 +201,7 @@ int main() {
   gameData->arenaEntities = Memory::CreateSubArena(gameData->arenaLevels, MEGABYTES(2));
   gameData->arenaCommands = Memory::CreateSubArena(gameData->arenaLevels, MEGABYTES(1));
   gameData->levels = (LevelData *)Memory::Allocate(gameData->arenaLevels, sizeof(LevelData) * 12);
-  gameData->keysPrevious = (bool*)Memory::Allocate(gameData->arenaLevels, sizeof(bool) * SDL_SCANCODE_COUNT);
+  // gameData->keysPrevious = (bool*)Memory::Allocate(gameData->arenaLevels, sizeof(bool) * SDL_SCANCODE_COUNT);
 
   gameData->commandBuffer = (CommandBuffer*)Memory::Allocate(arenaMain, sizeof(CommandBuffer));
   gameData->commandBuffer->capacity = 2000;
@@ -208,6 +211,17 @@ int main() {
   gameData->inputBufferCapacity = 50;
   size_t RING_BUFFER_SIZE = sizeof(Position) * gameData->inputBufferCapacity;
   gameData->inputBuffer = (Position*)Memory::Allocate(gameData->arenaLevels, RING_BUFFER_SIZE);
+
+  size_t INPUT_ARENA_SIZE = 0;
+  INPUT_ARENA_SIZE += sizeof(bool) * SDL_SCANCODE_COUNT * 2;
+  INPUT_ARENA_SIZE += sizeof(float) * SDL_SCANCODE_COUNT;
+  INPUT_ARENA_SIZE += 128;
+
+  gameData->arenaInputs = Memory::CreateSubArena(arenaMain, INPUT_ARENA_SIZE);
+  gameData->input.keysCurrent = (bool*)Memory::Allocate(gameData->arenaInputs, sizeof(bool) * SDL_SCANCODE_COUNT);
+  gameData->input.keysPrevious = (bool*)Memory::Allocate(gameData->arenaInputs, sizeof(bool) * SDL_SCANCODE_COUNT);
+  gameData->input.keysHeldTime = (float*)Memory::Allocate(gameData->arenaInputs, sizeof(float) * SDL_SCANCODE_COUNT);
+
   
   printf("Allocation done \n");
   // ----- MemoryAllocation end ------
@@ -264,9 +278,12 @@ int main() {
         }
       }
     }
+
+    gameData->input.keysCurrent = SDL_GetKeyboardState(nullptr);
     
     dll.update(gameData, dt);
-    memcpy((void*)gameData->keysPrevious, SDL_GetKeyboardState(nullptr), SDL_SCANCODE_COUNT * sizeof(bool));   
+    UpdateKeys(&gameData->input, dt);
+
     dll.draw(gameData, renderer);
 
     //Goal is to keep it as close as possible of the preset FPS. (common.h)

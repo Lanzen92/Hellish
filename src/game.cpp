@@ -3,32 +3,12 @@
 #include "command.h"
 #include "entity.h"
 #include "imgui/imgui.h"
+#include "input.h"
 #include "levelRenderer.h"
 #include "level.h" 
 #include "devGui.h"
 #include "common.h"
 #include <cstdint>
-
-bool KeyPressed(SDL_Scancode key, const bool* current, const bool* previous) {
-  if (previous == nullptr) {
-    return current[key];
-  }
-  return current[key] && !previous[key];
-}
-
-bool KeyHeld(SDL_Scancode key, const bool* current, const bool* previous) {
-  if (previous == nullptr) {
-    return false;
-  }
-  return current[key] && previous[key];
-}
-
-bool KeyReleased(SDL_Scancode key, const bool* current, const bool* previous) {
-  if (previous == nullptr) {
-    return false;
-  }
-  return !current[key] && previous[key];
-}
 
   bool TryMove(Entity* mover, LevelData* levelData, CommandBuffer* commandBuffer, int xDir, int yDir, uint32_t timestamp) {
     
@@ -109,25 +89,40 @@ extern "C" {
   void Update(GameData* gameData, float dt) {
     const bool* keys = SDL_GetKeyboardState(nullptr);
 
-    if (KeyPressed(SDL_SCANCODE_Z, keys, gameData->keysPrevious)) {
-      if (KeyHeld(SDL_SCANCODE_LSHIFT, keys, gameData->keysPrevious)) {
+    if (KeyPressed(&gameData->input, SDL_SCANCODE_Z) ||
+        KeyHeldForTime(&gameData->input, SDL_SCANCODE_Z, UNDO_REPEAT_TIME)) {
+      ResetKeyHeldTime(&gameData->input, SDL_SCANCODE_Z);
+          
+      if (KeyHeld(&gameData->input, SDL_SCANCODE_LSHIFT)) {
         Redo(gameData->commandBuffer);
       }
       else {
         Undo(gameData->commandBuffer);
       }
     }
+    
+    if (KeyPressed(&gameData->input, SDL_SCANCODE_RIGHT) ||
+        KeyHeldForTime(&gameData->input, SDL_SCANCODE_RIGHT, (1 / MOVE_SPEED) * 1.15)) {
 
-    if (KeyPressed(SDL_SCANCODE_RIGHT, keys, gameData->keysPrevious)) {
+      ResetKeyHeldTime(&gameData->input, SDL_SCANCODE_RIGHT);
       gameData->inputBuffer[gameData->inputBufferWriteCount++ % gameData->inputBufferCapacity] = {1, 0};
     }  
-    else if (KeyPressed(SDL_SCANCODE_LEFT, keys, gameData->keysPrevious)) {
+    else if (KeyPressed(&gameData->input, SDL_SCANCODE_LEFT) ||
+             KeyHeldForTime(&gameData->input, SDL_SCANCODE_LEFT, (1 / MOVE_SPEED) * 1.15))  {
+
+      ResetKeyHeldTime(&gameData->input, SDL_SCANCODE_LEFT);
       gameData->inputBuffer[gameData->inputBufferWriteCount++ % gameData->inputBufferCapacity] = {-1, 0};
     }
-    else if (KeyPressed(SDL_SCANCODE_UP, keys, gameData->keysPrevious)) {
+    else if (KeyPressed(&gameData->input, SDL_SCANCODE_UP) ||
+             KeyHeldForTime(&gameData->input, SDL_SCANCODE_UP, (1 / MOVE_SPEED) * 1.15))  {
+
+      ResetKeyHeldTime(&gameData->input, SDL_SCANCODE_UP);
       gameData->inputBuffer[gameData->inputBufferWriteCount++ % gameData->inputBufferCapacity] = {0, -1};
     }
-    else if (KeyPressed(SDL_SCANCODE_DOWN, keys, gameData->keysPrevious)) {
+    else if (KeyPressed(&gameData->input, SDL_SCANCODE_DOWN) ||
+             KeyHeldForTime(&gameData->input, SDL_SCANCODE_DOWN, (1 / MOVE_SPEED) * 1.15))  {
+
+      ResetKeyHeldTime(&gameData->input, SDL_SCANCODE_DOWN);
       gameData->inputBuffer[gameData->inputBufferWriteCount++ % gameData->inputBufferCapacity] = {0, 1};
     }
 

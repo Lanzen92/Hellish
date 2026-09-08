@@ -1,10 +1,15 @@
 #pragma once
 
+#include <stdint.h>
+
+#include "imgui/imgui.h"
+
+#include "arena.h"
 #include "command.h"
 #include "image.h"
 #include "level.h"
-#include "imgui/imgui.h"
-#include <stdint.h>
+#include "input.h"
+
 
 struct GameData {
 
@@ -29,7 +34,9 @@ struct GameData {
   Memory::Arena* arenaImages;
   Memory::Arena* arenaCommands;
 
-  bool* keysPrevious;
+  Input input;
+  Memory::Arena* arenaInputs;
+
   CommandBuffer* commandBuffer;
   
   LevelData* levels;

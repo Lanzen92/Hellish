@@ -12,7 +12,7 @@ constexpr int FPS = 240;
 const double FRAME_TIME_MS = 1000.0 / FPS;
 
 const float MOVE_SPEED = 6.0;
-
+const float UNDO_REPEAT_TIME = 0.15;
 //Display
 const int SCREEN_WIDTH = 1400;
 const int SCREEN_HEIGHT = 1000;
