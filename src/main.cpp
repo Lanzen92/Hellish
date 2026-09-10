@@ -224,6 +224,8 @@ int main() {
   gameData->input.keysPrevious = (bool*)Memory::Allocate(gameData->arenaInputs, sizeof(bool) * SDL_SCANCODE_COUNT);
   gameData->input.keysHeldTime = (float*)Memory::Allocate(gameData->arenaInputs, sizeof(float) * SDL_SCANCODE_COUNT);
 
+  int supportedMouseButtons = 3; //Left, Middle, Right.
+  gameData->input.mouseHeldTime = (float*)Memory::Allocate(gameData->arenaInputs, sizeof(float) * supportedMouseButtons);
   
   printf("Allocation done \n");
   // ----- MemoryAllocation end ------
@@ -282,9 +284,12 @@ int main() {
     }
 
     gameData->input.keysCurrent = SDL_GetKeyboardState(nullptr);
+    gameData->input.mouseCurrent = SDL_GetMouseState(&gameData->input.mouseX, &gameData->input.mouseY);
     
     dll.update(gameData, dt);
+    
     UpdateKeys(&gameData->input, dt);
+    UpdateMouse(&gameData->input, dt);
 
     dll.draw(gameData, renderer);
 
