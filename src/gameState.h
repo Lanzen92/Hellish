@@ -9,7 +9,7 @@
 #include "image.h"
 #include "level.h"
 #include "input.h"
-
+#include "camera.h"
 
 struct GameData {
 
@@ -18,6 +18,8 @@ struct GameData {
   
   ImGuiContext* imGuiContext;
 
+  Camera camera;
+    
   Position* inputBuffer;
   int inputBufferCapacity;
   int inputBufferWriteCount;

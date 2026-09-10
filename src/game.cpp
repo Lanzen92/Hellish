@@ -160,6 +160,7 @@ extern "C" {
           int yDir = gameData->inputBuffer[gameData->inputBufferReadCount % gameData->inputBufferCapacity].y;
 
           TryMove(entity, gameData->GetCurrentLevel(), gameData->commandBuffer, xDir, yDir, gameData->commandTimestamp);
+
         } 
       }
 

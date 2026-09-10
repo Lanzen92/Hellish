@@ -31,6 +31,12 @@
 },
 {
   "directory": "C:/Gameprojects/Projects/practice/build",
+  "command": "C:\\BuildTools\\LLVM\\bin\\clang++.exe -DPractice_game_EXPORTS -IC:/Gameprojects/Projects/practice/include -IC:/Gameprojects/Projects/practice/src_external -O0 -std=gnu++20 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -g -Xclang -gcodeview -o CMakeFiles\\Practice_game.dir\\src\\camera.cpp.obj -c C:\\Gameprojects\\Projects\\practice\\src\\camera.cpp",
+  "file": "C:/Gameprojects/Projects/practice/src/camera.cpp",
+  "output": "C:/Gameprojects/Projects/practice/build/CMakeFiles/Practice_game.dir/src/camera.cpp.obj"
+},
+{
+  "directory": "C:/Gameprojects/Projects/practice/build",
   "command": "C:\\BuildTools\\LLVM\\bin\\clang++.exe -DPractice_game_EXPORTS -IC:/Gameprojects/Projects/practice/include -IC:/Gameprojects/Projects/practice/src_external -O0 -std=gnu++20 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -g -Xclang -gcodeview -o CMakeFiles\\Practice_game.dir\\src\\command.cpp.obj -c C:\\Gameprojects\\Projects\\practice\\src\\command.cpp",
   "file": "C:/Gameprojects/Projects/practice/src/command.cpp",
   "output": "C:/Gameprojects/Projects/practice/build/CMakeFiles/Practice_game.dir/src/command.cpp.obj"

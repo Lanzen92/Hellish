@@ -41,6 +41,7 @@ events:
       - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
       - "C:/Program Files/Git/cmd/"
       - "C:/Program Files/GitHub CLI/"
+      - "C:/Program Files/Tailscale/"
       - "C:/Users/Rbnln/AppData/Local/Microsoft/WindowsApps/"
       - "C:/Program Files/JetBrains/JetBrains Rider 2026.2.0.2/bin/"
       - "C:/Program Files/Helix/"
@@ -49,6 +50,7 @@ events:
       - "C:/BuildTools/LLVM/bin/"
       - "C:/Users/Rbnln/.dotnet/tools/"
       - "C:/Users/Rbnln/AppData/Local/PowerToys/DSCModules/"
+      - "C:/Users/Rbnln/AppData/Local/GitHubDesktop/bin/"
     searched_directories:
       - "C:/Windows/System32/ninja-build.com"
       - "C:/Windows/System32/ninja-build.exe"
@@ -158,6 +160,15 @@ events:
       - "C:/Program Files/GitHub CLI/samu.com"
       - "C:/Program Files/GitHub CLI/samu.exe"
       - "C:/Program Files/GitHub CLI/samu"
+      - "C:/Program Files/Tailscale/ninja-build.com"
+      - "C:/Program Files/Tailscale/ninja-build.exe"
+      - "C:/Program Files/Tailscale/ninja-build"
+      - "C:/Program Files/Tailscale/ninja.com"
+      - "C:/Program Files/Tailscale/ninja.exe"
+      - "C:/Program Files/Tailscale/ninja"
+      - "C:/Program Files/Tailscale/samu.com"
+      - "C:/Program Files/Tailscale/samu.exe"
+      - "C:/Program Files/Tailscale/samu"
       - "C:/Users/Rbnln/AppData/Local/Microsoft/WindowsApps/ninja-build.com"
       - "C:/Users/Rbnln/AppData/Local/Microsoft/WindowsApps/ninja-build.exe"
       - "C:/Users/Rbnln/AppData/Local/Microsoft/WindowsApps/ninja-build"
@@ -213,6 +224,7 @@ events:
         - "C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\"
         - "C:\\Program Files\\Git\\cmd"
         - "C:\\Program Files\\GitHub CLI\\"
+        - "C:\\Program Files\\Tailscale\\"
         - "C:\\Windows\\system32"
         - "C:\\Windows"
         - "C:\\Windows\\System32\\Wbem"
@@ -230,6 +242,7 @@ events:
         - "C:\\BuildTools\\LLVM\\bin"
         - "C:\\Users\\Rbnln\\.dotnet\\tools"
         - "C:\\Users\\Rbnln\\AppData\\Local\\PowerToys\\DSCModules\\"
+        - "C:\\Users\\Rbnln\\AppData\\Local\\GitHubDesktop\\bin"
   -
     kind: "find-v1"
     backtrace:
@@ -262,6 +275,7 @@ events:
       - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
       - "C:/Program Files/Git/cmd/"
       - "C:/Program Files/GitHub CLI/"
+      - "C:/Program Files/Tailscale/"
       - "C:/Users/Rbnln/AppData/Local/Microsoft/WindowsApps/"
       - "C:/Program Files/JetBrains/JetBrains Rider 2026.2.0.2/bin/"
       - "C:/Program Files/Helix/"
@@ -270,6 +284,7 @@ events:
       - "C:/BuildTools/LLVM/bin/"
       - "C:/Users/Rbnln/.dotnet/tools/"
       - "C:/Users/Rbnln/AppData/Local/PowerToys/DSCModules/"
+      - "C:/Users/Rbnln/AppData/Local/GitHubDesktop/bin/"
     searched_directories:
       - "C:/Windows/System32/clang++.com"
       - "C:/Windows/System32/clang++.exe"
@@ -307,6 +322,9 @@ events:
       - "C:/Program Files/GitHub CLI/clang++.com"
       - "C:/Program Files/GitHub CLI/clang++.exe"
       - "C:/Program Files/GitHub CLI/clang++"
+      - "C:/Program Files/Tailscale/clang++.com"
+      - "C:/Program Files/Tailscale/clang++.exe"
+      - "C:/Program Files/Tailscale/clang++"
       - "C:/Users/Rbnln/AppData/Local/Microsoft/WindowsApps/clang++.com"
       - "C:/Users/Rbnln/AppData/Local/Microsoft/WindowsApps/clang++.exe"
       - "C:/Users/Rbnln/AppData/Local/Microsoft/WindowsApps/clang++"
@@ -338,6 +356,7 @@ events:
         - "C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\"
         - "C:\\Program Files\\Git\\cmd"
         - "C:\\Program Files\\GitHub CLI\\"
+        - "C:\\Program Files\\Tailscale\\"
         - "C:\\Windows\\system32"
         - "C:\\Windows"
         - "C:\\Windows\\System32\\Wbem"
@@ -355,6 +374,7 @@ events:
         - "C:\\BuildTools\\LLVM\\bin"
         - "C:\\Users\\Rbnln\\.dotnet\\tools"
         - "C:\\Users\\Rbnln\\AppData\\Local\\PowerToys\\DSCModules\\"
+        - "C:\\Users\\Rbnln\\AppData\\Local\\GitHubDesktop\\bin"
   -
     kind: "find-v1"
     backtrace:
@@ -394,6 +414,7 @@ events:
         - "C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\"
         - "C:\\Program Files\\Git\\cmd"
         - "C:\\Program Files\\GitHub CLI\\"
+        - "C:\\Program Files\\Tailscale\\"
         - "C:\\Windows\\system32"
         - "C:\\Windows"
         - "C:\\Windows\\System32\\Wbem"
@@ -411,6 +432,7 @@ events:
         - "C:\\BuildTools\\LLVM\\bin"
         - "C:\\Users\\Rbnln\\.dotnet\\tools"
         - "C:\\Users\\Rbnln\\AppData\\Local\\PowerToys\\DSCModules\\"
+        - "C:\\Users\\Rbnln\\AppData\\Local\\GitHubDesktop\\bin"
   -
     kind: "message-v1"
     backtrace:
@@ -487,6 +509,7 @@ events:
       - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
       - "C:/Program Files/Git/cmd/"
       - "C:/Program Files/GitHub CLI/"
+      - "C:/Program Files/Tailscale/"
       - "C:/Users/Rbnln/AppData/Local/Microsoft/WindowsApps/"
       - "C:/Program Files/JetBrains/JetBrains Rider 2026.2.0.2/bin/"
       - "C:/Program Files/Helix/"
@@ -494,6 +517,7 @@ events:
       - "C:/BuildTools/Ninja/"
       - "C:/Users/Rbnln/.dotnet/tools/"
       - "C:/Users/Rbnln/AppData/Local/PowerToys/DSCModules/"
+      - "C:/Users/Rbnln/AppData/Local/GitHubDesktop/bin/"
     searched_directories:
       - "C:/BuildTools/LLVM/bin/llvm-ar.com"
     found: "C:/BuildTools/LLVM/bin/llvm-ar.exe"
@@ -511,6 +535,7 @@ events:
         - "C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\"
         - "C:\\Program Files\\Git\\cmd"
         - "C:\\Program Files\\GitHub CLI\\"
+        - "C:\\Program Files\\Tailscale\\"
         - "C:\\Windows\\system32"
         - "C:\\Windows"
         - "C:\\Windows\\System32\\Wbem"
@@ -528,6 +553,7 @@ events:
         - "C:\\BuildTools\\LLVM\\bin"
         - "C:\\Users\\Rbnln\\.dotnet\\tools"
         - "C:\\Users\\Rbnln\\AppData\\Local\\PowerToys\\DSCModules\\"
+        - "C:\\Users\\Rbnln\\AppData\\Local\\GitHubDesktop\\bin"
   -
     kind: "find-v1"
     backtrace:
@@ -562,6 +588,7 @@ events:
       - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
       - "C:/Program Files/Git/cmd/"
       - "C:/Program Files/GitHub CLI/"
+      - "C:/Program Files/Tailscale/"
       - "C:/Users/Rbnln/AppData/Local/Microsoft/WindowsApps/"
       - "C:/Program Files/JetBrains/JetBrains Rider 2026.2.0.2/bin/"
       - "C:/Program Files/Helix/"
@@ -569,6 +596,7 @@ events:
       - "C:/BuildTools/Ninja/"
       - "C:/Users/Rbnln/.dotnet/tools/"
       - "C:/Users/Rbnln/AppData/Local/PowerToys/DSCModules/"
+      - "C:/Users/Rbnln/AppData/Local/GitHubDesktop/bin/"
     searched_directories:
       - "C:/BuildTools/LLVM/bin/llvm-ranlib.com"
     found: "C:/BuildTools/LLVM/bin/llvm-ranlib.exe"
@@ -586,6 +614,7 @@ events:
         - "C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\"
         - "C:\\Program Files\\Git\\cmd"
         - "C:\\Program Files\\GitHub CLI\\"
+        - "C:\\Program Files\\Tailscale\\"
         - "C:\\Windows\\system32"
         - "C:\\Windows"
         - "C:\\Windows\\System32\\Wbem"
@@ -603,6 +632,7 @@ events:
         - "C:\\BuildTools\\LLVM\\bin"
         - "C:\\Users\\Rbnln\\.dotnet\\tools"
         - "C:\\Users\\Rbnln\\AppData\\Local\\PowerToys\\DSCModules\\"
+        - "C:\\Users\\Rbnln\\AppData\\Local\\GitHubDesktop\\bin"
   -
     kind: "find-v1"
     backtrace:
@@ -637,6 +667,7 @@ events:
       - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
       - "C:/Program Files/Git/cmd/"
       - "C:/Program Files/GitHub CLI/"
+      - "C:/Program Files/Tailscale/"
       - "C:/Users/Rbnln/AppData/Local/Microsoft/WindowsApps/"
       - "C:/Program Files/JetBrains/JetBrains Rider 2026.2.0.2/bin/"
       - "C:/Program Files/Helix/"
@@ -644,6 +675,7 @@ events:
       - "C:/BuildTools/Ninja/"
       - "C:/Users/Rbnln/.dotnet/tools/"
       - "C:/Users/Rbnln/AppData/Local/PowerToys/DSCModules/"
+      - "C:/Users/Rbnln/AppData/Local/GitHubDesktop/bin/"
     searched_directories:
       - "C:/BuildTools/LLVM/bin/llvm-strip.com"
     found: "C:/BuildTools/LLVM/bin/llvm-strip.exe"
@@ -661,6 +693,7 @@ events:
         - "C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\"
         - "C:\\Program Files\\Git\\cmd"
         - "C:\\Program Files\\GitHub CLI\\"
+        - "C:\\Program Files\\Tailscale\\"
         - "C:\\Windows\\system32"
         - "C:\\Windows"
         - "C:\\Windows\\System32\\Wbem"
@@ -678,6 +711,7 @@ events:
         - "C:\\BuildTools\\LLVM\\bin"
         - "C:\\Users\\Rbnln\\.dotnet\\tools"
         - "C:\\Users\\Rbnln\\AppData\\Local\\PowerToys\\DSCModules\\"
+        - "C:\\Users\\Rbnln\\AppData\\Local\\GitHubDesktop\\bin"
   -
     kind: "find-v1"
     backtrace:
@@ -712,6 +746,7 @@ events:
       - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
       - "C:/Program Files/Git/cmd/"
       - "C:/Program Files/GitHub CLI/"
+      - "C:/Program Files/Tailscale/"
       - "C:/Users/Rbnln/AppData/Local/Microsoft/WindowsApps/"
       - "C:/Program Files/JetBrains/JetBrains Rider 2026.2.0.2/bin/"
       - "C:/Program Files/Helix/"
@@ -719,6 +754,7 @@ events:
       - "C:/BuildTools/Ninja/"
       - "C:/Users/Rbnln/.dotnet/tools/"
       - "C:/Users/Rbnln/AppData/Local/PowerToys/DSCModules/"
+      - "C:/Users/Rbnln/AppData/Local/GitHubDesktop/bin/"
     searched_directories:
       - "C:/BuildTools/LLVM/bin/lld-link.com"
     found: "C:/BuildTools/LLVM/bin/lld-link.exe"
@@ -736,6 +772,7 @@ events:
         - "C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\"
         - "C:\\Program Files\\Git\\cmd"
         - "C:\\Program Files\\GitHub CLI\\"
+        - "C:\\Program Files\\Tailscale\\"
         - "C:\\Windows\\system32"
         - "C:\\Windows"
         - "C:\\Windows\\System32\\Wbem"
@@ -753,6 +790,7 @@ events:
         - "C:\\BuildTools\\LLVM\\bin"
         - "C:\\Users\\Rbnln\\.dotnet\\tools"
         - "C:\\Users\\Rbnln\\AppData\\Local\\PowerToys\\DSCModules\\"
+        - "C:\\Users\\Rbnln\\AppData\\Local\\GitHubDesktop\\bin"
   -
     kind: "find-v1"
     backtrace:
@@ -787,6 +825,7 @@ events:
       - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
       - "C:/Program Files/Git/cmd/"
       - "C:/Program Files/GitHub CLI/"
+      - "C:/Program Files/Tailscale/"
       - "C:/Users/Rbnln/AppData/Local/Microsoft/WindowsApps/"
       - "C:/Program Files/JetBrains/JetBrains Rider 2026.2.0.2/bin/"
       - "C:/Program Files/Helix/"
@@ -794,6 +833,7 @@ events:
       - "C:/BuildTools/Ninja/"
       - "C:/Users/Rbnln/.dotnet/tools/"
       - "C:/Users/Rbnln/AppData/Local/PowerToys/DSCModules/"
+      - "C:/Users/Rbnln/AppData/Local/GitHubDesktop/bin/"
     searched_directories:
       - "C:/BuildTools/LLVM/bin/llvm-nm.com"
     found: "C:/BuildTools/LLVM/bin/llvm-nm.exe"
@@ -811,6 +851,7 @@ events:
         - "C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\"
         - "C:\\Program Files\\Git\\cmd"
         - "C:\\Program Files\\GitHub CLI\\"
+        - "C:\\Program Files\\Tailscale\\"
         - "C:\\Windows\\system32"
         - "C:\\Windows"
         - "C:\\Windows\\System32\\Wbem"
@@ -828,6 +869,7 @@ events:
         - "C:\\BuildTools\\LLVM\\bin"
         - "C:\\Users\\Rbnln\\.dotnet\\tools"
         - "C:\\Users\\Rbnln\\AppData\\Local\\PowerToys\\DSCModules\\"
+        - "C:\\Users\\Rbnln\\AppData\\Local\\GitHubDesktop\\bin"
   -
     kind: "find-v1"
     backtrace:
@@ -862,6 +904,7 @@ events:
       - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
       - "C:/Program Files/Git/cmd/"
       - "C:/Program Files/GitHub CLI/"
+      - "C:/Program Files/Tailscale/"
       - "C:/Users/Rbnln/AppData/Local/Microsoft/WindowsApps/"
       - "C:/Program Files/JetBrains/JetBrains Rider 2026.2.0.2/bin/"
       - "C:/Program Files/Helix/"
@@ -869,6 +912,7 @@ events:
       - "C:/BuildTools/Ninja/"
       - "C:/Users/Rbnln/.dotnet/tools/"
       - "C:/Users/Rbnln/AppData/Local/PowerToys/DSCModules/"
+      - "C:/Users/Rbnln/AppData/Local/GitHubDesktop/bin/"
     searched_directories:
       - "C:/BuildTools/LLVM/bin/llvm-objdump.com"
     found: "C:/BuildTools/LLVM/bin/llvm-objdump.exe"
@@ -886,6 +930,7 @@ events:
         - "C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\"
         - "C:\\Program Files\\Git\\cmd"
         - "C:\\Program Files\\GitHub CLI\\"
+        - "C:\\Program Files\\Tailscale\\"
         - "C:\\Windows\\system32"
         - "C:\\Windows"
         - "C:\\Windows\\System32\\Wbem"
@@ -903,6 +948,7 @@ events:
         - "C:\\BuildTools\\LLVM\\bin"
         - "C:\\Users\\Rbnln\\.dotnet\\tools"
         - "C:\\Users\\Rbnln\\AppData\\Local\\PowerToys\\DSCModules\\"
+        - "C:\\Users\\Rbnln\\AppData\\Local\\GitHubDesktop\\bin"
   -
     kind: "find-v1"
     backtrace:
@@ -937,6 +983,7 @@ events:
       - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
       - "C:/Program Files/Git/cmd/"
       - "C:/Program Files/GitHub CLI/"
+      - "C:/Program Files/Tailscale/"
       - "C:/Users/Rbnln/AppData/Local/Microsoft/WindowsApps/"
       - "C:/Program Files/JetBrains/JetBrains Rider 2026.2.0.2/bin/"
       - "C:/Program Files/Helix/"
@@ -944,6 +991,7 @@ events:
       - "C:/BuildTools/Ninja/"
       - "C:/Users/Rbnln/.dotnet/tools/"
       - "C:/Users/Rbnln/AppData/Local/PowerToys/DSCModules/"
+      - "C:/Users/Rbnln/AppData/Local/GitHubDesktop/bin/"
     searched_directories:
       - "C:/BuildTools/LLVM/bin/llvm-objcopy.com"
     found: "C:/BuildTools/LLVM/bin/llvm-objcopy.exe"
@@ -961,6 +1009,7 @@ events:
         - "C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\"
         - "C:\\Program Files\\Git\\cmd"
         - "C:\\Program Files\\GitHub CLI\\"
+        - "C:\\Program Files\\Tailscale\\"
         - "C:\\Windows\\system32"
         - "C:\\Windows"
         - "C:\\Windows\\System32\\Wbem"
@@ -978,6 +1027,7 @@ events:
         - "C:\\BuildTools\\LLVM\\bin"
         - "C:\\Users\\Rbnln\\.dotnet\\tools"
         - "C:\\Users\\Rbnln\\AppData\\Local\\PowerToys\\DSCModules\\"
+        - "C:\\Users\\Rbnln\\AppData\\Local\\GitHubDesktop\\bin"
   -
     kind: "find-v1"
     backtrace:
@@ -1012,6 +1062,7 @@ events:
       - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
       - "C:/Program Files/Git/cmd/"
       - "C:/Program Files/GitHub CLI/"
+      - "C:/Program Files/Tailscale/"
       - "C:/Users/Rbnln/AppData/Local/Microsoft/WindowsApps/"
       - "C:/Program Files/JetBrains/JetBrains Rider 2026.2.0.2/bin/"
       - "C:/Program Files/Helix/"
@@ -1019,6 +1070,7 @@ events:
       - "C:/BuildTools/Ninja/"
       - "C:/Users/Rbnln/.dotnet/tools/"
       - "C:/Users/Rbnln/AppData/Local/PowerToys/DSCModules/"
+      - "C:/Users/Rbnln/AppData/Local/GitHubDesktop/bin/"
     searched_directories:
       - "C:/BuildTools/LLVM/bin/llvm-readelf.com"
       - "C:/BuildTools/LLVM/bin/llvm-readelf.exe"
@@ -1059,6 +1111,9 @@ events:
       - "C:/Program Files/GitHub CLI/llvm-readelf.com"
       - "C:/Program Files/GitHub CLI/llvm-readelf.exe"
       - "C:/Program Files/GitHub CLI/llvm-readelf"
+      - "C:/Program Files/Tailscale/llvm-readelf.com"
+      - "C:/Program Files/Tailscale/llvm-readelf.exe"
+      - "C:/Program Files/Tailscale/llvm-readelf"
       - "C:/Users/Rbnln/AppData/Local/Microsoft/WindowsApps/llvm-readelf.com"
       - "C:/Users/Rbnln/AppData/Local/Microsoft/WindowsApps/llvm-readelf.exe"
       - "C:/Users/Rbnln/AppData/Local/Microsoft/WindowsApps/llvm-readelf"
@@ -1080,6 +1135,9 @@ events:
       - "C:/Users/Rbnln/AppData/Local/PowerToys/DSCModules/llvm-readelf.com"
       - "C:/Users/Rbnln/AppData/Local/PowerToys/DSCModules/llvm-readelf.exe"
       - "C:/Users/Rbnln/AppData/Local/PowerToys/DSCModules/llvm-readelf"
+      - "C:/Users/Rbnln/AppData/Local/GitHubDesktop/bin/llvm-readelf.com"
+      - "C:/Users/Rbnln/AppData/Local/GitHubDesktop/bin/llvm-readelf.exe"
+      - "C:/Users/Rbnln/AppData/Local/GitHubDesktop/bin/llvm-readelf"
       - "C:/BuildTools/LLVM/bin/readelf.com"
       - "C:/BuildTools/LLVM/bin/readelf.exe"
       - "C:/BuildTools/LLVM/bin/readelf"
@@ -1119,6 +1177,9 @@ events:
       - "C:/Program Files/GitHub CLI/readelf.com"
       - "C:/Program Files/GitHub CLI/readelf.exe"
       - "C:/Program Files/GitHub CLI/readelf"
+      - "C:/Program Files/Tailscale/readelf.com"
+      - "C:/Program Files/Tailscale/readelf.exe"
+      - "C:/Program Files/Tailscale/readelf"
       - "C:/Users/Rbnln/AppData/Local/Microsoft/WindowsApps/readelf.com"
       - "C:/Users/Rbnln/AppData/Local/Microsoft/WindowsApps/readelf.exe"
       - "C:/Users/Rbnln/AppData/Local/Microsoft/WindowsApps/readelf"
@@ -1140,6 +1201,9 @@ events:
       - "C:/Users/Rbnln/AppData/Local/PowerToys/DSCModules/readelf.com"
       - "C:/Users/Rbnln/AppData/Local/PowerToys/DSCModules/readelf.exe"
       - "C:/Users/Rbnln/AppData/Local/PowerToys/DSCModules/readelf"
+      - "C:/Users/Rbnln/AppData/Local/GitHubDesktop/bin/readelf.com"
+      - "C:/Users/Rbnln/AppData/Local/GitHubDesktop/bin/readelf.exe"
+      - "C:/Users/Rbnln/AppData/Local/GitHubDesktop/bin/readelf"
     found: false
     search_context:
       ENV{PATH}:
@@ -1155,6 +1219,7 @@ events:
         - "C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\"
         - "C:\\Program Files\\Git\\cmd"
         - "C:\\Program Files\\GitHub CLI\\"
+        - "C:\\Program Files\\Tailscale\\"
         - "C:\\Windows\\system32"
         - "C:\\Windows"
         - "C:\\Windows\\System32\\Wbem"
@@ -1172,6 +1237,7 @@ events:
         - "C:\\BuildTools\\LLVM\\bin"
         - "C:\\Users\\Rbnln\\.dotnet\\tools"
         - "C:\\Users\\Rbnln\\AppData\\Local\\PowerToys\\DSCModules\\"
+        - "C:\\Users\\Rbnln\\AppData\\Local\\GitHubDesktop\\bin"
   -
     kind: "find-v1"
     backtrace:
@@ -1206,6 +1272,7 @@ events:
       - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
       - "C:/Program Files/Git/cmd/"
       - "C:/Program Files/GitHub CLI/"
+      - "C:/Program Files/Tailscale/"
       - "C:/Users/Rbnln/AppData/Local/Microsoft/WindowsApps/"
       - "C:/Program Files/JetBrains/JetBrains Rider 2026.2.0.2/bin/"
       - "C:/Program Files/Helix/"
@@ -1213,6 +1280,7 @@ events:
       - "C:/BuildTools/Ninja/"
       - "C:/Users/Rbnln/.dotnet/tools/"
       - "C:/Users/Rbnln/AppData/Local/PowerToys/DSCModules/"
+      - "C:/Users/Rbnln/AppData/Local/GitHubDesktop/bin/"
     searched_directories:
       - "C:/BuildTools/LLVM/bin/llvm-dlltool.com"
     found: "C:/BuildTools/LLVM/bin/llvm-dlltool.exe"
@@ -1230,6 +1298,7 @@ events:
         - "C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\"
         - "C:\\Program Files\\Git\\cmd"
         - "C:\\Program Files\\GitHub CLI\\"
+        - "C:\\Program Files\\Tailscale\\"
         - "C:\\Windows\\system32"
         - "C:\\Windows"
         - "C:\\Windows\\System32\\Wbem"
@@ -1247,6 +1316,7 @@ events:
         - "C:\\BuildTools\\LLVM\\bin"
         - "C:\\Users\\Rbnln\\.dotnet\\tools"
         - "C:\\Users\\Rbnln\\AppData\\Local\\PowerToys\\DSCModules\\"
+        - "C:\\Users\\Rbnln\\AppData\\Local\\GitHubDesktop\\bin"
   -
     kind: "find-v1"
     backtrace:
@@ -1281,6 +1351,7 @@ events:
       - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
       - "C:/Program Files/Git/cmd/"
       - "C:/Program Files/GitHub CLI/"
+      - "C:/Program Files/Tailscale/"
       - "C:/Users/Rbnln/AppData/Local/Microsoft/WindowsApps/"
       - "C:/Program Files/JetBrains/JetBrains Rider 2026.2.0.2/bin/"
       - "C:/Program Files/Helix/"
@@ -1288,6 +1359,7 @@ events:
       - "C:/BuildTools/Ninja/"
       - "C:/Users/Rbnln/.dotnet/tools/"
       - "C:/Users/Rbnln/AppData/Local/PowerToys/DSCModules/"
+      - "C:/Users/Rbnln/AppData/Local/GitHubDesktop/bin/"
     searched_directories:
       - "C:/BuildTools/LLVM/bin/llvm-addr2line.com"
       - "C:/BuildTools/LLVM/bin/llvm-addr2line.exe"
@@ -1328,6 +1400,9 @@ events:
       - "C:/Program Files/GitHub CLI/llvm-addr2line.com"
       - "C:/Program Files/GitHub CLI/llvm-addr2line.exe"
       - "C:/Program Files/GitHub CLI/llvm-addr2line"
+      - "C:/Program Files/Tailscale/llvm-addr2line.com"
+      - "C:/Program Files/Tailscale/llvm-addr2line.exe"
+      - "C:/Program Files/Tailscale/llvm-addr2line"
       - "C:/Users/Rbnln/AppData/Local/Microsoft/WindowsApps/llvm-addr2line.com"
       - "C:/Users/Rbnln/AppData/Local/Microsoft/WindowsApps/llvm-addr2line.exe"
       - "C:/Users/Rbnln/AppData/Local/Microsoft/WindowsApps/llvm-addr2line"
@@ -1349,6 +1424,9 @@ events:
       - "C:/Users/Rbnln/AppData/Local/PowerToys/DSCModules/llvm-addr2line.com"
       - "C:/Users/Rbnln/AppData/Local/PowerToys/DSCModules/llvm-addr2line.exe"
       - "C:/Users/Rbnln/AppData/Local/PowerToys/DSCModules/llvm-addr2line"
+      - "C:/Users/Rbnln/AppData/Local/GitHubDesktop/bin/llvm-addr2line.com"
+      - "C:/Users/Rbnln/AppData/Local/GitHubDesktop/bin/llvm-addr2line.exe"
+      - "C:/Users/Rbnln/AppData/Local/GitHubDesktop/bin/llvm-addr2line"
       - "C:/BuildTools/LLVM/bin/addr2line.com"
       - "C:/BuildTools/LLVM/bin/addr2line.exe"
       - "C:/BuildTools/LLVM/bin/addr2line"
@@ -1388,6 +1466,9 @@ events:
       - "C:/Program Files/GitHub CLI/addr2line.com"
       - "C:/Program Files/GitHub CLI/addr2line.exe"
       - "C:/Program Files/GitHub CLI/addr2line"
+      - "C:/Program Files/Tailscale/addr2line.com"
+      - "C:/Program Files/Tailscale/addr2line.exe"
+      - "C:/Program Files/Tailscale/addr2line"
       - "C:/Users/Rbnln/AppData/Local/Microsoft/WindowsApps/addr2line.com"
       - "C:/Users/Rbnln/AppData/Local/Microsoft/WindowsApps/addr2line.exe"
       - "C:/Users/Rbnln/AppData/Local/Microsoft/WindowsApps/addr2line"
@@ -1409,6 +1490,9 @@ events:
       - "C:/Users/Rbnln/AppData/Local/PowerToys/DSCModules/addr2line.com"
       - "C:/Users/Rbnln/AppData/Local/PowerToys/DSCModules/addr2line.exe"
       - "C:/Users/Rbnln/AppData/Local/PowerToys/DSCModules/addr2line"
+      - "C:/Users/Rbnln/AppData/Local/GitHubDesktop/bin/addr2line.com"
+      - "C:/Users/Rbnln/AppData/Local/GitHubDesktop/bin/addr2line.exe"
+      - "C:/Users/Rbnln/AppData/Local/GitHubDesktop/bin/addr2line"
     found: false
     search_context:
       ENV{PATH}:
@@ -1424,6 +1508,7 @@ events:
         - "C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\"
         - "C:\\Program Files\\Git\\cmd"
         - "C:\\Program Files\\GitHub CLI\\"
+        - "C:\\Program Files\\Tailscale\\"
         - "C:\\Windows\\system32"
         - "C:\\Windows"
         - "C:\\Windows\\System32\\Wbem"
@@ -1441,6 +1526,7 @@ events:
         - "C:\\BuildTools\\LLVM\\bin"
         - "C:\\Users\\Rbnln\\.dotnet\\tools"
         - "C:\\Users\\Rbnln\\AppData\\Local\\PowerToys\\DSCModules\\"
+        - "C:\\Users\\Rbnln\\AppData\\Local\\GitHubDesktop\\bin"
   -
     kind: "find-v1"
     backtrace:
@@ -1474,6 +1560,7 @@ events:
       - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
       - "C:/Program Files/Git/cmd/"
       - "C:/Program Files/GitHub CLI/"
+      - "C:/Program Files/Tailscale/"
       - "C:/Users/Rbnln/AppData/Local/Microsoft/WindowsApps/"
       - "C:/Program Files/JetBrains/JetBrains Rider 2026.2.0.2/bin/"
       - "C:/Program Files/Helix/"
@@ -1481,6 +1568,7 @@ events:
       - "C:/BuildTools/Ninja/"
       - "C:/Users/Rbnln/.dotnet/tools/"
       - "C:/Users/Rbnln/AppData/Local/PowerToys/DSCModules/"
+      - "C:/Users/Rbnln/AppData/Local/GitHubDesktop/bin/"
     searched_directories:
       - "C:/BuildTools/LLVM/bin/tapi.com"
       - "C:/BuildTools/LLVM/bin/tapi.exe"
@@ -1521,6 +1609,9 @@ events:
       - "C:/Program Files/GitHub CLI/tapi.com"
       - "C:/Program Files/GitHub CLI/tapi.exe"
       - "C:/Program Files/GitHub CLI/tapi"
+      - "C:/Program Files/Tailscale/tapi.com"
+      - "C:/Program Files/Tailscale/tapi.exe"
+      - "C:/Program Files/Tailscale/tapi"
       - "C:/Users/Rbnln/AppData/Local/Microsoft/WindowsApps/tapi.com"
       - "C:/Users/Rbnln/AppData/Local/Microsoft/WindowsApps/tapi.exe"
       - "C:/Users/Rbnln/AppData/Local/Microsoft/WindowsApps/tapi"
@@ -1542,6 +1633,9 @@ events:
       - "C:/Users/Rbnln/AppData/Local/PowerToys/DSCModules/tapi.com"
       - "C:/Users/Rbnln/AppData/Local/PowerToys/DSCModules/tapi.exe"
       - "C:/Users/Rbnln/AppData/Local/PowerToys/DSCModules/tapi"
+      - "C:/Users/Rbnln/AppData/Local/GitHubDesktop/bin/tapi.com"
+      - "C:/Users/Rbnln/AppData/Local/GitHubDesktop/bin/tapi.exe"
+      - "C:/Users/Rbnln/AppData/Local/GitHubDesktop/bin/tapi"
     found: false
     search_context:
       ENV{PATH}:
@@ -1557,6 +1651,7 @@ events:
         - "C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\"
         - "C:\\Program Files\\Git\\cmd"
         - "C:\\Program Files\\GitHub CLI\\"
+        - "C:\\Program Files\\Tailscale\\"
         - "C:\\Windows\\system32"
         - "C:\\Windows"
         - "C:\\Windows\\System32\\Wbem"
@@ -1574,6 +1669,7 @@ events:
         - "C:\\BuildTools\\LLVM\\bin"
         - "C:\\Users\\Rbnln\\.dotnet\\tools"
         - "C:\\Users\\Rbnln\\AppData\\Local\\PowerToys\\DSCModules\\"
+        - "C:\\Users\\Rbnln\\AppData\\Local\\GitHubDesktop\\bin"
   -
     kind: "find-v1"
     backtrace:
@@ -1610,6 +1706,7 @@ events:
       - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
       - "C:/Program Files/Git/cmd/"
       - "C:/Program Files/GitHub CLI/"
+      - "C:/Program Files/Tailscale/"
       - "C:/Users/Rbnln/AppData/Local/Microsoft/WindowsApps/"
       - "C:/Program Files/JetBrains/JetBrains Rider 2026.2.0.2/bin/"
       - "C:/Program Files/Helix/"
@@ -1617,6 +1714,7 @@ events:
       - "C:/BuildTools/Ninja/"
       - "C:/Users/Rbnln/.dotnet/tools/"
       - "C:/Users/Rbnln/AppData/Local/PowerToys/DSCModules/"
+      - "C:/Users/Rbnln/AppData/Local/GitHubDesktop/bin/"
     searched_directories:
       - "C:/BuildTools/LLVM/bin/llvm-ar-22.1.com"
       - "C:/BuildTools/LLVM/bin/llvm-ar-22.1.exe"
@@ -1657,6 +1755,9 @@ events:
       - "C:/Program Files/GitHub CLI/llvm-ar-22.1.com"
       - "C:/Program Files/GitHub CLI/llvm-ar-22.1.exe"
       - "C:/Program Files/GitHub CLI/llvm-ar-22.1"
+      - "C:/Program Files/Tailscale/llvm-ar-22.1.com"
+      - "C:/Program Files/Tailscale/llvm-ar-22.1.exe"
+      - "C:/Program Files/Tailscale/llvm-ar-22.1"
       - "C:/Users/Rbnln/AppData/Local/Microsoft/WindowsApps/llvm-ar-22.1.com"
       - "C:/Users/Rbnln/AppData/Local/Microsoft/WindowsApps/llvm-ar-22.1.exe"
       - "C:/Users/Rbnln/AppData/Local/Microsoft/WindowsApps/llvm-ar-22.1"
@@ -1678,6 +1779,9 @@ events:
       - "C:/Users/Rbnln/AppData/Local/PowerToys/DSCModules/llvm-ar-22.1.com"
       - "C:/Users/Rbnln/AppData/Local/PowerToys/DSCModules/llvm-ar-22.1.exe"
       - "C:/Users/Rbnln/AppData/Local/PowerToys/DSCModules/llvm-ar-22.1"
+      - "C:/Users/Rbnln/AppData/Local/GitHubDesktop/bin/llvm-ar-22.1.com"
+      - "C:/Users/Rbnln/AppData/Local/GitHubDesktop/bin/llvm-ar-22.1.exe"
+      - "C:/Users/Rbnln/AppData/Local/GitHubDesktop/bin/llvm-ar-22.1"
       - "C:/BuildTools/LLVM/bin/llvm-ar-22.com"
       - "C:/BuildTools/LLVM/bin/llvm-ar-22.exe"
       - "C:/BuildTools/LLVM/bin/llvm-ar-22"
@@ -1717,6 +1821,9 @@ events:
       - "C:/Program Files/GitHub CLI/llvm-ar-22.com"
       - "C:/Program Files/GitHub CLI/llvm-ar-22.exe"
       - "C:/Program Files/GitHub CLI/llvm-ar-22"
+      - "C:/Program Files/Tailscale/llvm-ar-22.com"
+      - "C:/Program Files/Tailscale/llvm-ar-22.exe"
+      - "C:/Program Files/Tailscale/llvm-ar-22"
       - "C:/Users/Rbnln/AppData/Local/Microsoft/WindowsApps/llvm-ar-22.com"
       - "C:/Users/Rbnln/AppData/Local/Microsoft/WindowsApps/llvm-ar-22.exe"
       - "C:/Users/Rbnln/AppData/Local/Microsoft/WindowsApps/llvm-ar-22"
@@ -1738,6 +1845,9 @@ events:
       - "C:/Users/Rbnln/AppData/Local/PowerToys/DSCModules/llvm-ar-22.com"
       - "C:/Users/Rbnln/AppData/Local/PowerToys/DSCModules/llvm-ar-22.exe"
       - "C:/Users/Rbnln/AppData/Local/PowerToys/DSCModules/llvm-ar-22"
+      - "C:/Users/Rbnln/AppData/Local/GitHubDesktop/bin/llvm-ar-22.com"
+      - "C:/Users/Rbnln/AppData/Local/GitHubDesktop/bin/llvm-ar-22.exe"
+      - "C:/Users/Rbnln/AppData/Local/GitHubDesktop/bin/llvm-ar-22"
       - "C:/BuildTools/LLVM/bin/llvm-ar22.com"
       - "C:/BuildTools/LLVM/bin/llvm-ar22.exe"
       - "C:/BuildTools/LLVM/bin/llvm-ar22"
@@ -1777,6 +1887,9 @@ events:
       - "C:/Program Files/GitHub CLI/llvm-ar22.com"
       - "C:/Program Files/GitHub CLI/llvm-ar22.exe"
       - "C:/Program Files/GitHub CLI/llvm-ar22"
+      - "C:/Program Files/Tailscale/llvm-ar22.com"
+      - "C:/Program Files/Tailscale/llvm-ar22.exe"
+      - "C:/Program Files/Tailscale/llvm-ar22"
       - "C:/Users/Rbnln/AppData/Local/Microsoft/WindowsApps/llvm-ar22.com"
       - "C:/Users/Rbnln/AppData/Local/Microsoft/WindowsApps/llvm-ar22.exe"
       - "C:/Users/Rbnln/AppData/Local/Microsoft/WindowsApps/llvm-ar22"
@@ -1798,6 +1911,9 @@ events:
       - "C:/Users/Rbnln/AppData/Local/PowerToys/DSCModules/llvm-ar22.com"
       - "C:/Users/Rbnln/AppData/Local/PowerToys/DSCModules/llvm-ar22.exe"
       - "C:/Users/Rbnln/AppData/Local/PowerToys/DSCModules/llvm-ar22"
+      - "C:/Users/Rbnln/AppData/Local/GitHubDesktop/bin/llvm-ar22.com"
+      - "C:/Users/Rbnln/AppData/Local/GitHubDesktop/bin/llvm-ar22.exe"
+      - "C:/Users/Rbnln/AppData/Local/GitHubDesktop/bin/llvm-ar22"
       - "C:/BuildTools/LLVM/bin/llvm-ar.com"
     found: "C:/BuildTools/LLVM/bin/llvm-ar.exe"
     search_context:
@@ -1814,6 +1930,7 @@ events:
         - "C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\"
         - "C:\\Program Files\\Git\\cmd"
         - "C:\\Program Files\\GitHub CLI\\"
+        - "C:\\Program Files\\Tailscale\\"
         - "C:\\Windows\\system32"
         - "C:\\Windows"
         - "C:\\Windows\\System32\\Wbem"
@@ -1831,6 +1948,7 @@ events:
         - "C:\\BuildTools\\LLVM\\bin"
         - "C:\\Users\\Rbnln\\.dotnet\\tools"
         - "C:\\Users\\Rbnln\\AppData\\Local\\PowerToys\\DSCModules\\"
+        - "C:\\Users\\Rbnln\\AppData\\Local\\GitHubDesktop\\bin"
   -
     kind: "find-v1"
     backtrace:
@@ -1867,6 +1985,7 @@ events:
       - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
       - "C:/Program Files/Git/cmd/"
       - "C:/Program Files/GitHub CLI/"
+      - "C:/Program Files/Tailscale/"
       - "C:/Users/Rbnln/AppData/Local/Microsoft/WindowsApps/"
       - "C:/Program Files/JetBrains/JetBrains Rider 2026.2.0.2/bin/"
       - "C:/Program Files/Helix/"
@@ -1874,6 +1993,7 @@ events:
       - "C:/BuildTools/Ninja/"
       - "C:/Users/Rbnln/.dotnet/tools/"
       - "C:/Users/Rbnln/AppData/Local/PowerToys/DSCModules/"
+      - "C:/Users/Rbnln/AppData/Local/GitHubDesktop/bin/"
     searched_directories:
       - "C:/BuildTools/LLVM/bin/llvm-ranlib-22.1.com"
       - "C:/BuildTools/LLVM/bin/llvm-ranlib-22.1.exe"
@@ -1914,6 +2034,9 @@ events:
       - "C:/Program Files/GitHub CLI/llvm-ranlib-22.1.com"
       - "C:/Program Files/GitHub CLI/llvm-ranlib-22.1.exe"
       - "C:/Program Files/GitHub CLI/llvm-ranlib-22.1"
+      - "C:/Program Files/Tailscale/llvm-ranlib-22.1.com"
+      - "C:/Program Files/Tailscale/llvm-ranlib-22.1.exe"
+      - "C:/Program Files/Tailscale/llvm-ranlib-22.1"
       - "C:/Users/Rbnln/AppData/Local/Microsoft/WindowsApps/llvm-ranlib-22.1.com"
       - "C:/Users/Rbnln/AppData/Local/Microsoft/WindowsApps/llvm-ranlib-22.1.exe"
       - "C:/Users/Rbnln/AppData/Local/Microsoft/WindowsApps/llvm-ranlib-22.1"
@@ -1935,6 +2058,9 @@ events:
       - "C:/Users/Rbnln/AppData/Local/PowerToys/DSCModules/llvm-ranlib-22.1.com"
       - "C:/Users/Rbnln/AppData/Local/PowerToys/DSCModules/llvm-ranlib-22.1.exe"
       - "C:/Users/Rbnln/AppData/Local/PowerToys/DSCModules/llvm-ranlib-22.1"
+      - "C:/Users/Rbnln/AppData/Local/GitHubDesktop/bin/llvm-ranlib-22.1.com"
+      - "C:/Users/Rbnln/AppData/Local/GitHubDesktop/bin/llvm-ranlib-22.1.exe"
+      - "C:/Users/Rbnln/AppData/Local/GitHubDesktop/bin/llvm-ranlib-22.1"
       - "C:/BuildTools/LLVM/bin/llvm-ranlib-22.com"
       - "C:/BuildTools/LLVM/bin/llvm-ranlib-22.exe"
       - "C:/BuildTools/LLVM/bin/llvm-ranlib-22"
@@ -1974,6 +2100,9 @@ events:
       - "C:/Program Files/GitHub CLI/llvm-ranlib-22.com"
       - "C:/Program Files/GitHub CLI/llvm-ranlib-22.exe"
       - "C:/Program Files/GitHub CLI/llvm-ranlib-22"
+      - "C:/Program Files/Tailscale/llvm-ranlib-22.com"
+      - "C:/Program Files/Tailscale/llvm-ranlib-22.exe"
+      - "C:/Program Files/Tailscale/llvm-ranlib-22"
       - "C:/Users/Rbnln/AppData/Local/Microsoft/WindowsApps/llvm-ranlib-22.com"
       - "C:/Users/Rbnln/AppData/Local/Microsoft/WindowsApps/llvm-ranlib-22.exe"
       - "C:/Users/Rbnln/AppData/Local/Microsoft/WindowsApps/llvm-ranlib-22"
@@ -1995,6 +2124,9 @@ events:
       - "C:/Users/Rbnln/AppData/Local/PowerToys/DSCModules/llvm-ranlib-22.com"
       - "C:/Users/Rbnln/AppData/Local/PowerToys/DSCModules/llvm-ranlib-22.exe"
       - "C:/Users/Rbnln/AppData/Local/PowerToys/DSCModules/llvm-ranlib-22"
+      - "C:/Users/Rbnln/AppData/Local/GitHubDesktop/bin/llvm-ranlib-22.com"
+      - "C:/Users/Rbnln/AppData/Local/GitHubDesktop/bin/llvm-ranlib-22.exe"
+      - "C:/Users/Rbnln/AppData/Local/GitHubDesktop/bin/llvm-ranlib-22"
       - "C:/BuildTools/LLVM/bin/llvm-ranlib22.com"
       - "C:/BuildTools/LLVM/bin/llvm-ranlib22.exe"
       - "C:/BuildTools/LLVM/bin/llvm-ranlib22"
@@ -2034,6 +2166,9 @@ events:
       - "C:/Program Files/GitHub CLI/llvm-ranlib22.com"
       - "C:/Program Files/GitHub CLI/llvm-ranlib22.exe"
       - "C:/Program Files/GitHub CLI/llvm-ranlib22"
+      - "C:/Program Files/Tailscale/llvm-ranlib22.com"
+      - "C:/Program Files/Tailscale/llvm-ranlib22.exe"
+      - "C:/Program Files/Tailscale/llvm-ranlib22"
       - "C:/Users/Rbnln/AppData/Local/Microsoft/WindowsApps/llvm-ranlib22.com"
       - "C:/Users/Rbnln/AppData/Local/Microsoft/WindowsApps/llvm-ranlib22.exe"
       - "C:/Users/Rbnln/AppData/Local/Microsoft/WindowsApps/llvm-ranlib22"
@@ -2055,6 +2190,9 @@ events:
       - "C:/Users/Rbnln/AppData/Local/PowerToys/DSCModules/llvm-ranlib22.com"
       - "C:/Users/Rbnln/AppData/Local/PowerToys/DSCModules/llvm-ranlib22.exe"
       - "C:/Users/Rbnln/AppData/Local/PowerToys/DSCModules/llvm-ranlib22"
+      - "C:/Users/Rbnln/AppData/Local/GitHubDesktop/bin/llvm-ranlib22.com"
+      - "C:/Users/Rbnln/AppData/Local/GitHubDesktop/bin/llvm-ranlib22.exe"
+      - "C:/Users/Rbnln/AppData/Local/GitHubDesktop/bin/llvm-ranlib22"
       - "C:/BuildTools/LLVM/bin/llvm-ranlib.com"
     found: "C:/BuildTools/LLVM/bin/llvm-ranlib.exe"
     search_context:
@@ -2071,6 +2209,7 @@ events:
         - "C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\"
         - "C:\\Program Files\\Git\\cmd"
         - "C:\\Program Files\\GitHub CLI\\"
+        - "C:\\Program Files\\Tailscale\\"
         - "C:\\Windows\\system32"
         - "C:\\Windows"
         - "C:\\Windows\\System32\\Wbem"
@@ -2088,6 +2227,7 @@ events:
         - "C:\\BuildTools\\LLVM\\bin"
         - "C:\\Users\\Rbnln\\.dotnet\\tools"
         - "C:\\Users\\Rbnln\\AppData\\Local\\PowerToys\\DSCModules\\"
+        - "C:\\Users\\Rbnln\\AppData\\Local\\GitHubDesktop\\bin"
   -
     kind: "find-v1"
     backtrace:
@@ -2128,6 +2268,7 @@ events:
       - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
       - "C:/Program Files/Git/cmd/"
       - "C:/Program Files/GitHub CLI/"
+      - "C:/Program Files/Tailscale/"
       - "C:/Users/Rbnln/AppData/Local/Microsoft/WindowsApps/"
       - "C:/Program Files/JetBrains/JetBrains Rider 2026.2.0.2/bin/"
       - "C:/Program Files/Helix/"
@@ -2135,6 +2276,7 @@ events:
       - "C:/BuildTools/Ninja/"
       - "C:/Users/Rbnln/.dotnet/tools/"
       - "C:/Users/Rbnln/AppData/Local/PowerToys/DSCModules/"
+      - "C:/Users/Rbnln/AppData/Local/GitHubDesktop/bin/"
     searched_directories:
       - "C:/BuildTools/LLVM/bin/clang-scan-deps-22.1.com"
       - "C:/BuildTools/LLVM/bin/clang-scan-deps-22.1.exe"
@@ -2175,6 +2317,9 @@ events:
       - "C:/Program Files/GitHub CLI/clang-scan-deps-22.1.com"
       - "C:/Program Files/GitHub CLI/clang-scan-deps-22.1.exe"
       - "C:/Program Files/GitHub CLI/clang-scan-deps-22.1"
+      - "C:/Program Files/Tailscale/clang-scan-deps-22.1.com"
+      - "C:/Program Files/Tailscale/clang-scan-deps-22.1.exe"
+      - "C:/Program Files/Tailscale/clang-scan-deps-22.1"
       - "C:/Users/Rbnln/AppData/Local/Microsoft/WindowsApps/clang-scan-deps-22.1.com"
       - "C:/Users/Rbnln/AppData/Local/Microsoft/WindowsApps/clang-scan-deps-22.1.exe"
       - "C:/Users/Rbnln/AppData/Local/Microsoft/WindowsApps/clang-scan-deps-22.1"
@@ -2196,6 +2341,9 @@ events:
       - "C:/Users/Rbnln/AppData/Local/PowerToys/DSCModules/clang-scan-deps-22.1.com"
       - "C:/Users/Rbnln/AppData/Local/PowerToys/DSCModules/clang-scan-deps-22.1.exe"
       - "C:/Users/Rbnln/AppData/Local/PowerToys/DSCModules/clang-scan-deps-22.1"
+      - "C:/Users/Rbnln/AppData/Local/GitHubDesktop/bin/clang-scan-deps-22.1.com"
+      - "C:/Users/Rbnln/AppData/Local/GitHubDesktop/bin/clang-scan-deps-22.1.exe"
+      - "C:/Users/Rbnln/AppData/Local/GitHubDesktop/bin/clang-scan-deps-22.1"
       - "C:/BuildTools/LLVM/bin/clang-scan-deps-22.com"
       - "C:/BuildTools/LLVM/bin/clang-scan-deps-22.exe"
       - "C:/BuildTools/LLVM/bin/clang-scan-deps-22"
@@ -2235,6 +2383,9 @@ events:
       - "C:/Program Files/GitHub CLI/clang-scan-deps-22.com"
       - "C:/Program Files/GitHub CLI/clang-scan-deps-22.exe"
       - "C:/Program Files/GitHub CLI/clang-scan-deps-22"
+      - "C:/Program Files/Tailscale/clang-scan-deps-22.com"
+      - "C:/Program Files/Tailscale/clang-scan-deps-22.exe"
+      - "C:/Program Files/Tailscale/clang-scan-deps-22"
       - "C:/Users/Rbnln/AppData/Local/Microsoft/WindowsApps/clang-scan-deps-22.com"
       - "C:/Users/Rbnln/AppData/Local/Microsoft/WindowsApps/clang-scan-deps-22.exe"
       - "C:/Users/Rbnln/AppData/Local/Microsoft/WindowsApps/clang-scan-deps-22"
@@ -2256,6 +2407,9 @@ events:
       - "C:/Users/Rbnln/AppData/Local/PowerToys/DSCModules/clang-scan-deps-22.com"
       - "C:/Users/Rbnln/AppData/Local/PowerToys/DSCModules/clang-scan-deps-22.exe"
       - "C:/Users/Rbnln/AppData/Local/PowerToys/DSCModules/clang-scan-deps-22"
+      - "C:/Users/Rbnln/AppData/Local/GitHubDesktop/bin/clang-scan-deps-22.com"
+      - "C:/Users/Rbnln/AppData/Local/GitHubDesktop/bin/clang-scan-deps-22.exe"
+      - "C:/Users/Rbnln/AppData/Local/GitHubDesktop/bin/clang-scan-deps-22"
       - "C:/BuildTools/LLVM/bin/clang-scan-deps22.com"
       - "C:/BuildTools/LLVM/bin/clang-scan-deps22.exe"
       - "C:/BuildTools/LLVM/bin/clang-scan-deps22"
@@ -2295,6 +2449,9 @@ events:
       - "C:/Program Files/GitHub CLI/clang-scan-deps22.com"
       - "C:/Program Files/GitHub CLI/clang-scan-deps22.exe"
       - "C:/Program Files/GitHub CLI/clang-scan-deps22"
+      - "C:/Program Files/Tailscale/clang-scan-deps22.com"
+      - "C:/Program Files/Tailscale/clang-scan-deps22.exe"
+      - "C:/Program Files/Tailscale/clang-scan-deps22"
       - "C:/Users/Rbnln/AppData/Local/Microsoft/WindowsApps/clang-scan-deps22.com"
       - "C:/Users/Rbnln/AppData/Local/Microsoft/WindowsApps/clang-scan-deps22.exe"
       - "C:/Users/Rbnln/AppData/Local/Microsoft/WindowsApps/clang-scan-deps22"
@@ -2316,6 +2473,9 @@ events:
       - "C:/Users/Rbnln/AppData/Local/PowerToys/DSCModules/clang-scan-deps22.com"
       - "C:/Users/Rbnln/AppData/Local/PowerToys/DSCModules/clang-scan-deps22.exe"
       - "C:/Users/Rbnln/AppData/Local/PowerToys/DSCModules/clang-scan-deps22"
+      - "C:/Users/Rbnln/AppData/Local/GitHubDesktop/bin/clang-scan-deps22.com"
+      - "C:/Users/Rbnln/AppData/Local/GitHubDesktop/bin/clang-scan-deps22.exe"
+      - "C:/Users/Rbnln/AppData/Local/GitHubDesktop/bin/clang-scan-deps22"
       - "C:/BuildTools/LLVM/bin/clang-scan-deps.com"
     found: "C:/BuildTools/LLVM/bin/clang-scan-deps.exe"
     search_context:
@@ -2332,6 +2492,7 @@ events:
         - "C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\"
         - "C:\\Program Files\\Git\\cmd"
         - "C:\\Program Files\\GitHub CLI\\"
+        - "C:\\Program Files\\Tailscale\\"
         - "C:\\Windows\\system32"
         - "C:\\Windows"
         - "C:\\Windows\\System32\\Wbem"
@@ -2349,6 +2510,7 @@ events:
         - "C:\\BuildTools\\LLVM\\bin"
         - "C:\\Users\\Rbnln\\.dotnet\\tools"
         - "C:\\Users\\Rbnln\\AppData\\Local\\PowerToys\\DSCModules\\"
+        - "C:\\Users\\Rbnln\\AppData\\Local\\GitHubDesktop\\bin"
   -
     kind: "find-v1"
     backtrace:
@@ -2382,6 +2544,7 @@ events:
       - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
       - "C:/Program Files/Git/cmd/"
       - "C:/Program Files/GitHub CLI/"
+      - "C:/Program Files/Tailscale/"
       - "C:/Users/Rbnln/AppData/Local/Microsoft/WindowsApps/"
       - "C:/Program Files/JetBrains/JetBrains Rider 2026.2.0.2/bin/"
       - "C:/Program Files/Helix/"
@@ -2390,6 +2553,7 @@ events:
       - "C:/BuildTools/LLVM/bin/"
       - "C:/Users/Rbnln/.dotnet/tools/"
       - "C:/Users/Rbnln/AppData/Local/PowerToys/DSCModules/"
+      - "C:/Users/Rbnln/AppData/Local/GitHubDesktop/bin/"
       - "C:/Program Files/bin/"
       - "C:/Program Files/sbin/"
       - "C:/Program Files/"
@@ -2439,6 +2603,9 @@ events:
       - "C:/Program Files/GitHub CLI/rc.com"
       - "C:/Program Files/GitHub CLI/rc.exe"
       - "C:/Program Files/GitHub CLI/rc"
+      - "C:/Program Files/Tailscale/rc.com"
+      - "C:/Program Files/Tailscale/rc.exe"
+      - "C:/Program Files/Tailscale/rc"
       - "C:/Users/Rbnln/AppData/Local/Microsoft/WindowsApps/rc.com"
       - "C:/Users/Rbnln/AppData/Local/Microsoft/WindowsApps/rc.exe"
       - "C:/Users/Rbnln/AppData/Local/Microsoft/WindowsApps/rc"
@@ -2463,6 +2630,9 @@ events:
       - "C:/Users/Rbnln/AppData/Local/PowerToys/DSCModules/rc.com"
       - "C:/Users/Rbnln/AppData/Local/PowerToys/DSCModules/rc.exe"
       - "C:/Users/Rbnln/AppData/Local/PowerToys/DSCModules/rc"
+      - "C:/Users/Rbnln/AppData/Local/GitHubDesktop/bin/rc.com"
+      - "C:/Users/Rbnln/AppData/Local/GitHubDesktop/bin/rc.exe"
+      - "C:/Users/Rbnln/AppData/Local/GitHubDesktop/bin/rc"
       - "C:/Program Files/bin/rc.com"
       - "C:/Program Files/bin/rc.exe"
       - "C:/Program Files/bin/rc"
@@ -2514,6 +2684,7 @@ events:
         - "C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\"
         - "C:\\Program Files\\Git\\cmd"
         - "C:\\Program Files\\GitHub CLI\\"
+        - "C:\\Program Files\\Tailscale\\"
         - "C:\\Windows\\system32"
         - "C:\\Windows"
         - "C:\\Windows\\System32\\Wbem"
@@ -2531,6 +2702,7 @@ events:
         - "C:\\BuildTools\\LLVM\\bin"
         - "C:\\Users\\Rbnln\\.dotnet\\tools"
         - "C:\\Users\\Rbnln\\AppData\\Local\\PowerToys\\DSCModules\\"
+        - "C:\\Users\\Rbnln\\AppData\\Local\\GitHubDesktop\\bin"
       CMAKE_INSTALL_PREFIX: "C:/Program Files (x86)/Practice"
       CMAKE_SYSTEM_PREFIX_PATH:
         - "C:/Program Files"
@@ -2570,6 +2742,7 @@ events:
       - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
       - "C:/Program Files/Git/cmd/"
       - "C:/Program Files/GitHub CLI/"
+      - "C:/Program Files/Tailscale/"
       - "C:/Users/Rbnln/AppData/Local/Microsoft/WindowsApps/"
       - "C:/Program Files/JetBrains/JetBrains Rider 2026.2.0.2/bin/"
       - "C:/Program Files/Helix/"
@@ -2578,6 +2751,7 @@ events:
       - "C:/BuildTools/LLVM/bin/"
       - "C:/Users/Rbnln/.dotnet/tools/"
       - "C:/Users/Rbnln/AppData/Local/PowerToys/DSCModules/"
+      - "C:/Users/Rbnln/AppData/Local/GitHubDesktop/bin/"
       - "C:/Program Files/bin/"
       - "C:/Program Files/sbin/"
       - "C:/Program Files/"
@@ -2627,6 +2801,9 @@ events:
       - "C:/Program Files/GitHub CLI/llvm-rc.com"
       - "C:/Program Files/GitHub CLI/llvm-rc.exe"
       - "C:/Program Files/GitHub CLI/llvm-rc"
+      - "C:/Program Files/Tailscale/llvm-rc.com"
+      - "C:/Program Files/Tailscale/llvm-rc.exe"
+      - "C:/Program Files/Tailscale/llvm-rc"
       - "C:/Users/Rbnln/AppData/Local/Microsoft/WindowsApps/llvm-rc.com"
       - "C:/Users/Rbnln/AppData/Local/Microsoft/WindowsApps/llvm-rc.exe"
       - "C:/Users/Rbnln/AppData/Local/Microsoft/WindowsApps/llvm-rc"
@@ -2658,6 +2835,7 @@ events:
         - "C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\"
         - "C:\\Program Files\\Git\\cmd"
         - "C:\\Program Files\\GitHub CLI\\"
+        - "C:\\Program Files\\Tailscale\\"
         - "C:\\Windows\\system32"
         - "C:\\Windows"
         - "C:\\Windows\\System32\\Wbem"
@@ -2675,6 +2853,7 @@ events:
         - "C:\\BuildTools\\LLVM\\bin"
         - "C:\\Users\\Rbnln\\.dotnet\\tools"
         - "C:\\Users\\Rbnln\\AppData\\Local\\PowerToys\\DSCModules\\"
+        - "C:\\Users\\Rbnln\\AppData\\Local\\GitHubDesktop\\bin"
       CMAKE_INSTALL_PREFIX: "C:/Program Files (x86)/Practice"
       CMAKE_SYSTEM_PREFIX_PATH:
         - "C:/Program Files"
@@ -2717,6 +2896,7 @@ events:
       - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
       - "C:/Program Files/Git/cmd/"
       - "C:/Program Files/GitHub CLI/"
+      - "C:/Program Files/Tailscale/"
       - "C:/Users/Rbnln/AppData/Local/Microsoft/WindowsApps/"
       - "C:/Program Files/JetBrains/JetBrains Rider 2026.2.0.2/bin/"
       - "C:/Program Files/Helix/"
@@ -2725,6 +2905,7 @@ events:
       - "C:/BuildTools/LLVM/bin/"
       - "C:/Users/Rbnln/.dotnet/tools/"
       - "C:/Users/Rbnln/AppData/Local/PowerToys/DSCModules/"
+      - "C:/Users/Rbnln/AppData/Local/GitHubDesktop/bin/"
       - "C:/Program Files/bin/"
       - "C:/Program Files/sbin/"
       - "C:/Program Files/"
@@ -2774,6 +2955,9 @@ events:
       - "C:/Program Files/GitHub CLI/llvm-rc.com"
       - "C:/Program Files/GitHub CLI/llvm-rc.exe"
       - "C:/Program Files/GitHub CLI/llvm-rc"
+      - "C:/Program Files/Tailscale/llvm-rc.com"
+      - "C:/Program Files/Tailscale/llvm-rc.exe"
+      - "C:/Program Files/Tailscale/llvm-rc"
       - "C:/Users/Rbnln/AppData/Local/Microsoft/WindowsApps/llvm-rc.com"
       - "C:/Users/Rbnln/AppData/Local/Microsoft/WindowsApps/llvm-rc.exe"
       - "C:/Users/Rbnln/AppData/Local/Microsoft/WindowsApps/llvm-rc"
@@ -2805,6 +2989,7 @@ events:
         - "C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\"
         - "C:\\Program Files\\Git\\cmd"
         - "C:\\Program Files\\GitHub CLI\\"
+        - "C:\\Program Files\\Tailscale\\"
         - "C:\\Windows\\system32"
         - "C:\\Windows"
         - "C:\\Windows\\System32\\Wbem"
@@ -2822,6 +3007,7 @@ events:
         - "C:\\BuildTools\\LLVM\\bin"
         - "C:\\Users\\Rbnln\\.dotnet\\tools"
         - "C:\\Users\\Rbnln\\AppData\\Local\\PowerToys\\DSCModules\\"
+        - "C:\\Users\\Rbnln\\AppData\\Local\\GitHubDesktop\\bin"
       CMAKE_INSTALL_PREFIX: "C:/Program Files (x86)/Practice"
       CMAKE_SYSTEM_PREFIX_PATH:
         - "C:/Program Files"
@@ -2837,8 +3023,8 @@ events:
     checks:
       - "Detecting CXX compiler ABI info"
     directories:
-      source: "C:/Gameprojects/Projects/practice/build/CMakeFiles/CMakeScratch/TryCompile-1pzyia"
-      binary: "C:/Gameprojects/Projects/practice/build/CMakeFiles/CMakeScratch/TryCompile-1pzyia"
+      source: "C:/Gameprojects/Projects/practice/build/CMakeFiles/CMakeScratch/TryCompile-xcce5n"
+      binary: "C:/Gameprojects/Projects/practice/build/CMakeFiles/CMakeScratch/TryCompile-xcce5n"
     cmakeVariables:
       CMAKE_CXX_COMPILER_CLANG_SCAN_DEPS: "C:/BuildTools/LLVM/bin/clang-scan-deps.exe"
       CMAKE_CXX_FLAGS: ""
@@ -2850,16 +3036,16 @@ events:
       variable: "CMAKE_CXX_ABI_COMPILED"
       cached: false
       stdout: |
-        Change Dir: 'C:/Gameprojects/Projects/practice/build/CMakeFiles/CMakeScratch/TryCompile-1pzyia'
+        Change Dir: 'C:/Gameprojects/Projects/practice/build/CMakeFiles/CMakeScratch/TryCompile-xcce5n'
         
-        Run Build Command(s): C:/BuildTools/Ninja/ninja.exe -v cmTC_273de
-        [1/2] C:\\BuildTools\\LLVM\\bin\\clang++.exe -D_MBCS  -O0 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -g -Xclang -gcodeview -MD -MT CMakeFiles/cmTC_273de.dir/CMakeCXXCompilerABI.cpp.obj -MF CMakeFiles\\cmTC_273de.dir\\CMakeCXXCompilerABI.cpp.obj.d -o CMakeFiles/cmTC_273de.dir/CMakeCXXCompilerABI.cpp.obj -c C:/BuildTools/CMake/share/cmake-4.4/Modules/CMakeCXXCompilerABI.cpp
-        [2/2] C:\\Windows\\system32\\cmd.exe /C "cd . && C:\\BuildTools\\LLVM\\bin\\clang++.exe -nostartfiles -nostdlib -O0 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -g -Xclang -gcodeview -v -Xlinker /subsystem:console -fuse-ld=lld CMakeFiles/cmTC_273de.dir/CMakeCXXCompilerABI.cpp.obj -o cmTC_273de.exe -Xlinker /MANIFEST:EMBED -Xlinker /implib:cmTC_273de.lib -Xlinker /pdb:cmTC_273de.pdb -Xlinker /version:0.0     && cd ."
+        Run Build Command(s): C:/BuildTools/Ninja/ninja.exe -v cmTC_5deb1
+        [1/2] C:\\BuildTools\\LLVM\\bin\\clang++.exe -D_MBCS  -O0 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -g -Xclang -gcodeview -MD -MT CMakeFiles/cmTC_5deb1.dir/CMakeCXXCompilerABI.cpp.obj -MF CMakeFiles\\cmTC_5deb1.dir\\CMakeCXXCompilerABI.cpp.obj.d -o CMakeFiles/cmTC_5deb1.dir/CMakeCXXCompilerABI.cpp.obj -c C:/BuildTools/CMake/share/cmake-4.4/Modules/CMakeCXXCompilerABI.cpp
+        [2/2] C:\\Windows\\system32\\cmd.exe /C "cd . && C:\\BuildTools\\LLVM\\bin\\clang++.exe -nostartfiles -nostdlib -O0 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -g -Xclang -gcodeview -v -Xlinker /subsystem:console -fuse-ld=lld CMakeFiles/cmTC_5deb1.dir/CMakeCXXCompilerABI.cpp.obj -o cmTC_5deb1.exe -Xlinker /MANIFEST:EMBED -Xlinker /implib:cmTC_5deb1.lib -Xlinker /pdb:cmTC_5deb1.pdb -Xlinker /version:0.0     && cd ."
         clang version 22.1.8 (https://github.com/llvm/llvm-project ca7933e47d3a3451d81e72ac174dcb5aa28b59d1)
         Target: x86_64-pc-windows-msvc
         Thread model: posix
         InstalledDir: C:\\BuildTools\\LLVM\\bin
-         "C:\\\\BuildTools\\\\LLVM\\\\bin\\\\lld-link" -out:cmTC_273de.exe "-libpath:C:\\\\Program Files\\\\Microsoft Visual Studio\\\\18\\\\Community\\\\VC\\\\Tools\\\\MSVC\\\\14.51.36231\\\\lib\\\\x64" "-libpath:C:\\\\Program Files\\\\Microsoft Visual Studio\\\\18\\\\Community\\\\VC\\\\Tools\\\\MSVC\\\\14.51.36231\\\\atlmfc\\\\lib\\\\x64" "-libpath:C:\\\\Program Files (x86)\\\\Windows Kits\\\\10\\\\Lib\\\\10.0.28000.0\\\\ucrt\\\\x64" "-libpath:C:\\\\Program Files (x86)\\\\Windows Kits\\\\10\\\\Lib\\\\10.0.28000.0\\\\um\\\\x64" "-libpath:C:\\\\BuildTools\\\\LLVM\\\\lib\\\\clang\\\\22\\\\lib\\\\x86_64-pc-windows-msvc" "-libpath:C:\\\\BuildTools\\\\LLVM\\\\lib\\\\clang\\\\22\\\\lib\\\\windows" -nologo -debug /subsystem:console CMakeFiles/cmTC_273de.dir/CMakeCXXCompilerABI.cpp.obj /MANIFEST:EMBED /implib:cmTC_273de.lib /pdb:cmTC_273de.pdb /version:0.0
+         "C:\\\\BuildTools\\\\LLVM\\\\bin\\\\lld-link" -out:cmTC_5deb1.exe "-libpath:C:\\\\Program Files\\\\Microsoft Visual Studio\\\\18\\\\Community\\\\VC\\\\Tools\\\\MSVC\\\\14.51.36231\\\\lib\\\\x64" "-libpath:C:\\\\Program Files\\\\Microsoft Visual Studio\\\\18\\\\Community\\\\VC\\\\Tools\\\\MSVC\\\\14.51.36231\\\\atlmfc\\\\lib\\\\x64" "-libpath:C:\\\\Program Files (x86)\\\\Windows Kits\\\\10\\\\Lib\\\\10.0.28000.0\\\\ucrt\\\\x64" "-libpath:C:\\\\Program Files (x86)\\\\Windows Kits\\\\10\\\\Lib\\\\10.0.28000.0\\\\um\\\\x64" "-libpath:C:\\\\BuildTools\\\\LLVM\\\\lib\\\\clang\\\\22\\\\lib\\\\x86_64-pc-windows-msvc" "-libpath:C:\\\\BuildTools\\\\LLVM\\\\lib\\\\clang\\\\22\\\\lib\\\\windows" -nologo -debug /subsystem:console CMakeFiles/cmTC_5deb1.dir/CMakeCXXCompilerABI.cpp.obj /MANIFEST:EMBED /implib:cmTC_5deb1.lib /pdb:cmTC_5deb1.pdb /version:0.0
         
       exitCode: 0
   -
@@ -2872,7 +3058,7 @@ events:
       Parsed CXX implicit link information:
         link line regex: [^( *|.*[/\\])(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)|link\\.exe|lld-link(\\.exe)?|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
         linker tool regex: [^[ 	]*(->|"|[0-9]+>[ 	-]*Build:[ 	0-9]+ ms[ 	]*)?[ 	]*(([^"]*[/\\])?(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)|link\\.exe|lld-link(\\.exe)?))("|,| |$)]
-        link line: [ "C:\\\\BuildTools\\\\LLVM\\\\bin\\\\lld-link" -out:cmTC_273de.exe "-libpath:C:\\\\Program Files\\\\Microsoft Visual Studio\\\\18\\\\Community\\\\VC\\\\Tools\\\\MSVC\\\\14.51.36231\\\\lib\\\\x64" "-libpath:C:\\\\Program Files\\\\Microsoft Visual Studio\\\\18\\\\Community\\\\VC\\\\Tools\\\\MSVC\\\\14.51.36231\\\\atlmfc\\\\lib\\\\x64" "-libpath:C:\\\\Program Files (x86)\\\\Windows Kits\\\\10\\\\Lib\\\\10.0.28000.0\\\\ucrt\\\\x64" "-libpath:C:\\\\Program Files (x86)\\\\Windows Kits\\\\10\\\\Lib\\\\10.0.28000.0\\\\um\\\\x64" "-libpath:C:\\\\BuildTools\\\\LLVM\\\\lib\\\\clang\\\\22\\\\lib\\\\x86_64-pc-windows-msvc" "-libpath:C:\\\\BuildTools\\\\LLVM\\\\lib\\\\clang\\\\22\\\\lib\\\\windows" -nologo -debug /subsystem:console CMakeFiles/cmTC_273de.dir/CMakeCXXCompilerABI.cpp.obj /MANIFEST:EMBED /implib:cmTC_273de.lib /pdb:cmTC_273de.pdb /version:0.0] ==> linker [C:\\\\BuildTools\\\\LLVM\\\\bin\\\\lld-link]
+        link line: [ "C:\\\\BuildTools\\\\LLVM\\\\bin\\\\lld-link" -out:cmTC_5deb1.exe "-libpath:C:\\\\Program Files\\\\Microsoft Visual Studio\\\\18\\\\Community\\\\VC\\\\Tools\\\\MSVC\\\\14.51.36231\\\\lib\\\\x64" "-libpath:C:\\\\Program Files\\\\Microsoft Visual Studio\\\\18\\\\Community\\\\VC\\\\Tools\\\\MSVC\\\\14.51.36231\\\\atlmfc\\\\lib\\\\x64" "-libpath:C:\\\\Program Files (x86)\\\\Windows Kits\\\\10\\\\Lib\\\\10.0.28000.0\\\\ucrt\\\\x64" "-libpath:C:\\\\Program Files (x86)\\\\Windows Kits\\\\10\\\\Lib\\\\10.0.28000.0\\\\um\\\\x64" "-libpath:C:\\\\BuildTools\\\\LLVM\\\\lib\\\\clang\\\\22\\\\lib\\\\x86_64-pc-windows-msvc" "-libpath:C:\\\\BuildTools\\\\LLVM\\\\lib\\\\clang\\\\22\\\\lib\\\\windows" -nologo -debug /subsystem:console CMakeFiles/cmTC_5deb1.dir/CMakeCXXCompilerABI.cpp.obj /MANIFEST:EMBED /implib:cmTC_5deb1.lib /pdb:cmTC_5deb1.pdb /version:0.0] ==> linker [C:\\\\BuildTools\\\\LLVM\\\\bin\\\\lld-link]
         linker tool for 'CXX': C:/BuildTools/LLVM/bin/lld-link 
         implicit libs: []
         implicit objs: []
@@ -2924,8 +3110,8 @@ events:
     checks:
       - "Detecting CXX compile features"
     directories:
-      source: "C:/Gameprojects/Projects/practice/build/CMakeFiles/CMakeScratch/TryCompile-wmylbx"
-      binary: "C:/Gameprojects/Projects/practice/build/CMakeFiles/CMakeScratch/TryCompile-wmylbx"
+      source: "C:/Gameprojects/Projects/practice/build/CMakeFiles/CMakeScratch/TryCompile-9xemxh"
+      binary: "C:/Gameprojects/Projects/practice/build/CMakeFiles/CMakeScratch/TryCompile-9xemxh"
     cmakeVariables:
       CMAKE_CXX_COMPILER_CLANG_SCAN_DEPS: "C:/BuildTools/LLVM/bin/clang-scan-deps.exe"
       CMAKE_CXX_FLAGS: ""
@@ -2936,11 +3122,11 @@ events:
       variable: "CMAKE_CXX_FEATURE_TEST"
       cached: false
       stdout: |
-        Change Dir: 'C:/Gameprojects/Projects/practice/build/CMakeFiles/CMakeScratch/TryCompile-wmylbx'
+        Change Dir: 'C:/Gameprojects/Projects/practice/build/CMakeFiles/CMakeScratch/TryCompile-9xemxh'
         
-        Run Build Command(s): C:/BuildTools/Ninja/ninja.exe -v cmTC_3adc2
-        [1/2] C:\\BuildTools\\LLVM\\bin\\clang++.exe -D_MBCS  -O0 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -g -Xclang -gcodeview   -std=c++14 -MD -MT CMakeFiles/cmTC_3adc2.dir/feature_tests.cxx.obj -MF CMakeFiles\\cmTC_3adc2.dir\\feature_tests.cxx.obj.d -o CMakeFiles/cmTC_3adc2.dir/feature_tests.cxx.obj -c C:/Gameprojects/Projects/practice/build/CMakeFiles/CMakeScratch/TryCompile-wmylbx/feature_tests.cxx
-        [2/2] C:\\Windows\\system32\\cmd.exe /C "cd . && C:\\BuildTools\\LLVM\\bin\\clang++.exe -nostartfiles -nostdlib -O0 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -g -Xclang -gcodeview -Xlinker /subsystem:console -fuse-ld=lld CMakeFiles/cmTC_3adc2.dir/feature_tests.cxx.obj -o cmTC_3adc2.exe -Xlinker /MANIFEST:EMBED -Xlinker /implib:cmTC_3adc2.lib -Xlinker /pdb:cmTC_3adc2.pdb -Xlinker /version:0.0   -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32 -loldnames  && cd ."
+        Run Build Command(s): C:/BuildTools/Ninja/ninja.exe -v cmTC_e669b
+        [1/2] C:\\BuildTools\\LLVM\\bin\\clang++.exe -D_MBCS  -O0 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -g -Xclang -gcodeview   -std=c++14 -MD -MT CMakeFiles/cmTC_e669b.dir/feature_tests.cxx.obj -MF CMakeFiles\\cmTC_e669b.dir\\feature_tests.cxx.obj.d -o CMakeFiles/cmTC_e669b.dir/feature_tests.cxx.obj -c C:/Gameprojects/Projects/practice/build/CMakeFiles/CMakeScratch/TryCompile-9xemxh/feature_tests.cxx
+        [2/2] C:\\Windows\\system32\\cmd.exe /C "cd . && C:\\BuildTools\\LLVM\\bin\\clang++.exe -nostartfiles -nostdlib -O0 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -g -Xclang -gcodeview -Xlinker /subsystem:console -fuse-ld=lld CMakeFiles/cmTC_e669b.dir/feature_tests.cxx.obj -o cmTC_e669b.exe -Xlinker /MANIFEST:EMBED -Xlinker /implib:cmTC_e669b.lib -Xlinker /pdb:cmTC_e669b.pdb -Xlinker /version:0.0   -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32 -loldnames  && cd ."
         
       exitCode: 0
   -
@@ -2955,8 +3141,8 @@ events:
     checks:
       - "Detecting CXX compile features"
     directories:
-      source: "C:/Gameprojects/Projects/practice/build/CMakeFiles/CMakeScratch/TryCompile-rfb6yb"
-      binary: "C:/Gameprojects/Projects/practice/build/CMakeFiles/CMakeScratch/TryCompile-rfb6yb"
+      source: "C:/Gameprojects/Projects/practice/build/CMakeFiles/CMakeScratch/TryCompile-eadize"
+      binary: "C:/Gameprojects/Projects/practice/build/CMakeFiles/CMakeScratch/TryCompile-eadize"
     cmakeVariables:
       CMAKE_CXX_COMPILER_CLANG_SCAN_DEPS: "C:/BuildTools/LLVM/bin/clang-scan-deps.exe"
       CMAKE_CXX_FLAGS: ""
@@ -2967,11 +3153,11 @@ events:
       variable: "CMAKE_CXX_FEATURE_TEST"
       cached: false
       stdout: |
-        Change Dir: 'C:/Gameprojects/Projects/practice/build/CMakeFiles/CMakeScratch/TryCompile-rfb6yb'
+        Change Dir: 'C:/Gameprojects/Projects/practice/build/CMakeFiles/CMakeScratch/TryCompile-eadize'
         
-        Run Build Command(s): C:/BuildTools/Ninja/ninja.exe -v cmTC_4aecb
-        [1/2] C:\\BuildTools\\LLVM\\bin\\clang++.exe -D_MBCS  -O0 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -g -Xclang -gcodeview   -std=c++14 -MD -MT CMakeFiles/cmTC_4aecb.dir/feature_tests.cxx.obj -MF CMakeFiles\\cmTC_4aecb.dir\\feature_tests.cxx.obj.d -o CMakeFiles/cmTC_4aecb.dir/feature_tests.cxx.obj -c C:/Gameprojects/Projects/practice/build/CMakeFiles/CMakeScratch/TryCompile-rfb6yb/feature_tests.cxx
-        [2/2] C:\\Windows\\system32\\cmd.exe /C "cd . && C:\\BuildTools\\LLVM\\bin\\clang++.exe -nostartfiles -nostdlib -O0 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -g -Xclang -gcodeview -Xlinker /subsystem:console -fuse-ld=lld CMakeFiles/cmTC_4aecb.dir/feature_tests.cxx.obj -o cmTC_4aecb.exe -Xlinker /MANIFEST:EMBED -Xlinker /implib:cmTC_4aecb.lib -Xlinker /pdb:cmTC_4aecb.pdb -Xlinker /version:0.0   -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32 -loldnames  && cd ."
+        Run Build Command(s): C:/BuildTools/Ninja/ninja.exe -v cmTC_25a09
+        [1/2] C:\\BuildTools\\LLVM\\bin\\clang++.exe -D_MBCS  -O0 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -g -Xclang -gcodeview   -std=c++14 -MD -MT CMakeFiles/cmTC_25a09.dir/feature_tests.cxx.obj -MF CMakeFiles\\cmTC_25a09.dir\\feature_tests.cxx.obj.d -o CMakeFiles/cmTC_25a09.dir/feature_tests.cxx.obj -c C:/Gameprojects/Projects/practice/build/CMakeFiles/CMakeScratch/TryCompile-eadize/feature_tests.cxx
+        [2/2] C:\\Windows\\system32\\cmd.exe /C "cd . && C:\\BuildTools\\LLVM\\bin\\clang++.exe -nostartfiles -nostdlib -O0 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -g -Xclang -gcodeview -Xlinker /subsystem:console -fuse-ld=lld CMakeFiles/cmTC_25a09.dir/feature_tests.cxx.obj -o cmTC_25a09.exe -Xlinker /MANIFEST:EMBED -Xlinker /implib:cmTC_25a09.lib -Xlinker /pdb:cmTC_25a09.pdb -Xlinker /version:0.0   -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32 -loldnames  && cd ."
         
       exitCode: 0
 ...
