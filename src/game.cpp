@@ -8,6 +8,7 @@
 #include "level.h" 
 #include "devGui.h"
 #include "common.h"
+#include "spriteLibrary.h"
 #include <cstdint>
 
   bool TryMove(Entity* mover, LevelData* levelData, CommandBuffer* commandBuffer, int xDir, int yDir, uint32_t timestamp) {
@@ -61,11 +62,13 @@ extern "C" {
 
     DEV::Initialize(window, renderer);
     gameData->imGuiContext = ImGui::GetCurrentContext();
-    gameData->ground = AssetManagement::LoadSprite(gameData->arenaImages, renderer, "ground.png");
-    gameData->wall = AssetManagement::LoadSprite(gameData->arenaImages, renderer, "wall.png");
-    gameData->player = AssetManagement::LoadSprite(gameData->arenaImages, renderer, "player.png");
-    gameData->box = AssetManagement::LoadSprite(gameData->arenaImages, renderer, "box.png");
-    gameData->fallback = AssetManagement::LoadSprite(gameData->arenaImages, renderer, "fallback.png");
+    // gameData->ground = AssetManagement::LoadSprite(gameData->arenaImages, renderer, "ground.png");
+    // gameData->wall = AssetManagement::LoadSprite(gameData->arenaImages, renderer, "wall.png");
+    // gameData->player = AssetManagement::LoadSprite(gameData->arenaImages, renderer, "player.png");
+    // gameData->box = AssetManagement::LoadSprite(gameData->arenaImages, renderer, "box.png");
+    // gameData->fallback = AssetManagement::LoadSprite(gameData->arenaImages, renderer, "fallback.png");
+
+    AssetManagement::LoadAllSprites(gameData->spriteBuffer, renderer);
 
     gameData->currentLevelIndex = 1;
     CreateLevel(gameData->arenaLevels, &gameData->levels[0], "assets/maps/testmap.tmj");

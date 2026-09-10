@@ -6,7 +6,8 @@
 
 #include "arena.h"
 #include "command.h"
-#include "image.h"
+// #include "image.h"
+#include "spriteLibrary.h"
 #include "level.h"
 #include "input.h"
 #include "camera.h"
@@ -25,11 +26,13 @@ struct GameData {
   int inputBufferWriteCount;
   int inputBufferReadCount;
   
-  Image* fallback;
-  Image* wall;
-  Image* ground;
-  Image* player;
-  Image* box;
+  // Image* fallback;
+  // Image* wall;
+  // Image* ground;
+  // Image* player;
+  // Image* box;
+
+  Sprite* spriteBuffer;
   
   Memory::Arena* arenaLevels;
   Memory::Arena* arenaEntities;

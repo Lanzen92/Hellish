@@ -15,15 +15,17 @@ enum class ID : uint8_t {
   NONE = 0,
   WALL = 1,
   GROUND = 2,
-  PLAYER = 3,
-  BOX = 4
+  DEMON = 3,
+  ROCK = 4,
+  MEDUSA = 5,
+  GHOST = 6,
+  GOLEM = 7
 };
 
 struct Position {
   int x;
   int y;
 };
-
 
 struct Entity {
   ID id;
@@ -33,7 +35,6 @@ struct Entity {
   int yPrev;
   float progress01;
   Behaviour behaviour;
-
 
   bool HasBehaviour(Behaviour flags) {
     return (behaviour & flags) == flags;
@@ -57,10 +58,10 @@ struct Entity {
       default:
         SetBehaviour(NONE);
         break;
-      case ID::PLAYER:
+      case ID::DEMON:
         SetBehaviour((Behaviour)(CAN_MOVE | IS_PLAYER | RESPOND_TO_INPUT));
         break;
-      case ID::BOX:
+      case ID::ROCK:
         SetBehaviour((Behaviour)CAN_MOVE);
     }
   }

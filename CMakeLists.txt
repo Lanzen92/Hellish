@@ -13,7 +13,7 @@ set(EXE_EXCLUSIVE ${CMAKE_SOURCE_DIR}/src/main.cpp
 )
 #Flag shared files (For both EXE and DLLs)
 set(SHARED_SOURCES 
-	${CMAKE_SOURCE_DIR}/src/main.cpp
+	#${CMAKE_SOURCE_DIR}/src/main.cpp
 	${CMAKE_SOURCE_DIR}/src/arena.cpp
 	${CMAKE_SOURCE_DIR}/src/input.cpp
 

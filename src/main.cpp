@@ -13,7 +13,6 @@
 #include "arena.h"
 #include "common.h"
 #include "gameState.h"
-#include "image.h"
 #include "input.h"
 
 SDL_Window* window;
@@ -194,8 +193,11 @@ int main() {
   //Set up GPU memory
   //Allocate to create a struct/subarena thats gonna be used for ArenaImages
   //Gets the void* from mainArena, to know where to start the subArena.
-  size_t IMAGE_ARENA_SIZE = sizeof(Image) * 1024;
+  int SPRITE_COUNT = 256;
+  size_t IMAGE_ARENA_SIZE = sizeof(Sprite) * SPRITE_COUNT;
   gameData->arenaImages = Memory::CreateSubArena(arenaMain, IMAGE_ARENA_SIZE);
+  gameData->spriteBuffer = (Sprite*)Memory::Allocate(gameData->arenaImages, sizeof(Sprite) * SPRITE_COUNT);
+
   gameData->arenaLevels = Memory::CreateSubArena(arenaMain, MEGABYTES(4));
 
   gameData->arenaEntities = Memory::CreateSubArena(gameData->arenaLevels, MEGABYTES(2));
