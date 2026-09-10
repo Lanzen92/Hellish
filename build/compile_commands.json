@@ -1,12 +1,6 @@
 [
 {
   "directory": "C:/Gameprojects/Projects/practice/build",
-  "command": "C:\\BuildTools\\LLVM\\bin\\clang++.exe -IC:/Gameprojects/Projects/practice/include -IC:/Gameprojects/Projects/practice/src_external -O0 -std=gnu++20 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -g -Xclang -gcodeview -o CMakeFiles\\Practice_common.dir\\src\\main.cpp.obj -c C:\\Gameprojects\\Projects\\practice\\src\\main.cpp",
-  "file": "C:/Gameprojects/Projects/practice/src/main.cpp",
-  "output": "C:/Gameprojects/Projects/practice/build/CMakeFiles/Practice_common.dir/src/main.cpp.obj"
-},
-{
-  "directory": "C:/Gameprojects/Projects/practice/build",
   "command": "C:\\BuildTools\\LLVM\\bin\\clang++.exe -IC:/Gameprojects/Projects/practice/include -IC:/Gameprojects/Projects/practice/src_external -O0 -std=gnu++20 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -g -Xclang -gcodeview -o CMakeFiles\\Practice_common.dir\\src\\arena.cpp.obj -c C:\\Gameprojects\\Projects\\practice\\src\\arena.cpp",
   "file": "C:/Gameprojects/Projects/practice/src/arena.cpp",
   "output": "C:/Gameprojects/Projects/practice/build/CMakeFiles/Practice_common.dir/src/arena.cpp.obj"
@@ -61,12 +55,6 @@
 },
 {
   "directory": "C:/Gameprojects/Projects/practice/build",
-  "command": "C:\\BuildTools\\LLVM\\bin\\clang++.exe -DPractice_game_EXPORTS -IC:/Gameprojects/Projects/practice/include -IC:/Gameprojects/Projects/practice/src_external -O0 -std=gnu++20 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -g -Xclang -gcodeview -o CMakeFiles\\Practice_game.dir\\src\\image.cpp.obj -c C:\\Gameprojects\\Projects\\practice\\src\\image.cpp",
-  "file": "C:/Gameprojects/Projects/practice/src/image.cpp",
-  "output": "C:/Gameprojects/Projects/practice/build/CMakeFiles/Practice_game.dir/src/image.cpp.obj"
-},
-{
-  "directory": "C:/Gameprojects/Projects/practice/build",
   "command": "C:\\BuildTools\\LLVM\\bin\\clang++.exe -DPractice_game_EXPORTS -IC:/Gameprojects/Projects/practice/include -IC:/Gameprojects/Projects/practice/src_external -O0 -std=gnu++20 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -g -Xclang -gcodeview -o CMakeFiles\\Practice_game.dir\\src\\input.cpp.obj -c C:\\Gameprojects\\Projects\\practice\\src\\input.cpp",
   "file": "C:/Gameprojects/Projects/practice/src/input.cpp",
   "output": "C:/Gameprojects/Projects/practice/build/CMakeFiles/Practice_game.dir/src/input.cpp.obj"
@@ -88,6 +76,12 @@
   "command": "C:\\BuildTools\\LLVM\\bin\\clang++.exe -DPractice_game_EXPORTS -IC:/Gameprojects/Projects/practice/include -IC:/Gameprojects/Projects/practice/src_external -O0 -std=gnu++20 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -g -Xclang -gcodeview -o CMakeFiles\\Practice_game.dir\\src\\rendering.cpp.obj -c C:\\Gameprojects\\Projects\\practice\\src\\rendering.cpp",
   "file": "C:/Gameprojects/Projects/practice/src/rendering.cpp",
   "output": "C:/Gameprojects/Projects/practice/build/CMakeFiles/Practice_game.dir/src/rendering.cpp.obj"
+},
+{
+  "directory": "C:/Gameprojects/Projects/practice/build",
+  "command": "C:\\BuildTools\\LLVM\\bin\\clang++.exe -DPractice_game_EXPORTS -IC:/Gameprojects/Projects/practice/include -IC:/Gameprojects/Projects/practice/src_external -O0 -std=gnu++20 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -g -Xclang -gcodeview -o CMakeFiles\\Practice_game.dir\\src\\spriteLibrary.cpp.obj -c C:\\Gameprojects\\Projects\\practice\\src\\spriteLibrary.cpp",
+  "file": "C:/Gameprojects/Projects/practice/src/spriteLibrary.cpp",
+  "output": "C:/Gameprojects/Projects/practice/build/CMakeFiles/Practice_game.dir/src/spriteLibrary.cpp.obj"
 },
 {
   "directory": "C:/Gameprojects/Projects/practice/build",
