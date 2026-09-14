@@ -54,13 +54,41 @@ void CreateEntities(LevelData* levelData, Arena* arena) {
     if (entityId != 0) {
       int x = i % levelData->w;
       int y = i / levelData->w;
-
-      levelData->entityBuffer[index].id = (ID)entityId;
-      levelData->entityBuffer[index].InitializeBaseBehaviour();
-      levelData->entityBuffer[index].x = x;
-      levelData->entityBuffer[index].y = y;
-
-      index++;  
+      AddEntity((ID) entityId, x, y, levelData);
     }
   }
+}
+
+Entity* GetNextAvailableEntitySlot(LevelData* levelData) {
+  for (int i = 0; i < levelData->entityCount; i++) {
+    if (levelData->entityBuffer[i].id == ID::NONE) {
+      return &levelData->entityBuffer[i];
+    }
+  }
+
+  return &levelData->entityBuffer[levelData->entityCount++];
+}
+
+void AddEntity(ID entityId, int x, int y, LevelData* levelData) {
+  Entity* entity = levelData->GetEntity(x, y);
+
+  if (entity == nullptr) {
+    entity = GetNextAvailableEntitySlot(levelData);
+  }
+
+  entity->x = x;
+  entity->y = y;
+  entity->xPrev = x;
+  entity->yPrev = y;
+  entity->id = entityId;
+  entity->InitializeBaseBehaviour();
+}
+
+void RemoveEntity(int x, int y, LevelData* levelData) {
+  Entity* entity = levelData->GetEntity(x, y);
+
+  if (entity == nullptr) {
+    return;
+  }
+  *entity = {};
 }

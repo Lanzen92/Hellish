@@ -1,5 +1,7 @@
 #include <cstdint>
 #include <cmath>
+#include <cstdio>
+#include <string>
 
 #include "common.h"
 #include "levelRenderer.h"

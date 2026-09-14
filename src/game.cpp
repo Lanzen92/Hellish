@@ -4,6 +4,7 @@
 #include "entity.h"
 #include "imgui/imgui.h"
 #include "input.h"
+#include "levelEditor.h"
 #include "levelRenderer.h"
 #include "level.h" 
 #include "devGui.h"
@@ -62,11 +63,6 @@ extern "C" {
 
     DEV::Initialize(window, renderer);
     gameData->imGuiContext = ImGui::GetCurrentContext();
-    // gameData->ground = AssetManagement::LoadSprite(gameData->arenaImages, renderer, "ground.png");
-    // gameData->wall = AssetManagement::LoadSprite(gameData->arenaImages, renderer, "wall.png");
-    // gameData->player = AssetManagement::LoadSprite(gameData->arenaImages, renderer, "player.png");
-    // gameData->box = AssetManagement::LoadSprite(gameData->arenaImages, renderer, "box.png");
-    // gameData->fallback = AssetManagement::LoadSprite(gameData->arenaImages, renderer, "fallback.png");
 
     AssetManagement::LoadAllSprites(gameData->spriteBuffer, renderer);
 
@@ -102,6 +98,14 @@ extern "C" {
       else {
         Undo(gameData->commandBuffer);
       }
+    }
+
+    if (KeyPressed(&gameData->input, SDL_SCANCODE_F2)) {
+      gameData->editLevel = !gameData->editLevel; 
+    }
+
+    if (gameData->editLevel) {
+      EDITOR::Update(&gameData->editorData, &gameData->input, gameData->GetCurrentLevel());
     }
     
     if (KeyPressed(&gameData->input, SDL_SCANCODE_RIGHT) ||

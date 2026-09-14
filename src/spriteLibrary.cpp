@@ -8,14 +8,14 @@ const char* FALLBACK_PATH = "assets/sprites/fallback.png";
 // const char* ASSETS_SPRITES_PATH = "assets/sprites/";
 
 static const SpriteDataEntry allSpriteData[] = {
-    {SPRITE_ID::Fallback, FALLBACK_PATH              },
-    {SPRITE_ID::Wall,     "assets/sprites/wall.png"  },
-    {SPRITE_ID::Demon,    "assets/sprites/player.png"},
-    {SPRITE_ID::Rock,     "assets/sprites/box.png"   },
-    {SPRITE_ID::Ground,   "assets/sprites/ground.png"},
-    {SPRITE_ID::Medusa,   "assets/sprites/medusa.png"},
-    // { SPRITE_ID::Golem, "assets/sprites/golem.png" },
-    // { SPRITE_ID::Ghost, "assets/sprites/ghost.png" },
+    { SPRITE_ID::Fallback, FALLBACK_PATH              },
+    { SPRITE_ID::Ground,   "assets/sprites/ground.png"},
+    { SPRITE_ID::Wall,     "assets/sprites/wall.png"  },
+    { SPRITE_ID::Demon,    "assets/sprites/player.png"},
+    { SPRITE_ID::Rock,     "assets/sprites/box.png"   },
+    //{ SPRITE_ID::Medusa,   "assets/sprites/medusa.png"},
+    //{ SPRITE_ID::Golem,   "assets/sprites/golem.png"  },
+    //{ SPRITE_ID::Ghost,   "assets/sprites/ghost.png"  },
 };
 
 Sprite* GetSpriteFromID(ID id, Sprite* spriteBuffer) {

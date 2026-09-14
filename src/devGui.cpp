@@ -6,6 +6,7 @@
 #include "imgui/imgui_impl_sdlrenderer3.h"
 #include "SDL3/SDL_render.h"
 #include "imgui/imgui_internal.h"
+#include "levelEditor.h"
 #include <string>
 
 using namespace std;
@@ -47,6 +48,11 @@ void DEV::Draw(GameData* gameData, SDL_Renderer* renderer) {
   DrawImGuiArenaUsage(gameData->arenaLevels, "Levels");
   DrawImGuiArenaUsage(gameData->arenaCommands, "Commands");
   DrawImGuiArenaUsage(gameData->arenaEntities, "Entities");
+
+  if (gameData->editLevel) {
+    EDITOR::DrawObjectPanel(&gameData->editorData, gameData->spriteBuffer);
+    EDITOR::DrawPreview(&gameData->editorData, &gameData->input, renderer, gameData->GetCurrentLevel(), &gameData->camera, gameData->spriteBuffer);
+  }
 
   DrawFPS(*gameData->dt);
 
