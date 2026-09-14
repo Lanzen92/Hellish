@@ -8,12 +8,13 @@
 
 namespace EDITOR {
   void DrawObjectPanel(Editor* editor, Sprite* spriteBuffer) {
-    ImGui::Begin("objects");
+    ImGui::Begin("Placeable objects");
     ImVec2 size = {32, 32};
 
     if (ImGui::ImageButton("Ground", (ImTextureID)GetSpriteFromID(ID::GROUND, spriteBuffer)->texture, size)) {
       editor->objectToPlaceId = ID::GROUND;
     }
+
     ImGui::SameLine();
     if (ImGui::ImageButton("Wall", (ImTextureID)GetSpriteFromID(ID::WALL, spriteBuffer)->texture, size)) {
       editor->objectToPlaceId = ID::WALL;

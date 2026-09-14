@@ -3023,8 +3023,8 @@ events:
     checks:
       - "Detecting CXX compiler ABI info"
     directories:
-      source: "C:/Gameprojects/Projects/practice/build/CMakeFiles/CMakeScratch/TryCompile-8klr9c"
-      binary: "C:/Gameprojects/Projects/practice/build/CMakeFiles/CMakeScratch/TryCompile-8klr9c"
+      source: "C:/Gameprojects/Projects/practice/build/CMakeFiles/CMakeScratch/TryCompile-b2uwy9"
+      binary: "C:/Gameprojects/Projects/practice/build/CMakeFiles/CMakeScratch/TryCompile-b2uwy9"
     cmakeVariables:
       CMAKE_CXX_COMPILER_CLANG_SCAN_DEPS: "C:/BuildTools/LLVM/bin/clang-scan-deps.exe"
       CMAKE_CXX_FLAGS: ""
@@ -3036,16 +3036,16 @@ events:
       variable: "CMAKE_CXX_ABI_COMPILED"
       cached: false
       stdout: |
-        Change Dir: 'C:/Gameprojects/Projects/practice/build/CMakeFiles/CMakeScratch/TryCompile-8klr9c'
+        Change Dir: 'C:/Gameprojects/Projects/practice/build/CMakeFiles/CMakeScratch/TryCompile-b2uwy9'
         
-        Run Build Command(s): C:/BuildTools/Ninja/ninja.exe -v cmTC_ae680
-        [1/2] C:\\BuildTools\\LLVM\\bin\\clang++.exe -D_MBCS  -O0 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -g -Xclang -gcodeview -MD -MT CMakeFiles/cmTC_ae680.dir/CMakeCXXCompilerABI.cpp.obj -MF CMakeFiles\\cmTC_ae680.dir\\CMakeCXXCompilerABI.cpp.obj.d -o CMakeFiles/cmTC_ae680.dir/CMakeCXXCompilerABI.cpp.obj -c C:/BuildTools/CMake/share/cmake-4.4/Modules/CMakeCXXCompilerABI.cpp
-        [2/2] C:\\Windows\\system32\\cmd.exe /C "cd . && C:\\BuildTools\\LLVM\\bin\\clang++.exe -nostartfiles -nostdlib -O0 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -g -Xclang -gcodeview -v -Xlinker /subsystem:console -fuse-ld=lld CMakeFiles/cmTC_ae680.dir/CMakeCXXCompilerABI.cpp.obj -o cmTC_ae680.exe -Xlinker /MANIFEST:EMBED -Xlinker /implib:cmTC_ae680.lib -Xlinker /pdb:cmTC_ae680.pdb -Xlinker /version:0.0     && cd ."
+        Run Build Command(s): C:/BuildTools/Ninja/ninja.exe -v cmTC_e0c34
+        [1/2] C:\\BuildTools\\LLVM\\bin\\clang++.exe -D_MBCS  -O0 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -g -Xclang -gcodeview -MD -MT CMakeFiles/cmTC_e0c34.dir/CMakeCXXCompilerABI.cpp.obj -MF CMakeFiles\\cmTC_e0c34.dir\\CMakeCXXCompilerABI.cpp.obj.d -o CMakeFiles/cmTC_e0c34.dir/CMakeCXXCompilerABI.cpp.obj -c C:/BuildTools/CMake/share/cmake-4.4/Modules/CMakeCXXCompilerABI.cpp
+        [2/2] C:\\Windows\\system32\\cmd.exe /C "cd . && C:\\BuildTools\\LLVM\\bin\\clang++.exe -nostartfiles -nostdlib -O0 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -g -Xclang -gcodeview -v -Xlinker /subsystem:console -fuse-ld=lld CMakeFiles/cmTC_e0c34.dir/CMakeCXXCompilerABI.cpp.obj -o cmTC_e0c34.exe -Xlinker /MANIFEST:EMBED -Xlinker /implib:cmTC_e0c34.lib -Xlinker /pdb:cmTC_e0c34.pdb -Xlinker /version:0.0     && cd ."
         clang version 22.1.8 (https://github.com/llvm/llvm-project ca7933e47d3a3451d81e72ac174dcb5aa28b59d1)
         Target: x86_64-pc-windows-msvc
         Thread model: posix
         InstalledDir: C:\\BuildTools\\LLVM\\bin
-         "C:\\\\BuildTools\\\\LLVM\\\\bin\\\\lld-link" -out:cmTC_ae680.exe "-libpath:C:\\\\Program Files\\\\Microsoft Visual Studio\\\\18\\\\Community\\\\VC\\\\Tools\\\\MSVC\\\\14.51.36231\\\\lib\\\\x64" "-libpath:C:\\\\Program Files\\\\Microsoft Visual Studio\\\\18\\\\Community\\\\VC\\\\Tools\\\\MSVC\\\\14.51.36231\\\\atlmfc\\\\lib\\\\x64" "-libpath:C:\\\\Program Files (x86)\\\\Windows Kits\\\\10\\\\Lib\\\\10.0.28000.0\\\\ucrt\\\\x64" "-libpath:C:\\\\Program Files (x86)\\\\Windows Kits\\\\10\\\\Lib\\\\10.0.28000.0\\\\um\\\\x64" "-libpath:C:\\\\BuildTools\\\\LLVM\\\\lib\\\\clang\\\\22\\\\lib\\\\x86_64-pc-windows-msvc" "-libpath:C:\\\\BuildTools\\\\LLVM\\\\lib\\\\clang\\\\22\\\\lib\\\\windows" -nologo -debug /subsystem:console CMakeFiles/cmTC_ae680.dir/CMakeCXXCompilerABI.cpp.obj /MANIFEST:EMBED /implib:cmTC_ae680.lib /pdb:cmTC_ae680.pdb /version:0.0
+         "C:\\\\BuildTools\\\\LLVM\\\\bin\\\\lld-link" -out:cmTC_e0c34.exe "-libpath:C:\\\\Program Files\\\\Microsoft Visual Studio\\\\18\\\\Community\\\\VC\\\\Tools\\\\MSVC\\\\14.51.36231\\\\lib\\\\x64" "-libpath:C:\\\\Program Files\\\\Microsoft Visual Studio\\\\18\\\\Community\\\\VC\\\\Tools\\\\MSVC\\\\14.51.36231\\\\atlmfc\\\\lib\\\\x64" "-libpath:C:\\\\Program Files (x86)\\\\Windows Kits\\\\10\\\\Lib\\\\10.0.28000.0\\\\ucrt\\\\x64" "-libpath:C:\\\\Program Files (x86)\\\\Windows Kits\\\\10\\\\Lib\\\\10.0.28000.0\\\\um\\\\x64" "-libpath:C:\\\\BuildTools\\\\LLVM\\\\lib\\\\clang\\\\22\\\\lib\\\\x86_64-pc-windows-msvc" "-libpath:C:\\\\BuildTools\\\\LLVM\\\\lib\\\\clang\\\\22\\\\lib\\\\windows" -nologo -debug /subsystem:console CMakeFiles/cmTC_e0c34.dir/CMakeCXXCompilerABI.cpp.obj /MANIFEST:EMBED /implib:cmTC_e0c34.lib /pdb:cmTC_e0c34.pdb /version:0.0
         
       exitCode: 0
   -
@@ -3058,7 +3058,7 @@ events:
       Parsed CXX implicit link information:
         link line regex: [^( *|.*[/\\])(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)|link\\.exe|lld-link(\\.exe)?|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
         linker tool regex: [^[ 	]*(->|"|[0-9]+>[ 	-]*Build:[ 	0-9]+ ms[ 	]*)?[ 	]*(([^"]*[/\\])?(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)|link\\.exe|lld-link(\\.exe)?))("|,| |$)]
-        link line: [ "C:\\\\BuildTools\\\\LLVM\\\\bin\\\\lld-link" -out:cmTC_ae680.exe "-libpath:C:\\\\Program Files\\\\Microsoft Visual Studio\\\\18\\\\Community\\\\VC\\\\Tools\\\\MSVC\\\\14.51.36231\\\\lib\\\\x64" "-libpath:C:\\\\Program Files\\\\Microsoft Visual Studio\\\\18\\\\Community\\\\VC\\\\Tools\\\\MSVC\\\\14.51.36231\\\\atlmfc\\\\lib\\\\x64" "-libpath:C:\\\\Program Files (x86)\\\\Windows Kits\\\\10\\\\Lib\\\\10.0.28000.0\\\\ucrt\\\\x64" "-libpath:C:\\\\Program Files (x86)\\\\Windows Kits\\\\10\\\\Lib\\\\10.0.28000.0\\\\um\\\\x64" "-libpath:C:\\\\BuildTools\\\\LLVM\\\\lib\\\\clang\\\\22\\\\lib\\\\x86_64-pc-windows-msvc" "-libpath:C:\\\\BuildTools\\\\LLVM\\\\lib\\\\clang\\\\22\\\\lib\\\\windows" -nologo -debug /subsystem:console CMakeFiles/cmTC_ae680.dir/CMakeCXXCompilerABI.cpp.obj /MANIFEST:EMBED /implib:cmTC_ae680.lib /pdb:cmTC_ae680.pdb /version:0.0] ==> linker [C:\\\\BuildTools\\\\LLVM\\\\bin\\\\lld-link]
+        link line: [ "C:\\\\BuildTools\\\\LLVM\\\\bin\\\\lld-link" -out:cmTC_e0c34.exe "-libpath:C:\\\\Program Files\\\\Microsoft Visual Studio\\\\18\\\\Community\\\\VC\\\\Tools\\\\MSVC\\\\14.51.36231\\\\lib\\\\x64" "-libpath:C:\\\\Program Files\\\\Microsoft Visual Studio\\\\18\\\\Community\\\\VC\\\\Tools\\\\MSVC\\\\14.51.36231\\\\atlmfc\\\\lib\\\\x64" "-libpath:C:\\\\Program Files (x86)\\\\Windows Kits\\\\10\\\\Lib\\\\10.0.28000.0\\\\ucrt\\\\x64" "-libpath:C:\\\\Program Files (x86)\\\\Windows Kits\\\\10\\\\Lib\\\\10.0.28000.0\\\\um\\\\x64" "-libpath:C:\\\\BuildTools\\\\LLVM\\\\lib\\\\clang\\\\22\\\\lib\\\\x86_64-pc-windows-msvc" "-libpath:C:\\\\BuildTools\\\\LLVM\\\\lib\\\\clang\\\\22\\\\lib\\\\windows" -nologo -debug /subsystem:console CMakeFiles/cmTC_e0c34.dir/CMakeCXXCompilerABI.cpp.obj /MANIFEST:EMBED /implib:cmTC_e0c34.lib /pdb:cmTC_e0c34.pdb /version:0.0] ==> linker [C:\\\\BuildTools\\\\LLVM\\\\bin\\\\lld-link]
         linker tool for 'CXX': C:/BuildTools/LLVM/bin/lld-link 
         implicit libs: []
         implicit objs: []
@@ -3110,8 +3110,8 @@ events:
     checks:
       - "Detecting CXX compile features"
     directories:
-      source: "C:/Gameprojects/Projects/practice/build/CMakeFiles/CMakeScratch/TryCompile-c3b7ja"
-      binary: "C:/Gameprojects/Projects/practice/build/CMakeFiles/CMakeScratch/TryCompile-c3b7ja"
+      source: "C:/Gameprojects/Projects/practice/build/CMakeFiles/CMakeScratch/TryCompile-b490yx"
+      binary: "C:/Gameprojects/Projects/practice/build/CMakeFiles/CMakeScratch/TryCompile-b490yx"
     cmakeVariables:
       CMAKE_CXX_COMPILER_CLANG_SCAN_DEPS: "C:/BuildTools/LLVM/bin/clang-scan-deps.exe"
       CMAKE_CXX_FLAGS: ""
@@ -3122,11 +3122,11 @@ events:
       variable: "CMAKE_CXX_FEATURE_TEST"
       cached: false
       stdout: |
-        Change Dir: 'C:/Gameprojects/Projects/practice/build/CMakeFiles/CMakeScratch/TryCompile-c3b7ja'
+        Change Dir: 'C:/Gameprojects/Projects/practice/build/CMakeFiles/CMakeScratch/TryCompile-b490yx'
         
-        Run Build Command(s): C:/BuildTools/Ninja/ninja.exe -v cmTC_f4288
-        [1/2] C:\\BuildTools\\LLVM\\bin\\clang++.exe -D_MBCS  -O0 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -g -Xclang -gcodeview   -std=c++14 -MD -MT CMakeFiles/cmTC_f4288.dir/feature_tests.cxx.obj -MF CMakeFiles\\cmTC_f4288.dir\\feature_tests.cxx.obj.d -o CMakeFiles/cmTC_f4288.dir/feature_tests.cxx.obj -c C:/Gameprojects/Projects/practice/build/CMakeFiles/CMakeScratch/TryCompile-c3b7ja/feature_tests.cxx
-        [2/2] C:\\Windows\\system32\\cmd.exe /C "cd . && C:\\BuildTools\\LLVM\\bin\\clang++.exe -nostartfiles -nostdlib -O0 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -g -Xclang -gcodeview -Xlinker /subsystem:console -fuse-ld=lld CMakeFiles/cmTC_f4288.dir/feature_tests.cxx.obj -o cmTC_f4288.exe -Xlinker /MANIFEST:EMBED -Xlinker /implib:cmTC_f4288.lib -Xlinker /pdb:cmTC_f4288.pdb -Xlinker /version:0.0   -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32 -loldnames  && cd ."
+        Run Build Command(s): C:/BuildTools/Ninja/ninja.exe -v cmTC_70509
+        [1/2] C:\\BuildTools\\LLVM\\bin\\clang++.exe -D_MBCS  -O0 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -g -Xclang -gcodeview   -std=c++14 -MD -MT CMakeFiles/cmTC_70509.dir/feature_tests.cxx.obj -MF CMakeFiles\\cmTC_70509.dir\\feature_tests.cxx.obj.d -o CMakeFiles/cmTC_70509.dir/feature_tests.cxx.obj -c C:/Gameprojects/Projects/practice/build/CMakeFiles/CMakeScratch/TryCompile-b490yx/feature_tests.cxx
+        [2/2] C:\\Windows\\system32\\cmd.exe /C "cd . && C:\\BuildTools\\LLVM\\bin\\clang++.exe -nostartfiles -nostdlib -O0 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -g -Xclang -gcodeview -Xlinker /subsystem:console -fuse-ld=lld CMakeFiles/cmTC_70509.dir/feature_tests.cxx.obj -o cmTC_70509.exe -Xlinker /MANIFEST:EMBED -Xlinker /implib:cmTC_70509.lib -Xlinker /pdb:cmTC_70509.pdb -Xlinker /version:0.0   -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32 -loldnames  && cd ."
         
       exitCode: 0
   -
@@ -3141,8 +3141,8 @@ events:
     checks:
       - "Detecting CXX compile features"
     directories:
-      source: "C:/Gameprojects/Projects/practice/build/CMakeFiles/CMakeScratch/TryCompile-pgx71s"
-      binary: "C:/Gameprojects/Projects/practice/build/CMakeFiles/CMakeScratch/TryCompile-pgx71s"
+      source: "C:/Gameprojects/Projects/practice/build/CMakeFiles/CMakeScratch/TryCompile-uu63r6"
+      binary: "C:/Gameprojects/Projects/practice/build/CMakeFiles/CMakeScratch/TryCompile-uu63r6"
     cmakeVariables:
       CMAKE_CXX_COMPILER_CLANG_SCAN_DEPS: "C:/BuildTools/LLVM/bin/clang-scan-deps.exe"
       CMAKE_CXX_FLAGS: ""
@@ -3153,11 +3153,11 @@ events:
       variable: "CMAKE_CXX_FEATURE_TEST"
       cached: false
       stdout: |
-        Change Dir: 'C:/Gameprojects/Projects/practice/build/CMakeFiles/CMakeScratch/TryCompile-pgx71s'
+        Change Dir: 'C:/Gameprojects/Projects/practice/build/CMakeFiles/CMakeScratch/TryCompile-uu63r6'
         
-        Run Build Command(s): C:/BuildTools/Ninja/ninja.exe -v cmTC_7f78c
-        [1/2] C:\\BuildTools\\LLVM\\bin\\clang++.exe -D_MBCS  -O0 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -g -Xclang -gcodeview   -std=c++14 -MD -MT CMakeFiles/cmTC_7f78c.dir/feature_tests.cxx.obj -MF CMakeFiles\\cmTC_7f78c.dir\\feature_tests.cxx.obj.d -o CMakeFiles/cmTC_7f78c.dir/feature_tests.cxx.obj -c C:/Gameprojects/Projects/practice/build/CMakeFiles/CMakeScratch/TryCompile-pgx71s/feature_tests.cxx
-        [2/2] C:\\Windows\\system32\\cmd.exe /C "cd . && C:\\BuildTools\\LLVM\\bin\\clang++.exe -nostartfiles -nostdlib -O0 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -g -Xclang -gcodeview -Xlinker /subsystem:console -fuse-ld=lld CMakeFiles/cmTC_7f78c.dir/feature_tests.cxx.obj -o cmTC_7f78c.exe -Xlinker /MANIFEST:EMBED -Xlinker /implib:cmTC_7f78c.lib -Xlinker /pdb:cmTC_7f78c.pdb -Xlinker /version:0.0   -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32 -loldnames  && cd ."
+        Run Build Command(s): C:/BuildTools/Ninja/ninja.exe -v cmTC_6a5cf
+        [1/2] C:\\BuildTools\\LLVM\\bin\\clang++.exe -D_MBCS  -O0 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -g -Xclang -gcodeview   -std=c++14 -MD -MT CMakeFiles/cmTC_6a5cf.dir/feature_tests.cxx.obj -MF CMakeFiles\\cmTC_6a5cf.dir\\feature_tests.cxx.obj.d -o CMakeFiles/cmTC_6a5cf.dir/feature_tests.cxx.obj -c C:/Gameprojects/Projects/practice/build/CMakeFiles/CMakeScratch/TryCompile-uu63r6/feature_tests.cxx
+        [2/2] C:\\Windows\\system32\\cmd.exe /C "cd . && C:\\BuildTools\\LLVM\\bin\\clang++.exe -nostartfiles -nostdlib -O0 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -g -Xclang -gcodeview -Xlinker /subsystem:console -fuse-ld=lld CMakeFiles/cmTC_6a5cf.dir/feature_tests.cxx.obj -o cmTC_6a5cf.exe -Xlinker /MANIFEST:EMBED -Xlinker /implib:cmTC_6a5cf.lib -Xlinker /pdb:cmTC_6a5cf.pdb -Xlinker /version:0.0   -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32 -loldnames  && cd ."
         
       exitCode: 0
 ...

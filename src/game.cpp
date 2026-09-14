@@ -101,7 +101,7 @@ extern "C" {
     }
 
     if (KeyPressed(&gameData->input, SDL_SCANCODE_F2)) {
-      gameData->editLevel = !gameData->editLevel; 
+      gameData->editLevel = !gameData->editLevel;
     }
 
     if (gameData->editLevel) {
