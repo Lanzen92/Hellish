@@ -35,8 +35,8 @@ constexpr const char* NAME_OF_FUNC_UPDATE = "Update";
 constexpr const char* NAME_OF_FUNC_DRAW = "Draw";
 constexpr const char* NAME_OF_FUNC_QUIT = "OnQuit";
 
-constexpr const char* NAME_OF_DLL = "hellish_game.dll";
-constexpr const char* NAME_OF_TEMP_DLL = "hellish_temp.dll";
+constexpr const char* NAME_OF_DLL = "practice_game.dll";
+constexpr const char* NAME_OF_TEMP_DLL = "practice_temp.dll";
 
 struct DLL_INFO {
   HMODULE dll;
@@ -56,6 +56,7 @@ FILETIME GetTimestamp() {
   
   return timeOfLastChange;
 }
+
 
 
 // Load DLL and also load the functions from DLL.

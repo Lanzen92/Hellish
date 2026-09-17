@@ -79,10 +79,5 @@ namespace EDITOR {
     if (preview != nullptr) {
       RenderSpriteGrid(preview, levelData, renderer, camera, x, y, 1, 128.0f); 
     }
-    else
-    {
-      SDL_Log("DrawPreview / No preview sprite found for ID: %d",
-              (int)editor->objectToPlaceId);
-    }
   }
 }

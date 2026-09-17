@@ -1,5 +1,5 @@
-C:/Gameprojects/Projects/Hellish/build/CMakeFiles/Hellish_common.dir
-C:/Gameprojects/Projects/Hellish/build/CMakeFiles/Hellish.dir
-C:/Gameprojects/Projects/Hellish/build/CMakeFiles/Hellish_game.dir
-C:/Gameprojects/Projects/Hellish/build/CMakeFiles/edit_cache.dir
-C:/Gameprojects/Projects/Hellish/build/CMakeFiles/rebuild_cache.dir
+C:/Gameprojects/Projects/practice/build/CMakeFiles/Practice_common.dir
+C:/Gameprojects/Projects/practice/build/CMakeFiles/Practice.dir
+C:/Gameprojects/Projects/practice/build/CMakeFiles/Practice_game.dir
+C:/Gameprojects/Projects/practice/build/CMakeFiles/edit_cache.dir
+C:/Gameprojects/Projects/practice/build/CMakeFiles/rebuild_cache.dir

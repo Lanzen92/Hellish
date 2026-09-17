@@ -11,7 +11,7 @@
 # =============================================================================
 
 # =============================================================================
-# Project: Hellish
+# Project: Practice
 # Configurations: Debug
 # =============================================================================
 
@@ -39,353 +39,353 @@ include CMakeFiles/rules.ninja
 #############################################
 # Logical path to working directory; prefix for absolute paths.
 
-cmake_ninja_workdir = C$:/Gameprojects/Projects/Hellish/build/
+cmake_ninja_workdir = C$:/Gameprojects/Projects/practice/build/
 # =============================================================================
-# Object build statements for STATIC_LIBRARY target Hellish_common
+# Object build statements for STATIC_LIBRARY target Practice_common
 
 
 #############################################
-# Order-only phony target for Hellish_common
+# Order-only phony target for Practice_common
 
-build cmake_object_order_depends_target_Hellish_common: phony || .
+build cmake_object_order_depends_target_Practice_common: phony || .
 
-build CMakeFiles/Hellish_common.dir/src/arena.cpp.obj: CXX_COMPILER__Hellish_common_unscanned_Debug C$:/Gameprojects/Projects/Hellish/src/arena.cpp || cmake_object_order_depends_target_Hellish_common
+build CMakeFiles/Practice_common.dir/src/arena.cpp.obj: CXX_COMPILER__Practice_common_unscanned_Debug C$:/Gameprojects/Projects/practice/src/arena.cpp || cmake_object_order_depends_target_Practice_common
   CONFIG = Debug
-  DEP_FILE = CMakeFiles\Hellish_common.dir\src\arena.cpp.obj.d
+  DEP_FILE = CMakeFiles\Practice_common.dir\src\arena.cpp.obj.d
   FLAGS = -O0 -std=gnu++20 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -g -Xclang -gcodeview
-  INCLUDES = -IC:/Gameprojects/Projects/Hellish/include -IC:/Gameprojects/Projects/Hellish/src_external
-  OBJECT_DIR = CMakeFiles\Hellish_common.dir
-  OBJECT_FILE_DIR = CMakeFiles\Hellish_common.dir\src
-  TARGET_COMPILE_PDB = CMakeFiles\Hellish_common.dir\Hellish_common.pdb
-  TARGET_PDB = Hellish_common.pdb
-  TARGET_SUPPORT_DIR = CMakeFiles\Hellish_common.dir
+  INCLUDES = -IC:/Gameprojects/Projects/practice/include -IC:/Gameprojects/Projects/practice/src_external
+  OBJECT_DIR = CMakeFiles\Practice_common.dir
+  OBJECT_FILE_DIR = CMakeFiles\Practice_common.dir\src
+  TARGET_COMPILE_PDB = CMakeFiles\Practice_common.dir\Practice_common.pdb
+  TARGET_PDB = Practice_common.pdb
+  TARGET_SUPPORT_DIR = CMakeFiles\Practice_common.dir
 
-build CMakeFiles/Hellish_common.dir/src/input.cpp.obj: CXX_COMPILER__Hellish_common_unscanned_Debug C$:/Gameprojects/Projects/Hellish/src/input.cpp || cmake_object_order_depends_target_Hellish_common
+build CMakeFiles/Practice_common.dir/src/input.cpp.obj: CXX_COMPILER__Practice_common_unscanned_Debug C$:/Gameprojects/Projects/practice/src/input.cpp || cmake_object_order_depends_target_Practice_common
   CONFIG = Debug
-  DEP_FILE = CMakeFiles\Hellish_common.dir\src\input.cpp.obj.d
+  DEP_FILE = CMakeFiles\Practice_common.dir\src\input.cpp.obj.d
   FLAGS = -O0 -std=gnu++20 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -g -Xclang -gcodeview
-  INCLUDES = -IC:/Gameprojects/Projects/Hellish/include -IC:/Gameprojects/Projects/Hellish/src_external
-  OBJECT_DIR = CMakeFiles\Hellish_common.dir
-  OBJECT_FILE_DIR = CMakeFiles\Hellish_common.dir\src
-  TARGET_COMPILE_PDB = CMakeFiles\Hellish_common.dir\Hellish_common.pdb
-  TARGET_PDB = Hellish_common.pdb
-  TARGET_SUPPORT_DIR = CMakeFiles\Hellish_common.dir
+  INCLUDES = -IC:/Gameprojects/Projects/practice/include -IC:/Gameprojects/Projects/practice/src_external
+  OBJECT_DIR = CMakeFiles\Practice_common.dir
+  OBJECT_FILE_DIR = CMakeFiles\Practice_common.dir\src
+  TARGET_COMPILE_PDB = CMakeFiles\Practice_common.dir\Practice_common.pdb
+  TARGET_PDB = Practice_common.pdb
+  TARGET_SUPPORT_DIR = CMakeFiles\Practice_common.dir
 
 
 # =============================================================================
-# Link build statements for STATIC_LIBRARY target Hellish_common
+# Link build statements for STATIC_LIBRARY target Practice_common
 
 
 #############################################
-# Link the static library Hellish_common.lib
+# Link the static library Practice_common.lib
 
-build Hellish_common.lib: CXX_STATIC_LIBRARY_LINKER__Hellish_common_Debug CMakeFiles/Hellish_common.dir/src/arena.cpp.obj CMakeFiles/Hellish_common.dir/src/input.cpp.obj
+build Practice_common.lib: CXX_STATIC_LIBRARY_LINKER__Practice_common_Debug CMakeFiles/Practice_common.dir/src/arena.cpp.obj CMakeFiles/Practice_common.dir/src/input.cpp.obj
   CONFIG = Debug
   LANGUAGE_COMPILE_FLAGS = -O0 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -g -Xclang -gcodeview
-  OBJECT_DIR = CMakeFiles\Hellish_common.dir
+  OBJECT_DIR = CMakeFiles\Practice_common.dir
   POST_BUILD = cd .
   PRE_LINK = cd .
-  TARGET_COMPILE_PDB = CMakeFiles\Hellish_common.dir\Hellish_common.pdb
-  TARGET_FILE = Hellish_common.lib
-  TARGET_PDB = Hellish_common.pdb
-  TARGET_SUPPORT_DIR = CMakeFiles\Hellish_common.dir
+  TARGET_COMPILE_PDB = CMakeFiles\Practice_common.dir\Practice_common.pdb
+  TARGET_FILE = Practice_common.lib
+  TARGET_PDB = Practice_common.pdb
+  TARGET_SUPPORT_DIR = CMakeFiles\Practice_common.dir
 
 # =============================================================================
-# Object build statements for EXECUTABLE target Hellish
+# Object build statements for EXECUTABLE target Practice
 
 
 #############################################
-# Order-only phony target for Hellish
+# Order-only phony target for Practice
 
-build cmake_object_order_depends_target_Hellish: phony || cmake_object_order_depends_target_Hellish_common
+build cmake_object_order_depends_target_Practice: phony || cmake_object_order_depends_target_Practice_common
 
-build CMakeFiles/Hellish.dir/src/main.cpp.obj: CXX_COMPILER__Hellish_unscanned_Debug C$:/Gameprojects/Projects/Hellish/src/main.cpp || cmake_object_order_depends_target_Hellish
+build CMakeFiles/Practice.dir/src/main.cpp.obj: CXX_COMPILER__Practice_unscanned_Debug C$:/Gameprojects/Projects/practice/src/main.cpp || cmake_object_order_depends_target_Practice
   CONFIG = Debug
-  DEP_FILE = CMakeFiles\Hellish.dir\src\main.cpp.obj.d
+  DEP_FILE = CMakeFiles\Practice.dir\src\main.cpp.obj.d
   FLAGS = -O0 -std=gnu++20 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -g -Xclang -gcodeview
-  INCLUDES = -IC:/Gameprojects/Projects/Hellish/include -IC:/Gameprojects/Projects/Hellish/src_external
-  OBJECT_DIR = CMakeFiles\Hellish.dir
-  OBJECT_FILE_DIR = CMakeFiles\Hellish.dir\src
-  TARGET_COMPILE_PDB = CMakeFiles\Hellish.dir\
-  TARGET_PDB = Hellish.pdb
-  TARGET_SUPPORT_DIR = CMakeFiles\Hellish.dir
+  INCLUDES = -IC:/Gameprojects/Projects/practice/include -IC:/Gameprojects/Projects/practice/src_external
+  OBJECT_DIR = CMakeFiles\Practice.dir
+  OBJECT_FILE_DIR = CMakeFiles\Practice.dir\src
+  TARGET_COMPILE_PDB = CMakeFiles\Practice.dir\
+  TARGET_PDB = Practice.pdb
+  TARGET_SUPPORT_DIR = CMakeFiles\Practice.dir
 
 
 # =============================================================================
-# Link build statements for EXECUTABLE target Hellish
+# Link build statements for EXECUTABLE target Practice
 
 
 #############################################
-# Link the executable Hellish.exe
+# Link the executable Practice.exe
 
-build Hellish.exe: CXX_EXECUTABLE_LINKER__Hellish_Debug CMakeFiles/Hellish.dir/src/main.cpp.obj | C$:/Gameprojects/Projects/Hellish/lib/SDL3.lib C$:/Gameprojects/Projects/Hellish/lib/SDL3_image.lib Hellish_common.lib || Hellish_common.lib
+build Practice.exe: CXX_EXECUTABLE_LINKER__Practice_Debug CMakeFiles/Practice.dir/src/main.cpp.obj | C$:/Gameprojects/Projects/practice/lib/SDL3.lib C$:/Gameprojects/Projects/practice/lib/SDL3_image.lib Practice_common.lib || Practice_common.lib
   CONFIG = Debug
   FLAGS = -O0 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -g -Xclang -gcodeview
   LINK_FLAGS = -Xlinker /subsystem:console -fuse-ld=lld
-  LINK_LIBRARIES = C:/Gameprojects/Projects/Hellish/lib/SDL3.lib  C:/Gameprojects/Projects/Hellish/lib/SDL3_image.lib  -lwinmm.lib  Hellish_common.lib  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32 -loldnames
-  OBJECT_DIR = CMakeFiles\Hellish.dir
-  POST_BUILD = C:\Windows\system32\cmd.exe /C "cd /D C:\Gameprojects\Projects\Hellish\build && C:\BuildTools\CMake\bin\cmake.exe -E copy_if_different C:/Gameprojects/Projects/Hellish/lib/SDL3.dll C:/Gameprojects/Projects/Hellish/lib/SDL3_image.dll C:/Gameprojects/Projects/Hellish/build && cd /D C:\Gameprojects\Projects\Hellish\build && C:\BuildTools\CMake\bin\cmake.exe -E copy_directory_if_different C:/Gameprojects/Projects/Hellish/assets C:/Gameprojects/Projects/Hellish/build/assets"
+  LINK_LIBRARIES = C:/Gameprojects/Projects/practice/lib/SDL3.lib  C:/Gameprojects/Projects/practice/lib/SDL3_image.lib  -lwinmm.lib  Practice_common.lib  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32 -loldnames
+  OBJECT_DIR = CMakeFiles\Practice.dir
+  POST_BUILD = C:\Windows\system32\cmd.exe /C "cd /D C:\Gameprojects\Projects\practice\build && C:\BuildTools\CMake\bin\cmake.exe -E copy_if_different C:/Gameprojects/Projects/practice/lib/SDL3.dll C:/Gameprojects/Projects/practice/lib/SDL3_image.dll C:/Gameprojects/Projects/practice/build && cd /D C:\Gameprojects\Projects\practice\build && C:\BuildTools\CMake\bin\cmake.exe -E copy_directory_if_different C:/Gameprojects/Projects/practice/assets C:/Gameprojects/Projects/practice/build/assets"
   PRE_LINK = cd .
-  TARGET_COMPILE_PDB = CMakeFiles\Hellish.dir\
-  TARGET_FILE = Hellish.exe
-  TARGET_IMPLIB = Hellish.lib
-  TARGET_PDB = Hellish.pdb
-  TARGET_SUPPORT_DIR = CMakeFiles\Hellish.dir
+  TARGET_COMPILE_PDB = CMakeFiles\Practice.dir\
+  TARGET_FILE = Practice.exe
+  TARGET_IMPLIB = Practice.lib
+  TARGET_PDB = Practice.pdb
+  TARGET_SUPPORT_DIR = CMakeFiles\Practice.dir
 
 # =============================================================================
-# Object build statements for SHARED_LIBRARY target Hellish_game
+# Object build statements for SHARED_LIBRARY target Practice_game
 
 
 #############################################
-# Order-only phony target for Hellish_game
+# Order-only phony target for Practice_game
 
-build cmake_object_order_depends_target_Hellish_game: phony || cmake_object_order_depends_target_Hellish_common
+build cmake_object_order_depends_target_Practice_game: phony || cmake_object_order_depends_target_Practice_common
 
-build CMakeFiles/Hellish_game.dir/src/arena.cpp.obj: CXX_COMPILER__Hellish_game_unscanned_Debug C$:/Gameprojects/Projects/Hellish/src/arena.cpp || cmake_object_order_depends_target_Hellish_game
+build CMakeFiles/Practice_game.dir/src/arena.cpp.obj: CXX_COMPILER__Practice_game_unscanned_Debug C$:/Gameprojects/Projects/practice/src/arena.cpp || cmake_object_order_depends_target_Practice_game
   CONFIG = Debug
-  DEFINES = -DHellish_game_EXPORTS
-  DEP_FILE = CMakeFiles\Hellish_game.dir\src\arena.cpp.obj.d
+  DEFINES = -DPractice_game_EXPORTS
+  DEP_FILE = CMakeFiles\Practice_game.dir\src\arena.cpp.obj.d
   FLAGS = -O0 -std=gnu++20 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -g -Xclang -gcodeview
-  INCLUDES = -IC:/Gameprojects/Projects/Hellish/include -IC:/Gameprojects/Projects/Hellish/src_external
-  OBJECT_DIR = CMakeFiles\Hellish_game.dir
-  OBJECT_FILE_DIR = CMakeFiles\Hellish_game.dir\src
-  TARGET_COMPILE_PDB = CMakeFiles\Hellish_game.dir\
-  TARGET_PDB = Hellish_game.pdb
-  TARGET_SUPPORT_DIR = CMakeFiles\Hellish_game.dir
+  INCLUDES = -IC:/Gameprojects/Projects/practice/include -IC:/Gameprojects/Projects/practice/src_external
+  OBJECT_DIR = CMakeFiles\Practice_game.dir
+  OBJECT_FILE_DIR = CMakeFiles\Practice_game.dir\src
+  TARGET_COMPILE_PDB = CMakeFiles\Practice_game.dir\
+  TARGET_PDB = Practice_game.pdb
+  TARGET_SUPPORT_DIR = CMakeFiles\Practice_game.dir
 
-build CMakeFiles/Hellish_game.dir/src/camera.cpp.obj: CXX_COMPILER__Hellish_game_unscanned_Debug C$:/Gameprojects/Projects/Hellish/src/camera.cpp || cmake_object_order_depends_target_Hellish_game
+build CMakeFiles/Practice_game.dir/src/camera.cpp.obj: CXX_COMPILER__Practice_game_unscanned_Debug C$:/Gameprojects/Projects/practice/src/camera.cpp || cmake_object_order_depends_target_Practice_game
   CONFIG = Debug
-  DEFINES = -DHellish_game_EXPORTS
-  DEP_FILE = CMakeFiles\Hellish_game.dir\src\camera.cpp.obj.d
+  DEFINES = -DPractice_game_EXPORTS
+  DEP_FILE = CMakeFiles\Practice_game.dir\src\camera.cpp.obj.d
   FLAGS = -O0 -std=gnu++20 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -g -Xclang -gcodeview
-  INCLUDES = -IC:/Gameprojects/Projects/Hellish/include -IC:/Gameprojects/Projects/Hellish/src_external
-  OBJECT_DIR = CMakeFiles\Hellish_game.dir
-  OBJECT_FILE_DIR = CMakeFiles\Hellish_game.dir\src
-  TARGET_COMPILE_PDB = CMakeFiles\Hellish_game.dir\
-  TARGET_PDB = Hellish_game.pdb
-  TARGET_SUPPORT_DIR = CMakeFiles\Hellish_game.dir
+  INCLUDES = -IC:/Gameprojects/Projects/practice/include -IC:/Gameprojects/Projects/practice/src_external
+  OBJECT_DIR = CMakeFiles\Practice_game.dir
+  OBJECT_FILE_DIR = CMakeFiles\Practice_game.dir\src
+  TARGET_COMPILE_PDB = CMakeFiles\Practice_game.dir\
+  TARGET_PDB = Practice_game.pdb
+  TARGET_SUPPORT_DIR = CMakeFiles\Practice_game.dir
 
-build CMakeFiles/Hellish_game.dir/src/command.cpp.obj: CXX_COMPILER__Hellish_game_unscanned_Debug C$:/Gameprojects/Projects/Hellish/src/command.cpp || cmake_object_order_depends_target_Hellish_game
+build CMakeFiles/Practice_game.dir/src/command.cpp.obj: CXX_COMPILER__Practice_game_unscanned_Debug C$:/Gameprojects/Projects/practice/src/command.cpp || cmake_object_order_depends_target_Practice_game
   CONFIG = Debug
-  DEFINES = -DHellish_game_EXPORTS
-  DEP_FILE = CMakeFiles\Hellish_game.dir\src\command.cpp.obj.d
+  DEFINES = -DPractice_game_EXPORTS
+  DEP_FILE = CMakeFiles\Practice_game.dir\src\command.cpp.obj.d
   FLAGS = -O0 -std=gnu++20 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -g -Xclang -gcodeview
-  INCLUDES = -IC:/Gameprojects/Projects/Hellish/include -IC:/Gameprojects/Projects/Hellish/src_external
-  OBJECT_DIR = CMakeFiles\Hellish_game.dir
-  OBJECT_FILE_DIR = CMakeFiles\Hellish_game.dir\src
-  TARGET_COMPILE_PDB = CMakeFiles\Hellish_game.dir\
-  TARGET_PDB = Hellish_game.pdb
-  TARGET_SUPPORT_DIR = CMakeFiles\Hellish_game.dir
+  INCLUDES = -IC:/Gameprojects/Projects/practice/include -IC:/Gameprojects/Projects/practice/src_external
+  OBJECT_DIR = CMakeFiles\Practice_game.dir
+  OBJECT_FILE_DIR = CMakeFiles\Practice_game.dir\src
+  TARGET_COMPILE_PDB = CMakeFiles\Practice_game.dir\
+  TARGET_PDB = Practice_game.pdb
+  TARGET_SUPPORT_DIR = CMakeFiles\Practice_game.dir
 
-build CMakeFiles/Hellish_game.dir/src/devGui.cpp.obj: CXX_COMPILER__Hellish_game_unscanned_Debug C$:/Gameprojects/Projects/Hellish/src/devGui.cpp || cmake_object_order_depends_target_Hellish_game
+build CMakeFiles/Practice_game.dir/src/devGui.cpp.obj: CXX_COMPILER__Practice_game_unscanned_Debug C$:/Gameprojects/Projects/practice/src/devGui.cpp || cmake_object_order_depends_target_Practice_game
   CONFIG = Debug
-  DEFINES = -DHellish_game_EXPORTS
-  DEP_FILE = CMakeFiles\Hellish_game.dir\src\devGui.cpp.obj.d
+  DEFINES = -DPractice_game_EXPORTS
+  DEP_FILE = CMakeFiles\Practice_game.dir\src\devGui.cpp.obj.d
   FLAGS = -O0 -std=gnu++20 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -g -Xclang -gcodeview
-  INCLUDES = -IC:/Gameprojects/Projects/Hellish/include -IC:/Gameprojects/Projects/Hellish/src_external
-  OBJECT_DIR = CMakeFiles\Hellish_game.dir
-  OBJECT_FILE_DIR = CMakeFiles\Hellish_game.dir\src
-  TARGET_COMPILE_PDB = CMakeFiles\Hellish_game.dir\
-  TARGET_PDB = Hellish_game.pdb
-  TARGET_SUPPORT_DIR = CMakeFiles\Hellish_game.dir
+  INCLUDES = -IC:/Gameprojects/Projects/practice/include -IC:/Gameprojects/Projects/practice/src_external
+  OBJECT_DIR = CMakeFiles\Practice_game.dir
+  OBJECT_FILE_DIR = CMakeFiles\Practice_game.dir\src
+  TARGET_COMPILE_PDB = CMakeFiles\Practice_game.dir\
+  TARGET_PDB = Practice_game.pdb
+  TARGET_SUPPORT_DIR = CMakeFiles\Practice_game.dir
 
-build CMakeFiles/Hellish_game.dir/src/entity.cpp.obj: CXX_COMPILER__Hellish_game_unscanned_Debug C$:/Gameprojects/Projects/Hellish/src/entity.cpp || cmake_object_order_depends_target_Hellish_game
+build CMakeFiles/Practice_game.dir/src/entity.cpp.obj: CXX_COMPILER__Practice_game_unscanned_Debug C$:/Gameprojects/Projects/practice/src/entity.cpp || cmake_object_order_depends_target_Practice_game
   CONFIG = Debug
-  DEFINES = -DHellish_game_EXPORTS
-  DEP_FILE = CMakeFiles\Hellish_game.dir\src\entity.cpp.obj.d
+  DEFINES = -DPractice_game_EXPORTS
+  DEP_FILE = CMakeFiles\Practice_game.dir\src\entity.cpp.obj.d
   FLAGS = -O0 -std=gnu++20 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -g -Xclang -gcodeview
-  INCLUDES = -IC:/Gameprojects/Projects/Hellish/include -IC:/Gameprojects/Projects/Hellish/src_external
-  OBJECT_DIR = CMakeFiles\Hellish_game.dir
-  OBJECT_FILE_DIR = CMakeFiles\Hellish_game.dir\src
-  TARGET_COMPILE_PDB = CMakeFiles\Hellish_game.dir\
-  TARGET_PDB = Hellish_game.pdb
-  TARGET_SUPPORT_DIR = CMakeFiles\Hellish_game.dir
+  INCLUDES = -IC:/Gameprojects/Projects/practice/include -IC:/Gameprojects/Projects/practice/src_external
+  OBJECT_DIR = CMakeFiles\Practice_game.dir
+  OBJECT_FILE_DIR = CMakeFiles\Practice_game.dir\src
+  TARGET_COMPILE_PDB = CMakeFiles\Practice_game.dir\
+  TARGET_PDB = Practice_game.pdb
+  TARGET_SUPPORT_DIR = CMakeFiles\Practice_game.dir
 
-build CMakeFiles/Hellish_game.dir/src/game.cpp.obj: CXX_COMPILER__Hellish_game_unscanned_Debug C$:/Gameprojects/Projects/Hellish/src/game.cpp || cmake_object_order_depends_target_Hellish_game
+build CMakeFiles/Practice_game.dir/src/game.cpp.obj: CXX_COMPILER__Practice_game_unscanned_Debug C$:/Gameprojects/Projects/practice/src/game.cpp || cmake_object_order_depends_target_Practice_game
   CONFIG = Debug
-  DEFINES = -DHellish_game_EXPORTS
-  DEP_FILE = CMakeFiles\Hellish_game.dir\src\game.cpp.obj.d
+  DEFINES = -DPractice_game_EXPORTS
+  DEP_FILE = CMakeFiles\Practice_game.dir\src\game.cpp.obj.d
   FLAGS = -O0 -std=gnu++20 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -g -Xclang -gcodeview
-  INCLUDES = -IC:/Gameprojects/Projects/Hellish/include -IC:/Gameprojects/Projects/Hellish/src_external
-  OBJECT_DIR = CMakeFiles\Hellish_game.dir
-  OBJECT_FILE_DIR = CMakeFiles\Hellish_game.dir\src
-  TARGET_COMPILE_PDB = CMakeFiles\Hellish_game.dir\
-  TARGET_PDB = Hellish_game.pdb
-  TARGET_SUPPORT_DIR = CMakeFiles\Hellish_game.dir
+  INCLUDES = -IC:/Gameprojects/Projects/practice/include -IC:/Gameprojects/Projects/practice/src_external
+  OBJECT_DIR = CMakeFiles\Practice_game.dir
+  OBJECT_FILE_DIR = CMakeFiles\Practice_game.dir\src
+  TARGET_COMPILE_PDB = CMakeFiles\Practice_game.dir\
+  TARGET_PDB = Practice_game.pdb
+  TARGET_SUPPORT_DIR = CMakeFiles\Practice_game.dir
 
-build CMakeFiles/Hellish_game.dir/src/input.cpp.obj: CXX_COMPILER__Hellish_game_unscanned_Debug C$:/Gameprojects/Projects/Hellish/src/input.cpp || cmake_object_order_depends_target_Hellish_game
+build CMakeFiles/Practice_game.dir/src/input.cpp.obj: CXX_COMPILER__Practice_game_unscanned_Debug C$:/Gameprojects/Projects/practice/src/input.cpp || cmake_object_order_depends_target_Practice_game
   CONFIG = Debug
-  DEFINES = -DHellish_game_EXPORTS
-  DEP_FILE = CMakeFiles\Hellish_game.dir\src\input.cpp.obj.d
+  DEFINES = -DPractice_game_EXPORTS
+  DEP_FILE = CMakeFiles\Practice_game.dir\src\input.cpp.obj.d
   FLAGS = -O0 -std=gnu++20 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -g -Xclang -gcodeview
-  INCLUDES = -IC:/Gameprojects/Projects/Hellish/include -IC:/Gameprojects/Projects/Hellish/src_external
-  OBJECT_DIR = CMakeFiles\Hellish_game.dir
-  OBJECT_FILE_DIR = CMakeFiles\Hellish_game.dir\src
-  TARGET_COMPILE_PDB = CMakeFiles\Hellish_game.dir\
-  TARGET_PDB = Hellish_game.pdb
-  TARGET_SUPPORT_DIR = CMakeFiles\Hellish_game.dir
+  INCLUDES = -IC:/Gameprojects/Projects/practice/include -IC:/Gameprojects/Projects/practice/src_external
+  OBJECT_DIR = CMakeFiles\Practice_game.dir
+  OBJECT_FILE_DIR = CMakeFiles\Practice_game.dir\src
+  TARGET_COMPILE_PDB = CMakeFiles\Practice_game.dir\
+  TARGET_PDB = Practice_game.pdb
+  TARGET_SUPPORT_DIR = CMakeFiles\Practice_game.dir
 
-build CMakeFiles/Hellish_game.dir/src/level.cpp.obj: CXX_COMPILER__Hellish_game_unscanned_Debug C$:/Gameprojects/Projects/Hellish/src/level.cpp || cmake_object_order_depends_target_Hellish_game
+build CMakeFiles/Practice_game.dir/src/level.cpp.obj: CXX_COMPILER__Practice_game_unscanned_Debug C$:/Gameprojects/Projects/practice/src/level.cpp || cmake_object_order_depends_target_Practice_game
   CONFIG = Debug
-  DEFINES = -DHellish_game_EXPORTS
-  DEP_FILE = CMakeFiles\Hellish_game.dir\src\level.cpp.obj.d
+  DEFINES = -DPractice_game_EXPORTS
+  DEP_FILE = CMakeFiles\Practice_game.dir\src\level.cpp.obj.d
   FLAGS = -O0 -std=gnu++20 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -g -Xclang -gcodeview
-  INCLUDES = -IC:/Gameprojects/Projects/Hellish/include -IC:/Gameprojects/Projects/Hellish/src_external
-  OBJECT_DIR = CMakeFiles\Hellish_game.dir
-  OBJECT_FILE_DIR = CMakeFiles\Hellish_game.dir\src
-  TARGET_COMPILE_PDB = CMakeFiles\Hellish_game.dir\
-  TARGET_PDB = Hellish_game.pdb
-  TARGET_SUPPORT_DIR = CMakeFiles\Hellish_game.dir
+  INCLUDES = -IC:/Gameprojects/Projects/practice/include -IC:/Gameprojects/Projects/practice/src_external
+  OBJECT_DIR = CMakeFiles\Practice_game.dir
+  OBJECT_FILE_DIR = CMakeFiles\Practice_game.dir\src
+  TARGET_COMPILE_PDB = CMakeFiles\Practice_game.dir\
+  TARGET_PDB = Practice_game.pdb
+  TARGET_SUPPORT_DIR = CMakeFiles\Practice_game.dir
 
-build CMakeFiles/Hellish_game.dir/src/levelEditor.cpp.obj: CXX_COMPILER__Hellish_game_unscanned_Debug C$:/Gameprojects/Projects/Hellish/src/levelEditor.cpp || cmake_object_order_depends_target_Hellish_game
+build CMakeFiles/Practice_game.dir/src/levelEditor.cpp.obj: CXX_COMPILER__Practice_game_unscanned_Debug C$:/Gameprojects/Projects/practice/src/levelEditor.cpp || cmake_object_order_depends_target_Practice_game
   CONFIG = Debug
-  DEFINES = -DHellish_game_EXPORTS
-  DEP_FILE = CMakeFiles\Hellish_game.dir\src\levelEditor.cpp.obj.d
+  DEFINES = -DPractice_game_EXPORTS
+  DEP_FILE = CMakeFiles\Practice_game.dir\src\levelEditor.cpp.obj.d
   FLAGS = -O0 -std=gnu++20 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -g -Xclang -gcodeview
-  INCLUDES = -IC:/Gameprojects/Projects/Hellish/include -IC:/Gameprojects/Projects/Hellish/src_external
-  OBJECT_DIR = CMakeFiles\Hellish_game.dir
-  OBJECT_FILE_DIR = CMakeFiles\Hellish_game.dir\src
-  TARGET_COMPILE_PDB = CMakeFiles\Hellish_game.dir\
-  TARGET_PDB = Hellish_game.pdb
-  TARGET_SUPPORT_DIR = CMakeFiles\Hellish_game.dir
+  INCLUDES = -IC:/Gameprojects/Projects/practice/include -IC:/Gameprojects/Projects/practice/src_external
+  OBJECT_DIR = CMakeFiles\Practice_game.dir
+  OBJECT_FILE_DIR = CMakeFiles\Practice_game.dir\src
+  TARGET_COMPILE_PDB = CMakeFiles\Practice_game.dir\
+  TARGET_PDB = Practice_game.pdb
+  TARGET_SUPPORT_DIR = CMakeFiles\Practice_game.dir
 
-build CMakeFiles/Hellish_game.dir/src/levelRenderer.cpp.obj: CXX_COMPILER__Hellish_game_unscanned_Debug C$:/Gameprojects/Projects/Hellish/src/levelRenderer.cpp || cmake_object_order_depends_target_Hellish_game
+build CMakeFiles/Practice_game.dir/src/levelRenderer.cpp.obj: CXX_COMPILER__Practice_game_unscanned_Debug C$:/Gameprojects/Projects/practice/src/levelRenderer.cpp || cmake_object_order_depends_target_Practice_game
   CONFIG = Debug
-  DEFINES = -DHellish_game_EXPORTS
-  DEP_FILE = CMakeFiles\Hellish_game.dir\src\levelRenderer.cpp.obj.d
+  DEFINES = -DPractice_game_EXPORTS
+  DEP_FILE = CMakeFiles\Practice_game.dir\src\levelRenderer.cpp.obj.d
   FLAGS = -O0 -std=gnu++20 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -g -Xclang -gcodeview
-  INCLUDES = -IC:/Gameprojects/Projects/Hellish/include -IC:/Gameprojects/Projects/Hellish/src_external
-  OBJECT_DIR = CMakeFiles\Hellish_game.dir
-  OBJECT_FILE_DIR = CMakeFiles\Hellish_game.dir\src
-  TARGET_COMPILE_PDB = CMakeFiles\Hellish_game.dir\
-  TARGET_PDB = Hellish_game.pdb
-  TARGET_SUPPORT_DIR = CMakeFiles\Hellish_game.dir
+  INCLUDES = -IC:/Gameprojects/Projects/practice/include -IC:/Gameprojects/Projects/practice/src_external
+  OBJECT_DIR = CMakeFiles\Practice_game.dir
+  OBJECT_FILE_DIR = CMakeFiles\Practice_game.dir\src
+  TARGET_COMPILE_PDB = CMakeFiles\Practice_game.dir\
+  TARGET_PDB = Practice_game.pdb
+  TARGET_SUPPORT_DIR = CMakeFiles\Practice_game.dir
 
-build CMakeFiles/Hellish_game.dir/src/rendering.cpp.obj: CXX_COMPILER__Hellish_game_unscanned_Debug C$:/Gameprojects/Projects/Hellish/src/rendering.cpp || cmake_object_order_depends_target_Hellish_game
+build CMakeFiles/Practice_game.dir/src/rendering.cpp.obj: CXX_COMPILER__Practice_game_unscanned_Debug C$:/Gameprojects/Projects/practice/src/rendering.cpp || cmake_object_order_depends_target_Practice_game
   CONFIG = Debug
-  DEFINES = -DHellish_game_EXPORTS
-  DEP_FILE = CMakeFiles\Hellish_game.dir\src\rendering.cpp.obj.d
+  DEFINES = -DPractice_game_EXPORTS
+  DEP_FILE = CMakeFiles\Practice_game.dir\src\rendering.cpp.obj.d
   FLAGS = -O0 -std=gnu++20 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -g -Xclang -gcodeview
-  INCLUDES = -IC:/Gameprojects/Projects/Hellish/include -IC:/Gameprojects/Projects/Hellish/src_external
-  OBJECT_DIR = CMakeFiles\Hellish_game.dir
-  OBJECT_FILE_DIR = CMakeFiles\Hellish_game.dir\src
-  TARGET_COMPILE_PDB = CMakeFiles\Hellish_game.dir\
-  TARGET_PDB = Hellish_game.pdb
-  TARGET_SUPPORT_DIR = CMakeFiles\Hellish_game.dir
+  INCLUDES = -IC:/Gameprojects/Projects/practice/include -IC:/Gameprojects/Projects/practice/src_external
+  OBJECT_DIR = CMakeFiles\Practice_game.dir
+  OBJECT_FILE_DIR = CMakeFiles\Practice_game.dir\src
+  TARGET_COMPILE_PDB = CMakeFiles\Practice_game.dir\
+  TARGET_PDB = Practice_game.pdb
+  TARGET_SUPPORT_DIR = CMakeFiles\Practice_game.dir
 
-build CMakeFiles/Hellish_game.dir/src/spriteLibrary.cpp.obj: CXX_COMPILER__Hellish_game_unscanned_Debug C$:/Gameprojects/Projects/Hellish/src/spriteLibrary.cpp || cmake_object_order_depends_target_Hellish_game
+build CMakeFiles/Practice_game.dir/src/spriteLibrary.cpp.obj: CXX_COMPILER__Practice_game_unscanned_Debug C$:/Gameprojects/Projects/practice/src/spriteLibrary.cpp || cmake_object_order_depends_target_Practice_game
   CONFIG = Debug
-  DEFINES = -DHellish_game_EXPORTS
-  DEP_FILE = CMakeFiles\Hellish_game.dir\src\spriteLibrary.cpp.obj.d
+  DEFINES = -DPractice_game_EXPORTS
+  DEP_FILE = CMakeFiles\Practice_game.dir\src\spriteLibrary.cpp.obj.d
   FLAGS = -O0 -std=gnu++20 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -g -Xclang -gcodeview
-  INCLUDES = -IC:/Gameprojects/Projects/Hellish/include -IC:/Gameprojects/Projects/Hellish/src_external
-  OBJECT_DIR = CMakeFiles\Hellish_game.dir
-  OBJECT_FILE_DIR = CMakeFiles\Hellish_game.dir\src
-  TARGET_COMPILE_PDB = CMakeFiles\Hellish_game.dir\
-  TARGET_PDB = Hellish_game.pdb
-  TARGET_SUPPORT_DIR = CMakeFiles\Hellish_game.dir
+  INCLUDES = -IC:/Gameprojects/Projects/practice/include -IC:/Gameprojects/Projects/practice/src_external
+  OBJECT_DIR = CMakeFiles\Practice_game.dir
+  OBJECT_FILE_DIR = CMakeFiles\Practice_game.dir\src
+  TARGET_COMPILE_PDB = CMakeFiles\Practice_game.dir\
+  TARGET_PDB = Practice_game.pdb
+  TARGET_SUPPORT_DIR = CMakeFiles\Practice_game.dir
 
-build CMakeFiles/Hellish_game.dir/src_external/imgui/imgui.cpp.obj: CXX_COMPILER__Hellish_game_unscanned_Debug C$:/Gameprojects/Projects/Hellish/src_external/imgui/imgui.cpp || cmake_object_order_depends_target_Hellish_game
+build CMakeFiles/Practice_game.dir/src_external/imgui/imgui.cpp.obj: CXX_COMPILER__Practice_game_unscanned_Debug C$:/Gameprojects/Projects/practice/src_external/imgui/imgui.cpp || cmake_object_order_depends_target_Practice_game
   CONFIG = Debug
-  DEFINES = -DHellish_game_EXPORTS
-  DEP_FILE = CMakeFiles\Hellish_game.dir\src_external\imgui\imgui.cpp.obj.d
+  DEFINES = -DPractice_game_EXPORTS
+  DEP_FILE = CMakeFiles\Practice_game.dir\src_external\imgui\imgui.cpp.obj.d
   FLAGS = -O0 -std=gnu++20 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -g -Xclang -gcodeview
-  INCLUDES = -IC:/Gameprojects/Projects/Hellish/include -IC:/Gameprojects/Projects/Hellish/src_external
-  OBJECT_DIR = CMakeFiles\Hellish_game.dir
-  OBJECT_FILE_DIR = CMakeFiles\Hellish_game.dir\src_external\imgui
-  TARGET_COMPILE_PDB = CMakeFiles\Hellish_game.dir\
-  TARGET_PDB = Hellish_game.pdb
-  TARGET_SUPPORT_DIR = CMakeFiles\Hellish_game.dir
+  INCLUDES = -IC:/Gameprojects/Projects/practice/include -IC:/Gameprojects/Projects/practice/src_external
+  OBJECT_DIR = CMakeFiles\Practice_game.dir
+  OBJECT_FILE_DIR = CMakeFiles\Practice_game.dir\src_external\imgui
+  TARGET_COMPILE_PDB = CMakeFiles\Practice_game.dir\
+  TARGET_PDB = Practice_game.pdb
+  TARGET_SUPPORT_DIR = CMakeFiles\Practice_game.dir
 
-build CMakeFiles/Hellish_game.dir/src_external/imgui/imgui_draw.cpp.obj: CXX_COMPILER__Hellish_game_unscanned_Debug C$:/Gameprojects/Projects/Hellish/src_external/imgui/imgui_draw.cpp || cmake_object_order_depends_target_Hellish_game
+build CMakeFiles/Practice_game.dir/src_external/imgui/imgui_draw.cpp.obj: CXX_COMPILER__Practice_game_unscanned_Debug C$:/Gameprojects/Projects/practice/src_external/imgui/imgui_draw.cpp || cmake_object_order_depends_target_Practice_game
   CONFIG = Debug
-  DEFINES = -DHellish_game_EXPORTS
-  DEP_FILE = CMakeFiles\Hellish_game.dir\src_external\imgui\imgui_draw.cpp.obj.d
+  DEFINES = -DPractice_game_EXPORTS
+  DEP_FILE = CMakeFiles\Practice_game.dir\src_external\imgui\imgui_draw.cpp.obj.d
   FLAGS = -O0 -std=gnu++20 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -g -Xclang -gcodeview
-  INCLUDES = -IC:/Gameprojects/Projects/Hellish/include -IC:/Gameprojects/Projects/Hellish/src_external
-  OBJECT_DIR = CMakeFiles\Hellish_game.dir
-  OBJECT_FILE_DIR = CMakeFiles\Hellish_game.dir\src_external\imgui
-  TARGET_COMPILE_PDB = CMakeFiles\Hellish_game.dir\
-  TARGET_PDB = Hellish_game.pdb
-  TARGET_SUPPORT_DIR = CMakeFiles\Hellish_game.dir
+  INCLUDES = -IC:/Gameprojects/Projects/practice/include -IC:/Gameprojects/Projects/practice/src_external
+  OBJECT_DIR = CMakeFiles\Practice_game.dir
+  OBJECT_FILE_DIR = CMakeFiles\Practice_game.dir\src_external\imgui
+  TARGET_COMPILE_PDB = CMakeFiles\Practice_game.dir\
+  TARGET_PDB = Practice_game.pdb
+  TARGET_SUPPORT_DIR = CMakeFiles\Practice_game.dir
 
-build CMakeFiles/Hellish_game.dir/src_external/imgui/imgui_tables.cpp.obj: CXX_COMPILER__Hellish_game_unscanned_Debug C$:/Gameprojects/Projects/Hellish/src_external/imgui/imgui_tables.cpp || cmake_object_order_depends_target_Hellish_game
+build CMakeFiles/Practice_game.dir/src_external/imgui/imgui_tables.cpp.obj: CXX_COMPILER__Practice_game_unscanned_Debug C$:/Gameprojects/Projects/practice/src_external/imgui/imgui_tables.cpp || cmake_object_order_depends_target_Practice_game
   CONFIG = Debug
-  DEFINES = -DHellish_game_EXPORTS
-  DEP_FILE = CMakeFiles\Hellish_game.dir\src_external\imgui\imgui_tables.cpp.obj.d
+  DEFINES = -DPractice_game_EXPORTS
+  DEP_FILE = CMakeFiles\Practice_game.dir\src_external\imgui\imgui_tables.cpp.obj.d
   FLAGS = -O0 -std=gnu++20 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -g -Xclang -gcodeview
-  INCLUDES = -IC:/Gameprojects/Projects/Hellish/include -IC:/Gameprojects/Projects/Hellish/src_external
-  OBJECT_DIR = CMakeFiles\Hellish_game.dir
-  OBJECT_FILE_DIR = CMakeFiles\Hellish_game.dir\src_external\imgui
-  TARGET_COMPILE_PDB = CMakeFiles\Hellish_game.dir\
-  TARGET_PDB = Hellish_game.pdb
-  TARGET_SUPPORT_DIR = CMakeFiles\Hellish_game.dir
+  INCLUDES = -IC:/Gameprojects/Projects/practice/include -IC:/Gameprojects/Projects/practice/src_external
+  OBJECT_DIR = CMakeFiles\Practice_game.dir
+  OBJECT_FILE_DIR = CMakeFiles\Practice_game.dir\src_external\imgui
+  TARGET_COMPILE_PDB = CMakeFiles\Practice_game.dir\
+  TARGET_PDB = Practice_game.pdb
+  TARGET_SUPPORT_DIR = CMakeFiles\Practice_game.dir
 
-build CMakeFiles/Hellish_game.dir/src_external/imgui/imgui_widgets.cpp.obj: CXX_COMPILER__Hellish_game_unscanned_Debug C$:/Gameprojects/Projects/Hellish/src_external/imgui/imgui_widgets.cpp || cmake_object_order_depends_target_Hellish_game
+build CMakeFiles/Practice_game.dir/src_external/imgui/imgui_widgets.cpp.obj: CXX_COMPILER__Practice_game_unscanned_Debug C$:/Gameprojects/Projects/practice/src_external/imgui/imgui_widgets.cpp || cmake_object_order_depends_target_Practice_game
   CONFIG = Debug
-  DEFINES = -DHellish_game_EXPORTS
-  DEP_FILE = CMakeFiles\Hellish_game.dir\src_external\imgui\imgui_widgets.cpp.obj.d
+  DEFINES = -DPractice_game_EXPORTS
+  DEP_FILE = CMakeFiles\Practice_game.dir\src_external\imgui\imgui_widgets.cpp.obj.d
   FLAGS = -O0 -std=gnu++20 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -g -Xclang -gcodeview
-  INCLUDES = -IC:/Gameprojects/Projects/Hellish/include -IC:/Gameprojects/Projects/Hellish/src_external
-  OBJECT_DIR = CMakeFiles\Hellish_game.dir
-  OBJECT_FILE_DIR = CMakeFiles\Hellish_game.dir\src_external\imgui
-  TARGET_COMPILE_PDB = CMakeFiles\Hellish_game.dir\
-  TARGET_PDB = Hellish_game.pdb
-  TARGET_SUPPORT_DIR = CMakeFiles\Hellish_game.dir
+  INCLUDES = -IC:/Gameprojects/Projects/practice/include -IC:/Gameprojects/Projects/practice/src_external
+  OBJECT_DIR = CMakeFiles\Practice_game.dir
+  OBJECT_FILE_DIR = CMakeFiles\Practice_game.dir\src_external\imgui
+  TARGET_COMPILE_PDB = CMakeFiles\Practice_game.dir\
+  TARGET_PDB = Practice_game.pdb
+  TARGET_SUPPORT_DIR = CMakeFiles\Practice_game.dir
 
-build CMakeFiles/Hellish_game.dir/src_external/imgui/imgui_impl_sdlrenderer3.cpp.obj: CXX_COMPILER__Hellish_game_unscanned_Debug C$:/Gameprojects/Projects/Hellish/src_external/imgui/imgui_impl_sdlrenderer3.cpp || cmake_object_order_depends_target_Hellish_game
+build CMakeFiles/Practice_game.dir/src_external/imgui/imgui_impl_sdlrenderer3.cpp.obj: CXX_COMPILER__Practice_game_unscanned_Debug C$:/Gameprojects/Projects/practice/src_external/imgui/imgui_impl_sdlrenderer3.cpp || cmake_object_order_depends_target_Practice_game
   CONFIG = Debug
-  DEFINES = -DHellish_game_EXPORTS
-  DEP_FILE = CMakeFiles\Hellish_game.dir\src_external\imgui\imgui_impl_sdlrenderer3.cpp.obj.d
+  DEFINES = -DPractice_game_EXPORTS
+  DEP_FILE = CMakeFiles\Practice_game.dir\src_external\imgui\imgui_impl_sdlrenderer3.cpp.obj.d
   FLAGS = -O0 -std=gnu++20 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -g -Xclang -gcodeview
-  INCLUDES = -IC:/Gameprojects/Projects/Hellish/include -IC:/Gameprojects/Projects/Hellish/src_external
-  OBJECT_DIR = CMakeFiles\Hellish_game.dir
-  OBJECT_FILE_DIR = CMakeFiles\Hellish_game.dir\src_external\imgui
-  TARGET_COMPILE_PDB = CMakeFiles\Hellish_game.dir\
-  TARGET_PDB = Hellish_game.pdb
-  TARGET_SUPPORT_DIR = CMakeFiles\Hellish_game.dir
+  INCLUDES = -IC:/Gameprojects/Projects/practice/include -IC:/Gameprojects/Projects/practice/src_external
+  OBJECT_DIR = CMakeFiles\Practice_game.dir
+  OBJECT_FILE_DIR = CMakeFiles\Practice_game.dir\src_external\imgui
+  TARGET_COMPILE_PDB = CMakeFiles\Practice_game.dir\
+  TARGET_PDB = Practice_game.pdb
+  TARGET_SUPPORT_DIR = CMakeFiles\Practice_game.dir
 
-build CMakeFiles/Hellish_game.dir/src_external/imgui/imgui_impl_sdl3.cpp.obj: CXX_COMPILER__Hellish_game_unscanned_Debug C$:/Gameprojects/Projects/Hellish/src_external/imgui/imgui_impl_sdl3.cpp || cmake_object_order_depends_target_Hellish_game
+build CMakeFiles/Practice_game.dir/src_external/imgui/imgui_impl_sdl3.cpp.obj: CXX_COMPILER__Practice_game_unscanned_Debug C$:/Gameprojects/Projects/practice/src_external/imgui/imgui_impl_sdl3.cpp || cmake_object_order_depends_target_Practice_game
   CONFIG = Debug
-  DEFINES = -DHellish_game_EXPORTS
-  DEP_FILE = CMakeFiles\Hellish_game.dir\src_external\imgui\imgui_impl_sdl3.cpp.obj.d
+  DEFINES = -DPractice_game_EXPORTS
+  DEP_FILE = CMakeFiles\Practice_game.dir\src_external\imgui\imgui_impl_sdl3.cpp.obj.d
   FLAGS = -O0 -std=gnu++20 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -g -Xclang -gcodeview
-  INCLUDES = -IC:/Gameprojects/Projects/Hellish/include -IC:/Gameprojects/Projects/Hellish/src_external
-  OBJECT_DIR = CMakeFiles\Hellish_game.dir
-  OBJECT_FILE_DIR = CMakeFiles\Hellish_game.dir\src_external\imgui
-  TARGET_COMPILE_PDB = CMakeFiles\Hellish_game.dir\
-  TARGET_PDB = Hellish_game.pdb
-  TARGET_SUPPORT_DIR = CMakeFiles\Hellish_game.dir
+  INCLUDES = -IC:/Gameprojects/Projects/practice/include -IC:/Gameprojects/Projects/practice/src_external
+  OBJECT_DIR = CMakeFiles\Practice_game.dir
+  OBJECT_FILE_DIR = CMakeFiles\Practice_game.dir\src_external\imgui
+  TARGET_COMPILE_PDB = CMakeFiles\Practice_game.dir\
+  TARGET_PDB = Practice_game.pdb
+  TARGET_SUPPORT_DIR = CMakeFiles\Practice_game.dir
 
 
 # =============================================================================
-# Link build statements for SHARED_LIBRARY target Hellish_game
+# Link build statements for SHARED_LIBRARY target Practice_game
 
 
 #############################################
-# Link the shared library Hellish_game.dll
+# Link the shared library Practice_game.dll
 
-build Hellish_game.dll Hellish_game.lib: CXX_SHARED_LIBRARY_LINKER__Hellish_game_Debug CMakeFiles/Hellish_game.dir/src/arena.cpp.obj CMakeFiles/Hellish_game.dir/src/camera.cpp.obj CMakeFiles/Hellish_game.dir/src/command.cpp.obj CMakeFiles/Hellish_game.dir/src/devGui.cpp.obj CMakeFiles/Hellish_game.dir/src/entity.cpp.obj CMakeFiles/Hellish_game.dir/src/game.cpp.obj CMakeFiles/Hellish_game.dir/src/input.cpp.obj CMakeFiles/Hellish_game.dir/src/level.cpp.obj CMakeFiles/Hellish_game.dir/src/levelEditor.cpp.obj CMakeFiles/Hellish_game.dir/src/levelRenderer.cpp.obj CMakeFiles/Hellish_game.dir/src/rendering.cpp.obj CMakeFiles/Hellish_game.dir/src/spriteLibrary.cpp.obj CMakeFiles/Hellish_game.dir/src_external/imgui/imgui.cpp.obj CMakeFiles/Hellish_game.dir/src_external/imgui/imgui_draw.cpp.obj CMakeFiles/Hellish_game.dir/src_external/imgui/imgui_tables.cpp.obj CMakeFiles/Hellish_game.dir/src_external/imgui/imgui_widgets.cpp.obj CMakeFiles/Hellish_game.dir/src_external/imgui/imgui_impl_sdlrenderer3.cpp.obj CMakeFiles/Hellish_game.dir/src_external/imgui/imgui_impl_sdl3.cpp.obj | C$:/Gameprojects/Projects/Hellish/lib/SDL3.lib C$:/Gameprojects/Projects/Hellish/lib/SDL3_image.lib Hellish_common.lib || Hellish_common.lib
+build Practice_game.dll Practice_game.lib: CXX_SHARED_LIBRARY_LINKER__Practice_game_Debug CMakeFiles/Practice_game.dir/src/arena.cpp.obj CMakeFiles/Practice_game.dir/src/camera.cpp.obj CMakeFiles/Practice_game.dir/src/command.cpp.obj CMakeFiles/Practice_game.dir/src/devGui.cpp.obj CMakeFiles/Practice_game.dir/src/entity.cpp.obj CMakeFiles/Practice_game.dir/src/game.cpp.obj CMakeFiles/Practice_game.dir/src/input.cpp.obj CMakeFiles/Practice_game.dir/src/level.cpp.obj CMakeFiles/Practice_game.dir/src/levelEditor.cpp.obj CMakeFiles/Practice_game.dir/src/levelRenderer.cpp.obj CMakeFiles/Practice_game.dir/src/rendering.cpp.obj CMakeFiles/Practice_game.dir/src/spriteLibrary.cpp.obj CMakeFiles/Practice_game.dir/src_external/imgui/imgui.cpp.obj CMakeFiles/Practice_game.dir/src_external/imgui/imgui_draw.cpp.obj CMakeFiles/Practice_game.dir/src_external/imgui/imgui_tables.cpp.obj CMakeFiles/Practice_game.dir/src_external/imgui/imgui_widgets.cpp.obj CMakeFiles/Practice_game.dir/src_external/imgui/imgui_impl_sdlrenderer3.cpp.obj CMakeFiles/Practice_game.dir/src_external/imgui/imgui_impl_sdl3.cpp.obj | C$:/Gameprojects/Projects/practice/lib/SDL3.lib C$:/Gameprojects/Projects/practice/lib/SDL3_image.lib Practice_common.lib || Practice_common.lib
   CONFIG = Debug
   LANGUAGE_COMPILE_FLAGS = -O0 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -g -Xclang -gcodeview
   LINK_FLAGS = -shared -fuse-ld=lld
-  LINK_LIBRARIES = C:/Gameprojects/Projects/Hellish/lib/SDL3.lib  C:/Gameprojects/Projects/Hellish/lib/SDL3_image.lib  Hellish_common.lib  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32 -loldnames
-  OBJECT_DIR = CMakeFiles\Hellish_game.dir
+  LINK_LIBRARIES = C:/Gameprojects/Projects/practice/lib/SDL3.lib  C:/Gameprojects/Projects/practice/lib/SDL3_image.lib  Practice_common.lib  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32 -loldnames
+  OBJECT_DIR = CMakeFiles\Practice_game.dir
   POST_BUILD = cd .
   PRE_LINK = cd .
   RESTAT = 1
-  TARGET_COMPILE_PDB = CMakeFiles\Hellish_game.dir\
-  TARGET_FILE = Hellish_game.dll
-  TARGET_IMPLIB = Hellish_game.lib
-  TARGET_PDB = Hellish_game.pdb
-  TARGET_SUPPORT_DIR = CMakeFiles\Hellish_game.dir
+  TARGET_COMPILE_PDB = CMakeFiles\Practice_game.dir\
+  TARGET_FILE = Practice_game.dll
+  TARGET_IMPLIB = Practice_game.lib
+  TARGET_PDB = Practice_game.pdb
+  TARGET_SUPPORT_DIR = CMakeFiles\Practice_game.dir
 
 
 #############################################
 # Utility command for edit_cache
 
 build CMakeFiles/edit_cache.util: CUSTOM_COMMAND
-  COMMAND = C:\Windows\system32\cmd.exe /C "cd /D C:\Gameprojects\Projects\Hellish\build && C:\BuildTools\CMake\bin\cmake-gui.exe -SC:\Gameprojects\Projects\Hellish -BC:\Gameprojects\Projects\Hellish\build"
+  COMMAND = C:\Windows\system32\cmd.exe /C "cd /D C:\Gameprojects\Projects\practice\build && C:\BuildTools\CMake\bin\cmake-gui.exe -SC:\Gameprojects\Projects\practice -BC:\Gameprojects\Projects\practice\build"
   DESC = Running CMake cache editor...
   pool = console
   restat = 1
@@ -397,7 +397,7 @@ build edit_cache: phony CMakeFiles/edit_cache.util
 # Utility command for rebuild_cache
 
 build CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = C:\Windows\system32\cmd.exe /C "cd /D C:\Gameprojects\Projects\Hellish\build && C:\BuildTools\CMake\bin\cmake.exe --regenerate-during-build -SC:\Gameprojects\Projects\Hellish -BC:\Gameprojects\Projects\Hellish\build"
+  COMMAND = C:\Windows\system32\cmd.exe /C "cd /D C:\Gameprojects\Projects\practice\build && C:\BuildTools\CMake\bin\cmake.exe --regenerate-during-build -SC:\Gameprojects\Projects\practice -BC:\Gameprojects\Projects\practice\build"
   DESC = Running CMake to regenerate build system...
   pool = console
   restat = 1
@@ -407,11 +407,11 @@ build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 # =============================================================================
 # Target aliases.
 
-build Hellish: phony Hellish.exe
+build Practice: phony Practice.exe
 
-build Hellish_common: phony Hellish_common.lib
+build Practice_common: phony Practice_common.lib
 
-build Hellish_game: phony Hellish_game.dll
+build Practice_game: phony Practice_game.dll
 
 # =============================================================================
 # Folder targets.
@@ -419,9 +419,9 @@ build Hellish_game: phony Hellish_game.dll
 # =============================================================================
 
 #############################################
-# Folder: C:/Gameprojects/Projects/Hellish/build
+# Folder: C:/Gameprojects/Projects/practice/build
 
-build all: phony Hellish_common.lib Hellish.exe Hellish_game.dll
+build all: phony Practice_common.lib Practice.exe Practice_game.dll
 
 # =============================================================================
 # Built-in targets
@@ -430,14 +430,14 @@ build all: phony Hellish_common.lib Hellish.exe Hellish_game.dll
 #############################################
 # Re-run CMake if any of its inputs changed.
 
-build build.ninja C$:/Gameprojects/Projects/Hellish/build/cmake_install.cmake: RERUN_CMAKE | C$:/BuildTools/CMake/share/cmake-4.4/Modules/CMakeCXXCompiler.cmake.in C$:/BuildTools/CMake/share/cmake-4.4/Modules/CMakeCXXCompilerABI.cpp C$:/BuildTools/CMake/share/cmake-4.4/Modules/CMakeCXXInformation.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/CMakeCommonLanguageInclude.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/CMakeCompilerIdDetection.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/CMakeDetermineCXXCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/CMakeDetermineCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/CMakeDetermineCompilerABI.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/CMakeDetermineCompilerId.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/CMakeDetermineCompilerSupport.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/CMakeDetermineRCCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/CMakeDetermineSystem.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/CMakeFindBinUtils.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/CMakeGenericSystem.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/CMakeInitializeConfigs.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/CMakeLanguageInformation.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/CMakeNinjaFindMake.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/CMakeParseImplicitIncludeInfo.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/CMakeParseImplicitLinkInfo.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/CMakeParseLibraryArchitecture.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/CMakeRCCompiler.cmake.in C$:/BuildTools/CMake/share/cmake-4.4/Modules/CMakeRCInformation.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/CMakeSystem.cmake.in C$:/BuildTools/CMake/share/cmake-4.4/Modules/CMakeSystemSpecificInformation.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/CMakeSystemSpecificInitialize.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/CMakeTestCXXCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/CMakeTestCompilerCommon.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/CMakeTestRCCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/ADSP-DetermineCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/ARMCC-DetermineCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/ARMClang-DetermineCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/AppleClang-DetermineCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/Borland-DetermineCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/Clang-CXX-CXXImportStd.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/Clang-CXX-FeatureTests.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/Clang-CXX-TestableFeatures.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/Clang-CXX.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/Clang-DetermineCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/Clang-DetermineCompilerInternal.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/Clang-FindBinUtils.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/Clang.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/Compaq-CXX-DetermineCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/Cray-DetermineCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/CrayClang-DetermineCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/Diab-DetermineCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/Embarcadero-DetermineCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/Fujitsu-DetermineCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/FujitsuClang-DetermineCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/GHS-DetermineCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/GNU-CXX-DetermineCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/HP-CXX-DetermineCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/IAR-DetermineCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/IBMCPP-CXX-DetermineVersionInternal.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/IBMClang-CXX-DetermineCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/Intel-DetermineCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/IntelLLVM-DetermineCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/LCC-CXX-DetermineCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/MSVC-DetermineCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/NVHPC-DetermineCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/NVIDIA-DetermineCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/OpenWatcom-DetermineCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/OrangeC-DetermineCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/PGI-DetermineCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/PathScale-DetermineCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/PellesC-DetermineCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/Renesas-DetermineCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/SCO-DetermineCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/SunPro-CXX-DetermineCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/TI-DetermineCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/TIClang-DetermineCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/Tasking-DetermineCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/VisualAge-CXX-DetermineCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/Watcom-DetermineCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/XL-CXX-DetermineCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/XLClang-CXX-DetermineCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/zOS-CXX-DetermineCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Internal/CMakeCXXLinkerInformation.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Internal/CMakeCommonLinkerInformation.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Internal/CMakeDetermineLinkerId.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Internal/CMakeInspectCXXLinker.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Internal/FeatureTesting.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Linker/LLD-CXX.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Linker/LLD.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Linker/MSVC.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Platform/Linker/Windows-LLD-CXX.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Platform/Linker/Windows-LLD.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Platform/Linker/Windows-MSVC.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Platform/Windows-Clang-CXX.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Platform/Windows-Clang.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Platform/Windows-Determine-CXX.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Platform/Windows-Initialize.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Platform/Windows.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Platform/WindowsPaths.cmake C$:/Gameprojects/Projects/Hellish/CMakeLists.txt CMakeCache.txt CMakeFiles/4.4.2/CMakeCXXCompiler.cmake CMakeFiles/4.4.2/CMakeRCCompiler.cmake CMakeFiles/4.4.2/CMakeSystem.cmake
+build build.ninja C$:/Gameprojects/Projects/practice/build/cmake_install.cmake: RERUN_CMAKE | C$:/BuildTools/CMake/share/cmake-4.4/Modules/CMakeCXXCompiler.cmake.in C$:/BuildTools/CMake/share/cmake-4.4/Modules/CMakeCXXCompilerABI.cpp C$:/BuildTools/CMake/share/cmake-4.4/Modules/CMakeCXXInformation.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/CMakeCommonLanguageInclude.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/CMakeCompilerIdDetection.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/CMakeDetermineCXXCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/CMakeDetermineCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/CMakeDetermineCompilerABI.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/CMakeDetermineCompilerId.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/CMakeDetermineCompilerSupport.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/CMakeDetermineRCCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/CMakeDetermineSystem.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/CMakeFindBinUtils.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/CMakeGenericSystem.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/CMakeInitializeConfigs.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/CMakeLanguageInformation.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/CMakeNinjaFindMake.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/CMakeParseImplicitIncludeInfo.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/CMakeParseImplicitLinkInfo.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/CMakeParseLibraryArchitecture.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/CMakeRCCompiler.cmake.in C$:/BuildTools/CMake/share/cmake-4.4/Modules/CMakeRCInformation.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/CMakeSystem.cmake.in C$:/BuildTools/CMake/share/cmake-4.4/Modules/CMakeSystemSpecificInformation.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/CMakeSystemSpecificInitialize.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/CMakeTestCXXCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/CMakeTestCompilerCommon.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/CMakeTestRCCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/ADSP-DetermineCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/ARMCC-DetermineCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/ARMClang-DetermineCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/AppleClang-DetermineCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/Borland-DetermineCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/Clang-CXX-CXXImportStd.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/Clang-CXX-FeatureTests.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/Clang-CXX-TestableFeatures.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/Clang-CXX.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/Clang-DetermineCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/Clang-DetermineCompilerInternal.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/Clang-FindBinUtils.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/Clang.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/Compaq-CXX-DetermineCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/Cray-DetermineCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/CrayClang-DetermineCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/Diab-DetermineCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/Embarcadero-DetermineCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/Fujitsu-DetermineCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/FujitsuClang-DetermineCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/GHS-DetermineCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/GNU-CXX-DetermineCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/HP-CXX-DetermineCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/IAR-DetermineCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/IBMCPP-CXX-DetermineVersionInternal.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/IBMClang-CXX-DetermineCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/Intel-DetermineCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/IntelLLVM-DetermineCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/LCC-CXX-DetermineCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/MSVC-DetermineCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/NVHPC-DetermineCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/NVIDIA-DetermineCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/OpenWatcom-DetermineCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/OrangeC-DetermineCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/PGI-DetermineCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/PathScale-DetermineCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/PellesC-DetermineCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/Renesas-DetermineCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/SCO-DetermineCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/SunPro-CXX-DetermineCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/TI-DetermineCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/TIClang-DetermineCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/Tasking-DetermineCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/VisualAge-CXX-DetermineCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/Watcom-DetermineCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/XL-CXX-DetermineCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/XLClang-CXX-DetermineCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/zOS-CXX-DetermineCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Internal/CMakeCXXLinkerInformation.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Internal/CMakeCommonLinkerInformation.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Internal/CMakeDetermineLinkerId.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Internal/CMakeInspectCXXLinker.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Internal/FeatureTesting.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Linker/LLD-CXX.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Linker/LLD.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Linker/MSVC.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Platform/Linker/Windows-LLD-CXX.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Platform/Linker/Windows-LLD.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Platform/Linker/Windows-MSVC.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Platform/Windows-Clang-CXX.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Platform/Windows-Clang.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Platform/Windows-Determine-CXX.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Platform/Windows-Initialize.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Platform/Windows.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Platform/WindowsPaths.cmake C$:/Gameprojects/Projects/practice/CMakeLists.txt CMakeCache.txt CMakeFiles/4.4.2/CMakeCXXCompiler.cmake CMakeFiles/4.4.2/CMakeRCCompiler.cmake CMakeFiles/4.4.2/CMakeSystem.cmake
   pool = console
 
 
 #############################################
 # A missing CMake input file is not an error.
 
-build C$:/BuildTools/CMake/share/cmake-4.4/Modules/CMakeCXXCompiler.cmake.in C$:/BuildTools/CMake/share/cmake-4.4/Modules/CMakeCXXCompilerABI.cpp C$:/BuildTools/CMake/share/cmake-4.4/Modules/CMakeCXXInformation.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/CMakeCommonLanguageInclude.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/CMakeCompilerIdDetection.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/CMakeDetermineCXXCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/CMakeDetermineCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/CMakeDetermineCompilerABI.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/CMakeDetermineCompilerId.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/CMakeDetermineCompilerSupport.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/CMakeDetermineRCCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/CMakeDetermineSystem.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/CMakeFindBinUtils.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/CMakeGenericSystem.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/CMakeInitializeConfigs.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/CMakeLanguageInformation.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/CMakeNinjaFindMake.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/CMakeParseImplicitIncludeInfo.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/CMakeParseImplicitLinkInfo.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/CMakeParseLibraryArchitecture.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/CMakeRCCompiler.cmake.in C$:/BuildTools/CMake/share/cmake-4.4/Modules/CMakeRCInformation.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/CMakeSystem.cmake.in C$:/BuildTools/CMake/share/cmake-4.4/Modules/CMakeSystemSpecificInformation.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/CMakeSystemSpecificInitialize.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/CMakeTestCXXCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/CMakeTestCompilerCommon.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/CMakeTestRCCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/ADSP-DetermineCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/ARMCC-DetermineCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/ARMClang-DetermineCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/AppleClang-DetermineCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/Borland-DetermineCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/Clang-CXX-CXXImportStd.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/Clang-CXX-FeatureTests.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/Clang-CXX-TestableFeatures.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/Clang-CXX.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/Clang-DetermineCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/Clang-DetermineCompilerInternal.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/Clang-FindBinUtils.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/Clang.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/Compaq-CXX-DetermineCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/Cray-DetermineCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/CrayClang-DetermineCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/Diab-DetermineCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/Embarcadero-DetermineCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/Fujitsu-DetermineCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/FujitsuClang-DetermineCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/GHS-DetermineCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/GNU-CXX-DetermineCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/HP-CXX-DetermineCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/IAR-DetermineCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/IBMCPP-CXX-DetermineVersionInternal.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/IBMClang-CXX-DetermineCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/Intel-DetermineCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/IntelLLVM-DetermineCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/LCC-CXX-DetermineCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/MSVC-DetermineCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/NVHPC-DetermineCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/NVIDIA-DetermineCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/OpenWatcom-DetermineCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/OrangeC-DetermineCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/PGI-DetermineCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/PathScale-DetermineCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/PellesC-DetermineCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/Renesas-DetermineCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/SCO-DetermineCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/SunPro-CXX-DetermineCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/TI-DetermineCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/TIClang-DetermineCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/Tasking-DetermineCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/VisualAge-CXX-DetermineCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/Watcom-DetermineCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/XL-CXX-DetermineCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/XLClang-CXX-DetermineCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/zOS-CXX-DetermineCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Internal/CMakeCXXLinkerInformation.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Internal/CMakeCommonLinkerInformation.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Internal/CMakeDetermineLinkerId.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Internal/CMakeInspectCXXLinker.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Internal/FeatureTesting.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Linker/LLD-CXX.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Linker/LLD.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Linker/MSVC.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Platform/Linker/Windows-LLD-CXX.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Platform/Linker/Windows-LLD.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Platform/Linker/Windows-MSVC.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Platform/Windows-Clang-CXX.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Platform/Windows-Clang.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Platform/Windows-Determine-CXX.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Platform/Windows-Initialize.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Platform/Windows.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Platform/WindowsPaths.cmake C$:/Gameprojects/Projects/Hellish/CMakeLists.txt CMakeCache.txt CMakeFiles/4.4.2/CMakeCXXCompiler.cmake CMakeFiles/4.4.2/CMakeRCCompiler.cmake CMakeFiles/4.4.2/CMakeSystem.cmake: phony
+build C$:/BuildTools/CMake/share/cmake-4.4/Modules/CMakeCXXCompiler.cmake.in C$:/BuildTools/CMake/share/cmake-4.4/Modules/CMakeCXXCompilerABI.cpp C$:/BuildTools/CMake/share/cmake-4.4/Modules/CMakeCXXInformation.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/CMakeCommonLanguageInclude.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/CMakeCompilerIdDetection.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/CMakeDetermineCXXCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/CMakeDetermineCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/CMakeDetermineCompilerABI.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/CMakeDetermineCompilerId.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/CMakeDetermineCompilerSupport.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/CMakeDetermineRCCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/CMakeDetermineSystem.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/CMakeFindBinUtils.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/CMakeGenericSystem.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/CMakeInitializeConfigs.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/CMakeLanguageInformation.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/CMakeNinjaFindMake.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/CMakeParseImplicitIncludeInfo.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/CMakeParseImplicitLinkInfo.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/CMakeParseLibraryArchitecture.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/CMakeRCCompiler.cmake.in C$:/BuildTools/CMake/share/cmake-4.4/Modules/CMakeRCInformation.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/CMakeSystem.cmake.in C$:/BuildTools/CMake/share/cmake-4.4/Modules/CMakeSystemSpecificInformation.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/CMakeSystemSpecificInitialize.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/CMakeTestCXXCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/CMakeTestCompilerCommon.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/CMakeTestRCCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/ADSP-DetermineCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/ARMCC-DetermineCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/ARMClang-DetermineCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/AppleClang-DetermineCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/Borland-DetermineCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/Clang-CXX-CXXImportStd.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/Clang-CXX-FeatureTests.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/Clang-CXX-TestableFeatures.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/Clang-CXX.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/Clang-DetermineCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/Clang-DetermineCompilerInternal.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/Clang-FindBinUtils.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/Clang.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/Compaq-CXX-DetermineCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/Cray-DetermineCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/CrayClang-DetermineCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/Diab-DetermineCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/Embarcadero-DetermineCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/Fujitsu-DetermineCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/FujitsuClang-DetermineCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/GHS-DetermineCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/GNU-CXX-DetermineCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/HP-CXX-DetermineCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/IAR-DetermineCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/IBMCPP-CXX-DetermineVersionInternal.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/IBMClang-CXX-DetermineCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/Intel-DetermineCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/IntelLLVM-DetermineCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/LCC-CXX-DetermineCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/MSVC-DetermineCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/NVHPC-DetermineCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/NVIDIA-DetermineCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/OpenWatcom-DetermineCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/OrangeC-DetermineCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/PGI-DetermineCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/PathScale-DetermineCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/PellesC-DetermineCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/Renesas-DetermineCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/SCO-DetermineCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/SunPro-CXX-DetermineCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/TI-DetermineCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/TIClang-DetermineCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/Tasking-DetermineCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/VisualAge-CXX-DetermineCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/Watcom-DetermineCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/XL-CXX-DetermineCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/XLClang-CXX-DetermineCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Compiler/zOS-CXX-DetermineCompiler.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Internal/CMakeCXXLinkerInformation.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Internal/CMakeCommonLinkerInformation.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Internal/CMakeDetermineLinkerId.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Internal/CMakeInspectCXXLinker.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Internal/FeatureTesting.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Linker/LLD-CXX.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Linker/LLD.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Linker/MSVC.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Platform/Linker/Windows-LLD-CXX.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Platform/Linker/Windows-LLD.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Platform/Linker/Windows-MSVC.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Platform/Windows-Clang-CXX.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Platform/Windows-Clang.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Platform/Windows-Determine-CXX.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Platform/Windows-Initialize.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Platform/Windows.cmake C$:/BuildTools/CMake/share/cmake-4.4/Modules/Platform/WindowsPaths.cmake C$:/Gameprojects/Projects/practice/CMakeLists.txt CMakeCache.txt CMakeFiles/4.4.2/CMakeCXXCompiler.cmake CMakeFiles/4.4.2/CMakeRCCompiler.cmake CMakeFiles/4.4.2/CMakeSystem.cmake: phony
 
 
 #############################################

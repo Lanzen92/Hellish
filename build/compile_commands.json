@@ -1,128 +1,128 @@
 [
 {
-  "directory": "C:/Gameprojects/Projects/Hellish/build",
-  "command": "C:\\BuildTools\\LLVM\\bin\\clang++.exe -IC:/Gameprojects/Projects/Hellish/include -IC:/Gameprojects/Projects/Hellish/src_external -O0 -std=gnu++20 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -g -Xclang -gcodeview -o CMakeFiles\\Hellish_common.dir\\src\\arena.cpp.obj -c C:\\Gameprojects\\Projects\\Hellish\\src\\arena.cpp",
-  "file": "C:/Gameprojects/Projects/Hellish/src/arena.cpp",
-  "output": "C:/Gameprojects/Projects/Hellish/build/CMakeFiles/Hellish_common.dir/src/arena.cpp.obj"
+  "directory": "C:/Gameprojects/Projects/practice/build",
+  "command": "C:\\BuildTools\\LLVM\\bin\\clang++.exe -IC:/Gameprojects/Projects/practice/include -IC:/Gameprojects/Projects/practice/src_external -O0 -std=gnu++20 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -g -Xclang -gcodeview -o CMakeFiles\\Practice_common.dir\\src\\arena.cpp.obj -c C:\\Gameprojects\\Projects\\practice\\src\\arena.cpp",
+  "file": "C:/Gameprojects/Projects/practice/src/arena.cpp",
+  "output": "C:/Gameprojects/Projects/practice/build/CMakeFiles/Practice_common.dir/src/arena.cpp.obj"
 },
 {
-  "directory": "C:/Gameprojects/Projects/Hellish/build",
-  "command": "C:\\BuildTools\\LLVM\\bin\\clang++.exe -IC:/Gameprojects/Projects/Hellish/include -IC:/Gameprojects/Projects/Hellish/src_external -O0 -std=gnu++20 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -g -Xclang -gcodeview -o CMakeFiles\\Hellish_common.dir\\src\\input.cpp.obj -c C:\\Gameprojects\\Projects\\Hellish\\src\\input.cpp",
-  "file": "C:/Gameprojects/Projects/Hellish/src/input.cpp",
-  "output": "C:/Gameprojects/Projects/Hellish/build/CMakeFiles/Hellish_common.dir/src/input.cpp.obj"
+  "directory": "C:/Gameprojects/Projects/practice/build",
+  "command": "C:\\BuildTools\\LLVM\\bin\\clang++.exe -IC:/Gameprojects/Projects/practice/include -IC:/Gameprojects/Projects/practice/src_external -O0 -std=gnu++20 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -g -Xclang -gcodeview -o CMakeFiles\\Practice_common.dir\\src\\input.cpp.obj -c C:\\Gameprojects\\Projects\\practice\\src\\input.cpp",
+  "file": "C:/Gameprojects/Projects/practice/src/input.cpp",
+  "output": "C:/Gameprojects/Projects/practice/build/CMakeFiles/Practice_common.dir/src/input.cpp.obj"
 },
 {
-  "directory": "C:/Gameprojects/Projects/Hellish/build",
-  "command": "C:\\BuildTools\\LLVM\\bin\\clang++.exe -IC:/Gameprojects/Projects/Hellish/include -IC:/Gameprojects/Projects/Hellish/src_external -O0 -std=gnu++20 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -g -Xclang -gcodeview -o CMakeFiles\\Hellish.dir\\src\\main.cpp.obj -c C:\\Gameprojects\\Projects\\Hellish\\src\\main.cpp",
-  "file": "C:/Gameprojects/Projects/Hellish/src/main.cpp",
-  "output": "C:/Gameprojects/Projects/Hellish/build/CMakeFiles/Hellish.dir/src/main.cpp.obj"
+  "directory": "C:/Gameprojects/Projects/practice/build",
+  "command": "C:\\BuildTools\\LLVM\\bin\\clang++.exe -IC:/Gameprojects/Projects/practice/include -IC:/Gameprojects/Projects/practice/src_external -O0 -std=gnu++20 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -g -Xclang -gcodeview -o CMakeFiles\\Practice.dir\\src\\main.cpp.obj -c C:\\Gameprojects\\Projects\\practice\\src\\main.cpp",
+  "file": "C:/Gameprojects/Projects/practice/src/main.cpp",
+  "output": "C:/Gameprojects/Projects/practice/build/CMakeFiles/Practice.dir/src/main.cpp.obj"
 },
 {
-  "directory": "C:/Gameprojects/Projects/Hellish/build",
-  "command": "C:\\BuildTools\\LLVM\\bin\\clang++.exe -DHellish_game_EXPORTS -IC:/Gameprojects/Projects/Hellish/include -IC:/Gameprojects/Projects/Hellish/src_external -O0 -std=gnu++20 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -g -Xclang -gcodeview -o CMakeFiles\\Hellish_game.dir\\src\\arena.cpp.obj -c C:\\Gameprojects\\Projects\\Hellish\\src\\arena.cpp",
-  "file": "C:/Gameprojects/Projects/Hellish/src/arena.cpp",
-  "output": "C:/Gameprojects/Projects/Hellish/build/CMakeFiles/Hellish_game.dir/src/arena.cpp.obj"
+  "directory": "C:/Gameprojects/Projects/practice/build",
+  "command": "C:\\BuildTools\\LLVM\\bin\\clang++.exe -DPractice_game_EXPORTS -IC:/Gameprojects/Projects/practice/include -IC:/Gameprojects/Projects/practice/src_external -O0 -std=gnu++20 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -g -Xclang -gcodeview -o CMakeFiles\\Practice_game.dir\\src\\arena.cpp.obj -c C:\\Gameprojects\\Projects\\practice\\src\\arena.cpp",
+  "file": "C:/Gameprojects/Projects/practice/src/arena.cpp",
+  "output": "C:/Gameprojects/Projects/practice/build/CMakeFiles/Practice_game.dir/src/arena.cpp.obj"
 },
 {
-  "directory": "C:/Gameprojects/Projects/Hellish/build",
-  "command": "C:\\BuildTools\\LLVM\\bin\\clang++.exe -DHellish_game_EXPORTS -IC:/Gameprojects/Projects/Hellish/include -IC:/Gameprojects/Projects/Hellish/src_external -O0 -std=gnu++20 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -g -Xclang -gcodeview -o CMakeFiles\\Hellish_game.dir\\src\\camera.cpp.obj -c C:\\Gameprojects\\Projects\\Hellish\\src\\camera.cpp",
-  "file": "C:/Gameprojects/Projects/Hellish/src/camera.cpp",
-  "output": "C:/Gameprojects/Projects/Hellish/build/CMakeFiles/Hellish_game.dir/src/camera.cpp.obj"
+  "directory": "C:/Gameprojects/Projects/practice/build",
+  "command": "C:\\BuildTools\\LLVM\\bin\\clang++.exe -DPractice_game_EXPORTS -IC:/Gameprojects/Projects/practice/include -IC:/Gameprojects/Projects/practice/src_external -O0 -std=gnu++20 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -g -Xclang -gcodeview -o CMakeFiles\\Practice_game.dir\\src\\camera.cpp.obj -c C:\\Gameprojects\\Projects\\practice\\src\\camera.cpp",
+  "file": "C:/Gameprojects/Projects/practice/src/camera.cpp",
+  "output": "C:/Gameprojects/Projects/practice/build/CMakeFiles/Practice_game.dir/src/camera.cpp.obj"
 },
 {
-  "directory": "C:/Gameprojects/Projects/Hellish/build",
-  "command": "C:\\BuildTools\\LLVM\\bin\\clang++.exe -DHellish_game_EXPORTS -IC:/Gameprojects/Projects/Hellish/include -IC:/Gameprojects/Projects/Hellish/src_external -O0 -std=gnu++20 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -g -Xclang -gcodeview -o CMakeFiles\\Hellish_game.dir\\src\\command.cpp.obj -c C:\\Gameprojects\\Projects\\Hellish\\src\\command.cpp",
-  "file": "C:/Gameprojects/Projects/Hellish/src/command.cpp",
-  "output": "C:/Gameprojects/Projects/Hellish/build/CMakeFiles/Hellish_game.dir/src/command.cpp.obj"
+  "directory": "C:/Gameprojects/Projects/practice/build",
+  "command": "C:\\BuildTools\\LLVM\\bin\\clang++.exe -DPractice_game_EXPORTS -IC:/Gameprojects/Projects/practice/include -IC:/Gameprojects/Projects/practice/src_external -O0 -std=gnu++20 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -g -Xclang -gcodeview -o CMakeFiles\\Practice_game.dir\\src\\command.cpp.obj -c C:\\Gameprojects\\Projects\\practice\\src\\command.cpp",
+  "file": "C:/Gameprojects/Projects/practice/src/command.cpp",
+  "output": "C:/Gameprojects/Projects/practice/build/CMakeFiles/Practice_game.dir/src/command.cpp.obj"
 },
 {
-  "directory": "C:/Gameprojects/Projects/Hellish/build",
-  "command": "C:\\BuildTools\\LLVM\\bin\\clang++.exe -DHellish_game_EXPORTS -IC:/Gameprojects/Projects/Hellish/include -IC:/Gameprojects/Projects/Hellish/src_external -O0 -std=gnu++20 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -g -Xclang -gcodeview -o CMakeFiles\\Hellish_game.dir\\src\\devGui.cpp.obj -c C:\\Gameprojects\\Projects\\Hellish\\src\\devGui.cpp",
-  "file": "C:/Gameprojects/Projects/Hellish/src/devGui.cpp",
-  "output": "C:/Gameprojects/Projects/Hellish/build/CMakeFiles/Hellish_game.dir/src/devGui.cpp.obj"
+  "directory": "C:/Gameprojects/Projects/practice/build",
+  "command": "C:\\BuildTools\\LLVM\\bin\\clang++.exe -DPractice_game_EXPORTS -IC:/Gameprojects/Projects/practice/include -IC:/Gameprojects/Projects/practice/src_external -O0 -std=gnu++20 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -g -Xclang -gcodeview -o CMakeFiles\\Practice_game.dir\\src\\devGui.cpp.obj -c C:\\Gameprojects\\Projects\\practice\\src\\devGui.cpp",
+  "file": "C:/Gameprojects/Projects/practice/src/devGui.cpp",
+  "output": "C:/Gameprojects/Projects/practice/build/CMakeFiles/Practice_game.dir/src/devGui.cpp.obj"
 },
 {
-  "directory": "C:/Gameprojects/Projects/Hellish/build",
-  "command": "C:\\BuildTools\\LLVM\\bin\\clang++.exe -DHellish_game_EXPORTS -IC:/Gameprojects/Projects/Hellish/include -IC:/Gameprojects/Projects/Hellish/src_external -O0 -std=gnu++20 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -g -Xclang -gcodeview -o CMakeFiles\\Hellish_game.dir\\src\\entity.cpp.obj -c C:\\Gameprojects\\Projects\\Hellish\\src\\entity.cpp",
-  "file": "C:/Gameprojects/Projects/Hellish/src/entity.cpp",
-  "output": "C:/Gameprojects/Projects/Hellish/build/CMakeFiles/Hellish_game.dir/src/entity.cpp.obj"
+  "directory": "C:/Gameprojects/Projects/practice/build",
+  "command": "C:\\BuildTools\\LLVM\\bin\\clang++.exe -DPractice_game_EXPORTS -IC:/Gameprojects/Projects/practice/include -IC:/Gameprojects/Projects/practice/src_external -O0 -std=gnu++20 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -g -Xclang -gcodeview -o CMakeFiles\\Practice_game.dir\\src\\entity.cpp.obj -c C:\\Gameprojects\\Projects\\practice\\src\\entity.cpp",
+  "file": "C:/Gameprojects/Projects/practice/src/entity.cpp",
+  "output": "C:/Gameprojects/Projects/practice/build/CMakeFiles/Practice_game.dir/src/entity.cpp.obj"
 },
 {
-  "directory": "C:/Gameprojects/Projects/Hellish/build",
-  "command": "C:\\BuildTools\\LLVM\\bin\\clang++.exe -DHellish_game_EXPORTS -IC:/Gameprojects/Projects/Hellish/include -IC:/Gameprojects/Projects/Hellish/src_external -O0 -std=gnu++20 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -g -Xclang -gcodeview -o CMakeFiles\\Hellish_game.dir\\src\\game.cpp.obj -c C:\\Gameprojects\\Projects\\Hellish\\src\\game.cpp",
-  "file": "C:/Gameprojects/Projects/Hellish/src/game.cpp",
-  "output": "C:/Gameprojects/Projects/Hellish/build/CMakeFiles/Hellish_game.dir/src/game.cpp.obj"
+  "directory": "C:/Gameprojects/Projects/practice/build",
+  "command": "C:\\BuildTools\\LLVM\\bin\\clang++.exe -DPractice_game_EXPORTS -IC:/Gameprojects/Projects/practice/include -IC:/Gameprojects/Projects/practice/src_external -O0 -std=gnu++20 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -g -Xclang -gcodeview -o CMakeFiles\\Practice_game.dir\\src\\game.cpp.obj -c C:\\Gameprojects\\Projects\\practice\\src\\game.cpp",
+  "file": "C:/Gameprojects/Projects/practice/src/game.cpp",
+  "output": "C:/Gameprojects/Projects/practice/build/CMakeFiles/Practice_game.dir/src/game.cpp.obj"
 },
 {
-  "directory": "C:/Gameprojects/Projects/Hellish/build",
-  "command": "C:\\BuildTools\\LLVM\\bin\\clang++.exe -DHellish_game_EXPORTS -IC:/Gameprojects/Projects/Hellish/include -IC:/Gameprojects/Projects/Hellish/src_external -O0 -std=gnu++20 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -g -Xclang -gcodeview -o CMakeFiles\\Hellish_game.dir\\src\\input.cpp.obj -c C:\\Gameprojects\\Projects\\Hellish\\src\\input.cpp",
-  "file": "C:/Gameprojects/Projects/Hellish/src/input.cpp",
-  "output": "C:/Gameprojects/Projects/Hellish/build/CMakeFiles/Hellish_game.dir/src/input.cpp.obj"
+  "directory": "C:/Gameprojects/Projects/practice/build",
+  "command": "C:\\BuildTools\\LLVM\\bin\\clang++.exe -DPractice_game_EXPORTS -IC:/Gameprojects/Projects/practice/include -IC:/Gameprojects/Projects/practice/src_external -O0 -std=gnu++20 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -g -Xclang -gcodeview -o CMakeFiles\\Practice_game.dir\\src\\input.cpp.obj -c C:\\Gameprojects\\Projects\\practice\\src\\input.cpp",
+  "file": "C:/Gameprojects/Projects/practice/src/input.cpp",
+  "output": "C:/Gameprojects/Projects/practice/build/CMakeFiles/Practice_game.dir/src/input.cpp.obj"
 },
 {
-  "directory": "C:/Gameprojects/Projects/Hellish/build",
-  "command": "C:\\BuildTools\\LLVM\\bin\\clang++.exe -DHellish_game_EXPORTS -IC:/Gameprojects/Projects/Hellish/include -IC:/Gameprojects/Projects/Hellish/src_external -O0 -std=gnu++20 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -g -Xclang -gcodeview -o CMakeFiles\\Hellish_game.dir\\src\\level.cpp.obj -c C:\\Gameprojects\\Projects\\Hellish\\src\\level.cpp",
-  "file": "C:/Gameprojects/Projects/Hellish/src/level.cpp",
-  "output": "C:/Gameprojects/Projects/Hellish/build/CMakeFiles/Hellish_game.dir/src/level.cpp.obj"
+  "directory": "C:/Gameprojects/Projects/practice/build",
+  "command": "C:\\BuildTools\\LLVM\\bin\\clang++.exe -DPractice_game_EXPORTS -IC:/Gameprojects/Projects/practice/include -IC:/Gameprojects/Projects/practice/src_external -O0 -std=gnu++20 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -g -Xclang -gcodeview -o CMakeFiles\\Practice_game.dir\\src\\level.cpp.obj -c C:\\Gameprojects\\Projects\\practice\\src\\level.cpp",
+  "file": "C:/Gameprojects/Projects/practice/src/level.cpp",
+  "output": "C:/Gameprojects/Projects/practice/build/CMakeFiles/Practice_game.dir/src/level.cpp.obj"
 },
 {
-  "directory": "C:/Gameprojects/Projects/Hellish/build",
-  "command": "C:\\BuildTools\\LLVM\\bin\\clang++.exe -DHellish_game_EXPORTS -IC:/Gameprojects/Projects/Hellish/include -IC:/Gameprojects/Projects/Hellish/src_external -O0 -std=gnu++20 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -g -Xclang -gcodeview -o CMakeFiles\\Hellish_game.dir\\src\\levelEditor.cpp.obj -c C:\\Gameprojects\\Projects\\Hellish\\src\\levelEditor.cpp",
-  "file": "C:/Gameprojects/Projects/Hellish/src/levelEditor.cpp",
-  "output": "C:/Gameprojects/Projects/Hellish/build/CMakeFiles/Hellish_game.dir/src/levelEditor.cpp.obj"
+  "directory": "C:/Gameprojects/Projects/practice/build",
+  "command": "C:\\BuildTools\\LLVM\\bin\\clang++.exe -DPractice_game_EXPORTS -IC:/Gameprojects/Projects/practice/include -IC:/Gameprojects/Projects/practice/src_external -O0 -std=gnu++20 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -g -Xclang -gcodeview -o CMakeFiles\\Practice_game.dir\\src\\levelEditor.cpp.obj -c C:\\Gameprojects\\Projects\\practice\\src\\levelEditor.cpp",
+  "file": "C:/Gameprojects/Projects/practice/src/levelEditor.cpp",
+  "output": "C:/Gameprojects/Projects/practice/build/CMakeFiles/Practice_game.dir/src/levelEditor.cpp.obj"
 },
 {
-  "directory": "C:/Gameprojects/Projects/Hellish/build",
-  "command": "C:\\BuildTools\\LLVM\\bin\\clang++.exe -DHellish_game_EXPORTS -IC:/Gameprojects/Projects/Hellish/include -IC:/Gameprojects/Projects/Hellish/src_external -O0 -std=gnu++20 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -g -Xclang -gcodeview -o CMakeFiles\\Hellish_game.dir\\src\\levelRenderer.cpp.obj -c C:\\Gameprojects\\Projects\\Hellish\\src\\levelRenderer.cpp",
-  "file": "C:/Gameprojects/Projects/Hellish/src/levelRenderer.cpp",
-  "output": "C:/Gameprojects/Projects/Hellish/build/CMakeFiles/Hellish_game.dir/src/levelRenderer.cpp.obj"
+  "directory": "C:/Gameprojects/Projects/practice/build",
+  "command": "C:\\BuildTools\\LLVM\\bin\\clang++.exe -DPractice_game_EXPORTS -IC:/Gameprojects/Projects/practice/include -IC:/Gameprojects/Projects/practice/src_external -O0 -std=gnu++20 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -g -Xclang -gcodeview -o CMakeFiles\\Practice_game.dir\\src\\levelRenderer.cpp.obj -c C:\\Gameprojects\\Projects\\practice\\src\\levelRenderer.cpp",
+  "file": "C:/Gameprojects/Projects/practice/src/levelRenderer.cpp",
+  "output": "C:/Gameprojects/Projects/practice/build/CMakeFiles/Practice_game.dir/src/levelRenderer.cpp.obj"
 },
 {
-  "directory": "C:/Gameprojects/Projects/Hellish/build",
-  "command": "C:\\BuildTools\\LLVM\\bin\\clang++.exe -DHellish_game_EXPORTS -IC:/Gameprojects/Projects/Hellish/include -IC:/Gameprojects/Projects/Hellish/src_external -O0 -std=gnu++20 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -g -Xclang -gcodeview -o CMakeFiles\\Hellish_game.dir\\src\\rendering.cpp.obj -c C:\\Gameprojects\\Projects\\Hellish\\src\\rendering.cpp",
-  "file": "C:/Gameprojects/Projects/Hellish/src/rendering.cpp",
-  "output": "C:/Gameprojects/Projects/Hellish/build/CMakeFiles/Hellish_game.dir/src/rendering.cpp.obj"
+  "directory": "C:/Gameprojects/Projects/practice/build",
+  "command": "C:\\BuildTools\\LLVM\\bin\\clang++.exe -DPractice_game_EXPORTS -IC:/Gameprojects/Projects/practice/include -IC:/Gameprojects/Projects/practice/src_external -O0 -std=gnu++20 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -g -Xclang -gcodeview -o CMakeFiles\\Practice_game.dir\\src\\rendering.cpp.obj -c C:\\Gameprojects\\Projects\\practice\\src\\rendering.cpp",
+  "file": "C:/Gameprojects/Projects/practice/src/rendering.cpp",
+  "output": "C:/Gameprojects/Projects/practice/build/CMakeFiles/Practice_game.dir/src/rendering.cpp.obj"
 },
 {
-  "directory": "C:/Gameprojects/Projects/Hellish/build",
-  "command": "C:\\BuildTools\\LLVM\\bin\\clang++.exe -DHellish_game_EXPORTS -IC:/Gameprojects/Projects/Hellish/include -IC:/Gameprojects/Projects/Hellish/src_external -O0 -std=gnu++20 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -g -Xclang -gcodeview -o CMakeFiles\\Hellish_game.dir\\src\\spriteLibrary.cpp.obj -c C:\\Gameprojects\\Projects\\Hellish\\src\\spriteLibrary.cpp",
-  "file": "C:/Gameprojects/Projects/Hellish/src/spriteLibrary.cpp",
-  "output": "C:/Gameprojects/Projects/Hellish/build/CMakeFiles/Hellish_game.dir/src/spriteLibrary.cpp.obj"
+  "directory": "C:/Gameprojects/Projects/practice/build",
+  "command": "C:\\BuildTools\\LLVM\\bin\\clang++.exe -DPractice_game_EXPORTS -IC:/Gameprojects/Projects/practice/include -IC:/Gameprojects/Projects/practice/src_external -O0 -std=gnu++20 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -g -Xclang -gcodeview -o CMakeFiles\\Practice_game.dir\\src\\spriteLibrary.cpp.obj -c C:\\Gameprojects\\Projects\\practice\\src\\spriteLibrary.cpp",
+  "file": "C:/Gameprojects/Projects/practice/src/spriteLibrary.cpp",
+  "output": "C:/Gameprojects/Projects/practice/build/CMakeFiles/Practice_game.dir/src/spriteLibrary.cpp.obj"
 },
 {
-  "directory": "C:/Gameprojects/Projects/Hellish/build",
-  "command": "C:\\BuildTools\\LLVM\\bin\\clang++.exe -DHellish_game_EXPORTS -IC:/Gameprojects/Projects/Hellish/include -IC:/Gameprojects/Projects/Hellish/src_external -O0 -std=gnu++20 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -g -Xclang -gcodeview -o CMakeFiles\\Hellish_game.dir\\src_external\\imgui\\imgui.cpp.obj -c C:\\Gameprojects\\Projects\\Hellish\\src_external\\imgui\\imgui.cpp",
-  "file": "C:/Gameprojects/Projects/Hellish/src_external/imgui/imgui.cpp",
-  "output": "C:/Gameprojects/Projects/Hellish/build/CMakeFiles/Hellish_game.dir/src_external/imgui/imgui.cpp.obj"
+  "directory": "C:/Gameprojects/Projects/practice/build",
+  "command": "C:\\BuildTools\\LLVM\\bin\\clang++.exe -DPractice_game_EXPORTS -IC:/Gameprojects/Projects/practice/include -IC:/Gameprojects/Projects/practice/src_external -O0 -std=gnu++20 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -g -Xclang -gcodeview -o CMakeFiles\\Practice_game.dir\\src_external\\imgui\\imgui.cpp.obj -c C:\\Gameprojects\\Projects\\practice\\src_external\\imgui\\imgui.cpp",
+  "file": "C:/Gameprojects/Projects/practice/src_external/imgui/imgui.cpp",
+  "output": "C:/Gameprojects/Projects/practice/build/CMakeFiles/Practice_game.dir/src_external/imgui/imgui.cpp.obj"
 },
 {
-  "directory": "C:/Gameprojects/Projects/Hellish/build",
-  "command": "C:\\BuildTools\\LLVM\\bin\\clang++.exe -DHellish_game_EXPORTS -IC:/Gameprojects/Projects/Hellish/include -IC:/Gameprojects/Projects/Hellish/src_external -O0 -std=gnu++20 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -g -Xclang -gcodeview -o CMakeFiles\\Hellish_game.dir\\src_external\\imgui\\imgui_draw.cpp.obj -c C:\\Gameprojects\\Projects\\Hellish\\src_external\\imgui\\imgui_draw.cpp",
-  "file": "C:/Gameprojects/Projects/Hellish/src_external/imgui/imgui_draw.cpp",
-  "output": "C:/Gameprojects/Projects/Hellish/build/CMakeFiles/Hellish_game.dir/src_external/imgui/imgui_draw.cpp.obj"
+  "directory": "C:/Gameprojects/Projects/practice/build",
+  "command": "C:\\BuildTools\\LLVM\\bin\\clang++.exe -DPractice_game_EXPORTS -IC:/Gameprojects/Projects/practice/include -IC:/Gameprojects/Projects/practice/src_external -O0 -std=gnu++20 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -g -Xclang -gcodeview -o CMakeFiles\\Practice_game.dir\\src_external\\imgui\\imgui_draw.cpp.obj -c C:\\Gameprojects\\Projects\\practice\\src_external\\imgui\\imgui_draw.cpp",
+  "file": "C:/Gameprojects/Projects/practice/src_external/imgui/imgui_draw.cpp",
+  "output": "C:/Gameprojects/Projects/practice/build/CMakeFiles/Practice_game.dir/src_external/imgui/imgui_draw.cpp.obj"
 },
 {
-  "directory": "C:/Gameprojects/Projects/Hellish/build",
-  "command": "C:\\BuildTools\\LLVM\\bin\\clang++.exe -DHellish_game_EXPORTS -IC:/Gameprojects/Projects/Hellish/include -IC:/Gameprojects/Projects/Hellish/src_external -O0 -std=gnu++20 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -g -Xclang -gcodeview -o CMakeFiles\\Hellish_game.dir\\src_external\\imgui\\imgui_tables.cpp.obj -c C:\\Gameprojects\\Projects\\Hellish\\src_external\\imgui\\imgui_tables.cpp",
-  "file": "C:/Gameprojects/Projects/Hellish/src_external/imgui/imgui_tables.cpp",
-  "output": "C:/Gameprojects/Projects/Hellish/build/CMakeFiles/Hellish_game.dir/src_external/imgui/imgui_tables.cpp.obj"
+  "directory": "C:/Gameprojects/Projects/practice/build",
+  "command": "C:\\BuildTools\\LLVM\\bin\\clang++.exe -DPractice_game_EXPORTS -IC:/Gameprojects/Projects/practice/include -IC:/Gameprojects/Projects/practice/src_external -O0 -std=gnu++20 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -g -Xclang -gcodeview -o CMakeFiles\\Practice_game.dir\\src_external\\imgui\\imgui_tables.cpp.obj -c C:\\Gameprojects\\Projects\\practice\\src_external\\imgui\\imgui_tables.cpp",
+  "file": "C:/Gameprojects/Projects/practice/src_external/imgui/imgui_tables.cpp",
+  "output": "C:/Gameprojects/Projects/practice/build/CMakeFiles/Practice_game.dir/src_external/imgui/imgui_tables.cpp.obj"
 },
 {
-  "directory": "C:/Gameprojects/Projects/Hellish/build",
-  "command": "C:\\BuildTools\\LLVM\\bin\\clang++.exe -DHellish_game_EXPORTS -IC:/Gameprojects/Projects/Hellish/include -IC:/Gameprojects/Projects/Hellish/src_external -O0 -std=gnu++20 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -g -Xclang -gcodeview -o CMakeFiles\\Hellish_game.dir\\src_external\\imgui\\imgui_widgets.cpp.obj -c C:\\Gameprojects\\Projects\\Hellish\\src_external\\imgui\\imgui_widgets.cpp",
-  "file": "C:/Gameprojects/Projects/Hellish/src_external/imgui/imgui_widgets.cpp",
-  "output": "C:/Gameprojects/Projects/Hellish/build/CMakeFiles/Hellish_game.dir/src_external/imgui/imgui_widgets.cpp.obj"
+  "directory": "C:/Gameprojects/Projects/practice/build",
+  "command": "C:\\BuildTools\\LLVM\\bin\\clang++.exe -DPractice_game_EXPORTS -IC:/Gameprojects/Projects/practice/include -IC:/Gameprojects/Projects/practice/src_external -O0 -std=gnu++20 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -g -Xclang -gcodeview -o CMakeFiles\\Practice_game.dir\\src_external\\imgui\\imgui_widgets.cpp.obj -c C:\\Gameprojects\\Projects\\practice\\src_external\\imgui\\imgui_widgets.cpp",
+  "file": "C:/Gameprojects/Projects/practice/src_external/imgui/imgui_widgets.cpp",
+  "output": "C:/Gameprojects/Projects/practice/build/CMakeFiles/Practice_game.dir/src_external/imgui/imgui_widgets.cpp.obj"
 },
 {
-  "directory": "C:/Gameprojects/Projects/Hellish/build",
-  "command": "C:\\BuildTools\\LLVM\\bin\\clang++.exe -DHellish_game_EXPORTS -IC:/Gameprojects/Projects/Hellish/include -IC:/Gameprojects/Projects/Hellish/src_external -O0 -std=gnu++20 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -g -Xclang -gcodeview -o CMakeFiles\\Hellish_game.dir\\src_external\\imgui\\imgui_impl_sdlrenderer3.cpp.obj -c C:\\Gameprojects\\Projects\\Hellish\\src_external\\imgui\\imgui_impl_sdlrenderer3.cpp",
-  "file": "C:/Gameprojects/Projects/Hellish/src_external/imgui/imgui_impl_sdlrenderer3.cpp",
-  "output": "C:/Gameprojects/Projects/Hellish/build/CMakeFiles/Hellish_game.dir/src_external/imgui/imgui_impl_sdlrenderer3.cpp.obj"
+  "directory": "C:/Gameprojects/Projects/practice/build",
+  "command": "C:\\BuildTools\\LLVM\\bin\\clang++.exe -DPractice_game_EXPORTS -IC:/Gameprojects/Projects/practice/include -IC:/Gameprojects/Projects/practice/src_external -O0 -std=gnu++20 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -g -Xclang -gcodeview -o CMakeFiles\\Practice_game.dir\\src_external\\imgui\\imgui_impl_sdlrenderer3.cpp.obj -c C:\\Gameprojects\\Projects\\practice\\src_external\\imgui\\imgui_impl_sdlrenderer3.cpp",
+  "file": "C:/Gameprojects/Projects/practice/src_external/imgui/imgui_impl_sdlrenderer3.cpp",
+  "output": "C:/Gameprojects/Projects/practice/build/CMakeFiles/Practice_game.dir/src_external/imgui/imgui_impl_sdlrenderer3.cpp.obj"
 },
 {
-  "directory": "C:/Gameprojects/Projects/Hellish/build",
-  "command": "C:\\BuildTools\\LLVM\\bin\\clang++.exe -DHellish_game_EXPORTS -IC:/Gameprojects/Projects/Hellish/include -IC:/Gameprojects/Projects/Hellish/src_external -O0 -std=gnu++20 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -g -Xclang -gcodeview -o CMakeFiles\\Hellish_game.dir\\src_external\\imgui\\imgui_impl_sdl3.cpp.obj -c C:\\Gameprojects\\Projects\\Hellish\\src_external\\imgui\\imgui_impl_sdl3.cpp",
-  "file": "C:/Gameprojects/Projects/Hellish/src_external/imgui/imgui_impl_sdl3.cpp",
-  "output": "C:/Gameprojects/Projects/Hellish/build/CMakeFiles/Hellish_game.dir/src_external/imgui/imgui_impl_sdl3.cpp.obj"
+  "directory": "C:/Gameprojects/Projects/practice/build",
+  "command": "C:\\BuildTools\\LLVM\\bin\\clang++.exe -DPractice_game_EXPORTS -IC:/Gameprojects/Projects/practice/include -IC:/Gameprojects/Projects/practice/src_external -O0 -std=gnu++20 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -g -Xclang -gcodeview -o CMakeFiles\\Practice_game.dir\\src_external\\imgui\\imgui_impl_sdl3.cpp.obj -c C:\\Gameprojects\\Projects\\practice\\src_external\\imgui\\imgui_impl_sdl3.cpp",
+  "file": "C:/Gameprojects/Projects/practice/src_external/imgui/imgui_impl_sdl3.cpp",
+  "output": "C:/Gameprojects/Projects/practice/build/CMakeFiles/Practice_game.dir/src_external/imgui/imgui_impl_sdl3.cpp.obj"
 }
 ]
