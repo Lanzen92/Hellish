@@ -29,7 +29,7 @@ void camera::WorldToGrid(float xWorld, float yWorld, int* x, int* y, const Level
   *x /= CELL_SIZE_PX;
     
   *y += level->h * CELL_SIZE_PX / 2.0;
-  *y -= SCREEN_WIDTH / 2.0;
+  *y -= SCREEN_HEIGHT / 2.0;
   *y /= CELL_SIZE_PX;
 }
 

@@ -10,14 +10,14 @@ struct Sprite {
 };
 
 enum class SPRITE_ID {
-  Fallback,
-  Ground,
-  Wall,
-  Rock,
-  Demon,
-  Medusa,
-  Golem,
-  Ghost
+  Fallback = 0,
+  Wall = 1,
+  Ground = 2,
+  Demon = 3,
+  Rock = 4,
+  Medusa = 5,
+  Golem = 6,
+  Ghost = 7
 };
 
 struct SpriteDataEntry {
