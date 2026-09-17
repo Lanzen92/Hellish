@@ -14,8 +14,8 @@ static const SpriteDataEntry allSpriteData[] = {
     {   SPRITE_ID::Demon,    "assets/sprites/player.png"    },
     {   SPRITE_ID::Rock,     "assets/sprites/box.png"       },
     {   SPRITE_ID::Medusa,   "assets/sprites/medusa.png"    },
-    {   SPRITE_ID::Golem,    "assets/sprites/golem.png"     },
-    {   SPRITE_ID::Ghost,    "assets/sprites/ghost.png"     },
+    //{   SPRITE_ID::Golem,    "assets/sprites/golem.png"     },
+    //{   SPRITE_ID::Ghost,    "assets/sprites/ghost.png"     },
 };
 
 Sprite* GetSpriteFromID(ID id, Sprite* spriteBuffer) {
@@ -25,12 +25,10 @@ Sprite* GetSpriteFromID(ID id, Sprite* spriteBuffer) {
       return nullptr;
       
     case ID::GROUND:
-      //SDL_Log("Matched GROUND, returning buffer index: %d",  (int)SPRITE_ID::Ground);
       return &spriteBuffer[(int)SPRITE_ID::Ground];
       break;
 
     case ID::WALL:
-      //SDL_Log("Matched WALL, returning buffer index: %d", (int)SPRITE_ID::Wall);
       return &spriteBuffer[(int)SPRITE_ID::Wall];
       break;
 
@@ -66,7 +64,7 @@ Sprite* GetSpriteFromID(ID id, Sprite* spriteBuffer) {
       SDL_Log("=========== LOADED TEXTURES ===========");
 
       for (SpriteDataEntry entry : allSpriteData) {
-        AssetManagement::LoadSprite(spriteBuffer, entry, renderer);
+        LoadSprite(spriteBuffer, entry, renderer);
         
       }
     }
@@ -81,6 +79,7 @@ Sprite* GetSpriteFromID(ID id, Sprite* spriteBuffer) {
       assert(surface != nullptr);
 
       SDL_Texture* texture = SDL_CreateTextureFromSurface(renderer, surface);
+      SDL_SetTextureBlendMode(texture, SDL_BLENDMODE_BLEND);
       Sprite* sprite = &spriteBuffer[(int)entry.id];
       sprite->texture = texture;
       sprite->height = texture->h;

@@ -6,6 +6,8 @@
 #include "arena.h"
 #include "level.h"
 #include "entity.h"
+#include "SDL3_image/SDL_image.h"
+
 
 using namespace std;
 

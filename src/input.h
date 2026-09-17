@@ -7,7 +7,8 @@
 enum class MouseButtons {
   LEFT = 0,
   MIDDLE = 1,
-  RIGHT = 2
+  RIGHT = 2, 
+  COUNT = 3 
 };
 
 struct Input {

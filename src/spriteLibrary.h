@@ -3,12 +3,6 @@
 #include "SDL3/SDL_render.h"
 #include "entity.h"
 
-struct Sprite {
-  SDL_Texture* texture;
-  int width;
-  int height;
-};
-
 enum class SPRITE_ID {
   Fallback = 0,
   Wall = 1,
@@ -18,6 +12,12 @@ enum class SPRITE_ID {
   Medusa = 5,
   Golem = 6,
   Ghost = 7
+};
+
+struct Sprite {
+  SDL_Texture* texture;
+  int width;
+  int height;
 };
 
 struct SpriteDataEntry {

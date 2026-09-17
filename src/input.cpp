@@ -64,6 +64,10 @@ SDL_MouseButtonFlags ButtonToFlag(MouseButtons button) {
       return SDL_BUTTON_MMASK;
     case MouseButtons::RIGHT:
       return SDL_BUTTON_RMASK;
+      break;
+      case MouseButtons::COUNT:
+      return -1;
+      break;
   }
 }
 

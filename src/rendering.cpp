@@ -22,7 +22,7 @@ void RenderSpriteWorld(Sprite* sprite, SDL_Renderer* renderer, const Camera* cam
   rect.x -= camera->cameraX;
   rect.y -= camera->cameraY;
 
-  SDL_SetTextureAlphaMod(sprite->texture, alpha);
+  SDL_SetTextureAlphaModFloat(sprite->texture, alpha);
   SDL_RenderTexture(renderer, sprite->texture, NULL, &rect);
 }
 

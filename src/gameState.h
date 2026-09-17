@@ -12,6 +12,8 @@
 #include "input.h"
 #include "camera.h"
 
+enum class GAME_STATES { PLAY, BUILD };
+
 struct GameData {
 
   const float* dt;
