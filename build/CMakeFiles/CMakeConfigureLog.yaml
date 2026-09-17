@@ -453,7 +453,7 @@ events:
       Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "a.exe"
       
       The CXX compiler identification is Clang, found in:
-        C:/Gameprojects/Projects/practice/build/CMakeFiles/4.4.2/CompilerIdCXX/a.exe
+        C:/Gameprojects/Projects/Hellish/build/CMakeFiles/4.4.2/CompilerIdCXX/a.exe
       
   -
     kind: "message-v1"
@@ -2563,9 +2563,9 @@ events:
       - "C:/BuildTools/CMake/bin/"
       - "C:/BuildTools/CMake/sbin/"
       - "C:/BuildTools/CMake/"
-      - "C:/Program Files (x86)/Practice/bin/"
-      - "C:/Program Files (x86)/Practice/sbin/"
-      - "C:/Program Files (x86)/Practice/"
+      - "C:/Program Files (x86)/Hellish/bin/"
+      - "C:/Program Files (x86)/Hellish/sbin/"
+      - "C:/Program Files (x86)/Hellish/"
     searched_directories:
       - "C:/Windows/System32/rc.com"
       - "C:/Windows/System32/rc.exe"
@@ -2660,15 +2660,15 @@ events:
       - "C:/BuildTools/CMake/rc.com"
       - "C:/BuildTools/CMake/rc.exe"
       - "C:/BuildTools/CMake/rc"
-      - "C:/Program Files (x86)/Practice/bin/rc.com"
-      - "C:/Program Files (x86)/Practice/bin/rc.exe"
-      - "C:/Program Files (x86)/Practice/bin/rc"
-      - "C:/Program Files (x86)/Practice/sbin/rc.com"
-      - "C:/Program Files (x86)/Practice/sbin/rc.exe"
-      - "C:/Program Files (x86)/Practice/sbin/rc"
-      - "C:/Program Files (x86)/Practice/rc.com"
-      - "C:/Program Files (x86)/Practice/rc.exe"
-      - "C:/Program Files (x86)/Practice/rc"
+      - "C:/Program Files (x86)/Hellish/bin/rc.com"
+      - "C:/Program Files (x86)/Hellish/bin/rc.exe"
+      - "C:/Program Files (x86)/Hellish/bin/rc"
+      - "C:/Program Files (x86)/Hellish/sbin/rc.com"
+      - "C:/Program Files (x86)/Hellish/sbin/rc.exe"
+      - "C:/Program Files (x86)/Hellish/sbin/rc"
+      - "C:/Program Files (x86)/Hellish/rc.com"
+      - "C:/Program Files (x86)/Hellish/rc.exe"
+      - "C:/Program Files (x86)/Hellish/rc"
     found: false
     search_context:
       ENV{PATH}:
@@ -2703,12 +2703,12 @@ events:
         - "C:\\Users\\Rbnln\\.dotnet\\tools"
         - "C:\\Users\\Rbnln\\AppData\\Local\\PowerToys\\DSCModules\\"
         - "C:\\Users\\Rbnln\\AppData\\Local\\GitHubDesktop\\bin"
-      CMAKE_INSTALL_PREFIX: "C:/Program Files (x86)/Practice"
+      CMAKE_INSTALL_PREFIX: "C:/Program Files (x86)/Hellish"
       CMAKE_SYSTEM_PREFIX_PATH:
         - "C:/Program Files"
         - "C:/Program Files (x86)"
         - "C:/BuildTools/CMake"
-        - "C:/Program Files (x86)/Practice"
+        - "C:/Program Files (x86)/Hellish"
   -
     kind: "find-v1"
     backtrace:
@@ -2761,9 +2761,9 @@ events:
       - "C:/BuildTools/CMake/bin/"
       - "C:/BuildTools/CMake/sbin/"
       - "C:/BuildTools/CMake/"
-      - "C:/Program Files (x86)/Practice/bin/"
-      - "C:/Program Files (x86)/Practice/sbin/"
-      - "C:/Program Files (x86)/Practice/"
+      - "C:/Program Files (x86)/Hellish/bin/"
+      - "C:/Program Files (x86)/Hellish/sbin/"
+      - "C:/Program Files (x86)/Hellish/"
     searched_directories:
       - "C:/Windows/System32/llvm-rc.com"
       - "C:/Windows/System32/llvm-rc.exe"
@@ -2854,12 +2854,12 @@ events:
         - "C:\\Users\\Rbnln\\.dotnet\\tools"
         - "C:\\Users\\Rbnln\\AppData\\Local\\PowerToys\\DSCModules\\"
         - "C:\\Users\\Rbnln\\AppData\\Local\\GitHubDesktop\\bin"
-      CMAKE_INSTALL_PREFIX: "C:/Program Files (x86)/Practice"
+      CMAKE_INSTALL_PREFIX: "C:/Program Files (x86)/Hellish"
       CMAKE_SYSTEM_PREFIX_PATH:
         - "C:/Program Files"
         - "C:/Program Files (x86)"
         - "C:/BuildTools/CMake"
-        - "C:/Program Files (x86)/Practice"
+        - "C:/Program Files (x86)/Hellish"
   -
     kind: "find-v1"
     backtrace:
@@ -2915,9 +2915,9 @@ events:
       - "C:/BuildTools/CMake/bin/"
       - "C:/BuildTools/CMake/sbin/"
       - "C:/BuildTools/CMake/"
-      - "C:/Program Files (x86)/Practice/bin/"
-      - "C:/Program Files (x86)/Practice/sbin/"
-      - "C:/Program Files (x86)/Practice/"
+      - "C:/Program Files (x86)/Hellish/bin/"
+      - "C:/Program Files (x86)/Hellish/sbin/"
+      - "C:/Program Files (x86)/Hellish/"
     searched_directories:
       - "C:/Windows/System32/llvm-rc.com"
       - "C:/Windows/System32/llvm-rc.exe"
@@ -3008,12 +3008,12 @@ events:
         - "C:\\Users\\Rbnln\\.dotnet\\tools"
         - "C:\\Users\\Rbnln\\AppData\\Local\\PowerToys\\DSCModules\\"
         - "C:\\Users\\Rbnln\\AppData\\Local\\GitHubDesktop\\bin"
-      CMAKE_INSTALL_PREFIX: "C:/Program Files (x86)/Practice"
+      CMAKE_INSTALL_PREFIX: "C:/Program Files (x86)/Hellish"
       CMAKE_SYSTEM_PREFIX_PATH:
         - "C:/Program Files"
         - "C:/Program Files (x86)"
         - "C:/BuildTools/CMake"
-        - "C:/Program Files (x86)/Practice"
+        - "C:/Program Files (x86)/Hellish"
   -
     kind: "try_compile-v1"
     backtrace:
@@ -3023,8 +3023,8 @@ events:
     checks:
       - "Detecting CXX compiler ABI info"
     directories:
-      source: "C:/Gameprojects/Projects/practice/build/CMakeFiles/CMakeScratch/TryCompile-jr78bn"
-      binary: "C:/Gameprojects/Projects/practice/build/CMakeFiles/CMakeScratch/TryCompile-jr78bn"
+      source: "C:/Gameprojects/Projects/Hellish/build/CMakeFiles/CMakeScratch/TryCompile-sxfqbs"
+      binary: "C:/Gameprojects/Projects/Hellish/build/CMakeFiles/CMakeScratch/TryCompile-sxfqbs"
     cmakeVariables:
       CMAKE_CXX_COMPILER_CLANG_SCAN_DEPS: "C:/BuildTools/LLVM/bin/clang-scan-deps.exe"
       CMAKE_CXX_FLAGS: ""
@@ -3036,16 +3036,16 @@ events:
       variable: "CMAKE_CXX_ABI_COMPILED"
       cached: false
       stdout: |
-        Change Dir: 'C:/Gameprojects/Projects/practice/build/CMakeFiles/CMakeScratch/TryCompile-jr78bn'
+        Change Dir: 'C:/Gameprojects/Projects/Hellish/build/CMakeFiles/CMakeScratch/TryCompile-sxfqbs'
         
-        Run Build Command(s): C:/BuildTools/Ninja/ninja.exe -v cmTC_baca8
-        [1/2] C:\\BuildTools\\LLVM\\bin\\clang++.exe -D_MBCS  -O0 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -g -Xclang -gcodeview -MD -MT CMakeFiles/cmTC_baca8.dir/CMakeCXXCompilerABI.cpp.obj -MF CMakeFiles\\cmTC_baca8.dir\\CMakeCXXCompilerABI.cpp.obj.d -o CMakeFiles/cmTC_baca8.dir/CMakeCXXCompilerABI.cpp.obj -c C:/BuildTools/CMake/share/cmake-4.4/Modules/CMakeCXXCompilerABI.cpp
-        [2/2] C:\\Windows\\system32\\cmd.exe /C "cd . && C:\\BuildTools\\LLVM\\bin\\clang++.exe -nostartfiles -nostdlib -O0 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -g -Xclang -gcodeview -v -Xlinker /subsystem:console -fuse-ld=lld CMakeFiles/cmTC_baca8.dir/CMakeCXXCompilerABI.cpp.obj -o cmTC_baca8.exe -Xlinker /MANIFEST:EMBED -Xlinker /implib:cmTC_baca8.lib -Xlinker /pdb:cmTC_baca8.pdb -Xlinker /version:0.0     && cd ."
+        Run Build Command(s): C:/BuildTools/Ninja/ninja.exe -v cmTC_772e1
+        [1/2] C:\\BuildTools\\LLVM\\bin\\clang++.exe -D_MBCS  -O0 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -g -Xclang -gcodeview -MD -MT CMakeFiles/cmTC_772e1.dir/CMakeCXXCompilerABI.cpp.obj -MF CMakeFiles\\cmTC_772e1.dir\\CMakeCXXCompilerABI.cpp.obj.d -o CMakeFiles/cmTC_772e1.dir/CMakeCXXCompilerABI.cpp.obj -c C:/BuildTools/CMake/share/cmake-4.4/Modules/CMakeCXXCompilerABI.cpp
+        [2/2] C:\\Windows\\system32\\cmd.exe /C "cd . && C:\\BuildTools\\LLVM\\bin\\clang++.exe -nostartfiles -nostdlib -O0 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -g -Xclang -gcodeview -v -Xlinker /subsystem:console -fuse-ld=lld CMakeFiles/cmTC_772e1.dir/CMakeCXXCompilerABI.cpp.obj -o cmTC_772e1.exe -Xlinker /MANIFEST:EMBED -Xlinker /implib:cmTC_772e1.lib -Xlinker /pdb:cmTC_772e1.pdb -Xlinker /version:0.0     && cd ."
         clang version 22.1.8 (https://github.com/llvm/llvm-project ca7933e47d3a3451d81e72ac174dcb5aa28b59d1)
         Target: x86_64-pc-windows-msvc
         Thread model: posix
         InstalledDir: C:\\BuildTools\\LLVM\\bin
-         "C:\\\\BuildTools\\\\LLVM\\\\bin\\\\lld-link" -out:cmTC_baca8.exe "-libpath:C:\\\\Program Files\\\\Microsoft Visual Studio\\\\18\\\\Community\\\\VC\\\\Tools\\\\MSVC\\\\14.51.36231\\\\lib\\\\x64" "-libpath:C:\\\\Program Files\\\\Microsoft Visual Studio\\\\18\\\\Community\\\\VC\\\\Tools\\\\MSVC\\\\14.51.36231\\\\atlmfc\\\\lib\\\\x64" "-libpath:C:\\\\Program Files (x86)\\\\Windows Kits\\\\10\\\\Lib\\\\10.0.28000.0\\\\ucrt\\\\x64" "-libpath:C:\\\\Program Files (x86)\\\\Windows Kits\\\\10\\\\Lib\\\\10.0.28000.0\\\\um\\\\x64" "-libpath:C:\\\\BuildTools\\\\LLVM\\\\lib\\\\clang\\\\22\\\\lib\\\\x86_64-pc-windows-msvc" "-libpath:C:\\\\BuildTools\\\\LLVM\\\\lib\\\\clang\\\\22\\\\lib\\\\windows" -nologo -debug /subsystem:console CMakeFiles/cmTC_baca8.dir/CMakeCXXCompilerABI.cpp.obj /MANIFEST:EMBED /implib:cmTC_baca8.lib /pdb:cmTC_baca8.pdb /version:0.0
+         "C:\\\\BuildTools\\\\LLVM\\\\bin\\\\lld-link" -out:cmTC_772e1.exe "-libpath:C:\\\\Program Files\\\\Microsoft Visual Studio\\\\18\\\\Community\\\\VC\\\\Tools\\\\MSVC\\\\14.51.36231\\\\lib\\\\x64" "-libpath:C:\\\\Program Files\\\\Microsoft Visual Studio\\\\18\\\\Community\\\\VC\\\\Tools\\\\MSVC\\\\14.51.36231\\\\atlmfc\\\\lib\\\\x64" "-libpath:C:\\\\Program Files (x86)\\\\Windows Kits\\\\10\\\\Lib\\\\10.0.28000.0\\\\ucrt\\\\x64" "-libpath:C:\\\\Program Files (x86)\\\\Windows Kits\\\\10\\\\Lib\\\\10.0.28000.0\\\\um\\\\x64" "-libpath:C:\\\\BuildTools\\\\LLVM\\\\lib\\\\clang\\\\22\\\\lib\\\\x86_64-pc-windows-msvc" "-libpath:C:\\\\BuildTools\\\\LLVM\\\\lib\\\\clang\\\\22\\\\lib\\\\windows" -nologo -debug /subsystem:console CMakeFiles/cmTC_772e1.dir/CMakeCXXCompilerABI.cpp.obj /MANIFEST:EMBED /implib:cmTC_772e1.lib /pdb:cmTC_772e1.pdb /version:0.0
         
       exitCode: 0
   -
@@ -3058,7 +3058,7 @@ events:
       Parsed CXX implicit link information:
         link line regex: [^( *|.*[/\\])(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)|link\\.exe|lld-link(\\.exe)?|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
         linker tool regex: [^[ 	]*(->|"|[0-9]+>[ 	-]*Build:[ 	0-9]+ ms[ 	]*)?[ 	]*(([^"]*[/\\])?(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)|link\\.exe|lld-link(\\.exe)?))("|,| |$)]
-        link line: [ "C:\\\\BuildTools\\\\LLVM\\\\bin\\\\lld-link" -out:cmTC_baca8.exe "-libpath:C:\\\\Program Files\\\\Microsoft Visual Studio\\\\18\\\\Community\\\\VC\\\\Tools\\\\MSVC\\\\14.51.36231\\\\lib\\\\x64" "-libpath:C:\\\\Program Files\\\\Microsoft Visual Studio\\\\18\\\\Community\\\\VC\\\\Tools\\\\MSVC\\\\14.51.36231\\\\atlmfc\\\\lib\\\\x64" "-libpath:C:\\\\Program Files (x86)\\\\Windows Kits\\\\10\\\\Lib\\\\10.0.28000.0\\\\ucrt\\\\x64" "-libpath:C:\\\\Program Files (x86)\\\\Windows Kits\\\\10\\\\Lib\\\\10.0.28000.0\\\\um\\\\x64" "-libpath:C:\\\\BuildTools\\\\LLVM\\\\lib\\\\clang\\\\22\\\\lib\\\\x86_64-pc-windows-msvc" "-libpath:C:\\\\BuildTools\\\\LLVM\\\\lib\\\\clang\\\\22\\\\lib\\\\windows" -nologo -debug /subsystem:console CMakeFiles/cmTC_baca8.dir/CMakeCXXCompilerABI.cpp.obj /MANIFEST:EMBED /implib:cmTC_baca8.lib /pdb:cmTC_baca8.pdb /version:0.0] ==> linker [C:\\\\BuildTools\\\\LLVM\\\\bin\\\\lld-link]
+        link line: [ "C:\\\\BuildTools\\\\LLVM\\\\bin\\\\lld-link" -out:cmTC_772e1.exe "-libpath:C:\\\\Program Files\\\\Microsoft Visual Studio\\\\18\\\\Community\\\\VC\\\\Tools\\\\MSVC\\\\14.51.36231\\\\lib\\\\x64" "-libpath:C:\\\\Program Files\\\\Microsoft Visual Studio\\\\18\\\\Community\\\\VC\\\\Tools\\\\MSVC\\\\14.51.36231\\\\atlmfc\\\\lib\\\\x64" "-libpath:C:\\\\Program Files (x86)\\\\Windows Kits\\\\10\\\\Lib\\\\10.0.28000.0\\\\ucrt\\\\x64" "-libpath:C:\\\\Program Files (x86)\\\\Windows Kits\\\\10\\\\Lib\\\\10.0.28000.0\\\\um\\\\x64" "-libpath:C:\\\\BuildTools\\\\LLVM\\\\lib\\\\clang\\\\22\\\\lib\\\\x86_64-pc-windows-msvc" "-libpath:C:\\\\BuildTools\\\\LLVM\\\\lib\\\\clang\\\\22\\\\lib\\\\windows" -nologo -debug /subsystem:console CMakeFiles/cmTC_772e1.dir/CMakeCXXCompilerABI.cpp.obj /MANIFEST:EMBED /implib:cmTC_772e1.lib /pdb:cmTC_772e1.pdb /version:0.0] ==> linker [C:\\\\BuildTools\\\\LLVM\\\\bin\\\\lld-link]
         linker tool for 'CXX': C:/BuildTools/LLVM/bin/lld-link 
         implicit libs: []
         implicit objs: []
@@ -3110,8 +3110,8 @@ events:
     checks:
       - "Detecting CXX compile features"
     directories:
-      source: "C:/Gameprojects/Projects/practice/build/CMakeFiles/CMakeScratch/TryCompile-mwhqvo"
-      binary: "C:/Gameprojects/Projects/practice/build/CMakeFiles/CMakeScratch/TryCompile-mwhqvo"
+      source: "C:/Gameprojects/Projects/Hellish/build/CMakeFiles/CMakeScratch/TryCompile-mhw9sc"
+      binary: "C:/Gameprojects/Projects/Hellish/build/CMakeFiles/CMakeScratch/TryCompile-mhw9sc"
     cmakeVariables:
       CMAKE_CXX_COMPILER_CLANG_SCAN_DEPS: "C:/BuildTools/LLVM/bin/clang-scan-deps.exe"
       CMAKE_CXX_FLAGS: ""
@@ -3122,11 +3122,11 @@ events:
       variable: "CMAKE_CXX_FEATURE_TEST"
       cached: false
       stdout: |
-        Change Dir: 'C:/Gameprojects/Projects/practice/build/CMakeFiles/CMakeScratch/TryCompile-mwhqvo'
+        Change Dir: 'C:/Gameprojects/Projects/Hellish/build/CMakeFiles/CMakeScratch/TryCompile-mhw9sc'
         
-        Run Build Command(s): C:/BuildTools/Ninja/ninja.exe -v cmTC_421cc
-        [1/2] C:\\BuildTools\\LLVM\\bin\\clang++.exe -D_MBCS  -O0 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -g -Xclang -gcodeview   -std=c++14 -MD -MT CMakeFiles/cmTC_421cc.dir/feature_tests.cxx.obj -MF CMakeFiles\\cmTC_421cc.dir\\feature_tests.cxx.obj.d -o CMakeFiles/cmTC_421cc.dir/feature_tests.cxx.obj -c C:/Gameprojects/Projects/practice/build/CMakeFiles/CMakeScratch/TryCompile-mwhqvo/feature_tests.cxx
-        [2/2] C:\\Windows\\system32\\cmd.exe /C "cd . && C:\\BuildTools\\LLVM\\bin\\clang++.exe -nostartfiles -nostdlib -O0 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -g -Xclang -gcodeview -Xlinker /subsystem:console -fuse-ld=lld CMakeFiles/cmTC_421cc.dir/feature_tests.cxx.obj -o cmTC_421cc.exe -Xlinker /MANIFEST:EMBED -Xlinker /implib:cmTC_421cc.lib -Xlinker /pdb:cmTC_421cc.pdb -Xlinker /version:0.0   -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32 -loldnames  && cd ."
+        Run Build Command(s): C:/BuildTools/Ninja/ninja.exe -v cmTC_e45fa
+        [1/2] C:\\BuildTools\\LLVM\\bin\\clang++.exe -D_MBCS  -O0 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -g -Xclang -gcodeview   -std=c++14 -MD -MT CMakeFiles/cmTC_e45fa.dir/feature_tests.cxx.obj -MF CMakeFiles\\cmTC_e45fa.dir\\feature_tests.cxx.obj.d -o CMakeFiles/cmTC_e45fa.dir/feature_tests.cxx.obj -c C:/Gameprojects/Projects/Hellish/build/CMakeFiles/CMakeScratch/TryCompile-mhw9sc/feature_tests.cxx
+        [2/2] C:\\Windows\\system32\\cmd.exe /C "cd . && C:\\BuildTools\\LLVM\\bin\\clang++.exe -nostartfiles -nostdlib -O0 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -g -Xclang -gcodeview -Xlinker /subsystem:console -fuse-ld=lld CMakeFiles/cmTC_e45fa.dir/feature_tests.cxx.obj -o cmTC_e45fa.exe -Xlinker /MANIFEST:EMBED -Xlinker /implib:cmTC_e45fa.lib -Xlinker /pdb:cmTC_e45fa.pdb -Xlinker /version:0.0   -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32 -loldnames  && cd ."
         
       exitCode: 0
   -
@@ -3141,8 +3141,8 @@ events:
     checks:
       - "Detecting CXX compile features"
     directories:
-      source: "C:/Gameprojects/Projects/practice/build/CMakeFiles/CMakeScratch/TryCompile-r0ayo6"
-      binary: "C:/Gameprojects/Projects/practice/build/CMakeFiles/CMakeScratch/TryCompile-r0ayo6"
+      source: "C:/Gameprojects/Projects/Hellish/build/CMakeFiles/CMakeScratch/TryCompile-j2un7q"
+      binary: "C:/Gameprojects/Projects/Hellish/build/CMakeFiles/CMakeScratch/TryCompile-j2un7q"
     cmakeVariables:
       CMAKE_CXX_COMPILER_CLANG_SCAN_DEPS: "C:/BuildTools/LLVM/bin/clang-scan-deps.exe"
       CMAKE_CXX_FLAGS: ""
@@ -3153,11 +3153,11 @@ events:
       variable: "CMAKE_CXX_FEATURE_TEST"
       cached: false
       stdout: |
-        Change Dir: 'C:/Gameprojects/Projects/practice/build/CMakeFiles/CMakeScratch/TryCompile-r0ayo6'
+        Change Dir: 'C:/Gameprojects/Projects/Hellish/build/CMakeFiles/CMakeScratch/TryCompile-j2un7q'
         
-        Run Build Command(s): C:/BuildTools/Ninja/ninja.exe -v cmTC_2c58b
-        [1/2] C:\\BuildTools\\LLVM\\bin\\clang++.exe -D_MBCS  -O0 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -g -Xclang -gcodeview   -std=c++14 -MD -MT CMakeFiles/cmTC_2c58b.dir/feature_tests.cxx.obj -MF CMakeFiles\\cmTC_2c58b.dir\\feature_tests.cxx.obj.d -o CMakeFiles/cmTC_2c58b.dir/feature_tests.cxx.obj -c C:/Gameprojects/Projects/practice/build/CMakeFiles/CMakeScratch/TryCompile-r0ayo6/feature_tests.cxx
-        [2/2] C:\\Windows\\system32\\cmd.exe /C "cd . && C:\\BuildTools\\LLVM\\bin\\clang++.exe -nostartfiles -nostdlib -O0 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -g -Xclang -gcodeview -Xlinker /subsystem:console -fuse-ld=lld CMakeFiles/cmTC_2c58b.dir/feature_tests.cxx.obj -o cmTC_2c58b.exe -Xlinker /MANIFEST:EMBED -Xlinker /implib:cmTC_2c58b.lib -Xlinker /pdb:cmTC_2c58b.pdb -Xlinker /version:0.0   -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32 -loldnames  && cd ."
+        Run Build Command(s): C:/BuildTools/Ninja/ninja.exe -v cmTC_e6054
+        [1/2] C:\\BuildTools\\LLVM\\bin\\clang++.exe -D_MBCS  -O0 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -g -Xclang -gcodeview   -std=c++14 -MD -MT CMakeFiles/cmTC_e6054.dir/feature_tests.cxx.obj -MF CMakeFiles\\cmTC_e6054.dir\\feature_tests.cxx.obj.d -o CMakeFiles/cmTC_e6054.dir/feature_tests.cxx.obj -c C:/Gameprojects/Projects/Hellish/build/CMakeFiles/CMakeScratch/TryCompile-j2un7q/feature_tests.cxx
+        [2/2] C:\\Windows\\system32\\cmd.exe /C "cd . && C:\\BuildTools\\LLVM\\bin\\clang++.exe -nostartfiles -nostdlib -O0 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -g -Xclang -gcodeview -Xlinker /subsystem:console -fuse-ld=lld CMakeFiles/cmTC_e6054.dir/feature_tests.cxx.obj -o cmTC_e6054.exe -Xlinker /MANIFEST:EMBED -Xlinker /implib:cmTC_e6054.lib -Xlinker /pdb:cmTC_e6054.pdb -Xlinker /version:0.0   -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32 -loldnames  && cd ."
         
       exitCode: 0
 ...

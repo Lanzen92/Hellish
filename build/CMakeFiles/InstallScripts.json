@@ -1,7 +1,7 @@
 {
 	"InstallScripts" : 
 	[
-		"C:/Gameprojects/Projects/practice/build/cmake_install.cmake"
+		"C:/Gameprojects/Projects/Hellish/build/cmake_install.cmake"
 	],
 	"Parallel" : false
 }
