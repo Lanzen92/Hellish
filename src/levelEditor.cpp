@@ -77,7 +77,7 @@ namespace EDITOR {
     Sprite* preview = GetSpriteFromID(editor->objectToPlaceId, spriteBuffer);
 
     if (preview != nullptr) {
-      RenderSpriteGrid(preview, levelData, renderer, camera, x, y, 1, 0.5); 
+      RenderSpriteGrid(preview, levelData, renderer, camera, x, y, 1, 128.0f); 
     }
   }
 }
