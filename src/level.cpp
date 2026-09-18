@@ -1,12 +1,13 @@
 #include <cstdint>
 #include <fstream>
 #include <vector>
+
 #include "Parsers/json.hpp"
+#include "SDL3_image/SDL_image.h"
 
 #include "arena.h"
 #include "level.h"
 #include "entity.h"
-#include "SDL3_image/SDL_image.h"
 
 
 using namespace std;
@@ -64,7 +65,7 @@ Entity* GetNextAvailableEntity(LevelData* levelData) {
 }
 
 void AddEntity(ID entityId, int x, int y, LevelData* levelData) {
-  Entity* entity = levelData->GetEntity(x, y);
+  Entity* entity = GetEntity(levelData, x, y);
 
   if (entity == nullptr) {
     entity = GetNextAvailableEntity(levelData);
@@ -75,14 +76,71 @@ void AddEntity(ID entityId, int x, int y, LevelData* levelData) {
   entity->xPrev = x;
   entity->yPrev = y;
   entity->id = entityId;
-  entity->InitializeBaseBehaviour();
+  InitializeBaseBehaviour(entity);
 }
 
 void RemoveEntity(int x, int y, LevelData* levelData) {
-  Entity* entity = levelData->GetEntity(x, y);
+  Entity* entity = GetEntity(levelData, x, y);
 
   if (entity == nullptr) {
     return;
   }
+
   *entity = {};
+}
+
+uint8_t GetCell(LevelData* levelData, int x, int y) { return levelData->cells[y * levelData->w + x]; }
+
+Entity* GetEntity(LevelData* levelData, int x, int y) {
+  for (int i = 0; i < levelData->entityCount; i++) {
+    if (levelData->entityBuffer[i].x == x && levelData->entityBuffer[i].y == y) {
+      return &levelData->entityBuffer[i];
+    }
+  }
+
+  return nullptr;
+}
+
+Entity* RaycastFirstEntity(int xOrigin, int yOrigin, Direction direction, LevelData* levelData, bool ignoreWalls) {
+  Position facingVector;
+
+  switch (direction) {
+  case Direction::RIGHT: 
+    facingVector = {1, 0};
+    break;
+  
+  case Direction::LEFT:
+    facingVector = {1, 0};
+    break;
+  
+  case Direction::UP:
+    facingVector = {0, 1};
+    break;
+
+  case Direction::DOWN:
+    facingVector = {0, -1};
+    break;
+  }
+
+  int xSearch = xOrigin + facingVector.x;
+  int ySearch = yOrigin + facingVector.y;
+
+  while (xSearch > 0 && xSearch < levelData->w && ySearch > 0 &&
+         ySearch < levelData->h) {
+    ID cellID = (ID)GetCell(levelData, xSearch, ySearch);
+
+    if (cellID == ID::WALL && !ignoreWalls) {
+      break;
+    }
+
+    Entity* entitySearch = GetEntity(levelData, xSearch, ySearch);
+    if (entitySearch != nullptr) {
+      return entitySearch;
+    }
+
+    xSearch += facingVector.x;
+    ySearch += facingVector.y;
+  }
+
+  return nullptr;
 }

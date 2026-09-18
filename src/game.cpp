@@ -12,45 +12,48 @@
 #include "spriteLibrary.h"
 #include <cstdint>
 
-  bool TryMove(Entity* mover, LevelData* levelData, CommandBuffer* commandBuffer, int xDir, int yDir, uint32_t timestamp) {
+  bool TryMove(Entity* mover, LevelData* levelData, CommandBuffer* commandBuffer, int xDir, int yDir, int strength) {
     
-    if (mover->HasBehaviour(CAN_MOVE) == false) {
+    if (strength < 0) {
+      return false;
+    }
+
+    if (HasBehaviour(mover, CAN_MOVE) == false) {
       return false;
     }
   
     int testX = mover->x + xDir;
     int testY = mover->y + yDir;
 
-    Entity* stepIntoEntity = levelData->GetEntity(testX, testY);
-    ID StepIntoTileId = (ID)levelData->GetCell(testX, testY);
+    Entity* stepIntoEntity = GetEntity(levelData, testX, testY);
+    ID StepIntoTileId = (ID)GetCell(levelData, testX, testY);
 
     if (stepIntoEntity == nullptr) {
-      if (StepIntoTileId == ID::GROUND) {
+      if (StepIntoTileId == ID::GROUND) { 
 
-        MoveCommand mv;
+        MoveCommand mv(mover, xDir, yDir);
         mv.type = CMD_TYPE::MOVE;
         mv.entity = mover;
         mv.xDir = xDir;
         mv.yDir = yDir;
 
-        Push(commandBuffer, mv, timestamp);
+        Push(commandBuffer, mv, levelData);
         return true;
-        
       }
       
       return false;
     }
 
-    if (stepIntoEntity->HasBehaviour(CAN_MOVE)) {
-      if(TryMove(stepIntoEntity, levelData, commandBuffer, xDir, yDir, timestamp)) {
+    if (HasBehaviour(stepIntoEntity, CAN_MOVE) && !HasBehaviour(stepIntoEntity, UNPUSHABLE)) {
+      if(TryMove(stepIntoEntity, levelData, commandBuffer, xDir, yDir, --strength)) {
         
-        MoveCommand mv;
+        MoveCommand mv(stepIntoEntity, xDir, yDir);
         mv.type = CMD_TYPE::MOVE;
         mv.entity = mover;
         mv.xDir = xDir;
         mv.yDir = yDir;
 
-        Push(commandBuffer, mv, timestamp);
+        Push(commandBuffer, mv, levelData);
         return true;
         
       }
@@ -88,26 +91,28 @@ extern "C" {
   void Update(GameData* gameData, float dt) {
     const bool* keys = SDL_GetKeyboardState(nullptr);
 
+    if (KeyPressed(&gameData->input, SDL_SCANCODE_F2)) {
+      gameData->editLevel = !gameData->editLevel;
+    }
+
+    if (gameData->editLevel) {
+      EDITOR::Update(&gameData->editorData, &gameData->input,
+                     gameData->GetCurrentLevel());
+    }
+
+
     if (KeyPressed(&gameData->input, SDL_SCANCODE_Z) ||
         KeyHeldForTime(&gameData->input, SDL_SCANCODE_Z, UNDO_REPEAT_TIME)) {
       ResetKeyHeldTime(&gameData->input, SDL_SCANCODE_Z);
           
       if (KeyHeld(&gameData->input, SDL_SCANCODE_LSHIFT)) {
-        Redo(gameData->commandBuffer);
+        Redo(gameData->commandBuffer, gameData->GetCurrentLevel());
       }
       else {
         Undo(gameData->commandBuffer);
       }
     }
 
-    if (KeyPressed(&gameData->input, SDL_SCANCODE_F2)) {
-      gameData->editLevel = !gameData->editLevel;
-    }
-
-    if (gameData->editLevel) {
-      EDITOR::Update(&gameData->editorData, &gameData->input, gameData->GetCurrentLevel());
-    }
-    
     if (KeyPressed(&gameData->input, SDL_SCANCODE_RIGHT) ||
         KeyHeldForTime(&gameData->input, SDL_SCANCODE_RIGHT, (1 / MOVE_SPEED) * 1.15)) {
 
@@ -137,7 +142,7 @@ extern "C" {
     for  (int i = 0; i < gameData->GetCurrentLevel()->entityCount; i++) {
       Entity* entity = &gameData->GetCurrentLevel()->entityBuffer[i];
 
-      if (entity->HasBehaviour(CAN_MOVE) && IsMoving(entity)) {
+      if (HasBehaviour(entity, CAN_MOVE) && IsMoving(entity)) {
         entity->progress01 += MOVE_SPEED * dt;
 
         if (entity->progress01 >= 1) {
@@ -157,17 +162,26 @@ extern "C" {
         return;
       }
 
-      gameData->commandTimestamp += 1;
+      gameData->commandBuffer->timestamp += 1;
 
       for (int i = 0; i < gameData->GetCurrentLevel()->entityCount; i++) {
         Entity* entity = &gameData->GetCurrentLevel()->entityBuffer[i];
 
-        if (entity->HasBehaviour((Behaviour)(RESPOND_TO_INPUT | CAN_MOVE))) {
+        if (HasBehaviour(entity, (Behaviour)(RESPOND_TO_INPUT | CAN_MOVE))) {
+          if (HasBehaviour(entity, (Behaviour)Behaviour::IS_PETRIFIED)) {
+            continue;
+          }
+
           int xDir = gameData->inputBuffer[gameData->inputBufferReadCount % gameData->inputBufferCapacity].x;
           int yDir = gameData->inputBuffer[gameData->inputBufferReadCount % gameData->inputBufferCapacity].y;
 
-          TryMove(entity, gameData->GetCurrentLevel(), gameData->commandBuffer, xDir, yDir, gameData->commandTimestamp);
+          Direction newFacing = DirectionFromXY(xDir, yDir);
+          if (newFacing != entity->facing) {
+            RotateCommand rotate(entity, entity->facing, newFacing);
+            Push(gameData->commandBuffer, rotate, gameData->GetCurrentLevel());
+          }
 
+          TryMove(entity, gameData->GetCurrentLevel(), gameData->commandBuffer, xDir, yDir, entity->strength);
         } 
       }
 
@@ -175,7 +189,6 @@ extern "C" {
     }
     
   }
-  
   
   void Draw(GameData* gameData, SDL_Renderer* renderer) {
     

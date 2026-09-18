@@ -17,7 +17,6 @@ enum class GAME_STATES { PLAY, BUILD };
 struct GameData {
 
   const float* dt;
-  uint32_t commandTimestamp;
 
   bool editLevel;
   Editor editorData;

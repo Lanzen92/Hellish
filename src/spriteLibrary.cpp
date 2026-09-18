@@ -14,48 +14,57 @@ static const SpriteDataEntry allSpriteData[] = {
     {   SPRITE_ID::Demon,    "assets/sprites/player.png"    },
     {   SPRITE_ID::Rock,     "assets/sprites/box.png"       },
     {   SPRITE_ID::Medusa,   "assets/sprites/medusa.png"    },
-    //{   SPRITE_ID::Golem,    "assets/sprites/golem.png"     },
-    //{   SPRITE_ID::Ghost,    "assets/sprites/ghost.png"     },
+    {   SPRITE_ID::Golem,    "assets/sprites/golem.png"     },
+    {   SPRITE_ID::Ghost,    "assets/sprites/ghost.png"     },
+    {   SPRITE_ID::Siren,    "assets/sprites/siren.png"     },
 };
 
 Sprite* GetSpriteFromID(ID id, Sprite* spriteBuffer) {
-  
+  Sprite* spriteToReturn = nullptr;
+
   switch(id) {
     case ID::NONE:
-      return nullptr;
+      spriteToReturn = nullptr;
       
     case ID::GROUND:
-      return &spriteBuffer[(int)SPRITE_ID::Ground];
+      spriteToReturn = &spriteBuffer[(int)SPRITE_ID::Ground];
       break;
 
     case ID::WALL:
-      return &spriteBuffer[(int)SPRITE_ID::Wall];
+      spriteToReturn = &spriteBuffer[(int)SPRITE_ID::Wall];
       break;
 
     case ID::DEMON:
-      return &spriteBuffer[(int)SPRITE_ID::Demon];
+      spriteToReturn = &spriteBuffer[(int)SPRITE_ID::Demon];
       break;
 
     case ID::ROCK:
-      return &spriteBuffer[(int)SPRITE_ID::Rock];
+      spriteToReturn = &spriteBuffer[(int)SPRITE_ID::Rock];
       break;
 
     case ID::MEDUSA:
-      return &spriteBuffer[(int)SPRITE_ID::Medusa];
+      spriteToReturn = &spriteBuffer[(int)SPRITE_ID::Medusa];
       break;
 
     case ID::GHOST:
-      return &spriteBuffer[(int)SPRITE_ID::Ghost];
+      spriteToReturn = &spriteBuffer[(int)SPRITE_ID::Ghost];
       break;
 
     case ID::GOLEM:
-      return &spriteBuffer[(int)SPRITE_ID::Golem];
+      spriteToReturn = &spriteBuffer[(int)SPRITE_ID::Golem];
+      break;
+
+    case ID::SIREN:
+      spriteToReturn = &spriteBuffer[(int)SPRITE_ID::Siren];
       break;
       
-    default:
-      return &spriteBuffer[(int)SPRITE_ID::Fallback];
-      break;
     }
+
+    if (spriteToReturn == nullptr || spriteToReturn->texture == nullptr) {
+      spriteToReturn = &spriteBuffer[(int)SPRITE_ID::Fallback];
+    }
+
+    return spriteToReturn;
   }
 
   namespace AssetManagement {
@@ -85,8 +94,8 @@ Sprite* GetSpriteFromID(ID id, Sprite* spriteBuffer) {
       sprite->height = texture->h;
       sprite->width = texture->w;
 
-      SDL_Log("ID %d | Texture: %p | W: %d | H: %d", entry.id,
-                (void*)sprite->texture, sprite->width, sprite->height);
+      SDL_Log("ID %d | Texture: %p | W: %d | H: %d | Path: %s", entry.id,
+                (void*)sprite->texture, sprite->width, sprite->height, entry.path);
 
       SDL_DestroySurface(surface);
     }

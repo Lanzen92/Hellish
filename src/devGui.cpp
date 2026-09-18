@@ -69,7 +69,7 @@ void DEV::PreDraw(ImGuiContext* savedContext) {
   ImGui::NewFrame();
 }
 
-void DrawHistory(CommandBuffer* buffer) {
+void DrawHistory(CommandBuffer* buffer, LevelData* levelData) {
   int sliderPos = buffer->index;
 
   if (ImGui::SliderInt("History", &sliderPos, 0,  buffer->head)) {
@@ -77,7 +77,7 @@ void DrawHistory(CommandBuffer* buffer) {
       Undo(buffer);
     }
     while (buffer->index < sliderPos) {
-      Redo(buffer);
+      Redo(buffer, levelData);
     }
   }
 }

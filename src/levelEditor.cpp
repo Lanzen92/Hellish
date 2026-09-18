@@ -32,8 +32,18 @@ namespace EDITOR {
     }
     
     ImGui::SameLine();
+    if (ImGui::ImageButton("Golem", (ImTextureID)GetSpriteFromID(ID::GOLEM, spriteBuffer)->texture, size)) {
+      editor->objectToPlaceId = ID::GOLEM;
+    }
+
+    ImGui::SameLine();
     if (ImGui::ImageButton("Medusa", (ImTextureID)GetSpriteFromID(ID::MEDUSA, spriteBuffer)->texture, size)) {
       editor->objectToPlaceId = ID::MEDUSA;
+    }
+
+    ImGui::SameLine();
+    if (ImGui::ImageButton("Siren",(ImTextureID)GetSpriteFromID(ID::SIREN, spriteBuffer)->texture, size)) {
+      editor->objectToPlaceId = ID::SIREN;
     }
 
     ImGui::End();
@@ -81,7 +91,7 @@ namespace EDITOR {
         /*SDL_Log("ID %d | Texture: %p | W: %d | H: %d", editor->objectToPlaceId,
               (void*)preview->texture, preview->width, preview->height);*/
 
-      RenderSpriteGrid(preview, levelData, renderer, camera, x, y, 1, 0.5); 
+      RenderSpriteGrid(preview, levelData, renderer, camera, x, y, 1, 0.1); 
     }
   }
 }

@@ -11,7 +11,8 @@ enum class SPRITE_ID {
   Rock = 4,
   Medusa = 5,
   Golem = 6,
-  Ghost = 7
+  Ghost = 7,
+  Siren = 8
 };
 
 struct Sprite {

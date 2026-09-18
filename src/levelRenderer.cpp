@@ -18,7 +18,7 @@ void RenderLevel(GameData* gameData, SDL_Renderer* renderer) {
 
   for (int x = 0; x < levelData.w; x++) {
     for (int y = 0; y < levelData.h; y++) {
-      uint8_t cellType = levelData.GetCell(x, y);
+      uint8_t cellType = GetCell(&levelData, x, y);
       
       if ((ID)cellType == ID::NONE) {
         continue;
@@ -43,6 +43,9 @@ void RenderEntities(GameData* gameData, SDL_Renderer* renderer) {
     }
 
     Sprite* sprite = GetSpriteFromID(entity.id, gameData->spriteBuffer);
+    if (HasBehaviour(&entity, Behaviour::IS_PETRIFIED)) {
+      sprite = GetSpriteFromID(ID::ROCK, gameData->spriteBuffer);
+    }
   
     float xAnimated = std::lerp(entity.xPrev, entity.x, entity.progress01);
     float yAnimated = std::lerp(entity.yPrev, entity.y, entity.progress01);
