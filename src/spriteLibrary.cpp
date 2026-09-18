@@ -6,17 +6,21 @@
 
 const char* FALLBACK_PATH = "assets/sprites/fallback.png";
 // const char* ASSETS_SPRITES_PATH = "assets/sprites/";
-
+// TODO Something wrong when loading after changes with medusa etc.
 static const SpriteDataEntry allSpriteData[] = {
-    {   SPRITE_ID::Fallback, FALLBACK_PATH                  },
-    {   SPRITE_ID::Wall,     "assets/sprites/wall.png"      },
-    {   SPRITE_ID::Ground,   "assets/sprites/ground.png"    },
-    {   SPRITE_ID::Demon,    "assets/sprites/player.png"    },
-    {   SPRITE_ID::Rock,     "assets/sprites/box.png"       },
-    {   SPRITE_ID::Medusa,   "assets/sprites/medusa.png"    },
-    {   SPRITE_ID::Golem,    "assets/sprites/golem.png"     },
-    {   SPRITE_ID::Ghost,    "assets/sprites/ghost.png"     },
-    {   SPRITE_ID::Siren,    "assets/sprites/siren.png"     },
+    {   SPRITE_ID::Fallback,            FALLBACK_PATH },
+    {   SPRITE_ID::Ground,              "assets/sprites/ground.png", 0, 0 },
+    {   SPRITE_ID::Ground_alt,          "assets/sprites/ground_alt.png", 0, 0 },  
+    {   SPRITE_ID::Wall,                "assets/sprites/wall.png", 0,0 },
+    {   SPRITE_ID::Rock,                "assets/sprites/rock.png", 10, 20 },
+    {   SPRITE_ID::Demon,               "assets/sprites/player.png" },
+    {   SPRITE_ID::Medusa_Idle_Side,    "assets/sprites/medusa_idle_side.png", 12, 24 },
+    {   SPRITE_ID::Medusa_Idle_Front,   "assets/sprites/medusa_idle_front.png", 12,24 },
+    {   SPRITE_ID::Medusa_Idle_Back,    "assets/sprites/medusa_idle_back.png", 12, 24 },
+    {   SPRITE_ID::Golem,               "assets/sprites/golem.png" },
+    {   SPRITE_ID::DropShadow,          "assets/sprites/dropshadow.png", 8, 8},
+    //{   SPRITE_ID::Siren,             "assets/sprites/siren.png"     },
+    //{   SPRITE_ID::Ghost,             "assets/sprites/ghost.png"     },
 };
 
 Sprite* GetSpriteFromID(ID id, Sprite* spriteBuffer) {
@@ -43,7 +47,7 @@ Sprite* GetSpriteFromID(ID id, Sprite* spriteBuffer) {
       break;
 
     case ID::MEDUSA:
-      spriteToReturn = &spriteBuffer[(int)SPRITE_ID::Medusa];
+      spriteToReturn = nullptr;
       break;
 
     case ID::GHOST:
@@ -65,6 +69,32 @@ Sprite* GetSpriteFromID(ID id, Sprite* spriteBuffer) {
     }
 
     return spriteToReturn;
+  }
+
+  Sprite* GetSpriteFromEntityState(Entity* entity, Sprite* spriteBuffer) {
+    if (HasBehaviour(entity, IS_PETRIFIED)) {
+      return &spriteBuffer[(int)SPRITE_ID::Rock];
+    }
+
+    switch (entity->id) {
+      case ID::MEDUSA:
+        switch (entity->facing) { 
+        case Direction::RIGHT:
+        case Direction::LEFT:
+          return &spriteBuffer[(int)SPRITE_ID::Medusa_Idle_Side];
+          break;
+        case Direction::UP: 
+          return &spriteBuffer[(int)SPRITE_ID::Medusa_Idle_Back];
+          break;
+        case Direction::DOWN:
+          return &spriteBuffer[(int)SPRITE_ID::Medusa_Idle_Front];
+          break;
+        }
+      default:
+        return GetSpriteFromID(entity->id, spriteBuffer);
+        break;
+    }
+      return nullptr;
   }
 
   namespace AssetManagement {
@@ -93,6 +123,15 @@ Sprite* GetSpriteFromID(ID id, Sprite* spriteBuffer) {
       sprite->texture = texture;
       sprite->height = texture->h;
       sprite->width = texture->w;
+
+      if (sprite->pivotx == NOT_SET || sprite->pivoty == NOT_SET) {
+        sprite->pivotx = sprite->width / 2;
+        sprite->pivoty = sprite->height / 2;
+      } 
+      else {
+        sprite->pivotx = entry.pivotX;
+        sprite->pivoty = entry.pivotY;
+      }
 
       SDL_Log("ID %d | Texture: %p | W: %d | H: %d | Path: %s", entry.id,
                 (void*)sprite->texture, sprite->width, sprite->height, entry.path);

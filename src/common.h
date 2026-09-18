@@ -16,6 +16,6 @@ const float UNDO_REPEAT_TIME = 0.15;
 //Display
 const int SCREEN_WIDTH = 1400;
 const int SCREEN_HEIGHT = 1000;
-const int UPSCALE_FACTOR = 2;
-const int CELL_SIZE_PX = 32 * UPSCALE_FACTOR;
+const int UPSCALE_FACTOR = 4;
+const int CELL_SIZE_PX = 16 * UPSCALE_FACTOR;
 

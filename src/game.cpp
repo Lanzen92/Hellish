@@ -32,10 +32,6 @@
       if (StepIntoTileId == ID::GROUND) { 
 
         MoveCommand mv(mover, xDir, yDir);
-        mv.type = CMD_TYPE::MOVE;
-        mv.entity = mover;
-        mv.xDir = xDir;
-        mv.yDir = yDir;
 
         Push(commandBuffer, mv, levelData);
         return true;
@@ -48,10 +44,7 @@
       if(TryMove(stepIntoEntity, levelData, commandBuffer, xDir, yDir, --strength)) {
         
         MoveCommand mv(stepIntoEntity, xDir, yDir);
-        mv.type = CMD_TYPE::MOVE;
-        mv.entity = mover;
-        mv.xDir = xDir;
-        mv.yDir = yDir;
+        AddBehaviour(stepIntoEntity, IS_PUSHING);
 
         Push(commandBuffer, mv, levelData);
         return true;
@@ -166,6 +159,10 @@ extern "C" {
 
       for (int i = 0; i < gameData->GetCurrentLevel()->entityCount; i++) {
         Entity* entity = &gameData->GetCurrentLevel()->entityBuffer[i];
+
+        if (HasBehaviour(entity, Behaviour::IS_PUSHING)) {
+          RemoveBehaviour(entity, Behaviour::IS_PUSHING);
+        }
 
         if (HasBehaviour(entity, (Behaviour)(RESPOND_TO_INPUT | CAN_MOVE))) {
           if (HasBehaviour(entity, (Behaviour)Behaviour::IS_PETRIFIED)) {
