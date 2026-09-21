@@ -1,13 +1,15 @@
-#include "devGui.h"
-#include "gameState.h"
-#include "command.h"
+#include <string>
+
 #include "imgui/imgui.h"
 #include "imgui/imgui_impl_sdl3.h"
 #include "imgui/imgui_impl_sdlrenderer3.h"
-#include "SDL3/SDL_render.h"
 #include "imgui/imgui_internal.h"
+#include "SDL3/SDL_render.h"
+
 #include "levelEditor.h"
-#include <string>
+#include "devGui.h"
+#include "gameState.h"
+#include "command.h"
 
 using namespace std;
 

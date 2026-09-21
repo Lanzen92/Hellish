@@ -1,6 +1,7 @@
 #pragma once
 
 #include <cstdint>
+
 #include "arena.h"
 #include "entity.h"
 

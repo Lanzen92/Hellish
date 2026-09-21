@@ -1,8 +1,7 @@
-
 #include "camera.h"
 #include "common.h"
 
-bool camera::GetIsPointInsideGrid(float x, float y, const LevelData* level) {
+bool CAMERA::GetIsPointInsideGrid(float x, float y, const LevelData* level) {
     int xGrid;
     int yGrid;
 
@@ -10,7 +9,7 @@ bool camera::GetIsPointInsideGrid(float x, float y, const LevelData* level) {
     return xGrid >= 0 && yGrid >= 0 && xGrid < level->w && yGrid < level->h;
 }
 
-void camera::GridToWorld(float* x, float* y, const LevelData* level) {
+void CAMERA::GridToWorld(float* x, float* y, const LevelData* level) {
   *x *= CELL_SIZE_PX;
   *x += SCREEN_WIDTH / 2.0;
   *x -= level->w * CELL_SIZE_PX / 2.0;
@@ -20,7 +19,7 @@ void camera::GridToWorld(float* x, float* y, const LevelData* level) {
   *y -= level->h * CELL_SIZE_PX / 2.0;
 }
   
-void camera::WorldToGrid(float xWorld, float yWorld, int* x, int* y, const LevelData* level) {
+void CAMERA::WorldToGrid(float xWorld, float yWorld, int* x, int* y, const LevelData* level) {
   *x = xWorld;
   *y = yWorld;
 

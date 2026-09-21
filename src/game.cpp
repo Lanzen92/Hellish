@@ -1,6 +1,10 @@
-#include "game.h"
+#include <cstdint>
+
+
 #include "SDL3/SDL_scancode.h"
 #include "SDL3_image/SDL_image.h" //SDL Log
+
+#include "game.h"
 #include "command.h"
 #include "entity.h"
 #include "imgui/imgui.h"
@@ -11,7 +15,7 @@
 #include "devGui.h"
 #include "common.h"
 #include "spriteLibrary.h"
-#include <cstdint>
+
 
 extern "C" {
   void Initialize(GameData* gameData, SDL_Window* window,  SDL_Renderer* renderer) {

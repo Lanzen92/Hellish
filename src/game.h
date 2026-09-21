@@ -1,6 +1,7 @@
 #pragma once
 
 #include "SDL3/SDL_render.h"
+
 #include "gameState.h"
 
 extern "C" {

@@ -1,11 +1,11 @@
+#include "SDL3_image/SDL_image.h"
+#include "imgui/imgui.h"
 
 #include "levelEditor.h"
 #include "camera.h"
-#include "imgui/imgui.h"
 #include "input.h"
 #include "rendering.h"
 #include "spriteLibrary.h"
-#include "SDL3_image/SDL_image.h"
 
 namespace EDITOR {
   void DrawObjectPanel(Editor* editor, Sprite* spriteBuffer) {
@@ -60,20 +60,20 @@ namespace EDITOR {
   
   void Update(Editor* editor, Input* input, LevelData* levelData) {
     if (MousePressed(input, MouseButtons::LEFT)) {
-      if (camera::GetIsPointInsideGrid(input->mouseX, input->mouseY, levelData)) {
+      if (CAMERA::GetIsPointInsideGrid(input->mouseX, input->mouseY, levelData)) {
         int x;
         int y;
 
-        camera::WorldToGrid(input->mouseX, input->mouseY, &x, &y, levelData);
+        CAMERA::WorldToGrid(input->mouseX, input->mouseY, &x, &y, levelData);
         PlaceObject(x, y, editor, levelData);
       }
     }
     else if (MousePressed(input, MouseButtons::RIGHT)) {
-      if (camera::GetIsPointInsideGrid(input->mouseX, input->mouseY, levelData)) {
+      if (CAMERA::GetIsPointInsideGrid(input->mouseX, input->mouseY, levelData)) {
         int x;
         int y;
 
-        camera::WorldToGrid(input->mouseX, input->mouseY, &x, &y, levelData);
+        CAMERA::WorldToGrid(input->mouseX, input->mouseY, &x, &y, levelData);
         RemoveEntity(x, y, levelData);
       }
     }
@@ -83,7 +83,7 @@ namespace EDITOR {
     int x;
     int y;
 
-    camera::WorldToGrid(input->mouseX, input->mouseY, &x, &y, levelData);
+    CAMERA::WorldToGrid(input->mouseX, input->mouseY, &x, &y, levelData);
     Sprite* preview = GetSpriteFromID(editor->objectToPlaceId, spriteBuffer);
 
     if (preview != nullptr) {

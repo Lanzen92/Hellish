@@ -1,15 +1,14 @@
 #include <cmath>
 #include <algorithm>
-#include "SDL3/SDL_render.h"
-#include "camera.h"
-#include "common.h"
-#include "spriteLibrary.h"
-#include "rendering.h"
 
 #include "SDL3/SDL_render.h"
 #include "SDL3/SDL_surface.h"
 #include "SDL3_image/SDL_image.h"
 
+#include "camera.h"
+#include "common.h"
+#include "spriteLibrary.h"
+#include "rendering.h"
 
 void RenderSpriteWorld(Sprite* sprite, SDL_Renderer* renderer, const Camera* camera,
                        float x, float y, float scale, float alpha, bool flipped) {
@@ -35,14 +34,14 @@ void RenderSpriteWorld(Sprite* sprite, SDL_Renderer* renderer, const Camera* cam
 
 void RenderSpriteGrid(Sprite* sprite, LevelData* level, SDL_Renderer* renderer,
     const Camera* camera, float x, float y, float scale, float alpha, bool flipped) {
-  camera::GridToWorld(&x, &y, level);
+  CAMERA::GridToWorld(&x, &y, level);
 
   RenderSpriteWorld(sprite, renderer, camera, x, y, scale, alpha, flipped);
 }
 
 void RenderEntityOnTile(Sprite* sprite, LevelData* levelData, SDL_Renderer* renderer, const Camera* camera,
     float x, float y, float scale, float alpha, bool flipped) {
-  camera::GridToWorld(&x, &y, levelData);
+  CAMERA::GridToWorld(&x, &y, levelData);
   x += CELL_SIZE_PX / 2.0;
   y += CELL_SIZE_PX / 2.0;
   RenderSpriteWorld(sprite, renderer, camera, x, y, scale, alpha, flipped);

@@ -1,7 +1,8 @@
 #pragma once
 
-#include "entity.h"
 #include <cstdint>
+
+#include "entity.h"
 
 enum class CMD_TYPE : uint8_t {
   NONE = 0,
