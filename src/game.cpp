@@ -1,5 +1,6 @@
 #include "game.h"
 #include "SDL3/SDL_scancode.h"
+#include "SDL3_image/SDL_image.h" //SDL Log
 #include "command.h"
 #include "entity.h"
 #include "imgui/imgui.h"
@@ -12,48 +13,6 @@
 #include "spriteLibrary.h"
 #include <cstdint>
 
-  bool TryMove(Entity* mover, LevelData* levelData, CommandBuffer* commandBuffer, int xDir, int yDir, int strength) {
-    
-    if (strength < 0) {
-      return false;
-    }
-
-    if (HasBehaviour(mover, CAN_MOVE) == false) {
-      return false;
-    }
-  
-    int testX = mover->x + xDir;
-    int testY = mover->y + yDir;
-
-    Entity* stepIntoEntity = GetEntity(levelData, testX, testY);
-    ID StepIntoTileId = (ID)GetCell(levelData, testX, testY);
-
-    if (stepIntoEntity == nullptr) {
-      if (StepIntoTileId == ID::GROUND) { 
-
-        MoveCommand mv(mover, xDir, yDir);
-
-        Push(commandBuffer, mv, levelData);
-        return true;
-      }
-      
-      return false;
-    }
-
-    if (HasBehaviour(stepIntoEntity, CAN_MOVE) && !HasBehaviour(stepIntoEntity, UNPUSHABLE)) {
-      if(TryMove(stepIntoEntity, levelData, commandBuffer, xDir, yDir, --strength)) {
-        
-        MoveCommand mv(stepIntoEntity, xDir, yDir);
-        AddBehaviour(stepIntoEntity, IS_PUSHING);
-
-        Push(commandBuffer, mv, levelData);
-        return true;
-        
-      }
-    }
-    
-    return false;
-  }
 extern "C" {
   void Initialize(GameData* gameData, SDL_Window* window,  SDL_Renderer* renderer) {
 
@@ -136,6 +95,8 @@ extern "C" {
       Entity* entity = &gameData->GetCurrentLevel()->entityBuffer[i];
 
       if (HasBehaviour(entity, CAN_MOVE) && IsMoving(entity)) {
+        //SDL_Log("Entity is moving! x: %d, xPrev: %d, progress: %f", entity->x,
+        //        entity->xPrev, entity->progress01);
         entity->progress01 += MOVE_SPEED * dt;
 
         if (entity->progress01 >= 1) {
@@ -184,8 +145,46 @@ extern "C" {
 
       gameData->inputBufferReadCount++;
     }
-    
   }
+
+  bool TryMove(Entity* mover, LevelData* levelData, CommandBuffer* commandBuffer, int xDir, int yDir, int strength) {
+
+  if (strength < 0) {
+    return false;
+  }
+
+  if (HasBehaviour(mover, CAN_MOVE) == false) {
+    return false;
+  }
+
+  int testX = mover->x + xDir;
+  int testY = mover->y + yDir;
+
+  Entity* stepIntoEntity = GetEntity(levelData, testX, testY);
+  ID StepIntoTileId = (ID)GetCellID(levelData, testX, testY);
+
+  if (stepIntoEntity == nullptr) {
+    if (StepIntoTileId == ID::GROUND) {
+      MoveCommand mv(mover, xDir, yDir);
+      Push(commandBuffer, mv, levelData);
+      return true;
+    }
+
+    return false;
+  }
+
+  if (HasBehaviour(stepIntoEntity, CAN_MOVE) &&
+      !HasBehaviour(stepIntoEntity, UNPUSHABLE)) {
+    if (TryMove(stepIntoEntity, levelData, commandBuffer, xDir, yDir, --strength)) {
+      MoveCommand mv(mover, xDir, yDir);
+      AddBehaviour(mover, Behaviour::IS_PUSHING);
+      Push(commandBuffer, mv, levelData);
+      return true;
+    }
+  }
+
+  return false;
+}
   
   void Draw(GameData* gameData, SDL_Renderer* renderer) {
     

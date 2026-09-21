@@ -25,7 +25,7 @@ void AddEntity(ID entity, int x, int y, LevelData* levelData);
 
 void RemoveEntity(int x, int y, LevelData* levelData);
 
-uint8_t GetCell(LevelData* levelData,int x, int y);
+uint8_t GetCellID(LevelData* levelData,int x, int y);
 
 Entity* GetEntity(LevelData* levelData,int x, int y);
 

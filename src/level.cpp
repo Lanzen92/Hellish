@@ -89,7 +89,9 @@ void RemoveEntity(int x, int y, LevelData* levelData) {
   *entity = {};
 }
 
-uint8_t GetCell(LevelData* levelData, int x, int y) { return levelData->cells[y * levelData->w + x]; }
+uint8_t GetCellID(LevelData* levelData, int x, int y) { 
+  return levelData->cells[y * levelData->w + x]; 
+}
 
 Entity* GetEntity(LevelData* levelData, int x, int y) {
   for (int i = 0; i < levelData->entityCount; i++) {
@@ -127,7 +129,7 @@ Entity* RaycastFirstEntity(int xOrigin, int yOrigin, Direction direction, LevelD
 
   while (xSearch > 0 && xSearch < levelData->w && ySearch > 0 &&
          ySearch < levelData->h) {
-    ID cellID = (ID)GetCell(levelData, xSearch, ySearch);
+    ID cellID = (ID)GetCellID(levelData, xSearch, ySearch);
 
     if (cellID == ID::WALL && !ignoreWalls) {
       break;

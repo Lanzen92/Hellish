@@ -25,7 +25,7 @@ enum class ID : uint8_t {
   DEMON = 3,
   ROCK = 4,
   MEDUSA = 5,
-  GHOST = 6,
+  //GHOST = 6,
   GOLEM = 7,
   SIREN = 8
 };

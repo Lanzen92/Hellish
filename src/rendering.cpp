@@ -17,15 +17,17 @@ void RenderSpriteWorld(Sprite* sprite, SDL_Renderer* renderer, const Camera* cam
   SDL_FRect rect;
   rect.x = x;
   rect.y = y;
-  rect.h = sprite->height * UPSCALE_FACTOR * scale;
-  rect.w = sprite->width * UPSCALE_FACTOR * scale;
+  float finalScale = scale * UPSCALE_FACTOR;
+  rect.h = sprite->height * finalScale;
+  rect.w = sprite->width * finalScale;
+  rect.x -= sprite->pivotX * finalScale;
+  rect.y -= sprite->pivotY * finalScale;
   rect.x -= camera->cameraX;
   rect.y -= camera->cameraY;
+
   SDL_SetTextureScaleMode(sprite->texture, SDL_ScaleMode::SDL_SCALEMODE_PIXELART);
   SDL_SetTextureAlphaModFloat(sprite->texture, alpha);
   
-  //SDL_RenderTexture(renderer, sprite->texture, NULL, &rect);
-
   SDL_RenderTextureRotated(renderer, sprite->texture, NULL, &rect, 0.0, NULL,
                            flipped ? SDL_FlipMode::SDL_FLIP_HORIZONTAL : SDL_FlipMode::SDL_FLIP_NONE);
 

@@ -17,7 +17,7 @@ enum class SPRITE_ID {
   Medusa_Idle_Front,
   Medusa_Idle_Back,
   Golem,
-  Ghost,
+  //Ghost,
   Siren,
   DropShadow
 };
@@ -26,8 +26,8 @@ struct Sprite {
   SDL_Texture* texture;
   int width;
   int height;
-  int pivotx;
-  int pivoty;
+  int pivotX;
+  int pivotY;
 };
 
 struct SpriteDataEntry {

@@ -18,12 +18,12 @@ void RenderLevel(GameData* gameData, SDL_Renderer* renderer) {
 
   for (int x = 0; x < levelData.w; x++) {
     for (int y = 0; y < levelData.h; y++) {
-      uint8_t cellType = GetCell(&levelData, x, y);
+      uint8_t cellType = GetCellID(&levelData, x, y);
       
       if ((ID)cellType == ID::NONE) {
         continue;
       }
-      //Sprite* sprite = GetSpriteFromID((ID)cellType, gameData->spriteBuffer);
+
       Sprite* sprite;
       if (ID(cellType) == ID::GROUND) {
         sprite = &gameData->spriteBuffer[(x + y) % 2 == 0 ? (int)SPRITE_ID::Ground : (int)SPRITE_ID::Ground_alt];
@@ -49,8 +49,7 @@ void RenderEntities(GameData* gameData, SDL_Renderer* renderer) {
       continue;
     }
 
-    Sprite* sprite; //= GetSpriteFromID(entity.id, gameData->spriteBuffer);
-
+    Sprite* sprite = GetSpriteFromEntityState(&entity, gameData->spriteBuffer);
 
     if (HasBehaviour(&entity, Behaviour::IS_PETRIFIED)) {
       sprite = GetSpriteFromID(ID::ROCK, gameData->spriteBuffer);
@@ -68,7 +67,5 @@ void RenderEntities(GameData* gameData, SDL_Renderer* renderer) {
     Sprite* dropshadow = &gameData->spriteBuffer[(int)SPRITE_ID::DropShadow];
     RenderEntityOnTile(dropshadow, &levelData, renderer, &gameData->camera, xAnimated, dropshadowY, 1, 0.4, false);
     RenderEntityOnTile(sprite, &levelData, renderer, &gameData->camera, xAnimated, yAnimated, 1, 1, entity.facing == Direction::RIGHT);
-    
-    //RenderSpriteGrid(sprite, &levelData, renderer, &gameData->camera, xAnimated, yAnimated);   
   }
 }

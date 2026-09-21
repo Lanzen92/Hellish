@@ -1,15 +1,21 @@
 #include <cstdint>
+#include "SDL3_image/SDL_image.h" //SDL Log
 #include "command.h"
 #include "level.h"
 #include "entity.h"
 
 void Execute(AnyCommand cmd, LevelData* levelData, CommandBuffer* commandBuffer, bool fromRedo = false) {
+
+  SDL_Log("Execute called with command type: %d (NONE is usually 0)",
+          (int)cmd.command.type);
+
   switch(cmd.command.type) {
     case CMD_TYPE::NONE:
       break;
 
     case CMD_TYPE::MOVE: {
       MoveCommand mc = cmd.move;
+
       mc.entity->xPrev = mc.entity->x;
       mc.entity->yPrev = mc.entity->y;
       mc.entity->x += mc.xDir;
@@ -20,9 +26,8 @@ void Execute(AnyCommand cmd, LevelData* levelData, CommandBuffer* commandBuffer,
       }
 
       PostMove(mc.entity, levelData, commandBuffer);
-    } 
-    break;
-
+      break;
+    }
     case CMD_TYPE::ROTATE: {
 
       RotateCommand rc = cmd.rotate;
@@ -52,7 +57,6 @@ void Execute(AnyCommand cmd, LevelData* levelData, CommandBuffer* commandBuffer,
 
 void Push(CommandBuffer* commandBuffer, AnyCommand cmd, LevelData* levelData) {
   assert(cmd.command.type != CMD_TYPE::NONE);
-
   commandBuffer->allCommands[commandBuffer->index] = cmd;
   commandBuffer->allCommands[commandBuffer->index].command.timestamp = commandBuffer->timestamp;
   commandBuffer->index++;
