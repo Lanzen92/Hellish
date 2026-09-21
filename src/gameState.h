@@ -12,7 +12,7 @@
 #include "input.h"
 #include "camera.h"
 
-enum class GAME_STATES { PLAY, BUILD };
+//enum class GAME_STATES { PLAY, BUILD };
 
 struct GameData {
 
@@ -31,20 +31,25 @@ struct GameData {
   int inputBufferReadCount;
   
   Sprite* spriteBuffer;
-  
+  Input input;
+
+  CommandBuffer* commandBuffer;
+
+  Memory::Arena* arenaMain;
   Memory::Arena* arenaLevels;
   Memory::Arena* arenaEntities;
   Memory::Arena* arenaImages;
   Memory::Arena* arenaCommands;
-
-  Input input;
+  Memory::Arena* arenaScratch;
   Memory::Arena* arenaInputs;
 
-  CommandBuffer* commandBuffer;
-  
   LevelData* levels;
   int levelCount;
   int currentLevelIndex;
+
+  float* fpsBuffer;
+  int fpsBufferCount;
+  int fpsBufferIndex;
 
   LevelData* GetCurrentLevel() {
     return &levels[currentLevelIndex];

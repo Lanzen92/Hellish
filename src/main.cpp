@@ -185,48 +185,47 @@ int main() {
   // ----- MemoryAllocation  ------
 
   printf("Allocating memory..  \n");
+
   //Set up CPU / RAM memory
   Memory::Arena* arenaMain = new Memory::Arena();
   Memory::Initialize(arenaMain, gameMemory, GAME_MEMORY_ALLOWANCE);
-  GameData* gameData = (GameData*)Memory::Allocate(arenaMain, sizeof(GameData));
+  GameData* gameData = ALLOC_ARRAY(arenaMain, GameData, 1);
+  gameData->arenaMain = arenaMain;
 
-  //Set up GPU memory
-  //Allocate to create a struct/subarena thats gonna be used for ArenaImages
-  //Gets the void* from mainArena, to know where to start the subArena.
   int SPRITE_COUNT = 256;
   size_t IMAGE_ARENA_SIZE = sizeof(Sprite) * SPRITE_COUNT;
   gameData->arenaImages = Memory::CreateSubArena(arenaMain, IMAGE_ARENA_SIZE);
-  gameData->spriteBuffer = (Sprite*)Memory::Allocate(gameData->arenaImages, sizeof(Sprite) * SPRITE_COUNT);
+  gameData->spriteBuffer = ALLOC_ARRAY(gameData->arenaImages, Sprite, SPRITE_COUNT);
 
-  gameData->arenaLevels = Memory::CreateSubArena(arenaMain, MEGABYTES(4));
+  gameData->fpsBufferCount = 500;
+  gameData->fpsBuffer = ALLOC_ARRAY(gameData->arenaMain, float, gameData->fpsBufferCount);
 
-  gameData->arenaEntities = Memory::CreateSubArena(gameData->arenaLevels, MEGABYTES(2));
-  gameData->arenaCommands = Memory::CreateSubArena(gameData->arenaLevels, MEGABYTES(1));
-  gameData->levels = (LevelData *)Memory::Allocate(gameData->arenaLevels, sizeof(LevelData) * 12);
-  // gameData->keysPrevious = (bool*)Memory::Allocate(gameData->arenaLevels, sizeof(bool) * SDL_SCANCODE_COUNT);
-
-  gameData->commandBuffer = (CommandBuffer*)Memory::Allocate(arenaMain, sizeof(CommandBuffer));
-  gameData->commandBuffer->capacity = 2000;
-  size_t COMMAND_SIZE = sizeof(AnyCommand) * gameData->commandBuffer->capacity;
-  gameData->commandBuffer->allCommands = (AnyCommand*)Memory::Allocate(gameData->arenaCommands, COMMAND_SIZE);
-
-  gameData->inputBufferCapacity = 50;
-  size_t RING_BUFFER_SIZE = sizeof(Position) * gameData->inputBufferCapacity;
-  gameData->inputBuffer = (Position*)Memory::Allocate(gameData->arenaLevels, RING_BUFFER_SIZE);
+  gameData->arenaScratch = Memory::CreateSubArena(arenaMain, KILOBYTES(256));
 
   size_t INPUT_ARENA_SIZE = 0;
   INPUT_ARENA_SIZE += sizeof(bool) * SDL_SCANCODE_COUNT * 2;
   INPUT_ARENA_SIZE += sizeof(float) * SDL_SCANCODE_COUNT;
   INPUT_ARENA_SIZE += 128;
-
   gameData->arenaInputs = Memory::CreateSubArena(arenaMain, INPUT_ARENA_SIZE);
-  gameData->input.keysCurrent = (bool*)Memory::Allocate(gameData->arenaInputs, sizeof(bool) * SDL_SCANCODE_COUNT);
-  gameData->input.keysPrevious = (bool*)Memory::Allocate(gameData->arenaInputs, sizeof(bool) * SDL_SCANCODE_COUNT);
-  gameData->input.keysHeldTime = (float*)Memory::Allocate(gameData->arenaInputs, sizeof(float) * SDL_SCANCODE_COUNT);
 
-  int supportedMouseButtons = 3; //Left, Middle, Right.
-  gameData->input.mouseHeldTime = (float*)Memory::Allocate(gameData->arenaInputs, sizeof(float) * supportedMouseButtons);
-  
+  gameData->input.keysCurrent = ALLOC_ARRAY(gameData->arenaInputs, bool, SDL_SCANCODE_COUNT); 
+  gameData->input.keysPrevious = ALLOC_ARRAY(gameData->arenaInputs, bool, SDL_SCANCODE_COUNT);
+  gameData->input.keysHeldTime = ALLOC_ARRAY(gameData->arenaInputs, float, SDL_SCANCODE_COUNT);
+  gameData->input.mouseHeldTime = ALLOC_ARRAY(gameData->arenaInputs, float, (int)MouseButtons::COUNT);
+
+  gameData->arenaLevels = Memory::CreateSubArena(arenaMain, MEGABYTES(3));
+  gameData->arenaEntities = Memory::CreateSubArena(gameData->arenaLevels, MEGABYTES(1));
+  gameData->arenaCommands = Memory::CreateSubArena(gameData->arenaLevels, MEGABYTES(1));
+
+  gameData->inputBufferCapacity = 50;
+  gameData->inputBuffer = ALLOC_ARRAY(gameData->arenaLevels, Position, gameData->inputBufferCapacity);
+
+  gameData->levelCount = 256;
+  gameData->levels = ALLOC_ARRAY(gameData->arenaLevels, LevelData, gameData->levelCount);
+  gameData->commandBuffer = ALLOC(gameData->arenaCommands, CommandBuffer);
+  gameData->commandBuffer->capacity = 2000;
+  gameData->commandBuffer->allCommands = ALLOC_ARRAY(gameData->arenaCommands, AnyCommand, gameData->commandBuffer->capacity);
+
   printf("Allocation done \n");
   // ----- MemoryAllocation end ------
 
@@ -257,6 +256,8 @@ int main() {
   while (running) {
     //Each frame, check if dll has changed. 
     DLL_CheckStatus(&dll);
+
+    Reset(gameData->arenaScratch);
 
     //Get Delta
     CalculateDeltaTime(dt);
