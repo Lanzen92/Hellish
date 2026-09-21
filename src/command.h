@@ -8,12 +8,42 @@ enum class CMD_TYPE : uint8_t {
   NONE = 0,
   MOVE = 1,
   ROTATE = 2,
-  MODIFY_BEHAVIOUR = 3
+  MODIFY_BEHAVIOUR = 3,
+  ADD = 4,
+  REMOVE = 5
 };
  
 struct Command {
   CMD_TYPE type = CMD_TYPE::NONE;
   uint32_t timestamp;
+};
+
+struct AddCommand : Command {
+  ID id;
+  int x;
+  int y;
+
+  AddCommand(ID id, int x, int y) {
+    this->type = CMD_TYPE::ADD;
+    this->id = id;
+    this->x = x;
+    this->y = y;
+  };
+};
+
+struct RemoveCommand : Command {
+  ID storedId;
+  Behaviour storedBehaviour;
+  int x;
+  int y;
+
+  RemoveCommand(Entity* entity) {
+    this->type = CMD_TYPE::REMOVE;
+    x = entity->x;
+    y = entity->y;
+    storedId = entity->id;
+    storedBehaviour = entity->behaviour;
+  };
 };
 
 struct MoveCommand : Command {
@@ -53,11 +83,11 @@ struct ModifyBehaviourCommand : Command {
   Mode mode;
 
   ModifyBehaviourCommand(Entity* entity, Behaviour flag, Mode mode) {
-    this->type = CMD_TYPE::MODIFY_BEHAVIOUR; 
+    this->type = CMD_TYPE::MODIFY_BEHAVIOUR;
     this->entity = entity;
     this->flag = flag;
     this->mode = mode;
-  }
+  };
 };
 
 union AnyCommand {
@@ -65,10 +95,14 @@ union AnyCommand {
   MoveCommand move;
   RotateCommand rotate;
   ModifyBehaviourCommand modify;
+  AddCommand add;
+  RemoveCommand remove;
 
   AnyCommand(MoveCommand mv) { move = mv; };
   AnyCommand(RotateCommand rt) { rotate = rt; };
   AnyCommand(ModifyBehaviourCommand mb) { modify = mb; };
+  AnyCommand(AddCommand ad) { this->add = ad; };
+  AnyCommand(RemoveCommand rm) { remove = rm; };
 };
 
 struct CommandBuffer {
@@ -80,8 +114,5 @@ struct CommandBuffer {
 };
 
 void Push(CommandBuffer* commandBuffer, AnyCommand command, LevelData* levelData);
-void Undo(CommandBuffer* commandBuffer);
+void Undo(CommandBuffer* commandBuffer, LevelData* levelData);
 void Redo(CommandBuffer* commandBuffer, LevelData* levelData);
-
-
-

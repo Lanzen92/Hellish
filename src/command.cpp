@@ -1,6 +1,8 @@
 #include <cstdint>
+
 #include "SDL3_image/SDL_image.h" //SDL Log
 #include "command.h"
+
 #include "level.h"
 #include "entity.h"
 
@@ -38,9 +40,8 @@ void Execute(AnyCommand cmd, LevelData* levelData, CommandBuffer* commandBuffer,
       PreRotation(rc.entity, levelData, commandBuffer, rc.from, rc.to);
       rc.entity->facing = rc.to;
       PostRotation(rc.entity, levelData, commandBuffer, rc.from, rc.to);
+      break;
     } 
-    break;
-
     case CMD_TYPE::MODIFY_BEHAVIOUR: {
       ModifyBehaviourCommand mb = cmd.modify;
       if (mb.mode == ModifyBehaviourCommand::Mode::ADD) {
@@ -49,9 +50,18 @@ void Execute(AnyCommand cmd, LevelData* levelData, CommandBuffer* commandBuffer,
       else {
         RemoveBehaviour(mb.entity, mb.flag);
       }
+      break;
     }
-    break;
-
+    case CMD_TYPE::ADD: {
+      AddCommand* ac = &cmd.add;
+      AddEntity(ac->id, ac->x, ac->y, levelData);
+      break;
+    }
+    case CMD_TYPE::REMOVE: {
+      RemoveCommand* remove = &cmd.remove;
+      RemoveEntity(remove->x, remove->y, levelData);
+      break;
+    }
   }
 }
 
@@ -64,7 +74,7 @@ void Push(CommandBuffer* commandBuffer, AnyCommand cmd, LevelData* levelData) {
   Execute(cmd, levelData, commandBuffer);
 }
 
-void Undo(CommandBuffer* commandBuffer) {
+void Undo(CommandBuffer* commandBuffer, LevelData* levelData) {
   if (commandBuffer->index == 0) {
     return;
   }
@@ -104,33 +114,45 @@ void Undo(CommandBuffer* commandBuffer) {
 
       break;
     }
+    case CMD_TYPE::ADD: {
+      AddCommand* ac = &cmd.add;
+      RemoveEntity(ac->x, ac->y, levelData);
+      break;
+    }
+    case CMD_TYPE::REMOVE: {
+      RemoveCommand* remove = &cmd.remove;
+      AddEntity(remove->storedId, remove->x, remove->y, levelData);
+      Entity* entity = GetEntity(levelData, remove->x, remove->y);
+      SetBehaviour(entity, remove->storedBehaviour);
+      break;
+    }
   }
 
   if (commandBuffer->index > 0) {
     if (commandBuffer->allCommands[commandBuffer->index - 1].command.timestamp == timestamp) {
-      Undo(commandBuffer);
+      Undo(commandBuffer, levelData);
     }
   }
 }
 
-void Redo(CommandBuffer* commandBuffer, LevelData* levelData){
+void Redo(CommandBuffer* commandBuffer, LevelData* levelData) {
   AnyCommand cmd = commandBuffer->allCommands[commandBuffer->index];
 
-  if(cmd.command.type == CMD_TYPE::NONE){
+  if (cmd.command.type == CMD_TYPE::NONE) {
     return;
   }
-  
-  if(commandBuffer->index == commandBuffer->head){
+
+  if (commandBuffer->index == commandBuffer->head) {
     return;
   }
-  
+
   commandBuffer->index++;
   Execute(cmd, levelData, commandBuffer, true);
 
   uint32_t timestamp = cmd.command.timestamp;
   if (commandBuffer->index != commandBuffer->head) {
     AnyCommand nextCommand = commandBuffer->allCommands[commandBuffer->index];
-    
+
     if (nextCommand.command.timestamp == timestamp) {
       Redo(commandBuffer, levelData);
     }

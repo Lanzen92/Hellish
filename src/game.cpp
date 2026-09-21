@@ -1,6 +1,5 @@
 #include <cstdint>
 
-
 #include "SDL3/SDL_scancode.h"
 #include "SDL3_image/SDL_image.h" //SDL Log
 
@@ -52,10 +51,8 @@ extern "C" {
     }
 
     if (gameData->editLevel) {
-      EDITOR::Update(&gameData->editorData, &gameData->input,
-                     gameData->GetCurrentLevel());
+      EDITOR::Update(&gameData->editorData, &gameData->input, gameData->GetCurrentLevel(), gameData->commandBuffer);
     }
-
 
     if (KeyPressed(&gameData->input, SDL_SCANCODE_Z) ||
         KeyHeldForTime(&gameData->input, SDL_SCANCODE_Z, UNDO_REPEAT_TIME)) {
@@ -65,7 +62,7 @@ extern "C" {
         Redo(gameData->commandBuffer, gameData->GetCurrentLevel());
       }
       else {
-        Undo(gameData->commandBuffer);
+        Undo(gameData->commandBuffer, gameData->GetCurrentLevel());
       }
     }
 

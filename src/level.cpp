@@ -9,7 +9,6 @@
 #include "level.h"
 #include "entity.h"
 
-
 using namespace std;
 
 const int LEVEL_INDEX = 0;

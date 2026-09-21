@@ -6,6 +6,7 @@
 #include "input.h"
 #include "rendering.h"
 #include "spriteLibrary.h"
+#include "command.h"
 
 namespace EDITOR {
   void DrawObjectPanel(Editor* editor, Sprite* spriteBuffer) {
@@ -49,23 +50,25 @@ namespace EDITOR {
     ImGui::End();
   }
 
-  void PlaceObject(const int x, const int y, Editor* editor, LevelData* levelData) {
+  void PlaceObject(const int x, const int y, Editor* editor, LevelData* levelData, CommandBuffer* commandBuffer) {
     if (editor->objectToPlaceId == ID::GROUND || editor->objectToPlaceId == ID::WALL) {
       levelData->cells[y * levelData->w + x] = (int)editor->objectToPlaceId;
     }
     else {
-      AddEntity(editor->objectToPlaceId, x, y, levelData);
+      AddCommand ac(editor->objectToPlaceId, x, y);
+      Push(commandBuffer, ac, levelData);
+      //AddEntity(editor->objectToPlaceId, x, y, levelData);
     }
   }
   
-  void Update(Editor* editor, Input* input, LevelData* levelData) {
+  void Update(Editor* editor, Input* input, LevelData* levelData, CommandBuffer* commandBuffer) {
     if (MousePressed(input, MouseButtons::LEFT)) {
       if (CAMERA::GetIsPointInsideGrid(input->mouseX, input->mouseY, levelData)) {
         int x;
         int y;
 
         CAMERA::WorldToGrid(input->mouseX, input->mouseY, &x, &y, levelData);
-        PlaceObject(x, y, editor, levelData);
+        PlaceObject(x, y, editor, levelData, commandBuffer);
       }
     }
     else if (MousePressed(input, MouseButtons::RIGHT)) {
@@ -74,7 +77,14 @@ namespace EDITOR {
         int y;
 
         CAMERA::WorldToGrid(input->mouseX, input->mouseY, &x, &y, levelData);
-        RemoveEntity(x, y, levelData);
+        Entity* entity = GetEntity(levelData, x, y);
+        if (entity == nullptr) {
+          return;
+        }
+
+        RemoveCommand rc(entity);
+        Push(commandBuffer, rc, levelData);
+        //RemoveEntity(x, y, levelData);
       }
     }
   }

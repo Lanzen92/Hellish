@@ -3,7 +3,6 @@
 #include "SDL3/SDL_mouse.h"
 #include "SDL3/SDL_scancode.h"
 
-
 enum class MouseButtons {
   LEFT = 0,
   MIDDLE = 1,

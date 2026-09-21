@@ -1,7 +1,8 @@
-
 #include <cstring>
 #include <windows.h>
+
 #include "arena.h"
+
 using namespace std;
 
 //Init arena, med storlek av size-inparam. void* = tom minnesplats.
