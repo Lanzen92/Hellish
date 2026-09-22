@@ -20,7 +20,9 @@ enum class SPRITE_ID {
   Golem,
   //Ghost,
   Siren,
-  DropShadow
+  DropShadow,
+  TitleScreenBackground,
+  Black1x1
 };
 
 struct Sprite {
@@ -38,6 +40,7 @@ struct SpriteDataEntry {
   int pivotY = NOT_SET;
 };
 
+Sprite* GetSprite(SPRITE_ID spriteId, Sprite* spriteBuffer);
 Sprite* GetSpriteFromID(ID id, Sprite* spriteBuffer);
 Sprite* GetSpriteFromEntityState(Entity* entity, Sprite* spriteBuffer);
 

@@ -1,15 +1,14 @@
 #include <string>
 
+#include "SDL3/SDL_render.h"
 #include "imgui/imgui.h"
 #include "imgui/imgui_impl_sdl3.h"
 #include "imgui/imgui_impl_sdlrenderer3.h"
-#include "imgui/imgui_internal.h"
-#include "SDL3/SDL_render.h"
 
-#include "levelEditor.h"
 #include "devGui.h"
-#include "gameState.h"
 #include "command.h"
+#include "gameState.h"
+#include "levelEditor.h"
 
 using namespace std;
 
@@ -21,7 +20,6 @@ void DrawImGuiArenaUsage(Arena* arena, std::string nameOfArena) {
   barText += " / " + to_string(arena->size);
 
   ImGui::ProgressBar(fraction, ImVec2(-1,0), barText.c_str());
-  
 }
 
 void DrawFPS(float dt) {
@@ -46,14 +44,17 @@ void DEV::ProcessEvents(SDL_Event* event) {
 void DEV::Draw(GameData* gameData, SDL_Renderer* renderer) {
   ImGui::Begin("Dev tools");
 
+  DrawImGuiArenaUsage(gameData->arenaMain, "All Memory");
   DrawImGuiArenaUsage(gameData->arenaImages, "Images");
   DrawImGuiArenaUsage(gameData->arenaLevels, "Levels");
   DrawImGuiArenaUsage(gameData->arenaCommands, "Commands");
   DrawImGuiArenaUsage(gameData->arenaEntities, "Entities");
+  DrawImGuiArenaUsage(gameData->arenaInputs, "Input");
+  DrawImGuiArenaUsage(gameData->arenaScratch, "Scratch");
 
-  if (gameData->editLevel) {
-    EDITOR::DrawObjectPanel(&gameData->editorData, gameData->spriteBuffer);
-    EDITOR::DrawPreview(&gameData->editorData, &gameData->input, renderer, gameData->GetCurrentLevel(), &gameData->camera, gameData->spriteBuffer);
+  if (gameData->editorData.editLevel) {
+    EDITOR::DrawObjectPanel(&gameData->editorData.editor, gameData->spriteBuffer);
+    EDITOR::DrawPreview(&gameData->editorData.editor, &gameData->input, renderer, GetCurrentLevel(&gameData->scenes.gameplay), &gameData->camera, gameData->spriteBuffer);
   }
 
   DrawFPS(*gameData->dt);

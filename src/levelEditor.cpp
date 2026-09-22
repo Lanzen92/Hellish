@@ -97,7 +97,12 @@ namespace EDITOR {
     Sprite* preview = GetSpriteFromID(editor->objectToPlaceId, spriteBuffer);
 
     if (preview != nullptr) {
-      RenderSpriteGrid(preview, levelData, renderer, camera, x, y, 1, 0.5); 
+      if (editor->objectToPlaceId == ID::GROUND || editor->objectToPlaceId == ID::WALL) {
+        RenderSpriteGrid(preview, levelData, renderer, camera, x, y, 1, 0.5);
+      }
+      else {
+        RenderEntityOnTile(preview, levelData, renderer, camera, x, y, 1, 0.5); 
+      }
     }
   }
 }

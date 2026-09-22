@@ -5,14 +5,12 @@
 
 using namespace std;
 
-//Init arena, med storlek av size-inparam. void* = tom minnesplats.
 void Memory::Initialize(Arena* arena, void* start, size_t size) {
   arena->base = (unsigned char*) start;
   arena->size = size;
   arena->used = 0;
 }
 
-//Allocate minne. Nollar minnet, allokerar den angivna mangden och retunerar forsta minnesadressen i det nya blocket.
 void* Memory::Allocate(Arena* arena, size_t size) {
   if (arena->used + size > arena->size) {
     return nullptr;

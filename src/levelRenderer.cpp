@@ -17,11 +17,12 @@ bool IsEntityBelowOtherEntity(Entity* a, Entity* b) { return a->y < b->y; }
 
 void RenderLevel(GameData* gameData, SDL_Renderer* renderer) {
 
-  LevelData levelData = gameData->levels[gameData->currentLevelIndex];
+  Gameplay* gameplay = &gameData->scenes.gameplay;
+  LevelData* levelData = &gameplay->levels[gameplay->currentLevelIndex];
 
-  for (int x = 0; x < levelData.w; x++) {
-    for (int y = 0; y < levelData.h; y++) {
-      uint8_t cellType = GetCellID(&levelData, x, y);
+  for (int x = 0; x < levelData->w; x++) {
+    for (int y = 0; y < levelData->h; y++) {
+      uint8_t cellType = GetCellID(levelData, x, y);
       
       if ((ID)cellType == ID::NONE) {
         continue;
@@ -35,16 +36,16 @@ void RenderLevel(GameData* gameData, SDL_Renderer* renderer) {
         sprite = GetSpriteFromID((ID)cellType, gameData->spriteBuffer);
       }
 
-      RenderSpriteGrid(sprite, &levelData, renderer, &gameData->camera, x, y);  
+      RenderSpriteGrid(sprite, levelData, renderer, &gameData->camera, x, y);  
     }
   }
 }
 
 void RenderEntities(GameData* gameData, SDL_Renderer* renderer) {
 
-  LevelData* levelData = &gameData->levels[gameData->currentLevelIndex];
+  LevelData* levelData = &gameData->scenes.gameplay.levels[gameData->scenes.gameplay.currentLevelIndex];
 
-  Entity** sortedEntities = ALLOC_ARRAY(gameData->arenaScratch, Entity*, levelData->entityCount);
+  Entity** sortedEntities = ALLOC_ARRAY(gameData->arenaScratch, Entity*, levelData->entityCount)
   for (int i = 0; i < levelData->entityCount; i++) { 
     sortedEntities[i] = &levelData->entityBuffer[i];
   }

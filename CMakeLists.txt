@@ -26,6 +26,7 @@ set(IMGUI
 	${CMAKE_SOURCE_DIR}/src_external/imgui/imgui_widgets.cpp
 	${CMAKE_SOURCE_DIR}/src_external/imgui/imgui_impl_sdlrenderer3.cpp
 	${CMAKE_SOURCE_DIR}/src_external/imgui/imgui_impl_sdl3.cpp
+		src/gameState.h
 )
 
 

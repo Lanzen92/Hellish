@@ -189,7 +189,7 @@ int main() {
   //Set up CPU / RAM memory
   Memory::Arena* arenaMain = new Memory::Arena();
   Memory::Initialize(arenaMain, gameMemory, GAME_MEMORY_ALLOWANCE);
-  GameData* gameData = ALLOC_ARRAY(arenaMain, GameData, 1);
+  GameData* gameData = ALLOC_ARRAY(arenaMain, GameData, 1)
   gameData->arenaMain = arenaMain;
 
   int SPRITE_COUNT = 256;
@@ -197,8 +197,8 @@ int main() {
   gameData->arenaImages = Memory::CreateSubArena(arenaMain, IMAGE_ARENA_SIZE);
   gameData->spriteBuffer = ALLOC_ARRAY(gameData->arenaImages, Sprite, SPRITE_COUNT);
 
-  gameData->fpsBufferCount = 500;
-  gameData->fpsBuffer = ALLOC_ARRAY(gameData->arenaMain, float, gameData->fpsBufferCount);
+  gameData->editorData.fpsBufferCount = 500;
+  gameData->editorData.fpsBuffer = ALLOC_ARRAY(gameData->arenaMain, float, gameData->editorData.fpsBufferCount);
 
   gameData->arenaScratch = Memory::CreateSubArena(arenaMain, KILOBYTES(256));
 
@@ -208,23 +208,24 @@ int main() {
   INPUT_ARENA_SIZE += 128;
   gameData->arenaInputs = Memory::CreateSubArena(arenaMain, INPUT_ARENA_SIZE);
 
-  gameData->input.keysCurrent = ALLOC_ARRAY(gameData->arenaInputs, bool, SDL_SCANCODE_COUNT); 
-  gameData->input.keysPrevious = ALLOC_ARRAY(gameData->arenaInputs, bool, SDL_SCANCODE_COUNT);
-  gameData->input.keysHeldTime = ALLOC_ARRAY(gameData->arenaInputs, float, SDL_SCANCODE_COUNT);
-  gameData->input.mouseHeldTime = ALLOC_ARRAY(gameData->arenaInputs, float, (int)MouseButtons::COUNT);
+  gameData->input.keysCurrent = ALLOC_ARRAY(gameData->arenaInputs, bool, SDL_SCANCODE_COUNT);
+  gameData->input.keysPrevious = ALLOC_ARRAY(gameData->arenaInputs, bool, SDL_SCANCODE_COUNT)
+  gameData->input.keysHeldTime = ALLOC_ARRAY(gameData->arenaInputs, float, SDL_SCANCODE_COUNT)
+  gameData->input.mouseHeldTime = ALLOC_ARRAY(gameData->arenaInputs, float, (int)MouseButtons::COUNT)
 
   gameData->arenaLevels = Memory::CreateSubArena(arenaMain, MEGABYTES(3));
   gameData->arenaEntities = Memory::CreateSubArena(gameData->arenaLevels, MEGABYTES(1));
   gameData->arenaCommands = Memory::CreateSubArena(gameData->arenaLevels, MEGABYTES(1));
 
-  gameData->inputBufferCapacity = 50;
-  gameData->inputBuffer = ALLOC_ARRAY(gameData->arenaLevels, Position, gameData->inputBufferCapacity);
+  Gameplay* gameplay = &gameData->scenes.gameplay;
+  gameplay->inputBufferCapacity = 50;
+  gameplay->inputBuffer = ALLOC_ARRAY(gameData->arenaLevels, Position, gameplay->inputBufferCapacity)
 
-  gameData->levelCount = 256;
-  gameData->levels = ALLOC_ARRAY(gameData->arenaLevels, LevelData, gameData->levelCount);
-  gameData->commandBuffer = ALLOC(gameData->arenaCommands, CommandBuffer);
-  gameData->commandBuffer->capacity = 2000;
-  gameData->commandBuffer->allCommands = ALLOC_ARRAY(gameData->arenaCommands, AnyCommand, gameData->commandBuffer->capacity);
+  gameplay->levelCount = 256;
+  gameplay->levels = ALLOC_ARRAY(gameData->arenaLevels, LevelData, gameplay->levelCount)
+  gameplay->commandBuffer = ALLOC(gameData->arenaCommands, CommandBuffer)
+  gameplay->commandBuffer->capacity = 2000;
+  gameplay->commandBuffer->allCommands = ALLOC_ARRAY(gameData->arenaCommands, AnyCommand, gameplay->commandBuffer->capacity)
 
   printf("Allocation done \n");
   // ----- MemoryAllocation end ------

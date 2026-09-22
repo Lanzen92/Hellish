@@ -6,7 +6,18 @@
 
 #include "input.h"
 
+bool AnyKeyPressed(const Input* input) {
+  for (int i = 0; i < SDL_SCANCODE_COUNT; i++) {
+    if (KeyPressed(input, (SDL_Scancode) i)) {
+      return true;
+    }
+  }
+  
+  return false;
+}
+
 bool KeyPressed(const Input* input, SDL_Scancode key) {
+  
   if (input->keysPrevious == nullptr){
     return input->keysCurrent[key];
   }
