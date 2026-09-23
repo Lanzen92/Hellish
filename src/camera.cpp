@@ -10,26 +10,26 @@ bool CAMERA::GetIsPointInsideGrid(float x, float y, const LevelData* level) {
 }
 
 void CAMERA::GridToWorld(float* x, float* y, const LevelData* level) {
-  *x *= CELL_SIZE_PX;
+  *x *= TILE_SIZE_PX_SCALED;
   *x += SCREEN_WIDTH / 2.0;
-  *x -= level->w * CELL_SIZE_PX / 2.0;
+  *x -= level->w * TILE_SIZE_PX_SCALED / 2.0;
 
-  *y *= CELL_SIZE_PX;
+  *y *= TILE_SIZE_PX_SCALED;
   *y += SCREEN_HEIGHT / 2.0;
-  *y -= level->h * CELL_SIZE_PX / 2.0;
+  *y -= level->h * TILE_SIZE_PX_SCALED / 2.0;
 }
   
 void CAMERA::WorldToGrid(float xWorld, float yWorld, int* x, int* y, const LevelData* level) {
   *x = xWorld;
   *y = yWorld;
 
-  *x += level->w * CELL_SIZE_PX / 2.0;
+  *x += level->w * TILE_SIZE_PX_SCALED / 2.0;
   *x -= SCREEN_WIDTH / 2.0;
-  *x /= CELL_SIZE_PX;
+  *x /= TILE_SIZE_PX_SCALED;
 
-  *y += level->h * CELL_SIZE_PX / 2.0;
+  *y += level->h * TILE_SIZE_PX_SCALED / 2.0;
   *y -= SCREEN_HEIGHT / 2.0;
-  *y /= CELL_SIZE_PX;
+  *y /= TILE_SIZE_PX_SCALED;
 }
 
 

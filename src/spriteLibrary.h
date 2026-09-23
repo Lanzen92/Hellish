@@ -6,23 +6,19 @@
 
 const int NOT_SET = -1;
 
-//TODO Something wrong when loading after changes with medusa etc.
 enum class SPRITE_ID {
   Fallback,
-  Ground,
-  Ground_alt,
-  Wall,
   Rock,
   Demon,
   Medusa_Idle_Side,
   Medusa_Idle_Front,
   Medusa_Idle_Back,
   Golem,
-  //Ghost,
   Siren,
   DropShadow,
   TitleScreenBackground,
-  Black1x1
+  Black1x1,
+  DungeonTileset
 };
 
 struct Sprite {
@@ -31,6 +27,8 @@ struct Sprite {
   int height;
   int pivotX;
   int pivotY;
+  int tilesetCellCountX;
+  int tilesetCellCountY;
 };
 
 struct SpriteDataEntry {
@@ -38,10 +36,12 @@ struct SpriteDataEntry {
   const char* path;
   int pivotX = NOT_SET;
   int pivotY = NOT_SET;
+  int tilesetCellCountX = NOT_SET;
+  int tilesetCellCountY = NOT_SET;
 };
 
 Sprite* GetSprite(SPRITE_ID spriteId, Sprite* spriteBuffer);
-Sprite* GetSpriteFromID(ID id, Sprite* spriteBuffer);
+Sprite* GetSpriteFromID(ENTITY_ID id, Sprite* spriteBuffer);
 Sprite* GetSpriteFromEntityState(Entity* entity, Sprite* spriteBuffer);
 
 namespace AssetManagement {

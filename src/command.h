@@ -19,11 +19,11 @@ struct Command {
 };
 
 struct AddCommand : Command {
-  ID id;
+  ENTITY_ID id;
   int x;
   int y;
 
-  AddCommand(ID id, int x, int y) {
+  AddCommand(ENTITY_ID id, int x, int y) {
     this->type = CMD_TYPE::ADD;
     this->id = id;
     this->x = x;
@@ -32,7 +32,7 @@ struct AddCommand : Command {
 };
 
 struct RemoveCommand : Command {
-  ID storedId;
+  ENTITY_ID storedId;
   Behaviour storedBehaviour;
   int x;
   int y;

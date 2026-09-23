@@ -7,7 +7,7 @@
 #include "spriteLibrary.h"
 
 struct Editor {
-  ID objectToPlaceId;
+  ENTITY_ID objectToPlaceId;
 };
 
 namespace EDITOR {

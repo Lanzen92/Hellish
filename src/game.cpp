@@ -38,10 +38,10 @@ extern "C" {
     int testY = mover->y + yDir;
 
     Entity* stepIntoEntity = GetEntity(levelData, testX, testY);
-    ID StepIntoTileId = (ID)GetCellID(levelData, testX, testY);
+    //ENTITY_ID StepIntoTileId = (ENTITY_ID)GetCellID(levelData, testX, testY);
 
     if (stepIntoEntity == nullptr) {
-      if (StepIntoTileId == ID::GROUND) {
+      if (IsWalkable(testX, testY, levelData)) {
         MoveCommand mv(mover, xDir, yDir);
         Push(commandBuffer, mv, levelData);
         return true;
@@ -64,13 +64,11 @@ extern "C" {
     return false;
   }
 
-  void InitializeGame(Gameplay* gameplay, Arena* arenaLevels) {
+  void InitializeGame(Gameplay* gameplay, Arena* arenaLevels, Tileset* tilesetBuffer) {
     assert(gameplay->initialized == false);
         
-    gameplay->currentLevelIndex = 1;
-    CreateLevel(arenaLevels, &gameplay->levels[0], "assets/maps/testmap.tmj");
-    CreateLevel(arenaLevels, &gameplay->levels[1], "assets/maps/testmap_box.tmj");
-    //CreateEntities(&gameplay->levels[gameplay->currentLevelIndex], gameplay->arenaEntities);
+    gameplay->currentLevelIndex = 0;
+    CreateLevel(arenaLevels, &gameplay->levels[0], &tilesetBuffer[(int)TILESETS::DUNGEON], "assets/maps/testing.tmj");
     gameplay->initialized = true;
   }
 
@@ -240,12 +238,13 @@ extern "C" {
 
     DEV::Initialize(window, renderer);
     AssetManagement::LoadAllSprites(gameData->spriteBuffer, renderer);
+    AssetManagement::LoadAllTilesets(gameData->tilesetBuffer, gameData->arenaImages);
     gameData->imGuiContext = ImGui::GetCurrentContext();
 
     SDL_Texture* blackfade = GetSprite(SPRITE_ID::Black1x1, gameData->spriteBuffer)->texture;
     SDL_SetTextureBlendMode(blackfade, SDL_BLENDMODE_BLEND);
     
-    InitializeGame(&gameData->scenes.gameplay, gameData->arenaLevels);
+    InitializeGame(&gameData->scenes.gameplay, gameData->arenaLevels, gameData->tilesetBuffer);
     ChangeScene(gameData, SCENE_TYPES::GAME);
   }
 
@@ -280,6 +279,7 @@ extern "C" {
 
     if (KeyPressed(&gameData->input, SDL_SCANCODE_5)) {
       ChangeScene(gameData, SCENE_TYPES::TITLESCREEN);
+      return;
     }
     
     if (transition->state != Transition::Inactive) {

@@ -4,30 +4,29 @@
 
 #include "arena.h"
 #include "entity.h"
+#include "tilesetLibrary.h"
 
 using namespace Memory;
 
 struct LevelData {
   int w;
   int h;
-  uint8_t* cells;
+  uint16_t* cells;
   const char* levelPath;
   Entity* entityBuffer;
   int entityCount;
+  const Tileset* tileset;
 
 };
 
-void CreateLevel(Arena* arena, LevelData* levelData, const char* levelName);
+void CreateLevel(Arena* arena, LevelData* levelData, Tileset* tileset, const char* levelName);
 void CreateEntities(LevelData* levelData, Arena* arena);
 
 Entity* GetNextAvailableEntitySlot(LevelData* levelData);
-
-void AddEntity(ID entity, int x, int y, LevelData* levelData);
-
+void AddEntity(ENTITY_ID entity, int x, int y, LevelData* levelData);
 void RemoveEntity(int x, int y, LevelData* levelData);
 
-uint8_t GetCellID(LevelData* levelData,int x, int y);
-
+uint16_t GetCellID(LevelData* levelData,int x, int y);
 Entity* GetEntity(LevelData* levelData,int x, int y);
-
 Entity* RaycastFirstEntity(int xOrigin, int yOrigin, Direction direction, LevelData* levelData, bool ignoreWalls = false);
+bool IsWalkable(int x, int y, LevelData* levelData);

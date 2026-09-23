@@ -11,7 +11,7 @@
 #include "level.h"
 #include "input.h"
 #include "camera.h"
-
+#include "tilesetLibrary.h"
 
 
 //enum class GAME_STATES { PLAY, BUILD };
@@ -98,8 +98,9 @@ struct GameData {
   Memory::Arena* arenaScratch;
   Memory::Arena* arenaInputs;
   
-  Camera camera;
+  Tileset* tilesetBuffer;
   Sprite* spriteBuffer;
+  Camera camera;
   Input input;
   
   const float* dt;

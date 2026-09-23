@@ -8,54 +8,90 @@
 #include "arena.h"
 #include "level.h"
 #include "entity.h"
+#include "tilesetLibrary.h"
 
 using namespace std;
 
 const int LEVEL_INDEX = 0;
 const int ENTITIES_INDEX = 1;
 
-void CreateLevel(Arena* arena, LevelData* levelData, const char* levelName) {
+void CreateLevel(Arena* arena, LevelData* levelData, Tileset* tileset, const char* levelName) {
   fstream stream(levelName);
   auto jsonResult = nlohmann::json::parse(stream);
-  vector dataField = jsonResult["layers"][LEVEL_INDEX]["data"].get<vector<uint8_t>>();
-
-  levelData->w = jsonResult["width"].get<int>();
-  levelData->h = jsonResult["height"].get<int>();
-  levelData->levelPath = levelName;
   
-  size_t sizeOfCells = sizeof(uint8_t) * levelData->w * levelData->h;
-  levelData->cells = (uint8_t*)Memory::Allocate(arena, sizeOfCells);
-
-  for (int i = 0; i < levelData->w * levelData->h; i++) {
-    levelData->cells[i] = dataField[i];
+  bool found = false;
+  vector<uint16_t> levelDataFromJson;
+  
+  for (const auto& layer : jsonResult["layers"]) {
+    if (layer["name"] == "level") {
+      levelDataFromJson = layer["data"].get<vector<uint16_t>>();
+      found = true;
+      break;
+    }
   }
+  
+  assert(found);
+  int firstNonZeroId = 0;
+  for (int id : levelDataFromJson) {
+    if(id != 0){
+      firstNonZeroId = id;
+      break;
+    }
+  }
+  int offsetId = GetTilesetIDOffsetFromTilemap(firstNonZeroId, jsonResult);
+  
+   levelData->w = jsonResult["width"].get<int>();
+   levelData->h = jsonResult["height"].get<int>();
+   levelData->levelPath = levelName;
+   levelData->tileset = tileset;
+   levelData->cells = ALLOC_ARRAY(arena, uint16_t, levelData->w * levelData->h)
+  
+    for (int i = 0; i < levelData->w * levelData->h; i++) {
+      int localId = levelDataFromJson[i] - offsetId;
+      if (localId < 0) {
+        localId = 0;
+      }
+      levelData->cells[i] = localId;
+    }
 }
 
 void CreateEntities(LevelData* levelData, Arena* arena) {
   Reset(arena);
 
   levelData->entityCount = 0;
+  levelData->entityBuffer = ALLOC_ARRAY(arena, Entity, 256)
+  
   fstream stream(levelData->levelPath);
-
-  auto result = nlohmann::json::parse(stream);
-  auto entityData = result["layers"][ENTITIES_INDEX]["data"].get<vector<uint8_t>>();
-
-  levelData->entityBuffer = (Entity*)Memory::Allocate(arena, sizeof(Entity) * 256);
-
-  for (int i = 0; i < levelData->w * levelData->h; i++) {
-    unsigned char entityId = entityData[i];
-
-    if (entityId != 0) {
-      int x = i % levelData->w;
-      int y = i / levelData->w;
-      AddEntity((ID) entityId, x, y, levelData);
+  auto jsonResult = json::parse(stream);
+  
+  vector<uint16_t> entities;
+  bool found = false;
+  for (const auto& layer : jsonResult["layers"]) {
+    if (layer["name"] == "entities") {
+      entities = layer["data"].get<vector<uint16_t>>();
+      found = true;
+      break;
     }
+  }
+  if(!found){
+    return;
+  }
+  
+  for (int i = 0; i < levelData->w * levelData->h; i++) {
+    if(entities[i] == 0){
+      continue;
+    }
+    
+    uint16_t entity_id = GetLocalTileID(entities[i], jsonResult);
+    int x = i % levelData->w;
+    int y = i / levelData->w;
+    AddEntity((ENTITY_ID)entity_id, x, y, levelData);
   }
 }
 
 Entity* GetNextAvailableEntity(LevelData* levelData) {
   for (int i = 0; i < levelData->entityCount; i++) {
-    if (levelData->entityBuffer[i].id == ID::NONE) {
+    if (levelData->entityBuffer[i].active == false) {
       return &levelData->entityBuffer[i];
     }
   }
@@ -63,13 +99,14 @@ Entity* GetNextAvailableEntity(LevelData* levelData) {
   return &levelData->entityBuffer[levelData->entityCount++];
 }
 
-void AddEntity(ID entityId, int x, int y, LevelData* levelData) {
+void AddEntity(ENTITY_ID entityId, int x, int y, LevelData* levelData) {
   Entity* entity = GetEntity(levelData, x, y);
 
   if (entity == nullptr) {
     entity = GetNextAvailableEntity(levelData);
   }
 
+  entity->active = true;
   entity->x = x;
   entity->y = y;
   entity->xPrev = x;
@@ -88,7 +125,7 @@ void RemoveEntity(int x, int y, LevelData* levelData) {
   *entity = {};
 }
 
-uint8_t GetCellID(LevelData* levelData, int x, int y) { 
+uint16_t GetCellID(LevelData* levelData, int x, int y) { 
   return levelData->cells[y * levelData->w + x]; 
 }
 
@@ -128,9 +165,9 @@ Entity* RaycastFirstEntity(int xOrigin, int yOrigin, Direction direction, LevelD
 
   while (xSearch > 0 && xSearch < levelData->w && ySearch > 0 &&
          ySearch < levelData->h) {
-    ID cellID = (ID)GetCellID(levelData, xSearch, ySearch);
+    ENTITY_ID cellID = (ENTITY_ID)GetCellID(levelData, xSearch, ySearch);
 
-    if (cellID == ID::WALL && !ignoreWalls) {
+    if (!ignoreWalls && IsWalkable(xSearch, ySearch, levelData)) {
       break;
     }
 
@@ -144,4 +181,9 @@ Entity* RaycastFirstEntity(int xOrigin, int yOrigin, Direction direction, LevelD
   }
 
   return nullptr;
+}
+
+bool IsWalkable(int x, int y, LevelData* levelData) {
+  uint16_t id = GetCellID(levelData, x, y);
+  return levelData->tileset->walkableBuffer[id];
 }

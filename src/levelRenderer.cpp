@@ -16,27 +16,25 @@
 bool IsEntityBelowOtherEntity(Entity* a, Entity* b) { return a->y < b->y; }
 
 void RenderLevel(GameData* gameData, SDL_Renderer* renderer) {
-
   Gameplay* gameplay = &gameData->scenes.gameplay;
   LevelData* levelData = &gameplay->levels[gameplay->currentLevelIndex];
 
-  for (int x = 0; x < levelData->w; x++) {
-    for (int y = 0; y < levelData->h; y++) {
-      uint8_t cellType = GetCellID(levelData, x, y);
-      
-      if ((ID)cellType == ID::NONE) {
-        continue;
-      }
-
-      Sprite* sprite;
-      if (ID(cellType) == ID::GROUND) {
-        sprite = &gameData->spriteBuffer[(x + y) % 2 == 0 ? (int)SPRITE_ID::Ground : (int)SPRITE_ID::Ground_alt];
-      } 
-      else {
-        sprite = GetSpriteFromID((ID)cellType, gameData->spriteBuffer);
-      }
-
-      RenderSpriteGrid(sprite, levelData, renderer, &gameData->camera, x, y);  
+  Sprite* tileset;
+  switch (levelData->tileset->type) {
+    case TILESETS::DUNGEON:
+      tileset = GetSprite(SPRITE_ID::DungeonTileset, gameData->spriteBuffer);
+      break;
+    
+    case TILESETS::NONE:
+    case TILESETS::COUNT:
+      assert(false);
+      break;
+  }
+  
+  for (int y = 0; y < levelData->w; y++) {
+    for (int x = 0; x < levelData->h; x++) {
+      uint8_t id = GetCellID(levelData, x, y);
+      RenderTileWorld(tileset, id, levelData, renderer, &gameData->camera, x, y, 1, 1);
     }
   }
 }
@@ -52,17 +50,15 @@ void RenderEntities(GameData* gameData, SDL_Renderer* renderer) {
   std::sort(sortedEntities, sortedEntities + levelData->entityCount, IsEntityBelowOtherEntity);
 
   for (int i = 0; i < levelData->entityCount; i++) {
-
     Entity* entity = sortedEntities[i];
-
-    if (entity->id == ID::NONE) {
+    if (entity->active == false) {
       continue;
     }
 
     Sprite* sprite = GetSpriteFromEntityState(entity, gameData->spriteBuffer);
 
     if (HasBehaviour(entity, Behaviour::IS_PETRIFIED)) {
-      sprite = GetSpriteFromID(ID::ROCK, gameData->spriteBuffer);
+      sprite = GetSpriteFromID(ENTITY_ID::ROCK, gameData->spriteBuffer);
     }
   
     float xAnimated = std::lerp(entity->xPrev, entity->x, entity->progress01);

@@ -193,9 +193,10 @@ int main() {
   gameData->arenaMain = arenaMain;
 
   int SPRITE_COUNT = 256;
-  size_t IMAGE_ARENA_SIZE = sizeof(Sprite) * SPRITE_COUNT;
+  size_t IMAGE_ARENA_SIZE = MEGABYTES(2);
   gameData->arenaImages = Memory::CreateSubArena(arenaMain, IMAGE_ARENA_SIZE);
-  gameData->spriteBuffer = ALLOC_ARRAY(gameData->arenaImages, Sprite, SPRITE_COUNT);
+  gameData->spriteBuffer = ALLOC_ARRAY(gameData->arenaImages, Sprite, SPRITE_COUNT)
+  gameData->tilesetBuffer = ALLOC_ARRAY(gameData->arenaImages, Tileset,(int)TILESETS::COUNT)
 
   gameData->editorData.fpsBufferCount = 500;
   gameData->editorData.fpsBuffer = ALLOC_ARRAY(gameData->arenaMain, float, gameData->editorData.fpsBufferCount);
