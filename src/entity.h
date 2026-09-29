@@ -5,6 +5,7 @@
 
 struct CommandBuffer;
 struct LevelData;
+struct Gameplay;
 
 enum Behaviour: uint32_t {
   NONE = 0,
@@ -26,6 +27,12 @@ enum class ENTITY_ID : uint8_t {
   GOLEM = 5
 };
 
+enum class Actions {
+  NONE = 0,
+  MOVING = 1,
+  ROTATING = 2
+};
+
 enum class Direction {
   RIGHT,
   LEFT,
@@ -39,9 +46,11 @@ struct Position {
 };
 
 struct Entity {
+  Actions action;
   ENTITY_ID id;
   bool active;
-  Direction facing;
+  Direction facingCurrent;
+  Direction facingPrevious;
   int strength;
   int x;
   int y;
@@ -50,6 +59,10 @@ struct Entity {
   float progress01;
   Behaviour behaviour;
 };
+
+bool IsActing(Entity* entity);
+
+Entity* GetActiveEntity(Gameplay* gameplay);
 
 bool HasBehaviour(Entity* entity, Behaviour flags);
 

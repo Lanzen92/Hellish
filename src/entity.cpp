@@ -1,9 +1,16 @@
 #include "entity.h"
 #include "level.h"
 #include "command.h"
+#include "gameState.h"
 
-bool IsMoving(Entity* entity) {
-  return entity->x != entity->xPrev || entity->y != entity->yPrev;
+
+bool IsActing(Entity* entity) {
+  if(entity->active == false) return false;
+  return entity->action != Actions::NONE;
+}
+
+Entity* GetActiveEntity(Gameplay* gameplay) {
+  return gameplay->activePlayerBuffer[gameplay->activePlayerIndex];
 }
 
 bool HasBehaviour(Entity* entity, Behaviour flags) {
@@ -55,7 +62,7 @@ void RemoveBehaviour(Entity* entity, Behaviour flags) {
 
 void PostMove(Entity* entity, LevelData* levelData, CommandBuffer* commandBuffer) {
   if (entity->id == ENTITY_ID::MEDUSA) {
-    Entity* entityLookedAt = RaycastFirstEntity(entity->x, entity->y, entity->facing, levelData);
+    Entity* entityLookedAt = RaycastFirstEntity(entity->x, entity->y, entity->facingCurrent, levelData);
     if (entityLookedAt != nullptr) {
       if (!HasBehaviour(entityLookedAt, Behaviour::IS_PETRIFIED)) {
         AddBehaviour(entityLookedAt, Behaviour::IS_PETRIFIED);

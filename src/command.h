@@ -10,7 +10,8 @@ enum class CMD_TYPE : uint8_t {
   ROTATE = 2,
   MODIFY_BEHAVIOUR = 3,
   ADD = 4,
-  REMOVE = 5
+  REMOVE = 5,
+  SWAP_ACTIVE = 6
 };
  
 struct Command {
@@ -90,6 +91,20 @@ struct ModifyBehaviourCommand : Command {
   };
 };
 
+struct SwapActiveEntityCommand : Command {
+  int indexCurrent;
+  int indexPrevious;
+  int* valueToChange;
+  
+  SwapActiveEntityCommand(int* activeEntityIndex, int limit){
+    indexPrevious = *activeEntityIndex;
+    indexCurrent = *activeEntityIndex + 1;
+    valueToChange = activeEntityIndex;
+    indexCurrent %= limit;
+    type = CMD_TYPE::SWAP_ACTIVE;
+  }
+};
+
 union AnyCommand {
   Command command;
   MoveCommand move;
@@ -97,12 +112,14 @@ union AnyCommand {
   ModifyBehaviourCommand modify;
   AddCommand add;
   RemoveCommand remove;
+  SwapActiveEntityCommand swap;
 
   AnyCommand(MoveCommand mv) { move = mv; };
   AnyCommand(RotateCommand rt) { rotate = rt; };
   AnyCommand(ModifyBehaviourCommand mb) { modify = mb; };
   AnyCommand(AddCommand ad) { this->add = ad; };
   AnyCommand(RemoveCommand rm) { remove = rm; };
+  AnyCommand(SwapActiveEntityCommand sw) { swap = sw; };
 };
 
 struct CommandBuffer {

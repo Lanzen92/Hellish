@@ -143,10 +143,11 @@ void SDL_Setup() {
 }
 
 //Get delta
-void CalculateDeltaTime(float& dt) {
+void CalculateDeltaTime(float& dt, float scaler) {
   NOW = SDL_GetTicksNS();
   dt = NOW - PREV;
   dt = SDL_NS_TO_SECONDS(dt);
+  dt *= scaler;
   PREV = NOW;
 }
 
@@ -248,29 +249,31 @@ int main() {
   SDL_Setup();
   dll.initialize(gameData, window, renderer);
   
-  bool running = true;
+  gameData->running = true;
   float dt;
+  float dtScaler = 1;
   gameData->dt = &dt;
+  gameData->dtScaler = &dtScaler;
   
 
   printf("Initialization done - Jumping to gameloop \n");
 
-  while (running) {
+  while (gameData->running) {
     //Each frame, check if dll has changed. 
     DLL_CheckStatus(&dll);
 
     Reset(gameData->arenaScratch);
 
     //Get Delta
-    CalculateDeltaTime(dt);
+    CalculateDeltaTime(dt, dtScaler);
     
     SDL_Event event;
 
     //Listen to events, and close if bool changes to false.
     while(SDL_PollEvent(&event)) {
-      running = dll.handleEvents(gameData, event);
+      gameData->running = dll.handleEvents(gameData, event);
 
-      if (!running) {
+      if (!gameData->running) {
         break;
       }
 
@@ -286,8 +289,20 @@ int main() {
       }
     }
 
+    //Mouse input
     gameData->input.keysCurrent = SDL_GetKeyboardState(nullptr);
+    float* deltaX = &gameData->input.mouseXDelta;
+    float* deltaY = &gameData->input.mouseYDelta;
+    *deltaX = gameData->input.mouseX;
+    *deltaY = gameData->input.mouseY;
+    
     gameData->input.mouseCurrent = SDL_GetMouseState(&gameData->input.mouseX, &gameData->input.mouseY);
+    *deltaX = gameData->input.mouseX - *deltaX;
+    *deltaY = gameData->input.mouseY - *deltaY;
+    
+    float dx = *deltaX;
+    float dy = *deltaY;
+    gameData->input.mouseMagnitude = std::sqrt(dx * dx + dy * dy);
     
     dll.update(gameData, dt);
     

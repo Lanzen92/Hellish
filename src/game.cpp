@@ -14,6 +14,7 @@
 #include "level.h" 
 #include "levelEditor.h"
 #include "levelRenderer.h"
+#include "mainmenu.h"
 #include "rendering.h"
 #include "spriteLibrary.h"
 
@@ -72,6 +73,9 @@ extern "C" {
     gameplay->initialized = true;
   }
 
+//Scene handling
+#pragma region Scenes
+
   void ChangeScene(GameData* gameData, SCENE_TYPES newScene) {
     assert (newScene != gameData->sceneCurrent);
       
@@ -114,10 +118,13 @@ extern "C" {
     switch(scene) {
       case SCENE_TYPES::TITLESCREEN: {
         Sprite* background = GetSprite(SPRITE_ID::TitleScreenBackground, gameData->spriteBuffer);
-        RenderSpriteWorld(background, renderer, &gameData->camera, 0, 0);
+        float scale = (SCREEN_HEIGHT / ((float)background->height * UPSCALE_FACTOR));
+        RenderSpriteWorld(background, renderer, NULL, SCREEN_WIDTH / 2.0, SCREEN_HEIGHT / 2.0, scale);
         break;
       }
       case SCENE_TYPES::MAINMENU:
+        DrawMenu(&gameData->scenes.mainMenu, renderer, gameData->spriteBuffer);
+        break;
       case SCENE_TYPES::GAME: 
         RenderLevel(gameData, renderer);
         RenderEntities(gameData, renderer);
@@ -131,15 +138,20 @@ extern "C" {
       }
   }
 
+#pragma endregion Scenes
+
+// Updates called by game Update
+#pragma region Updates
+
   void UpdateTitleScreen(Titlescreen* titlescreen, const float dt) {
-    
+    //Todo :D
   }
 
-  void UpdateGame(Gameplay* gameplay, Input* input, const float dt) {
+  void UpdateGame(Gameplay* gameplay, Input* input, Arena* arenaScratch, const float dt) {
     
     float undoSpeedUp = std::lerp(1.0, 0.15, (gameplay->commandBuffer->head - gameplay->commandBuffer->index) * (1.0/30.0));
     undoSpeedUp = std::max<double>(undoSpeedUp, 0.15);
-
+    
     if (KeyPressed(input, SDL_SCANCODE_Z) ||
         KeyHeldForTime(input, SDL_SCANCODE_Z, UNDO_REPEAT_TIME * undoSpeedUp)) {
         ResetKeyHeldTime(input, SDL_SCANCODE_Z);
@@ -177,76 +189,111 @@ extern "C" {
       gameplay->inputBuffer[gameplay->inputBufferWriteCount++ % gameplay->inputBufferCapacity] = {0, 1};
     }
     
-    bool areEntitiesMoving = false;
-    for  (int i = 0; i < GetCurrentLevel(gameplay)->entityCount; i++) {
-      Entity* entity = &GetCurrentLevel(gameplay)->entityBuffer[i];
-
-      if (HasBehaviour(entity, CAN_MOVE) && IsMoving(entity)) {
-        //SDL_Log("Entity is moving! x: %d, xPrev: %d, progress: %f", entity->x,
-        //        entity->xPrev, entity->progress01);
+    bool areEntitiesActing = false;
+    LevelData* levelData = GetCurrentLevel(gameplay);
+    Entity* entityBuffer = levelData->entityBuffer;
+    
+    for (int i = 0; i < levelData->entityCount; i++){
+      if(IsActing(&entityBuffer[i])){
+        areEntitiesActing = true;
+        break;
+      }
+    }
+    
+    for (int i = 0; i < levelData->entityCount; i++){
+      Entity* entity = &entityBuffer[i];
+      
+      if(!entity->active) continue;
+      
+      switch(entity->action){
+      case Actions::NONE:
+        continue;
+      case Actions::MOVING:
         entity->progress01 += MOVE_SPEED * dt;
-
-        if (entity->progress01 >= 1) {
-          entity->progress01 = 0;
-          entity->xPrev = entity->x;
-          entity->yPrev = entity->y;
-        }
-
-        if (IsMoving(entity)) {
-          areEntitiesMoving = true;
+        break;
+      case Actions::ROTATING:
+        entity->progress01 += 8 * dt;
+        break;
+      }
+    }
+    
+    for  (int i = 0; i < levelData->entityCount; i++) {
+      Entity* entity = &entityBuffer[i];
+      
+      if (entity->progress01 >= 1) {
+        entity->xPrev = entity->x;
+        entity->yPrev = entity->y;
+        entity->facingPrevious = entity->facingCurrent;
+        entity->action = Actions::NONE;
+        entity->progress01 = 0;
+        
+        if(HasBehaviour(entity, Behaviour::IS_PUSHING)){
+          RemoveBehaviour(entity, Behaviour::IS_PUSHING);
         }
       }
     }
 
-    if (!areEntitiesMoving) {
-      if(gameplay->inputBufferReadCount == gameplay->inputBufferWriteCount) {
-        return;
+    int playerCount = 0;
+    for (int i = 0; i < levelData->entityCount; i++) {
+      if(entityBuffer[i].active == false){
+        continue;
       }
+      if(HasBehaviour(&levelData->entityBuffer[i], (Behaviour)(IS_PLAYER))){
+        playerCount++;
+      }
+    }
 
+    int index = 0;
+    gameplay->activePlayerBuffer = ALLOC_ARRAY(arenaScratch, Entity*, playerCount)
+    for (int i = 0; i < levelData->entityCount; i++) {
+      if(entityBuffer[i].active == false){
+        continue;
+      }
+      if(HasBehaviour(&entityBuffer[i], (Behaviour)(IS_PLAYER))){
+        gameplay->activePlayerBuffer[index++] = &entityBuffer[i];
+      }
+    }
+    
+    if(areEntitiesActing == false && KeyPressed(input, SDL_SCANCODE_X) && playerCount > 0){
+      SwapActiveEntityCommand swap(&gameplay->activePlayerIndex, playerCount);
+      Push(gameplay->commandBuffer, swap, GetCurrentLevel(gameplay));
       gameplay->commandBuffer->timestamp += 1;
+    }
+    
+    if (areEntitiesActing) 
+      return;
+      
+    if(gameplay->inputBufferReadCount == gameplay->inputBufferWriteCount)
+      return;
+    
+    Entity* entity = GetActiveEntity(gameplay);
+    
+    if(!HasBehaviour(entity, (Behaviour)(RESPOND_TO_INPUT | CAN_MOVE)))
+      return;
+    
+    if(HasBehaviour(entity, Behaviour::IS_PETRIFIED))
+      return;
+    
+    int xDir = gameplay->inputBuffer[gameplay->inputBufferReadCount % gameplay->inputBufferCapacity].x;
+    int yDir = gameplay->inputBuffer[gameplay->inputBufferReadCount % gameplay->inputBufferCapacity].y;
 
-      for (int i = 0; i < GetCurrentLevel(gameplay)->entityCount; i++) {
-        Entity* entity = &GetCurrentLevel(gameplay)->entityBuffer[i];
+    Direction newFacing = DirectionFromXY(xDir, yDir);
+    if (newFacing != entity->facingCurrent) {
+      RotateCommand rotate(entity, entity->facingCurrent, newFacing);
+      Push(gameplay->commandBuffer, rotate, GetCurrentLevel(gameplay));
+    }
 
-        if (HasBehaviour(entity, Behaviour::IS_PUSHING)) {
-          RemoveBehaviour(entity, Behaviour::IS_PUSHING);
-        }
-
-        if (HasBehaviour(entity, (Behaviour)(RESPOND_TO_INPUT | CAN_MOVE))) {
-          if (HasBehaviour(entity, (Behaviour)Behaviour::IS_PETRIFIED)) {
-            continue;
-          }
-
-          int xDir = gameplay->inputBuffer[gameplay->inputBufferReadCount % gameplay->inputBufferCapacity].x;
-          int yDir = gameplay->inputBuffer[gameplay->inputBufferReadCount % gameplay->inputBufferCapacity].y;
-
-          Direction newFacing = DirectionFromXY(xDir, yDir);
-          if (newFacing != entity->facing) {
-            RotateCommand rotate(entity, entity->facing, newFacing);
-            Push(gameplay->commandBuffer, rotate, GetCurrentLevel(gameplay));
-          }
-
-          TryMove(entity, GetCurrentLevel(gameplay), gameplay->commandBuffer, xDir, yDir, entity->strength);
-        } 
-      }
-
+    if(!IsActing(entity)){
+      TryMove(entity, levelData, gameplay->commandBuffer, xDir, yDir, entity->strength);
+      gameplay->commandBuffer->timestamp += 1;
       gameplay->inputBufferReadCount++;
     }
   }
 
-  void Initialize(GameData* gameData, SDL_Window* window,  SDL_Renderer* renderer) {
+#pragma endregion Updates
 
-    DEV::Initialize(window, renderer);
-    AssetManagement::LoadAllSprites(gameData->spriteBuffer, renderer);
-    AssetManagement::LoadAllTilesets(gameData->tilesetBuffer, gameData->arenaImages);
-    gameData->imGuiContext = ImGui::GetCurrentContext();
-
-    SDL_Texture* blackfade = GetSprite(SPRITE_ID::Black1x1, gameData->spriteBuffer)->texture;
-    SDL_SetTextureBlendMode(blackfade, SDL_BLENDMODE_BLEND);
-    
-    InitializeGame(&gameData->scenes.gameplay, gameData->arenaLevels, gameData->tilesetBuffer);
-    ChangeScene(gameData, SCENE_TYPES::GAME);
-  }
+//Core functions called by Main.
+#pragma region Core
 
   bool HandleEvents(GameData* data, SDL_Event event) {
     DEV::ProcessEvents(&event);
@@ -259,6 +306,22 @@ extern "C" {
     }
 
     return true;
+  }
+
+  void Initialize(GameData* gameData, SDL_Window* window,  SDL_Renderer* renderer) {
+
+    DEV::Initialize(window, renderer);
+    AssetManagement::LoadAllSprites(gameData->spriteBuffer, renderer);
+    gameData->imGuiContext = ImGui::GetCurrentContext();
+    
+    AssetManagement::LoadAllTilesets(gameData->tilesetBuffer, gameData->arenaImages);
+
+    SDL_Texture* blackfade = GetSprite(SPRITE_ID::Black1x1, gameData->spriteBuffer)->texture;
+    SDL_SetTextureBlendMode(blackfade, SDL_BLENDMODE_BLEND);
+    
+    InitializeGame(&gameData->scenes.gameplay, gameData->arenaLevels, gameData->tilesetBuffer);
+    InitializeMenu(&gameData->scenes.mainMenu, gameData->spriteBuffer, gameData->arenaMain);
+    ChangeScene(gameData, SCENE_TYPES::MAINMENU);
   }
 
   void Update(GameData* gameData, float dt) {
@@ -314,19 +377,21 @@ extern "C" {
         break;
       }
       case SCENE_TYPES::MAINMENU: {
-        
+        UpdateMenu(gameData);
         break;
       }
       case SCENE_TYPES::GAME: {
-        UpdateGame(gameplay, &gameData->input, dt);
+        UpdateGame(gameplay, &gameData->input, gameData->arenaScratch, dt);
         break;
       }
+      case SCENE_TYPES::CREDITS:
+        break;
+      
       case SCENE_TYPES::NONE: {
         assert(false);
         break;
       }
-    case SCENE_TYPES::CREDITS:
-      break;
+
     }
   }
 
@@ -343,20 +408,17 @@ extern "C" {
       case Transition::FadeTo: {
         DrawScene(gameData, gameData->scenePrevious, renderer);
         float alpha = gameData->transition.fadeTimeElapsed / gameData->transition.fadeTimeDuration;
-        RenderSpriteWorld(GetSprite(SPRITE_ID::Black1x1, gameData->spriteBuffer), renderer, &gameData->camera, 0, 0, SCREEN_WIDTH, alpha);
+        //RenderSpriteWorld(GetSprite(SPRITE_ID::Black1x1, gameData->spriteBuffer), LevelData* LevelData, renderer, &gameData->camera, 0, 0, SCREEN_WIDTH, alpha);
         break;
       }
       case Transition::FadeFrom: {
         DrawScene(gameData, gameData->sceneCurrent, renderer);
         float alpha = 1 - gameData->transition.fadeTimeElapsed / gameData->transition.fadeTimeDuration;
-        RenderSpriteWorld(GetSprite(SPRITE_ID::Black1x1, gameData->spriteBuffer), renderer, &gameData->camera, 0, 0, SCREEN_WIDTH, alpha);
+        //RenderSpriteWorld(GetSprite(SPRITE_ID::Black1x1, gameData->spriteBuffer), renderer, &gameData->camera, 0, 0, SCREEN_WIDTH, alpha);
         break;
       }
     }
     
-    //RenderLevel(gameData, renderer);
-    //RenderEntities(gameData, renderer);
-
     DEV::Draw(gameData, renderer);
     SDL_RenderPresent(renderer);
   }
@@ -365,3 +427,5 @@ extern "C" {
     SDL_DestroyRenderer(renderer);
   }
 }
+
+#pragma endregion Core

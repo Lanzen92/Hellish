@@ -10,15 +10,18 @@ enum class SPRITE_ID {
   Fallback,
   Rock,
   Demon,
-  Medusa_Idle_Side,
-  Medusa_Idle_Front,
-  Medusa_Idle_Back,
+  Medusa_Rotate,
+  // Medusa_Idle_Side,
+  // Medusa_Idle_Front,
+  // Medusa_Idle_Back,
   Golem,
   Siren,
   DropShadow,
   TitleScreenBackground,
+  MainMenuBackground,
   Black1x1,
-  DungeonTileset
+  DungeonTileset,
+  SelectionMarker,
 };
 
 struct Sprite {
@@ -27,8 +30,8 @@ struct Sprite {
   int height;
   int pivotX;
   int pivotY;
-  int tilesetCellCountX;
-  int tilesetCellCountY;
+  int spriteCountX;
+  int spriteCountY;
 };
 
 struct SpriteDataEntry {
@@ -40,9 +43,32 @@ struct SpriteDataEntry {
   int tilesetCellCountY = NOT_SET;
 };
 
+struct SpriteRenderInfo{
+  Sprite* sprite;
+  int frame;
+  SpriteRenderInfo(){
+    this->sprite = nullptr;
+    this->frame = 0;
+  }
+  SpriteRenderInfo(int frame, Sprite* sprite){
+    this->frame = frame;
+    this->sprite = sprite;
+  }
+  SpriteRenderInfo(Sprite* sprite){
+    this->sprite = sprite;
+    this->frame = 0;
+  }
+};
+
+inline int GetSpriteCount(Sprite* sprite){
+  if(sprite->spriteCountX == NOT_SET) return 1;
+  if(sprite->spriteCountY == NOT_SET) return 1;
+  return sprite->spriteCountX * sprite->spriteCountY;
+}
+
 Sprite* GetSprite(SPRITE_ID spriteId, Sprite* spriteBuffer);
 Sprite* GetSpriteFromID(ENTITY_ID id, Sprite* spriteBuffer);
-Sprite* GetSpriteFromEntityState(Entity* entity, Sprite* spriteBuffer);
+SpriteRenderInfo GetSpriteFromEntityState(Entity* entity, Sprite* spritebuffer);
 
 namespace AssetManagement {
   void LoadSprite(Sprite* spriteBuffer, SpriteDataEntry entry, SDL_Renderer* renderer);

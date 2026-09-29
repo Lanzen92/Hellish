@@ -82,7 +82,7 @@ namespace EDITOR {
     Sprite* preview = GetSpriteFromID(editor->objectToPlaceId, spriteBuffer);
 
     if (preview != nullptr) {
-      RenderEntityOnTile(preview, levelData, renderer, camera, x, y, 1, 0.5); 
+      RenderSpriteOnTile(preview, levelData, renderer, camera, x, y, 1, 0.5); 
     }
   }
 }

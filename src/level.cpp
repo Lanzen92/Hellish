@@ -82,7 +82,7 @@ void CreateEntities(LevelData* levelData, Arena* arena) {
       continue;
     }
     
-    uint16_t entity_id = GetLocalTileID(entities[i], jsonResult);
+    uint16_t entity_id = GetLocalTileID(entities[i], jsonResult) + 1;
     int x = i % levelData->w;
     int y = i / levelData->w;
     AddEntity((ENTITY_ID)entity_id, x, y, levelData);
@@ -112,6 +112,7 @@ void AddEntity(ENTITY_ID entityId, int x, int y, LevelData* levelData) {
   entity->xPrev = x;
   entity->yPrev = y;
   entity->id = entityId;
+  entity->action = Actions::NONE;
   InitializeBaseBehaviour(entity);
 }
 

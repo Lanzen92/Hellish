@@ -22,24 +22,40 @@ void Execute(AnyCommand cmd, LevelData* levelData, CommandBuffer* commandBuffer,
       mc.entity->yPrev = mc.entity->y;
       mc.entity->x += mc.xDir;
       mc.entity->y += mc.yDir;
-
+      
       if (fromRedo) {
         mc.entity->progress01 = 1;
       }
+      
+      mc.entity->action = Actions::MOVING;
+      if(!fromRedo) {
+        PostMove(mc.entity, levelData, commandBuffer);
+      }
 
-      PostMove(mc.entity, levelData, commandBuffer);
       break;
     }
     case CMD_TYPE::ROTATE: {
 
-      RotateCommand rc = cmd.rotate;
-      if (!HasBehaviour(rc.entity, CAN_ROTATE)) {
+      RotateCommand* rc = &cmd.rotate;
+      if (!HasBehaviour(rc->entity, CAN_ROTATE)) {
         break;
       }
 
-      PreRotation(rc.entity, levelData, commandBuffer, rc.from, rc.to);
-      rc.entity->facing = rc.to;
-      PostRotation(rc.entity, levelData, commandBuffer, rc.from, rc.to);
+      if(fromRedo) {
+        rc->entity->progress01 = 1;
+      }
+      rc->entity->action = Actions::ROTATING;
+      
+      if(!fromRedo) {
+        PreRotation(rc->entity, levelData, commandBuffer, rc->from, rc->to);
+      }
+      
+      rc->entity->facingPrevious = rc->from;
+      rc->entity->facingCurrent = rc->to;
+      
+      if(!fromRedo) {
+        PostRotation(rc->entity, levelData, commandBuffer, rc->from, rc->to);
+      }
       break;
     } 
     case CMD_TYPE::MODIFY_BEHAVIOUR: {
@@ -60,6 +76,11 @@ void Execute(AnyCommand cmd, LevelData* levelData, CommandBuffer* commandBuffer,
     case CMD_TYPE::REMOVE: {
       RemoveCommand* remove = &cmd.remove;
       RemoveEntity(remove->x, remove->y, levelData);
+      break;
+    }
+    case CMD_TYPE::SWAP_ACTIVE: {
+      SwapActiveEntityCommand* swap = &cmd.swap;
+      *swap->valueToChange = swap->indexCurrent;
       break;
     }
   }
@@ -95,14 +116,15 @@ void Undo(CommandBuffer* commandBuffer, LevelData* levelData) {
     }
     
     case CMD_TYPE::ROTATE: {
-      RotateCommand rc = cmd.rotate;
-      if (!HasBehaviour(rc.entity, CAN_ROTATE)) {
+      RotateCommand rotate = cmd.rotate;
+      if(!HasBehaviour(rotate.entity, CAN_ROTATE)){
         break;
       }
-      rc.entity->facing = rc.from;
+      rotate.entity->facingCurrent = rotate.from;
+      rotate.entity->progress01 = 1;
       break;
     }
-
+    
     case CMD_TYPE::MODIFY_BEHAVIOUR: {
       ModifyBehaviourCommand mb = cmd.modify;
       if (mb.mode == ModifyBehaviourCommand::Mode::ADD) {
@@ -124,6 +146,11 @@ void Undo(CommandBuffer* commandBuffer, LevelData* levelData) {
       AddEntity(remove->storedId, remove->x, remove->y, levelData);
       Entity* entity = GetEntity(levelData, remove->x, remove->y);
       SetBehaviour(entity, remove->storedBehaviour);
+      break;
+    }
+    case CMD_TYPE::SWAP_ACTIVE:{
+      SwapActiveEntityCommand* swap = &cmd.swap;
+      *swap->valueToChange = swap->indexPrevious;
       break;
     }
   }

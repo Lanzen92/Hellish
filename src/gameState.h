@@ -11,6 +11,7 @@
 #include "level.h"
 #include "input.h"
 #include "camera.h"
+#include "mainmenu.h"
 #include "tilesetLibrary.h"
 
 
@@ -38,9 +39,9 @@ struct Gameplay {
   int inputBufferReadCount;
   
   bool initialized;
-};
-
-struct MainMenu {
+  
+  int activePlayerIndex;
+  Entity** activePlayerBuffer;
   
 };
 
@@ -103,7 +104,9 @@ struct GameData {
   Camera camera;
   Input input;
   
+  bool running;
   const float* dt;
+  float* dtScaler;
 };
 
 inline LevelData* GetCurrentLevel(Gameplay* gameplay) {

@@ -33,8 +33,8 @@ void RenderLevel(GameData* gameData, SDL_Renderer* renderer) {
   
   for (int y = 0; y < levelData->w; y++) {
     for (int x = 0; x < levelData->h; x++) {
-      uint8_t id = GetCellID(levelData, x, y);
-      RenderTileWorld(tileset, id, levelData, renderer, &gameData->camera, x, y, 1, 1);
+      uint16_t id = GetCellID(levelData, x, y);
+      RenderTile(tileset, id, levelData, renderer, &gameData->camera, x, y, 1, 1);
     }
   }
 }
@@ -48,14 +48,17 @@ void RenderEntities(GameData* gameData, SDL_Renderer* renderer) {
     sortedEntities[i] = &levelData->entityBuffer[i];
   }
   std::sort(sortedEntities, sortedEntities + levelData->entityCount, IsEntityBelowOtherEntity);
-
+  
+  Gameplay* gameplay = &gameData->scenes.gameplay;
+  Entity* activeEntity = gameplay->activePlayerBuffer[gameplay->activePlayerIndex];
+  
   for (int i = 0; i < levelData->entityCount; i++) {
     Entity* entity = sortedEntities[i];
     if (entity->active == false) {
       continue;
     }
 
-    Sprite* sprite = GetSpriteFromEntityState(entity, gameData->spriteBuffer);
+    SpriteRenderInfo sprite = GetSpriteFromEntityState(entity, gameData->spriteBuffer);
 
     if (HasBehaviour(entity, Behaviour::IS_PETRIFIED)) {
       sprite = GetSpriteFromID(ENTITY_ID::ROCK, gameData->spriteBuffer);
@@ -64,15 +67,21 @@ void RenderEntities(GameData* gameData, SDL_Renderer* renderer) {
     float xAnimated = std::lerp(entity->xPrev, entity->x, entity->progress01);
     float yAnimated = std::lerp(entity->yPrev, entity->y, entity->progress01);
 
-    float dropshadowY = yAnimated;
+    float groundY = yAnimated;
 
     if (HasBehaviour(entity, Behaviour::JUMPS) && !HasBehaviour(entity, Behaviour::IS_PUSHING)) {
       yAnimated -= 0.5 * sinf(entity->progress01 * 3.14);
     }
     
     Sprite* dropshadow = &gameData->spriteBuffer[(int)SPRITE_ID::DropShadow];
-    RenderEntityOnTile(dropshadow, levelData, renderer, &gameData->camera, xAnimated, dropshadowY, 1, 0.4, false);
-    RenderEntityOnTile(sprite, levelData, renderer, &gameData->camera,xAnimated, yAnimated, 1, 1, entity->facing == Direction::RIGHT);
+    RenderSpriteOnTile(dropshadow, levelData, renderer, &gameData->camera, xAnimated, groundY, 1, 0.4, false);
+    
+    if (entity == activeEntity) {
+      SpriteRenderInfo selection_marker = GetSprite(SPRITE_ID::SelectionMarker, gameData->spriteBuffer);  
+      RenderSpriteOnTile(selection_marker, levelData, renderer, &gameData->camera, xAnimated, groundY);
+    }
+    
+    RenderSpriteOnTile(sprite, levelData, renderer, &gameData->camera,xAnimated, yAnimated, 1, 1, false);
   }
 }
 

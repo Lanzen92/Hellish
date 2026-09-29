@@ -7,6 +7,7 @@
 
 #include "devGui.h"
 #include "command.h"
+#include "common.h"
 #include "gameState.h"
 #include "levelEditor.h"
 
@@ -41,6 +42,15 @@ void DEV::ProcessEvents(SDL_Event* event) {
   ImGui_ImplSDL3_ProcessEvent(event);
 }
 
+void DrawFPS(GameData* gameData){
+  EditorData* editorData = &gameData->editorData;
+
+  editorData->fpsBuffer[editorData->fpsBufferIndex++] = 1.0 / *gameData->dt * *gameData->dtScaler;
+  editorData->fpsBufferIndex %= editorData->fpsBufferCount;
+  ImGui::PlotHistogram("fps", editorData->fpsBuffer, editorData->fpsBufferCount,0,nullptr,
+    0,FPS, ImVec2(-1,35));
+}
+
 void DEV::Draw(GameData* gameData, SDL_Renderer* renderer) {
   ImGui::Begin("Dev tools");
 
@@ -58,7 +68,8 @@ void DEV::Draw(GameData* gameData, SDL_Renderer* renderer) {
   }
 
   DrawFPS(*gameData->dt);
-
+  ImGui::SliderFloat("DeltaTimeScaler", gameData->dtScaler, 0.1, 3);
+  
   ImGui::End();
   ImGui::Render();
   ImGui_ImplSDLRenderer3_RenderDrawData(ImGui::GetDrawData(), renderer);

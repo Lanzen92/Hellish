@@ -22,6 +22,10 @@ struct Input {
   float* mouseHeldTime;
   float mouseX;
   float mouseY;
+  float mouseXDelta;
+  float mouseYDelta;
+  double mouseMagnitude;
+  
 };
 
 //Keyboard
