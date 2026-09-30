@@ -23,8 +23,11 @@ void RenderSpriteWorld(SpriteRenderInfo spriteRenderInfo, SDL_Renderer* renderer
     int height = sprite->height / sprite->spriteCountY;
     tilesetRect.w = width;
     tilesetRect.h = height;
-    tilesetRect.x = (frame % sprite->spriteCountX) * width;
-    tilesetRect.y = (frame / sprite->spriteCountX) * height;
+    // tilesetRect.x = (frame % sprite->spriteCountX) * width;
+    // tilesetRect.y = (frame / sprite->spriteCountX) * height;
+    Expand1DTo2D(frame, sprite->spriteCountX, &tilesetRect.x, &tilesetRect.y);
+    tilesetRect.x *= width;
+    tilesetRect.y *= height;
   }
   else {
     tilesetRect.w = sprite->width;

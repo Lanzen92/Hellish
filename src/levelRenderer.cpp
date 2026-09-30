@@ -37,6 +37,14 @@ void RenderLevel(GameData* gameData, SDL_Renderer* renderer) {
       RenderTile(tileset, id, levelData, renderer, &gameData->camera, x, y, 1, 1);
     }
   }
+  
+  for(int i = 0; i < levelData->goalCount; i++){
+    Goal goal = levelData->goals[i];
+    Sprite* sprite = GetSprite(SPRITE_ID::Goal, gameData->spriteBuffer);
+    int frame = (int)(goal.blinkTimer / 0.2) % (sprite->spriteCountX * sprite->spriteCountY);
+    RenderSpriteOnTile({frame, sprite}, levelData, renderer, &gameData->camera, goal.x, goal.y);
+  }
+  
 }
 
 void RenderEntities(GameData* gameData, SDL_Renderer* renderer) {

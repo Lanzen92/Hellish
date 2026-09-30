@@ -133,3 +133,4 @@ struct CommandBuffer {
 void Push(CommandBuffer* commandBuffer, AnyCommand command, LevelData* levelData);
 void Undo(CommandBuffer* commandBuffer, LevelData* levelData);
 void Redo(CommandBuffer* commandBuffer, LevelData* levelData);
+void ResetCommandBuffer(CommandBuffer* commandBuffer);

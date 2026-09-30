@@ -185,3 +185,9 @@ void Redo(CommandBuffer* commandBuffer, LevelData* levelData) {
     }
   }
 }
+
+void ResetCommandBuffer(CommandBuffer* commandBuffer) {
+  commandBuffer->index = 0;
+  commandBuffer->head = 0;
+  commandBuffer->timestamp = 0;
+}

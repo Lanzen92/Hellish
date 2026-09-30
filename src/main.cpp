@@ -259,13 +259,14 @@ int main() {
   printf("Initialization done - Jumping to gameloop \n");
 
   while (gameData->running) {
+    
+    //Get Delta
+    CalculateDeltaTime(dt, dtScaler);
+    
     //Each frame, check if dll has changed. 
     DLL_CheckStatus(&dll);
 
     Reset(gameData->arenaScratch);
-
-    //Get Delta
-    CalculateDeltaTime(dt, dtScaler);
     
     SDL_Event event;
 

@@ -30,6 +30,7 @@ static const SpriteDataEntry allSpriteData[] = {
   {   SPRITE_ID::Black1x1             ,"assets/sprites/1x1black.png", 0,0  },
   {   SPRITE_ID::DungeonTileset       ,"assets/sprites/hell_of_a_time_dungeon_tileset.png", 0,0, 9, 9  },
     //{   SPRITE_ID::Ghost,               "assets/sprites/ghost.png"     },
+  {   SPRITE_ID::Goal,                 "assets/sprites/goal.png", 8, 8, 8, 1},
 };
 
 Sprite* GetSprite(SPRITE_ID spriteId, Sprite* spriteBuffer) {

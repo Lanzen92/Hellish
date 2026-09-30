@@ -22,6 +22,7 @@ enum class SPRITE_ID {
   Black1x1,
   DungeonTileset,
   SelectionMarker,
+  Goal,
 };
 
 struct Sprite {

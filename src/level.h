@@ -8,16 +8,29 @@
 
 using namespace Memory;
 
+struct Goal {
+  int x;
+  int y;
+  float blinkTimer;
+};
+
 struct LevelData {
   int w;
   int h;
   uint16_t* cells;
+  Goal* goals;
+  int goalCount;
   const char* levelPath;
   Entity* entityBuffer;
   int entityCount;
   const Tileset* tileset;
 
 };
+
+namespace AssetManagement {
+  std::vector<uint16_t> GetCellDataFromJsonLayer(nlohmann::json& parsedJson, const char layerName, bool* wasFound);
+  int GetFirstNonZeroCell(std::vector<uint16_t>* list);
+}
 
 void CreateLevel(Arena* arena, LevelData* levelData, Tileset* tileset, const char* levelName);
 void CreateEntities(LevelData* levelData, Arena* arena);

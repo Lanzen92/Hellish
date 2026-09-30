@@ -21,8 +21,10 @@
 extern "C" {
 
   void StartLevel(Gameplay* gameplay, Arena* arenaCommands, Arena* arenaEntities) {
+    ResetCommandBuffer(gameplay->commandBuffer);
     Reset(arenaCommands);
     CreateEntities(&gameplay->levels[gameplay->currentLevelIndex], arenaEntities);
+    gameplay->activePlayerIndex = 0;
   }
 
   bool TryMove(Entity* mover, LevelData* levelData, CommandBuffer* commandBuffer, int xDir, int yDir, int strength) {
@@ -69,7 +71,8 @@ extern "C" {
     assert(gameplay->initialized == false);
         
     gameplay->currentLevelIndex = 0;
-    CreateLevel(arenaLevels, &gameplay->levels[0], &tilesetBuffer[(int)TILESETS::DUNGEON], "assets/maps/testing.tmj");
+    CreateLevel(arenaLevels, &gameplay->levels[0], &tilesetBuffer[(int)TILESETS::DUNGEON], "assets/maps/level_01.tmj");
+    CreateLevel(arenaLevels, &gameplay->levels[1], &tilesetBuffer[(int)TILESETS::DUNGEON], "assets/maps/level_02.tmj");
     gameplay->initialized = true;
   }
 
@@ -147,10 +150,14 @@ extern "C" {
     //Todo :D
   }
 
-  void UpdateGame(Gameplay* gameplay, Input* input, Arena* arenaScratch, const float dt) {
-    
+  void UpdateGame(Gameplay* gameplay, Input* input, Arena* arenaScratch, Arena* arenaCommands, Arena* arenaEntities, const float dt) {
     float undoSpeedUp = std::lerp(1.0, 0.15, (gameplay->commandBuffer->head - gameplay->commandBuffer->index) * (1.0/30.0));
     undoSpeedUp = std::max<double>(undoSpeedUp, 0.15);
+    
+    if (KeyPressed(input, SDL_SCANCODE_R)) {
+      StartLevel(gameplay, arenaCommands, arenaEntities);
+      return;
+    }
     
     if (KeyPressed(input, SDL_SCANCODE_Z) ||
         KeyHeldForTime(input, SDL_SCANCODE_Z, UNDO_REPEAT_TIME * undoSpeedUp)) {
@@ -198,6 +205,36 @@ extern "C" {
         areEntitiesActing = true;
         break;
       }
+    }
+    
+    for (int i = 0; i < levelData->goalCount; i++) {
+      Entity* entity = GetEntity(levelData, levelData->goals[i].x, levelData->goals[i].y);
+      if(entity != nullptr && !IsActing(entity)){
+        levelData->goals[i].blinkTimer += dt;
+      }
+      else{
+        levelData->goals[i].blinkTimer = 0;
+      }
+    }
+    
+    if(levelData->goalCount > 0){
+      int goals_reached = 0;
+      for (int i = 0; i < levelData->goalCount; i++) {
+        Goal goal = levelData->goals[i];
+        Entity* entity = GetEntity(levelData, goal.x, goal.y);
+        if(entity == nullptr){
+          break;
+        }
+        else if(HasBehaviour(entity, Behaviour::IS_PLAYER)){
+          goals_reached++;
+        }
+      }
+      
+      if(goals_reached == levelData->goalCount){
+        gameplay->currentLevelIndex++;
+        StartLevel(gameplay, arenaCommands, arenaEntities);
+        return;
+      }      
     }
     
     for (int i = 0; i < levelData->entityCount; i++){
@@ -381,7 +418,7 @@ extern "C" {
         break;
       }
       case SCENE_TYPES::GAME: {
-        UpdateGame(gameplay, &gameData->input, gameData->arenaScratch, dt);
+        UpdateGame(gameplay, &gameData->input, gameData->arenaScratch, gameData->arenaCommands, gameData->arenaEntities, dt);
         break;
       }
       case SCENE_TYPES::CREDITS:
