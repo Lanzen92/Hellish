@@ -33,6 +33,8 @@ struct Gameplay {
   LevelData* levels;
   int levelCount;
   int currentLevelIndex;
+  int loadedLevels;
+  bool gameWon;
   
   Position* inputBuffer;
   int inputBufferCapacity;
@@ -105,6 +107,7 @@ struct GameData {
   Camera camera;
   Input input;
   AudioSystem audioSystem;
+  uint64_t* ticksTotal;
   
   bool running;
   const float* dt;

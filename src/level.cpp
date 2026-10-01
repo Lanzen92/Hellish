@@ -43,7 +43,6 @@ namespace AssetManagement {
   }
 }
 
-
 void CreateLevel(Arena* arena, LevelData* levelData, Tileset* tileset, const char* levelName) {
   fstream stream(levelName);
   auto jsonResult = nlohmann::json::parse(stream);

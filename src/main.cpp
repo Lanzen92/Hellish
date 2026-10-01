@@ -219,6 +219,8 @@ int main() {
   gameData->arenaEntities = Memory::CreateSubArena(gameData->arenaLevels, MEGABYTES(1));
   gameData->arenaCommands = Memory::CreateSubArena(gameData->arenaLevels, MEGABYTES(1));
 
+  gameData->ticksTotal = ALLOC(arenaMain, uint64_t)
+  
   Gameplay* gameplay = &gameData->scenes.gameplay;
   gameplay->inputBufferCapacity = 50;
   gameplay->inputBuffer = ALLOC_ARRAY(gameData->arenaLevels, Position, gameplay->inputBufferCapacity)

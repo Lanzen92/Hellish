@@ -6,6 +6,8 @@
 
 #include "spriteLibrary.h"
 
+#include "common.h"
+
 #include <cmath>
 
 using namespace std;
@@ -18,9 +20,9 @@ static const SpriteDataEntry allSpriteData[] = {
   {   SPRITE_ID::Demon,                "assets/sprites/player.png"},
   {   SPRITE_ID::Rock,                 "assets/sprites/rock.png", 10, 20 },
   {   SPRITE_ID::Medusa_Rotate,        "assets/sprites/medusa_rotate.png", 12, 24, 8, 1},
-  // {   SPRITE_ID::Medusa_Idle_Side,     "assets/sprites/medusa_idle_side.png", 12, 24 },
-  // {   SPRITE_ID::Medusa_Idle_Front,    "assets/sprites/medusa_idle_front.png", 12,24 },
-  // {   SPRITE_ID::Medusa_Idle_Back,     "assets/sprites/medusa_idle_back.png", 12, 24 },
+  {   SPRITE_ID::Medusa_Idle_Left,     "assets/sprites/medusa_idle_left.png", 12, 24, 4, 1, 8 },
+  {   SPRITE_ID::Medusa_Idle_Front,    "assets/sprites/medusa_idle_front.png", 12,24, 4, 1, 8},
+  {   SPRITE_ID::Medusa_Idle_Back,     "assets/sprites/medusa_idle_back.png", 12, 24, 4, 1, 8 },
   // {   SPRITE_ID::Golem,                "assets/sprites/golem.png" },
   {   SPRITE_ID::DropShadow,           "assets/sprites/dropshadow.png", 8, 8},
   {   SPRITE_ID::SelectionMarker,      "assets/sprites/selection_marker.png",9,9},
@@ -71,7 +73,7 @@ Sprite* GetSpriteFromID(ENTITY_ID id, Sprite* spriteBuffer) {
     return spriteToReturn;
   }
 
- SpriteRenderInfo GetSpriteFromEntityState(Entity* entity, Sprite* spriteBuffer) {
+ SpriteRenderInfo GetSpriteFromEntityState(Entity* entity, Sprite* spriteBuffer, const uint64_t* ticksTotal) {
     if (HasBehaviour(entity, IS_PETRIFIED)) {
       return GetSprite(SPRITE_ID::Rock, spriteBuffer);
     }
@@ -128,21 +130,27 @@ Sprite* GetSpriteFromID(ENTITY_ID id, Sprite* spriteBuffer) {
   
     switch (entity->id) {
     case ENTITY_ID::MEDUSA:{
-      Sprite* sprite = GetSprite(SPRITE_ID::Medusa_Rotate, spriteBuffer);
+      Sprite* sprite = nullptr;
+      int frame = 0;
       switch (entity->facingCurrent) {
       case Direction::RIGHT:
-        return {6, sprite};
-        break;
+        sprite = GetSprite(SPRITE_ID::Medusa_Idle_Left, spriteBuffer);
+        frame = (int)((*ticksTotal * sprite->framerate) / FPS % GetSpriteCount(sprite));
+        return {frame, sprite, true};
       case Direction::LEFT:
-        return {2, sprite};
-        break;
+        sprite = GetSprite(SPRITE_ID::Medusa_Idle_Left, spriteBuffer);
+        frame = (int)((*ticksTotal * sprite->framerate) / FPS % GetSpriteCount(sprite));
+        return {frame, sprite};
       case Direction::DOWN:
-        return {0, sprite};
-        break;
+        sprite = GetSprite(SPRITE_ID::Medusa_Idle_Back, spriteBuffer);
+        frame = (int)((*ticksTotal * sprite->framerate) / FPS % GetSpriteCount(sprite));
+        return {frame, sprite};
       case Direction::UP:
-        return {4, sprite};
-        break;
+        sprite = GetSprite(SPRITE_ID::Medusa_Idle_Front, spriteBuffer);
+        frame = (int)((*ticksTotal * sprite->framerate) / FPS % GetSpriteCount(sprite));
+        return {frame, sprite};
       }
+      break;
     }
     case ENTITY_ID::DEMON:
       return GetSprite(SPRITE_ID::Demon, spriteBuffer);
@@ -180,6 +188,7 @@ Sprite* GetSpriteFromID(ENTITY_ID id, Sprite* spriteBuffer) {
       sprite->texture = texture;
       sprite->height = texture->h;
       sprite->width = texture->w;
+      sprite->framerate = entry.framerate;
 
       if (entry.pivotX == NOT_SET || entry.pivotY == NOT_SET) {
         sprite->pivotX = sprite->width / 2;

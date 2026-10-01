@@ -71,10 +71,14 @@ extern "C" {
     assert(gameplay->initialized == false);
         
     gameplay->currentLevelIndex = 0;
+    gameplay->loadedLevels = 0;
+    gameplay->gameWon = false;
     //CreateLevel(arenaLevels, &gameplay->levels[0], &tilesetBuffer[(int)TILESETS::DUNGEON], "assets/maps/testing_goal.tmj");
 
     CreateLevel(arenaLevels, &gameplay->levels[0], &tilesetBuffer[(int)TILESETS::DUNGEON], "assets/maps/level_01.tmj");
     CreateLevel(arenaLevels, &gameplay->levels[1], &tilesetBuffer[(int)TILESETS::DUNGEON], "assets/maps/level_02.tmj");
+    gameplay->loadedLevels = 2;
+    
     gameplay->initialized = true;
   }
 
@@ -97,6 +101,7 @@ extern "C" {
     }
     case SCENE_TYPES::MAINMENU: {
       SDL_Log("Changed to MainMenu");
+      gameData->transition.fadeTimeDuration = 1;
       break;
     }
     case SCENE_TYPES::GAME: {
@@ -109,6 +114,7 @@ extern "C" {
     }
     case SCENE_TYPES::CREDITS: {
       SDL_Log("Changed to Credits");
+      gameData->transition.fadeTimeDuration = 1;
       break;
     }
     case SCENE_TYPES::NONE: {
@@ -124,7 +130,7 @@ extern "C" {
       case SCENE_TYPES::TITLESCREEN: {
         Sprite* background = GetSprite(SPRITE_ID::TitleScreenBackground, gameData->spriteBuffer);
         float scale = (SCREEN_HEIGHT / ((float)background->height * UPSCALE_FACTOR));
-        RenderSpriteWorld(background, renderer, NULL, SCREEN_WIDTH / 2.0, SCREEN_HEIGHT / 2.0, scale);
+        RenderSpriteWorld(GetSprite(SPRITE_ID::TitleScreenBackground, gameData->spriteBuffer), renderer, NULL, 0.0f, 0.0f, scale);
         break;
       }
       case SCENE_TYPES::MAINMENU:
@@ -219,7 +225,7 @@ extern "C" {
       }
     }
     
-    if(levelData->goalCount > 0){
+    if(levelData->goalCount > 0) {
       int goals_reached = 0;
       for (int i = 0; i < levelData->goalCount; i++) {
         Goal goal = levelData->goals[i];
@@ -232,11 +238,19 @@ extern "C" {
         }
       }
       
-      if(goals_reached == levelData->goalCount){
+      if (goals_reached == levelData->goalCount) {
+        // Check if this is the final level BEFORE incrementing
+        if (gameplay->currentLevelIndex == gameplay->loadedLevels - 1) {
+          // We beat the game! Set a flag instead of breaking the array index.
+          gameplay->gameWon = true; 
+          return; 
+        }      
+  
+        // Otherwise, next level normally
         gameplay->currentLevelIndex++;
         StartLevel(gameplay, arenaCommands, arenaEntities);
         return;
-      }      
+      }
     }
     
     for (int i = 0; i < levelData->entityCount; i++){
@@ -353,7 +367,7 @@ extern "C" {
   }
 
   void Initialize(GameData* gameData, SDL_Window* window,  SDL_Renderer* renderer) {
-
+    *gameData->ticksTotal = 0;
     DEV::Initialize(window, renderer);
     AssetManagement::LoadAllSprites(gameData->spriteBuffer, renderer);
     gameData->imGuiContext = ImGui::GetCurrentContext();
@@ -370,24 +384,21 @@ extern "C" {
   }
 
   void Update(GameData* gameData, float dt) {
+    *gameData->ticksTotal += 1;
+    
     Gameplay* gameplay = &gameData->scenes.gameplay;
     Titlescreen* titleScreen = &gameData->scenes.titleScreen;
     EditorData* editorData = &gameData->editorData;
     Transition* transition = &gameData->transition;
     
     const bool* keys = SDL_GetKeyboardState(nullptr);
-
+    
     if (KeyPressed(&gameData->input, SDL_SCANCODE_F2)) {
       editorData->editLevel = !editorData->editLevel;
     }
 
     if (editorData->editLevel) {
       EDITOR::Update(&editorData->editor, &gameData->input, GetCurrentLevel(gameplay), gameplay->commandBuffer);
-    }
-
-    if (KeyPressed(&gameData->input, SDL_SCANCODE_5)) {
-      ChangeScene(gameData, SCENE_TYPES::TITLESCREEN);
-      return;
     }
     
     if (transition->state != Transition::Inactive) {
@@ -415,7 +426,7 @@ extern "C" {
         
         if (AnyKeyPressed(&gameData->input)) {
           if (transition->state == Transition::FadeTo || transition->state == Transition::Inactive) {
-            ChangeScene(gameData, SCENE_TYPES::GAME);
+            ChangeScene(gameData, SCENE_TYPES::MAINMENU);
           }
         }
       
@@ -425,10 +436,19 @@ extern "C" {
         UpdateMenu(gameData);
         break;
       }
-      case SCENE_TYPES::GAME: {
+    case SCENE_TYPES::GAME: {
+      if (transition->state == Transition::FadeTo || transition->state == Transition::Inactive) {
         UpdateGame(gameplay, &gameData->input, gameData->arenaScratch, gameData->arenaCommands, gameData->arenaEntities, dt);
-        break;
       }
+      
+      if (gameplay->gameWon) {
+        if (transition->state == Transition::Inactive) {
+          ChangeScene(gameData, SCENE_TYPES::TITLESCREEN);
+          gameplay->gameWon = false;
+        }
+      }
+      break;
+    }
       case SCENE_TYPES::CREDITS:
         break;
       
@@ -453,13 +473,12 @@ extern "C" {
       case Transition::FadeTo: {
         DrawScene(gameData, gameData->scenePrevious, renderer);
         float alpha = gameData->transition.fadeTimeElapsed / gameData->transition.fadeTimeDuration;
-        //RenderSpriteWorld(GetSprite(SPRITE_ID::Black1x1, gameData->spriteBuffer), LevelData* LevelData, renderer, &gameData->camera, 0, 0, SCREEN_WIDTH, alpha);
-        break;
+        RenderSpriteWorld(GetSprite(SPRITE_ID::Black1x1, gameData->spriteBuffer), renderer, &gameData->camera, 0, 0, SCREEN_WIDTH, alpha);        break;
       }
       case Transition::FadeFrom: {
         DrawScene(gameData, gameData->sceneCurrent, renderer);
         float alpha = 1 - gameData->transition.fadeTimeElapsed / gameData->transition.fadeTimeDuration;
-        //RenderSpriteWorld(GetSprite(SPRITE_ID::Black1x1, gameData->spriteBuffer), renderer, &gameData->camera, 0, 0, SCREEN_WIDTH, alpha);
+        RenderSpriteWorld(GetSprite(SPRITE_ID::Black1x1, gameData->spriteBuffer), renderer, &gameData->camera, 0, 0, SCREEN_WIDTH, alpha);
         break;
       }
     }
