@@ -6,6 +6,11 @@ namespace Memory {
   struct Arena;
 }
 
+enum class SONG_ID {
+  NONE,
+  THEME
+};
+
 enum class SFX_ID {
   FALLBACK,
   JUMP,
@@ -25,10 +30,15 @@ struct AudioSystem {
   static const int CHANNEL_COUNT = 32;
   FMOD_CHANNEL* channels[CHANNEL_COUNT];
   FMOD_SOUND* soundsEffects[(int)SFX_ID::COUNT];
+  
+  SONG_ID songId;
+  FMOD_SOUND* song;
+  FMOD_CHANNEL* songChannel;
 };
 
 extern AudioSystem* gAudioSystem;
 
+void PlaySong(SONG_ID id);
 void PlaySFX(SFX_ID id, float volume = 1);
 void InitializeAudioSystem(AudioSystem* audioSystem, Memory::Arena* arenaMain);
 void UpdateAudio(AudioSystem* audioSystem);

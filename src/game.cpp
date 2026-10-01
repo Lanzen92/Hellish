@@ -129,20 +129,23 @@ extern "C" {
     switch(scene) {
       case SCENE_TYPES::TITLESCREEN: {
         Sprite* background = GetSprite(SPRITE_ID::TitleScreenBackground, gameData->spriteBuffer);
-        float scale = (SCREEN_HEIGHT / ((float)background->height * UPSCALE_FACTOR));
-        RenderSpriteWorld(GetSprite(SPRITE_ID::TitleScreenBackground, gameData->spriteBuffer), renderer, NULL, 0.0f, 0.0f, scale);
+        RenderBackground(background, renderer);
         break;
       }
-      case SCENE_TYPES::MAINMENU:
+      case SCENE_TYPES::MAINMENU: {
         DrawMenu(&gameData->scenes.mainMenu, renderer, gameData->spriteBuffer);
         break;
-      case SCENE_TYPES::GAME: 
+      }
+      case SCENE_TYPES::GAME: {
         RenderLevel(gameData, renderer);
         RenderEntities(gameData, renderer);
         break;
-
-      case SCENE_TYPES::CREDITS:
+      }
+      case SCENE_TYPES::CREDITS: {
+        Sprite* background = GetSprite(SPRITE_ID::TitleScreenBackground, gameData->spriteBuffer);
+        RenderBackground(background, renderer);
         break;
+      }
       case SCENE_TYPES::NONE:
         assert(false);
         break;
@@ -377,6 +380,9 @@ extern "C" {
     
     InitializeGame(&gameData->scenes.gameplay, gameData->arenaLevels, gameData->tilesetBuffer);
     InitializeMenu(&gameData->scenes.mainMenu, gameData->spriteBuffer, gameData->arenaMain);
+    
+    PlaySong(SONG_ID::THEME);
+    
     ChangeScene(gameData, SCENE_TYPES::MAINMENU);
   }
 
@@ -440,13 +446,18 @@ extern "C" {
       
       if (gameplay->gameWon) {
         if (transition->state == Transition::Inactive) {
-          ChangeScene(gameData, SCENE_TYPES::TITLESCREEN);
+          ChangeScene(gameData, SCENE_TYPES::CREDITS);
           gameplay->gameWon = false;
         }
       }
       break;
     }
       case SCENE_TYPES::CREDITS:
+        if (AnyKeyPressed(&gameData->input)) {
+          if (transition->state == Transition::FadeTo || transition->state == Transition::Inactive) {
+            ChangeScene(gameData, SCENE_TYPES::MAINMENU);
+          }
+        }
         break;
       
       case SCENE_TYPES::NONE: {

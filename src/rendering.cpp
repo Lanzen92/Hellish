@@ -81,3 +81,27 @@ void RenderButton(Button* button, bool isSelected, SDL_Renderer* renderer) {
   SDL_RenderTexture(renderer, button->texture, NULL, &button->rect);
   
 }
+
+//Renders background that fills the window.
+void RenderBackground(SpriteRenderInfo spriteRenderInfo, SDL_Renderer* renderer, float alpha, bool flipped) {
+  Sprite* sprite = spriteRenderInfo.sprite;
+  if (!sprite) return; 
+  
+  float scaleX = (float)SCREEN_WIDTH / ((float)sprite->width * UPSCALE_FACTOR);
+  float scaleY = (float)SCREEN_HEIGHT / ((float)sprite->height * UPSCALE_FACTOR);
+  float scale = std::max(scaleX, scaleY); 
+  
+  float finalWidth = sprite->width * (UPSCALE_FACTOR * scale);
+  float finalHeight = sprite->height * (UPSCALE_FACTOR * scale);
+  
+  SDL_FRect rect;
+  rect.x = (SCREEN_WIDTH - finalWidth) / 2.0f;
+  rect.y = (SCREEN_HEIGHT - finalHeight) / 2.0f;
+  rect.w = finalWidth;
+  rect.h = finalHeight;
+  
+  SDL_SetTextureScaleMode(sprite->texture, SDL_SCALEMODE_PIXELART);
+  SDL_SetTextureAlphaModFloat(sprite->texture, alpha);
+  SDL_FlipMode flip = (flipped || spriteRenderInfo.flippedX) ? SDL_FlipMode::SDL_FLIP_HORIZONTAL : SDL_FlipMode::SDL_FLIP_NONE;
+  SDL_RenderTextureRotated(renderer, sprite->texture, nullptr, &rect, 0, 0, flip);
+}

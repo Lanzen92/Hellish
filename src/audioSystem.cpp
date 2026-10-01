@@ -30,8 +30,31 @@ int GetAvailableChannelIndex(AudioSystem* audioSystem){
   return NOT_FOUND;
 }
 
-void PlaySFX(SFX_ID id, float volume) {
+void PlaySong(SONG_ID id) {
+  gAudioSystem->songId = id;
+  if (gAudioSystem->song != nullptr) {
+    FMOD_Channel_Stop(gAudioSystem->songChannel);
+    FMOD_Sound_Release(gAudioSystem->song);
+  }
   
+  FMOD_SYSTEM* system = gAudioSystem->soundSystem;
+  const char* songName;
+  switch (id) {
+    case SONG_ID::THEME:
+      songName = "assets/audio/music/hellofatime.mp3";
+      break;
+    case SONG_ID::NONE:
+      break;
+  }
+  
+  FMOD_System_CreateStream(system, songName, FMOD_LOOP_NORMAL, nullptr, &gAudioSystem->song);
+  int FOREVER = -1;
+  FMOD_Sound_SetLoopCount(gAudioSystem->song, FOREVER);
+  FMOD_System_PlaySound(system, gAudioSystem->song, nullptr, false, &gAudioSystem->songChannel);
+  
+}
+
+void PlaySFX(SFX_ID id, float volume) {
   assert(id != SFX_ID::COUNT);
   
   FMOD_SOUND* sfx = gAudioSystem->soundsEffects[(int)id];

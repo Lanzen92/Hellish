@@ -17,3 +17,5 @@ void RenderSpriteOnTile(SpriteRenderInfo spriteInfo, LevelData* levelData, SDL_R
 		const Camera* camera, float x, float y, float scale = 1, float alpha = 1, bool flipped = false);
 
 void RenderButton(Button* button, bool isSelected, SDL_Renderer* renderer);
+
+void RenderBackground(SpriteRenderInfo spriteRenderInfo, SDL_Renderer* renderer, float alpha = 1.0f, bool flipped = false);

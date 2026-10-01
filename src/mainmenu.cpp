@@ -25,8 +25,7 @@ void InitializeMenu(MainMenu* mainmenu, Sprite* spriteBuffer, Memory::Arena* are
 void DrawMenu(MainMenu* mainmenu, SDL_Renderer* renderer, Sprite* spriteBuffer) {
   Sprite* background = GetSprite(SPRITE_ID::MainMenuBackground, spriteBuffer);
   
-  float scale = (SCREEN_HEIGHT / ((float)background->height * UPSCALE_FACTOR));
-  RenderSpriteWorld(GetSprite(SPRITE_ID::MainMenuBackground, spriteBuffer), renderer, NULL, 0.0f, 0.0f, scale);
+  RenderBackground(background, renderer);
   
   for (int i = 0; i < mainmenu->buttonCount; i++) {
     Button* button = mainmenu->activeButtons[i];
