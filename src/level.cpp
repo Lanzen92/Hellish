@@ -35,7 +35,7 @@ namespace AssetManagement {
   int GetFirstNonZeroCell(std::vector<uint16_t> *list){
     for (int id : *list) {
       if(id != 0){
-        return id + 1;
+        return id;
       }
     }
     assert(false);

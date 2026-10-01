@@ -71,6 +71,8 @@ extern "C" {
     assert(gameplay->initialized == false);
         
     gameplay->currentLevelIndex = 0;
+    //CreateLevel(arenaLevels, &gameplay->levels[0], &tilesetBuffer[(int)TILESETS::DUNGEON], "assets/maps/testing_goal.tmj");
+
     CreateLevel(arenaLevels, &gameplay->levels[0], &tilesetBuffer[(int)TILESETS::DUNGEON], "assets/maps/level_01.tmj");
     CreateLevel(arenaLevels, &gameplay->levels[1], &tilesetBuffer[(int)TILESETS::DUNGEON], "assets/maps/level_02.tmj");
     gameplay->initialized = true;
