@@ -6,7 +6,8 @@
 #define MEGABYTES(n) (KILOBYTES(n) * 1024)
 #define GIGABYTES(n) (MEGABYTES(n) * 1024)
 
-constexpr size_t GAME_MEMORY_ALLOWANCE = MEGABYTES(24);
+constexpr size_t GAME_MEMORY_ALLOWANCE = MEGABYTES(20);
+constexpr size_t AUDIO_MEMORY_ALLOWANCE = MEGABYTES(5);
 
 constexpr int FPS = 60;
 const double FRAME_TIME_MS = 1000.0 / FPS;

@@ -323,7 +323,12 @@ extern "C" {
     }
 
     if(!IsActing(entity)){
-      TryMove(entity, levelData, gameplay->commandBuffer, xDir, yDir, entity->strength);
+      bool moved = TryMove(entity, levelData, gameplay->commandBuffer, xDir, yDir, entity->strength);
+      
+      if (moved) {
+        PlaySFX(SFX_ID::JUMP);
+      }
+      
       gameplay->commandBuffer->timestamp += 1;
       gameplay->inputBufferReadCount++;
     }
@@ -352,7 +357,8 @@ extern "C" {
     DEV::Initialize(window, renderer);
     AssetManagement::LoadAllSprites(gameData->spriteBuffer, renderer);
     gameData->imGuiContext = ImGui::GetCurrentContext();
-    
+    InitializeAudioSystem(&gameData->audioSystem, gameData->arenaMain);
+    AssetManagement::LoadAllSFX(&gameData->audioSystem);
     AssetManagement::LoadAllTilesets(gameData->tilesetBuffer, gameData->arenaImages);
 
     SDL_Texture* blackfade = GetSprite(SPRITE_ID::Black1x1, gameData->spriteBuffer)->texture;

@@ -5,6 +5,7 @@
 #include "imgui/imgui.h"
 
 #include "arena.h"
+#include "audioSystem.h"
 #include "command.h"
 #include "levelEditor.h"
 #include "spriteLibrary.h"
@@ -103,6 +104,7 @@ struct GameData {
   Sprite* spriteBuffer;
   Camera camera;
   Input input;
+  AudioSystem audioSystem;
   
   bool running;
   const float* dt;
