@@ -239,14 +239,11 @@ extern "C" {
       }
       
       if (goals_reached == levelData->goalCount) {
-        // Check if this is the final level BEFORE incrementing
         if (gameplay->currentLevelIndex == gameplay->loadedLevels - 1) {
-          // We beat the game! Set a flag instead of breaking the array index.
           gameplay->gameWon = true; 
           return; 
         }      
-  
-        // Otherwise, next level normally
+        
         gameplay->currentLevelIndex++;
         StartLevel(gameplay, arenaCommands, arenaEntities);
         return;
