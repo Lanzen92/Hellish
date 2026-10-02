@@ -19,13 +19,34 @@ void InitializeMenu(MainMenu* mainmenu, Sprite* spriteBuffer, Memory::Arena* are
   SetupButton(&mainmenu->buttons[0], ButtonType::START_GAME, spriteBuffer, {SCREEN_WIDTH / 2.0,  SCREEN_HEIGHT / 2.0, 200, 80}, ButtonMode::Centered);
   SetupButton(&mainmenu->buttons[1], ButtonType::QUIT, spriteBuffer, {SCREEN_WIDTH / 2.0,  SCREEN_HEIGHT / 2.0 + 100, 200, 80}, ButtonMode::Centered);
 
+  mainmenu->backgroundHorizon = GetSprite(SPRITE_ID::Menu_Horizon, spriteBuffer);
+  mainmenu->backgroundCloudBack = GetSprite(SPRITE_ID::Menu_Cloud_Back, spriteBuffer);
+  mainmenu->backgroundCloudFront = GetSprite(SPRITE_ID::Menu_Cloud_Front,spriteBuffer);
+  mainmenu->backgroundMiddle = GetSprite(SPRITE_ID::Menu_Middle, spriteBuffer);
+  mainmenu->backgroundFront = GetSprite(SPRITE_ID::Menu_Front, spriteBuffer);
+  
   mainmenu->initialized = true;
 }
 
-void DrawMenu(MainMenu* mainmenu, SDL_Renderer* renderer, Sprite* spriteBuffer) {
-  Sprite* background = GetSprite(SPRITE_ID::MainMenuBackground, spriteBuffer);
+void DrawMenu(MainMenu* mainmenu, SDL_Renderer* renderer, Sprite* spriteBuffer, Input* input) {
+  //Sprite* background = GetSprite(SPRITE_ID::MainMenuBackground, spriteBuffer);
   
-  RenderBackground(background, renderer);
+  //RenderBackground(background, renderer);
+  
+  float scale = (SCREEN_HEIGHT / ((float)mainmenu->backgroundHorizon->height * UPSCALE_FACTOR));
+  scale *= 1.2;
+  float mouseX = input->mouseX;
+  float mouseY = input->mouseY;
+  float centerX = SCREEN_WIDTH / 2.0;
+  float centerY = SCREEN_HEIGHT / 2.0;
+  float offsetX = centerX - mouseX;
+  float offsetY = centerY - mouseY;
+  
+  RenderSpriteWorld(GetSprite(SPRITE_ID::Menu_Horizon, spriteBuffer), renderer, NULL, centerX, centerY, scale);
+  RenderSpriteWorld(GetSprite(SPRITE_ID::Menu_Cloud_Back, spriteBuffer), renderer, NULL, centerX + (offsetX / 11), centerY + (offsetY / 11), scale);
+  RenderSpriteWorld(GetSprite(SPRITE_ID::Menu_Cloud_Front, spriteBuffer), renderer,NULL, centerX + (offsetX / 9), centerY + (offsetY / 9), scale);
+  RenderSpriteWorld(GetSprite(SPRITE_ID::Menu_Middle, spriteBuffer), renderer,NULL, centerX + (offsetX / 7), centerY + (offsetY / 7), scale);
+  RenderSpriteWorld(GetSprite(SPRITE_ID::Menu_Front, spriteBuffer), renderer,NULL, centerX + (offsetX / 5), centerY + (offsetY / 5), scale);
   
   for (int i = 0; i < mainmenu->buttonCount; i++) {
     Button* button = mainmenu->activeButtons[i];

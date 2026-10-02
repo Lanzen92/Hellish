@@ -16,23 +16,28 @@ const char* FALLBACK_PATH = "assets/sprites/fallback.png";
 
 
 static const SpriteDataEntry allSpriteData[] = {
-  {   SPRITE_ID::Fallback,                  FALLBACK_PATH, 8, 8},
-  {   SPRITE_ID::Demon,                "assets/sprites/player.png"},
+  {   SPRITE_ID::Fallback,                  FALLBACK_PATH, 8, 8 },
+  {   SPRITE_ID::Demon,                "assets/sprites/player.png"  },
   {   SPRITE_ID::Rock,                 "assets/sprites/rock.png", 10, 20 },
-  {   SPRITE_ID::Medusa_Rotate,        "assets/sprites/medusa_rotate.png", 12, 24, 8, 1},
+  {   SPRITE_ID::Medusa_Rotate,        "assets/sprites/medusa_rotate.png", 12, 24, 8, 1 },
   {   SPRITE_ID::Medusa_Idle_Left,     "assets/sprites/medusa_idle_left.png", 12, 24, 4, 1, 8 },
-  {   SPRITE_ID::Medusa_Idle_Front,    "assets/sprites/medusa_idle_front.png", 12,24, 4, 1, 8},
+  {   SPRITE_ID::Medusa_Idle_Front,    "assets/sprites/medusa_idle_front.png", 12,24, 4, 1, 8 },
   {   SPRITE_ID::Medusa_Idle_Back,     "assets/sprites/medusa_idle_back.png", 12, 24, 4, 1, 8 },
   // {   SPRITE_ID::Golem,                "assets/sprites/golem.png" },
-  {   SPRITE_ID::DropShadow,           "assets/sprites/dropshadow.png", 8, 8},
-  {   SPRITE_ID::SelectionMarker,      "assets/sprites/selection_marker.png",9,9},
+  {   SPRITE_ID::DropShadow,           "assets/sprites/dropshadow.png", 8, 8  },
+  {   SPRITE_ID::SelectionMarker,      "assets/sprites/selection_marker.png",9,9  },
   {   SPRITE_ID::Siren,                "assets/sprites/siren.png"  },
   {   SPRITE_ID::TitleScreenBackground,"assets/sprites/titlescreen.png", 0,0  },
   {   SPRITE_ID::MainMenuBackground,   "assets/sprites/mainmenu_background.png", 0,0  },
   {   SPRITE_ID::Black1x1             ,"assets/sprites/1x1black.png", 0,0  },
   {   SPRITE_ID::DungeonTileset       ,"assets/sprites/hell_of_a_time_dungeon_tileset.png", 0,0, 9, 9  },
     //{   SPRITE_ID::Ghost,               "assets/sprites/ghost.png"     },
-  {   SPRITE_ID::Goal,                 "assets/sprites/goal.png", 8, 8, 8, 1},
+  {   SPRITE_ID::Goal,                 "assets/sprites/goal.png", 8, 8, 8, 1  },
+  {   SPRITE_ID::Menu_Horizon,         "assets/sprites/mainmenu_background.png" },
+{   SPRITE_ID::Menu_Cloud_Back,        "assets/sprites/mainmenu_cloud_back.png" },
+  {   SPRITE_ID::Menu_Cloud_Front,     "assets/sprites/mainmenu_cloud_front.png"  },
+  {   SPRITE_ID::Menu_Middle,          "assets/sprites/mainmenu_middle.png" },
+  {   SPRITE_ID::Menu_Front,           "assets/sprites/mainmenu_front.png"  },
 };
 
 Sprite* GetSprite(SPRITE_ID spriteId, Sprite* spriteBuffer) {

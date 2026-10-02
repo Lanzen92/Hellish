@@ -133,7 +133,7 @@ extern "C" {
         break;
       }
       case SCENE_TYPES::MAINMENU: {
-        DrawMenu(&gameData->scenes.mainMenu, renderer, gameData->spriteBuffer);
+        DrawMenu(&gameData->scenes.mainMenu, renderer, gameData->spriteBuffer, &gameData->input);
         break;
       }
       case SCENE_TYPES::GAME: {
