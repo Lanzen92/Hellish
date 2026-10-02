@@ -12,6 +12,7 @@
 #include "level.h"
 #include "input.h"
 #include "camera.h"
+#include "fontLibrary.h"
 #include "mainmenu.h"
 #include "tilesetLibrary.h"
 
@@ -49,7 +50,7 @@ struct Gameplay {
 };
 
 struct Titlescreen {
-  
+  float displayTimer = 0.0f;
 };
 
 struct Credits {
@@ -112,6 +113,8 @@ struct GameData {
   bool running;
   const float* dt;
   float* dtScaler;
+  
+  FontAtlas font;
 };
 
 inline LevelData* GetCurrentLevel(Gameplay* gameplay) {

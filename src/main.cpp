@@ -9,6 +9,8 @@
 #include "SDL3/SDL_render.h"
 #include "SDL3/SDL_scancode.h"
 #include "SDL3/SDL_timer.h"
+#include <SDL3/SDL_log.h>
+#include <SDL_TTF/SDL_ttf.h>
 
 #include "arena.h"
 #include "common.h"
@@ -138,7 +140,11 @@ void* AllocateGameMemory() {
 // make them "configurable"
 void SDL_Setup() {
   SDL_Init(SDL_INIT_EVENTS);
-  window = SDL_CreateWindow("TheUltimateGame", SCREEN_WIDTH, SCREEN_HEIGHT, 0);
+  SDL_SetLogPriorities(SDL_LOG_PRIORITY_VERBOSE);
+  
+  TTF_Init();
+  
+  window = SDL_CreateWindow("Hellish", SCREEN_WIDTH, SCREEN_HEIGHT, 0);
   renderer = SDL_CreateRenderer(window, NULL);
 }
 

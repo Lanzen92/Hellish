@@ -97,6 +97,7 @@ extern "C" {
     case SCENE_TYPES::TITLESCREEN: {
       SDL_Log("Change to TitleScreen");
       gameData->transition.fadeTimeDuration = 1;
+      gameData->scenes.titleScreen.displayTimer = 0.0f;
       break;
     }
     case SCENE_TYPES::MAINMENU: {
@@ -130,10 +131,14 @@ extern "C" {
       case SCENE_TYPES::TITLESCREEN: {
         Sprite* background = GetSprite(SPRITE_ID::TitleScreenBackground, gameData->spriteBuffer);
         RenderBackground(background, renderer);
+        //RenderText(&gameData->font, "Press any key for Main Menu", renderer, &gameData->camera, SCREEN_WIDTH / 2.0,SCREEN_HEIGHT / 2.0 + 300, Alignment::Centered);
+       
+
         break;
       }
       case SCENE_TYPES::MAINMENU: {
         DrawMenu(&gameData->scenes.mainMenu, renderer, gameData->spriteBuffer, &gameData->input);
+        RenderText(&gameData->font, "Main Menu", renderer, &gameData->camera, SCREEN_WIDTH / 2.0,SCREEN_HEIGHT / 2.0 - 300, Alignment::Centered, Type::Header);
         break;
       }
       case SCENE_TYPES::GAME: {
@@ -144,7 +149,21 @@ extern "C" {
       case SCENE_TYPES::CREDITS: {
         Sprite* background = GetSprite(SPRITE_ID::TitleScreenBackground, gameData->spriteBuffer);
         RenderBackground(background, renderer);
+        
+        RenderText(&gameData->font, "Credits", renderer, &gameData->camera, SCREEN_WIDTH / 2.0,SCREEN_HEIGHT / 2.0 - 460, Alignment::Centered, Type::Header);
+        
+        RenderText(&gameData->font, "Programing", renderer, &gameData->camera, SCREEN_WIDTH / 2.0,SCREEN_HEIGHT / 2.0 - 400, Alignment::Centered);
+        RenderText(&gameData->font, "Robin Lanz", renderer, &gameData->camera, SCREEN_WIDTH / 2.0,SCREEN_HEIGHT / 2.0 - 360, Alignment::Centered);
+        
+        RenderText(&gameData->font, "Art", renderer, &gameData->camera, SCREEN_WIDTH / 2.0,SCREEN_HEIGHT / 2.0 - 300, Alignment::Centered);
+        RenderText(&gameData->font, "Max Friberg", renderer, &gameData->camera, SCREEN_WIDTH / 2.0,SCREEN_HEIGHT / 2.0 - 260, Alignment::Centered);
+        
+        RenderText(&gameData->font, "Idea and original code by", renderer, &gameData->camera, SCREEN_WIDTH / 2.0,SCREEN_HEIGHT / 2.0 + 200, Alignment::Centered);
+        RenderText(&gameData->font, "Max Friberg", renderer, &gameData->camera, SCREEN_WIDTH / 2.0,SCREEN_HEIGHT / 2.0 + 240, Alignment::Centered);
+        
+        RenderText(&gameData->font, "Press any key to go to Main Menu", renderer, &gameData->camera, SCREEN_WIDTH / 2.0,SCREEN_HEIGHT / 2.0 + 300, Alignment::Centered);
         break;
+        
       }
       case SCENE_TYPES::NONE:
         assert(false);
@@ -156,10 +175,6 @@ extern "C" {
 
 // Updates called by game Update
 #pragma region Updates
-
-  void UpdateTitleScreen(Titlescreen* titlescreen, const float dt) {
-    //Todo :D
-  }
 
   void UpdateGame(Gameplay* gameplay, Input* input, Arena* arenaScratch, Arena* arenaCommands, Arena* arenaEntities, const float dt) {
     float undoSpeedUp = std::lerp(1.0, 0.15, (gameplay->commandBuffer->head - gameplay->commandBuffer->index) * (1.0/30.0));
@@ -371,8 +386,12 @@ extern "C" {
     DEV::Initialize(window, renderer);
     AssetManagement::LoadAllSprites(gameData->spriteBuffer, renderer);
     gameData->imGuiContext = ImGui::GetCurrentContext();
+    
+    AssetManagement::LoadFont(renderer, "assets/fonts/ByteBounce.ttf", &gameData->font, 48);
+    
     InitializeAudioSystem(&gameData->audioSystem, gameData->arenaMain);
     AssetManagement::LoadAllSFX(&gameData->audioSystem);
+    
     AssetManagement::LoadAllTilesets(gameData->tilesetBuffer, gameData->arenaImages);
 
     SDL_Texture* blackfade = GetSprite(SPRITE_ID::Black1x1, gameData->spriteBuffer)->texture;
@@ -383,7 +402,7 @@ extern "C" {
     
     PlaySong(SONG_ID::THEME);
     
-    ChangeScene(gameData, SCENE_TYPES::MAINMENU);
+    ChangeScene(gameData, SCENE_TYPES::TITLESCREEN);
   }
 
   void Update(GameData* gameData, float dt) {
@@ -425,9 +444,10 @@ extern "C" {
 
     switch (gameData->sceneCurrent) {
       case SCENE_TYPES::TITLESCREEN: {
-        UpdateTitleScreen(titleScreen, dt);
         
-        if (AnyKeyPressed(&gameData->input)) {
+        // Change scene after 5 sec, or if any key is pressed.
+        titleScreen->displayTimer += dt;
+        if (AnyKeyPressed(&gameData->input) || (titleScreen->displayTimer >= 5.0f)) {
           if (transition->state == Transition::FadeTo || transition->state == Transition::Inactive) {
             ChangeScene(gameData, SCENE_TYPES::MAINMENU);
           }

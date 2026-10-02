@@ -9,7 +9,9 @@
 #include "spriteLibrary.h"
 #include "rendering.h"
 
+#include "fontLibrary.h"
 
+static const char STOP_CHAR = '\0';
 
 void RenderSpriteWorld(SpriteRenderInfo spriteRenderInfo, SDL_Renderer* renderer, const Camera* camera, 
                        float x, float y, float scale, float alpha, bool flipped) {
@@ -104,4 +106,49 @@ void RenderBackground(SpriteRenderInfo spriteRenderInfo, SDL_Renderer* renderer,
   SDL_SetTextureAlphaModFloat(sprite->texture, alpha);
   SDL_FlipMode flip = (flipped || spriteRenderInfo.flippedX) ? SDL_FlipMode::SDL_FLIP_HORIZONTAL : SDL_FlipMode::SDL_FLIP_NONE;
   SDL_RenderTextureRotated(renderer, sprite->texture, nullptr, &rect, 0, 0, flip);
+}
+
+void RenderText(FontAtlas* atlas, const char* text, SDL_Renderer* renderer, Camera* camera, const float x, const float y, Alignment mode, Type type) {
+  assert(atlas->atlasTexture != nullptr);
+  
+  float scale = 1.0f;
+  if (type == Type::Header) scale = 1.3f;
+  
+  float drawPositionX = x;
+  float drawPositionY = y;
+  if(camera != nullptr){
+    drawPositionX -= camera->cameraX;
+    drawPositionY -= camera->cameraY;
+  }
+  
+  if(mode == Alignment::Centered){
+    float totalWidth = 0;
+    for (int i = 0; text[i] != STOP_CHAR; i++) {
+      totalWidth += atlas->glyphs[text[i]].atlasPosition.w * scale;
+    }
+    drawPositionX -= totalWidth / 2.0;
+  }
+  
+  //For dynamic scaling of the font.
+  for (int i = 0; text[i] != '\0'; i++) {
+    Glyph glyph = atlas->glyphs[text[i]];
+    
+    SDL_FRect renderRectangle = {
+      drawPositionX, 
+      drawPositionY, 
+      glyph.atlasPosition.w * scale, 
+      glyph.atlasPosition.h * scale
+  };
+    
+    SDL_RenderTexture(renderer, atlas->atlasTexture, &glyph.atlasPosition, &renderRectangle);
+    drawPositionX += glyph.atlasPosition.w * scale; 
+  }
+
+  
+  // for (int i = 0; text[i] != STOP_CHAR; i++) {
+  //   Glyph glyph = atlas->glyphs[text[i]];
+  //   SDL_FRect renderRectangle = {drawPositionX, drawPositionY, glyph.atlasPosition.w, glyph.atlasPosition.h};
+  //   SDL_RenderTexture(renderer, atlas->atlasTexture, &glyph.atlasPosition, &renderRectangle);
+  //   drawPositionX += glyph.atlasPosition.w;
+  // }
 }
