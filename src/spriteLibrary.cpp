@@ -33,11 +33,13 @@ static const SpriteDataEntry allSpriteData[] = {
   {   SPRITE_ID::DungeonTileset       ,"assets/sprites/hell_of_a_time_dungeon_tileset.png", 0,0, 9, 9  },
     //{   SPRITE_ID::Ghost,               "assets/sprites/ghost.png"     },
   {   SPRITE_ID::Goal,                 "assets/sprites/goal.png", 8, 8, 8, 1  },
-  {   SPRITE_ID::Menu_Horizon,         "assets/sprites/mainmenu_background.png" },
-{   SPRITE_ID::Menu_Cloud_Back,        "assets/sprites/mainmenu_cloud_back.png" },
-  {   SPRITE_ID::Menu_Cloud_Front,     "assets/sprites/mainmenu_cloud_front.png"  },
-  {   SPRITE_ID::Menu_Middle,          "assets/sprites/mainmenu_middle.png" },
-  {   SPRITE_ID::Menu_Front,           "assets/sprites/mainmenu_front.png"  },
+  {   SPRITE_ID::MenuHorizon,         "assets/sprites/mainmenu_background.png" },
+  {   SPRITE_ID::MenuCloudBack,        "assets/sprites/mainmenu_cloud_back.png" },
+  {   SPRITE_ID::MenuCloudFront,     "assets/sprites/mainmenu_cloud_front.png"  },
+  {   SPRITE_ID::MenuMiddle,          "assets/sprites/mainmenu_middle.png" },
+  {   SPRITE_ID::MenuFront,           "assets/sprites/mainmenu_front.png"  },
+  {   SPRITE_ID::ButtonBasicBlue,           "assets/sprites/basic_button_blue.png", 0, 0, 3, 3  },
+  {   SPRITE_ID::ButtonBasicRed,           "assets/sprites/basic_button_red.png", 0, 0, 3, 3  },
 };
 
 Sprite* GetSprite(SPRITE_ID spriteId, Sprite* spriteBuffer) {

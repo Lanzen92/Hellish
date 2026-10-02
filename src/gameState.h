@@ -120,3 +120,8 @@ struct GameData {
 inline LevelData* GetCurrentLevel(Gameplay* gameplay) {
   return &gameplay->levels[gameplay->currentLevelIndex];
 }
+
+static const char STOP_CHAR = '\0';
+inline bool IsStringEmpty(const char* str){
+  return str == nullptr || str[0] == STOP_CHAR;
+}

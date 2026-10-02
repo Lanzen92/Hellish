@@ -10,29 +10,27 @@
 
 #include <cassert>
 
-void InitializeMenu(MainMenu* mainmenu, Sprite* spriteBuffer, Memory::Arena* arenaMain) {
+void InitializeMenu(MainMenu* mainmenu, Sprite* spriteBuffer, FontAtlas* font, Memory::Arena* arenaMain) {
   assert(mainmenu->initialized == false);
   
   mainmenu->buttonCount = 2;
   mainmenu->buttons = ALLOC_ARRAY(arenaMain, Button, mainmenu->buttonCount)
   
-  SetupButton(&mainmenu->buttons[0], ButtonType::START_GAME, spriteBuffer, {SCREEN_WIDTH / 2.0,  SCREEN_HEIGHT / 2.0, 200, 80}, ButtonMode::Centered);
-  SetupButton(&mainmenu->buttons[1], ButtonType::QUIT, spriteBuffer, {SCREEN_WIDTH / 2.0,  SCREEN_HEIGHT / 2.0 + 100, 200, 80}, ButtonMode::Centered);
-
-  mainmenu->backgroundHorizon = GetSprite(SPRITE_ID::Menu_Horizon, spriteBuffer);
-  mainmenu->backgroundCloudBack = GetSprite(SPRITE_ID::Menu_Cloud_Back, spriteBuffer);
-  mainmenu->backgroundCloudFront = GetSprite(SPRITE_ID::Menu_Cloud_Front,spriteBuffer);
-  mainmenu->backgroundMiddle = GetSprite(SPRITE_ID::Menu_Middle, spriteBuffer);
-  mainmenu->backgroundFront = GetSprite(SPRITE_ID::Menu_Front, spriteBuffer);
+  SetupButton(&mainmenu->buttons[0], ButtonType::START_GAME, spriteBuffer, {SCREEN_WIDTH / 2.0,  SCREEN_HEIGHT / 2.0, 300, 110}, Alignment::Centered, font, "Start Game");
+  mainmenu->buttons[0].isActive = true;
+  SetupButton(&mainmenu->buttons[1], ButtonType::QUIT, spriteBuffer, {SCREEN_WIDTH / 2.0,  SCREEN_HEIGHT / 2.0 + 120, 240, 110}, Alignment::Centered, font, "Quit");
+  
+  mainmenu->backgroundHorizon = GetSprite(SPRITE_ID::MenuHorizon, spriteBuffer);
+  mainmenu->backgroundCloudBack = GetSprite(SPRITE_ID::MenuCloudBack, spriteBuffer);
+  mainmenu->backgroundCloudFront = GetSprite(SPRITE_ID::MenuCloudFront,spriteBuffer);
+  mainmenu->backgroundMiddle = GetSprite(SPRITE_ID::MenuMiddle, spriteBuffer);
+  mainmenu->backgroundFront = GetSprite(SPRITE_ID::MenuFront, spriteBuffer);
   
   mainmenu->initialized = true;
 }
 
 void DrawMenu(MainMenu* mainmenu, SDL_Renderer* renderer, Sprite* spriteBuffer, Input* input) {
-  //Sprite* background = GetSprite(SPRITE_ID::MainMenuBackground, spriteBuffer);
-  
-  //RenderBackground(background, renderer);
-  
+
   float scale = (SCREEN_HEIGHT / ((float)mainmenu->backgroundHorizon->height * UPSCALE_FACTOR));
   scale *= 1.2;
   float mouseX = input->mouseX;
@@ -42,16 +40,20 @@ void DrawMenu(MainMenu* mainmenu, SDL_Renderer* renderer, Sprite* spriteBuffer, 
   float offsetX = centerX - mouseX;
   float offsetY = centerY - mouseY;
   
-  RenderSpriteWorld(GetSprite(SPRITE_ID::Menu_Horizon, spriteBuffer), renderer, NULL, centerX, centerY, scale);
-  RenderSpriteWorld(GetSprite(SPRITE_ID::Menu_Cloud_Back, spriteBuffer), renderer, NULL, centerX + (offsetX / 11), centerY + (offsetY / 11), scale);
-  RenderSpriteWorld(GetSprite(SPRITE_ID::Menu_Cloud_Front, spriteBuffer), renderer,NULL, centerX + (offsetX / 9), centerY + (offsetY / 9), scale);
-  RenderSpriteWorld(GetSprite(SPRITE_ID::Menu_Middle, spriteBuffer), renderer,NULL, centerX + (offsetX / 7), centerY + (offsetY / 7), scale);
-  RenderSpriteWorld(GetSprite(SPRITE_ID::Menu_Front, spriteBuffer), renderer,NULL, centerX + (offsetX / 5), centerY + (offsetY / 5), scale);
+  RenderSpriteWorld(GetSprite(SPRITE_ID::MenuHorizon, spriteBuffer), renderer, NULL, centerX, centerY, scale);
+  RenderSpriteWorld(GetSprite(SPRITE_ID::MenuCloudBack, spriteBuffer), renderer, NULL, centerX + (offsetX / 11), centerY + (offsetY / 11), scale);
+  RenderSpriteWorld(GetSprite(SPRITE_ID::MenuCloudFront, spriteBuffer), renderer,NULL, centerX + (offsetX / 9), centerY + (offsetY / 9), scale);
+  RenderSpriteWorld(GetSprite(SPRITE_ID::MenuMiddle, spriteBuffer), renderer,NULL, centerX + (offsetX / 7), centerY + (offsetY / 7), scale);
+  RenderSpriteWorld(GetSprite(SPRITE_ID::MenuFront, spriteBuffer), renderer,NULL, centerX + (offsetX / 5), centerY + (offsetY / 5), scale);
   
   for (int i = 0; i < mainmenu->buttonCount; i++) {
     Button* button = mainmenu->activeButtons[i];
-    RenderButton(button, i == mainmenu->activeButtonIndex, renderer);
+    if (button->isDynamic) 
+      RenderButtonDynamic(button, i == mainmenu->activeButtonIndex, renderer);
+    else 
+      RenderButton(button, i == mainmenu->activeButtonIndex, renderer);
   }
+  mainmenu->activeButtonsCount = 0;
 }
 
 void UpdateMenu(GameData* gameData) {

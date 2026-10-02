@@ -131,9 +131,6 @@ extern "C" {
       case SCENE_TYPES::TITLESCREEN: {
         Sprite* background = GetSprite(SPRITE_ID::TitleScreenBackground, gameData->spriteBuffer);
         RenderBackground(background, renderer);
-        //RenderText(&gameData->font, "Press any key for Main Menu", renderer, &gameData->camera, SCREEN_WIDTH / 2.0,SCREEN_HEIGHT / 2.0 + 300, Alignment::Centered);
-       
-
         break;
       }
       case SCENE_TYPES::MAINMENU: {
@@ -398,7 +395,7 @@ extern "C" {
     SDL_SetTextureBlendMode(blackfade, SDL_BLENDMODE_BLEND);
     
     InitializeGame(&gameData->scenes.gameplay, gameData->arenaLevels, gameData->tilesetBuffer);
-    InitializeMenu(&gameData->scenes.mainMenu, gameData->spriteBuffer, gameData->arenaMain);
+    InitializeMenu(&gameData->scenes.mainMenu, gameData->spriteBuffer, &gameData->font, gameData->arenaMain);
     
     PlaySong(SONG_ID::THEME);
     

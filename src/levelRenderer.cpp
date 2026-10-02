@@ -1,14 +1,10 @@
-#include <cstdint>
 #include <cmath>
 #include <cstdio>
-#include <string>
 #include <algorithm>
 
 #include "SDL3/SDL_render.h"
-#include "SDL3/SDL_surface.h"
 #include "SDL3_image/SDL_image.h"
 
-#include "common.h"
 #include "levelRenderer.h"
 #include "rendering.h"
 #include "spriteLibrary.h"

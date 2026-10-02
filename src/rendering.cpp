@@ -8,10 +8,9 @@
 #include "common.h"
 #include "spriteLibrary.h"
 #include "rendering.h"
-
+#include "button.h"
 #include "fontLibrary.h"
-
-static const char STOP_CHAR = '\0';
+#include "gameState.h"
 
 void RenderSpriteWorld(SpriteRenderInfo spriteRenderInfo, SDL_Renderer* renderer, const Camera* camera, 
                        float x, float y, float scale, float alpha, bool flipped) {
@@ -74,14 +73,76 @@ void RenderSpriteOnTile(SpriteRenderInfo spriteInfo, LevelData* levelData, SDL_R
 }
 
 void RenderButton(Button* button, bool isSelected, SDL_Renderer* renderer) {
-  SDL_Texture* texture = button->texture;
+  SDL_Texture* texture = button->sprite->texture;
   SDL_SetTextureScaleMode(texture, SDL_SCALEMODE_PIXELART);
   
   uint8_t colorOverlay = isSelected ? 255 : 230;
   SDL_SetTextureBlendMode(texture, SDL_BLENDMODE_BLEND);
   SDL_SetTextureColorMod(texture, colorOverlay, colorOverlay, colorOverlay);
-  SDL_RenderTexture(renderer, button->texture, NULL, &button->rect);
+  SDL_RenderTexture(renderer, button->sprite->texture, NULL, &button->rect);
   
+  if(!IsStringEmpty(button->text)){
+    float glyph_height = button->font->glyphs['H'].atlasPosition.h / 2.0;
+    RenderText(button->font, button->text, renderer, nullptr, button->rect.x + (button->rect.w / 2.0), button->rect.y + (button->rect.h / 2.0) - glyph_height, Alignment::Centered);
+  }
+}
+
+void RenderButtonDynamic(Button* button, bool isSelected, SDL_Renderer* renderer) {
+  assert(button->sprite->spriteCountX == 3);
+  assert(button->sprite->spriteCountY == 3);
+  
+  uint8_t colorOverlay = isSelected ? 255: 230;
+  SDL_Texture* texture = button->sprite->texture;
+  SDL_FRect rect = button->rect;
+  
+  float partW = texture->w / 3.0;
+  float partH = texture->h / 3.0;
+  float verticalCenterHeight = rect.h - (partH * 2);
+  float horizontalCenterWidth = rect.w - (partW * 2);
+  
+  float rightX = rect.x + rect.w - partW;
+  float bottomY = rect.y + rect.h - partH;
+  float centerY = rect.y + partH;
+  float centerX = rect.x + partW;
+  
+  SDL_FRect topLeftdst = {  rect.x, rect.y, partW, partH  };
+  SDL_FRect topRightdst = { rightX, rect.y, partW, partH };
+  SDL_FRect topCenterdst = {  centerX, rect.y, horizontalCenterWidth, partH };
+  SDL_FRect bottomLeftdst = { rect.x, bottomY, partW, partH };
+  SDL_FRect bottomRightdst = {  rightX, bottomY, partW, partH };
+  SDL_FRect bottomCenterdst = { centerX, bottomY, horizontalCenterWidth, partH  };
+  SDL_FRect centerLeftdst = { rect.x, centerY, partW, verticalCenterHeight };
+  SDL_FRect centerRightdst = {  rightX, centerY, partW, verticalCenterHeight };
+  SDL_FRect centerdst = { centerX, centerY, horizontalCenterWidth, verticalCenterHeight };
+  
+  SDL_FRect topLeftsrc = {0, 0, partW, partH};
+  SDL_FRect topRightsrc = {partW * 2, 0, partW, partH};
+  SDL_FRect topCentersrc = {partW * 1, 0, partW, partH};
+  SDL_FRect bottomLeftsrc = {0, partH * 2, partW, partH};
+  SDL_FRect bottomRightsrc = {partW * 2, partH * 2, partW, partH};
+  SDL_FRect bottomCentersrc = {partW * 1, partH * 2, partW, partH};
+  SDL_FRect centerLeftsrc = {0, partH * 1, partW, partH};
+  SDL_FRect centerRightsrc = {partW * 2, partH * 1, partW, partH};
+  SDL_FRect centersrc = {partW * 1, partH * 1, partW, partH};
+  
+  SDL_SetTextureScaleMode(texture, SDL_SCALEMODE_PIXELART);
+  SDL_SetTextureBlendMode(texture, SDL_BLENDMODE_BLEND);
+  SDL_SetTextureColorMod(texture, colorOverlay, colorOverlay, colorOverlay);
+  
+  SDL_RenderTexture(renderer, texture, &topLeftsrc, &topLeftdst );
+  SDL_RenderTexture(renderer, texture, &topCentersrc, &topCenterdst );
+  SDL_RenderTexture(renderer, texture, &bottomCentersrc, &bottomCenterdst );
+  SDL_RenderTexture(renderer, texture, &centerLeftsrc, &centerLeftdst );
+  SDL_RenderTexture(renderer, texture, &centerRightsrc, &centerRightdst );
+  SDL_RenderTexture(renderer, texture, &bottomLeftsrc, &bottomLeftdst );
+  SDL_RenderTexture(renderer, texture, &topRightsrc, &topRightdst );
+  SDL_RenderTexture(renderer, texture, &bottomRightsrc, &bottomRightdst );
+  SDL_RenderTexture(renderer, texture, &centersrc, &centerdst );
+  
+  if(!IsStringEmpty(button->text)) {
+    float glyphHeight = button->font->glyphs['H'].atlasPosition.h / 2.0;
+    RenderText(button->font, button->text, renderer, nullptr, rect.x + (rect.w / 2.0), rect.y + (rect.h / 2.0) - glyphHeight, Alignment::Centered);
+  }
 }
 
 //Renders background that fills the window.
@@ -143,12 +204,4 @@ void RenderText(FontAtlas* atlas, const char* text, SDL_Renderer* renderer, Came
     SDL_RenderTexture(renderer, atlas->atlasTexture, &glyph.atlasPosition, &renderRectangle);
     drawPositionX += glyph.atlasPosition.w * scale; 
   }
-
-  
-  // for (int i = 0; text[i] != STOP_CHAR; i++) {
-  //   Glyph glyph = atlas->glyphs[text[i]];
-  //   SDL_FRect renderRectangle = {drawPositionX, drawPositionY, glyph.atlasPosition.w, glyph.atlasPosition.h};
-  //   SDL_RenderTexture(renderer, atlas->atlasTexture, &glyph.atlasPosition, &renderRectangle);
-  //   drawPositionX += glyph.atlasPosition.w;
-  // }
 }

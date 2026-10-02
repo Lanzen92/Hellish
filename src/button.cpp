@@ -1,11 +1,11 @@
-#include "button.h"
+#include <cassert>
 
+#include "button.h"
 #include "collision.h"
 #include "game.h"
 #include "gameState.h"
 #include "spriteLibrary.h"
-
-#include <cassert>
+#include "rendering.h"
 
 bool IsHoveredOver(Button* button, float x, float y) {
   if (button == nullptr) return false;
@@ -15,13 +15,13 @@ bool IsHoveredOver(Button* button, float x, float y) {
   return CheckCollisionInsideBounds(button->rect, x, y);
 }
 
-void SetupButton(Button* button, ButtonType type, Sprite* spriteBuffer, SDL_FRect rect, ButtonMode mode) {
+void SetupButton(Button* button, ButtonType type, Sprite* spriteBuffer, SDL_FRect rect, Alignment mode, FontAtlas* font, const char* text) {
   assert(type != ButtonType::NONE);
   
   button->type = type;
   button->rect = rect;
   
-  if (mode == ButtonMode::Centered) {
+  if (mode == Alignment::Centered) {
     button->rect.x -= button->rect.w / 2;
     button->rect.y -= button->rect.h / 2;
   }
@@ -29,17 +29,29 @@ void SetupButton(Button* button, ButtonType type, Sprite* spriteBuffer, SDL_FRec
   button->isActive = true;
   
   switch (button->type) {
-    case ButtonType::START_GAME:
-      button->texture = GetSprite(SPRITE_ID::Fallback, spriteBuffer)->texture;
-      break;
+  case ButtonType::START_GAME:
+    button->sprite = GetSprite(SPRITE_ID::ButtonBasicBlue, spriteBuffer);
+    break;
       
-    case ButtonType::QUIT:
-      button->texture = GetSprite(SPRITE_ID::Fallback, spriteBuffer)->texture;
-      break;
+  case ButtonType::QUIT:
+    button->sprite = GetSprite(SPRITE_ID::ButtonBasicRed, spriteBuffer);
+    break;
       
-    default:
-      button->texture = GetSprite(SPRITE_ID::Fallback, spriteBuffer)->texture;
+  default:
+    button->sprite = GetSprite(SPRITE_ID::Fallback, spriteBuffer);
   }
+  
+  bool hasText = !IsStringEmpty(text);
+  
+  if (font == nullptr) {
+    assert(!hasText);
+  }
+  if (hasText) {
+    assert (font != nullptr);
+  }
+  
+  button->font = font;
+  button->text = text;
 }
 
 void PressButton(Button* button, GameData* gameData) {

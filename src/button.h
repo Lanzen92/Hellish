@@ -3,13 +3,11 @@
 #include "SDL3/SDL_rect.h"
 #include "SDL3/SDL_render.h"
 
+#include "fontLibrary.h"
+#include "rendering.h"
+
 struct Sprite;
 struct GameData;
-
-enum class ButtonMode {
-  Centered,
-  Raw
-};
 
 enum class ButtonType {
   NONE,
@@ -20,11 +18,17 @@ enum class ButtonType {
 struct Button {
   ButtonType type;
   SDL_FRect rect;
-  SDL_Texture* texture;
+  Sprite* sprite;
+  
   bool isActive;
+  bool isDynamic;
+  
+  FontAtlas* font;
+  const char* text; 
 };
 
 void PressButton(Button* button, GameData* gameData);
 int GetActiveButtonCount(Button* buttons, int count);
 bool IsHoveredOver(Button* button, float x, float y);
-void SetupButton(Button* button, ButtonType type, Sprite* spriteBuffer, SDL_FRect rect, ButtonMode mode);
+void SetupButton(Button* button, ButtonType type, Sprite* spriteBuffer, SDL_FRect rect, Alignment mode, FontAtlas* font = nullptr, const char* text = nullptr);
+void RenderButtonDynamic(Button* button, bool isSelected, SDL_Renderer* renderer);

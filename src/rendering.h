@@ -4,8 +4,9 @@
 
 #include "camera.h"
 #include "spriteLibrary.h"
-#include "button.h"
+#include "fontLibrary.h"
 
+struct Button;
 struct FontAtlas;
 
 enum class Alignment {

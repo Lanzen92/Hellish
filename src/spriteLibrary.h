@@ -23,11 +23,13 @@ enum class SPRITE_ID {
   DungeonTileset,
   SelectionMarker,
   Goal,
-  Menu_Horizon,
-  Menu_Cloud_Back,
-  Menu_Cloud_Front,
-  Menu_Middle,
-  Menu_Front
+  MenuHorizon,
+  MenuCloudBack,
+  MenuCloudFront,
+  MenuMiddle,
+  MenuFront,
+  ButtonBasicBlue,
+  ButtonBasicRed
 };
 
 struct Sprite {
