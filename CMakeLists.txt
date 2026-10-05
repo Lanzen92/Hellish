@@ -29,8 +29,6 @@ set(IMGUI
 		src/gameState.h
 )
 
-
-
 #Shared static dll
 add_library(${SHARED_LIB_NAME} STATIC ${SHARED_SOURCES})
 target_include_directories(${SHARED_LIB_NAME} PRIVATE include src_external)
@@ -73,3 +71,8 @@ add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
 add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD 
 	COMMAND ${CMAKE_COMMAND} -E copy_directory_if_different ${DIR_ASSETS_ORIGIN} ${DIR_ASSETS_DESTINATION} VERBATIM
 )
+
+install(TARGETS ${PROJECT_NAME} DESTINATION .)
+install(TARGETS ${DLL_NAME} RUNTIME DESTINATION .)
+install(FILES ${DLL_FILES} DESTINATION .)
+install(DIRECTORY ${CMAKE_BINARY_DIR}/assets DESTINATION .)
