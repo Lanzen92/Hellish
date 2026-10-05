@@ -20,13 +20,6 @@
 
 extern "C" {
 
-  void StartLevel(Gameplay* gameplay, Arena* arenaCommands, Arena* arenaEntities) {
-    ResetCommandBuffer(gameplay->commandBuffer);
-    Reset(arenaCommands);
-    CreateEntities(&gameplay->levels[gameplay->currentLevelIndex], arenaEntities);
-    gameplay->activePlayerIndex = 0;
-  }
-
   bool TryMove(Entity* mover, LevelData* levelData, CommandBuffer* commandBuffer, int xDir, int yDir, int strength) {
 
     if (strength < 0) {
@@ -67,23 +60,25 @@ extern "C" {
     return false;
   }
 
-  void InitializeGame(Gameplay* gameplay, Arena* arenaLevels, Tileset* tilesetBuffer) {
-    assert(gameplay->initialized == false);
-        
-    gameplay->currentLevelIndex = 0;
-    gameplay->loadedLevels = 0;
-    gameplay->gameWon = false;
-    //CreateLevel(arenaLevels, &gameplay->levels[0], &tilesetBuffer[(int)TILESETS::DUNGEON], "assets/maps/testing_goal.tmj");
+  bool HandleEvents(GameData* data, SDL_Event event) {
+    DEV::ProcessEvents(&event);
 
-    CreateLevel(arenaLevels, &gameplay->levels[0], &tilesetBuffer[(int)TILESETS::DUNGEON], "assets/maps/level_01.tmj");
-    CreateLevel(arenaLevels, &gameplay->levels[1], &tilesetBuffer[(int)TILESETS::DUNGEON], "assets/maps/level_02.tmj");
-    gameplay->loadedLevels = 2;
-    
-    gameplay->initialized = true;
+    if (event.type != SDL_EVENT_KEY_DOWN) {
+      return true;
+    }
+    if (event.key.key == SDLK_ESCAPE) {
+      return false;
+    }
+
+    return true;
   }
 
-//Scene handling
-#pragma region Scenes
+  void StartLevel(Gameplay* gameplay, Arena* arenaCommands, Arena* arenaEntities) {
+    ResetCommandBuffer(gameplay->commandBuffer);
+    Reset(arenaCommands);
+    CreateEntities(&gameplay->levels[gameplay->currentLevelIndex], arenaEntities);
+    gameplay->activePlayerIndex = 0;
+  }
 
   void ChangeScene(GameData* gameData, SCENE_TYPES newScene) {
     assert (newScene != gameData->sceneCurrent);
@@ -110,6 +105,13 @@ extern "C" {
       gameData->transition.fadeTimeDuration = 0.5f;
       Gameplay* gameplay = &gameData->scenes.gameplay;
       assert(gameplay->initialized);
+      
+      //Reset to level 1, and set gameWon to false.
+      if (gameData->scenes.gameplay.gameWon == true) {
+        gameData->scenes.gameplay.currentLevelIndex = 0;
+        gameData->scenes.gameplay.gameWon = false;
+      }
+      
       StartLevel(gameplay, gameData->arenaCommands, gameData->arenaEntities);
       break;
     }
@@ -168,10 +170,44 @@ extern "C" {
       }
   }
 
-#pragma endregion Scenes
+  void InitializeGame(Gameplay* gameplay, Arena* arenaLevels, Tileset* tilesetBuffer) {
+    assert(gameplay->initialized == false);
+        
+    gameplay->currentLevelIndex = 0;
+    gameplay->loadedLevels = 0;
+    gameplay->gameWon = false;
+    //CreateLevel(arenaLevels, &gameplay->levels[0], &tilesetBuffer[(int)TILESETS::DUNGEON], "assets/maps/testing_goal.tmj");
 
-// Updates called by game Update
-#pragma region Updates
+    CreateLevel(arenaLevels, &gameplay->levels[0], &tilesetBuffer[(int)TILESETS::DUNGEON], "assets/maps/level_01.tmj");
+    CreateLevel(arenaLevels, &gameplay->levels[1], &tilesetBuffer[(int)TILESETS::DUNGEON], "assets/maps/level_02.tmj");
+    gameplay->loadedLevels = 2;
+    
+    gameplay->initialized = true;
+  }
+
+  void Initialize(GameData* gameData, SDL_Window* window,  SDL_Renderer* renderer) {
+    *gameData->ticksTotal = 0;
+    DEV::Initialize(window, renderer);
+    AssetManagement::LoadAllSprites(gameData->spriteBuffer, renderer);
+    gameData->imGuiContext = ImGui::GetCurrentContext();
+    
+    AssetManagement::LoadFont(renderer, "assets/fonts/ByteBounce.ttf", &gameData->font, 48);
+    
+    InitializeAudioSystem(&gameData->audioSystem, gameData->arenaMain);
+    AssetManagement::LoadAllSFX(&gameData->audioSystem);
+    
+    AssetManagement::LoadAllTilesets(gameData->tilesetBuffer, gameData->arenaImages);
+
+    SDL_Texture* blackfade = GetSprite(SPRITE_ID::Black1x1, gameData->spriteBuffer)->texture;
+    SDL_SetTextureBlendMode(blackfade, SDL_BLENDMODE_BLEND);
+    
+    InitializeGame(&gameData->scenes.gameplay, gameData->arenaLevels, gameData->tilesetBuffer);
+    InitializeMenu(&gameData->scenes.mainMenu, gameData->spriteBuffer, &gameData->font, gameData->arenaMain);
+    
+    PlaySong(SONG_ID::THEME);
+    
+    ChangeScene(gameData, SCENE_TYPES::TITLESCREEN);
+  }
 
   void UpdateGame(Gameplay* gameplay, Input* input, Arena* arenaScratch, Arena* arenaCommands, Arena* arenaEntities, const float dt) {
     float undoSpeedUp = std::lerp(1.0, 0.15, (gameplay->commandBuffer->head - gameplay->commandBuffer->index) * (1.0/30.0));
@@ -360,48 +396,6 @@ extern "C" {
     }
   }
 
-#pragma endregion Updates
-
-//Core functions called by Main.
-#pragma region Core
-
-  bool HandleEvents(GameData* data, SDL_Event event) {
-    DEV::ProcessEvents(&event);
-
-    if (event.type != SDL_EVENT_KEY_DOWN) {
-      return true;
-    }
-    if (event.key.key == SDLK_ESCAPE) {
-      return false;
-    }
-
-    return true;
-  }
-
-  void Initialize(GameData* gameData, SDL_Window* window,  SDL_Renderer* renderer) {
-    *gameData->ticksTotal = 0;
-    DEV::Initialize(window, renderer);
-    AssetManagement::LoadAllSprites(gameData->spriteBuffer, renderer);
-    gameData->imGuiContext = ImGui::GetCurrentContext();
-    
-    AssetManagement::LoadFont(renderer, "assets/fonts/ByteBounce.ttf", &gameData->font, 48);
-    
-    InitializeAudioSystem(&gameData->audioSystem, gameData->arenaMain);
-    AssetManagement::LoadAllSFX(&gameData->audioSystem);
-    
-    AssetManagement::LoadAllTilesets(gameData->tilesetBuffer, gameData->arenaImages);
-
-    SDL_Texture* blackfade = GetSprite(SPRITE_ID::Black1x1, gameData->spriteBuffer)->texture;
-    SDL_SetTextureBlendMode(blackfade, SDL_BLENDMODE_BLEND);
-    
-    InitializeGame(&gameData->scenes.gameplay, gameData->arenaLevels, gameData->tilesetBuffer);
-    InitializeMenu(&gameData->scenes.mainMenu, gameData->spriteBuffer, &gameData->font, gameData->arenaMain);
-    
-    PlaySong(SONG_ID::THEME);
-    
-    ChangeScene(gameData, SCENE_TYPES::TITLESCREEN);
-  }
-
   void Update(GameData* gameData, float dt) {
     *gameData->ticksTotal += 1;
     
@@ -457,14 +451,13 @@ extern "C" {
         break;
       }
     case SCENE_TYPES::GAME: {
-      if (transition->state == Transition::FadeTo || transition->state == Transition::Inactive) {
+      if (transition->state == Transition::FadeFrom || transition->state == Transition::Inactive) {
         UpdateGame(gameplay, &gameData->input, gameData->arenaScratch, gameData->arenaCommands, gameData->arenaEntities, dt);
       }
       
       if (gameplay->gameWon) {
         if (transition->state == Transition::Inactive) {
           ChangeScene(gameData, SCENE_TYPES::CREDITS);
-          gameplay->gameWon = false;
         }
       }
       break;
@@ -481,7 +474,6 @@ extern "C" {
         assert(false);
         break;
       }
-
     }
   }
 
@@ -517,4 +509,3 @@ extern "C" {
   }
 }
 
-#pragma endregion Core

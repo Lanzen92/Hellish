@@ -29,7 +29,7 @@ void InitializeBaseBehaviour(Entity* entity) {
     entity->strength = 1;
     break;
   case ENTITY_ID::GOLEM:
-    SetBehaviour(entity, (Behaviour)(CAN_MOVE | IS_PLAYER | RESPOND_TO_INPUT));
+    SetBehaviour(entity, (Behaviour)(CAN_MOVE | IS_PLAYER | RESPOND_TO_INPUT | CAN_ROTATE));
     AddBehaviour(entity, UNPUSHABLE);
     entity->strength = 999;
     break;
@@ -65,7 +65,8 @@ void PostMove(Entity* entity, LevelData* levelData, CommandBuffer* commandBuffer
     Entity* entityLookedAt = RaycastFirstEntity(entity->x, entity->y, entity->facingCurrent, levelData);
     if (entityLookedAt != nullptr) {
       if (!HasBehaviour(entityLookedAt, Behaviour::IS_PETRIFIED)) {
-        AddBehaviour(entityLookedAt, Behaviour::IS_PETRIFIED);
+        ModifyBehaviourCommand modify(entityLookedAt, Behaviour::IS_PETRIFIED, ModifyBehaviourCommand::ADD);
+        Push(commandBuffer, modify, levelData);
       }
     }
   }
@@ -94,7 +95,8 @@ void PreRotation(Entity* entity, LevelData* levelData, CommandBuffer* commandBuf
     Entity* entityPrevLookedAt = RaycastFirstEntity(entity->x, entity->y, from, levelData);
     if (entityPrevLookedAt != nullptr) {
       if (HasBehaviour(entityPrevLookedAt, Behaviour::IS_PETRIFIED)) {
-        RemoveBehaviour(entityPrevLookedAt, Behaviour::IS_PETRIFIED);
+        ModifyBehaviourCommand modify(entityPrevLookedAt, Behaviour::IS_PETRIFIED, ModifyBehaviourCommand::REMOVE);
+        Push(commandBuffer, modify, levelData);
       }
     }
   }

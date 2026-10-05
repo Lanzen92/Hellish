@@ -9,15 +9,11 @@
 #include "command.h"
 #include "levelEditor.h"
 #include "spriteLibrary.h"
-#include "level.h"
 #include "input.h"
 #include "camera.h"
 #include "fontLibrary.h"
 #include "mainmenu.h"
 #include "tilesetLibrary.h"
-
-
-//enum class GAME_STATES { PLAY, BUILD };
 
 enum class SCENE_TYPES : uint8_t {
   NONE,

@@ -8,8 +8,7 @@
 
 void Execute(AnyCommand cmd, LevelData* levelData, CommandBuffer* commandBuffer, bool fromRedo = false) {
 
-  SDL_Log("Execute called with command type: %d (NONE is usually 0)",
-          (int)cmd.command.type);
+  SDL_Log("Execute called with command type: %d (NONE is usually 0)", (int)cmd.command.type);
 
   switch(cmd.command.type) {
     case CMD_TYPE::NONE:

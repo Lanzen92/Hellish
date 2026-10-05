@@ -22,7 +22,6 @@ void* Memory::Allocate(Arena* arena, size_t size) {
   return front;
 }
 
-//Sätt used till 0, för att reseta.
 void Memory::Reset(Arena* arena) {
   arena->used = 0;
 }
@@ -35,13 +34,3 @@ Memory::Arena* Memory::CreateSubArena(Arena* parentArena, size_t size) {
 
   return subArena;
 }
-
-struct Character {
-  enum CHARACTER_TYPE {HERO, ENEMY};
-  CHARACTER_TYPE my_character_type;
-  int health;
-  int damage;
-  bool is_alive;
-  char* name;  
-};
-

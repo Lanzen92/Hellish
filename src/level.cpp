@@ -7,7 +7,6 @@
 
 #include "arena.h"
 #include "level.h"
-
 #include "common.h"
 #include "entity.h"
 #include "tilesetLibrary.h"
@@ -193,7 +192,7 @@ Entity* RaycastFirstEntity(int xOrigin, int yOrigin, Direction direction, LevelD
     break;
   
   case Direction::LEFT:
-    facingVector = {1, 0};
+    facingVector = {-1, 0};
     break;
   
   case Direction::UP:
@@ -212,7 +211,7 @@ Entity* RaycastFirstEntity(int xOrigin, int yOrigin, Direction direction, LevelD
          ySearch < levelData->h) {
     ENTITY_ID cellID = (ENTITY_ID)GetCellID(levelData, xSearch, ySearch);
 
-    if (!ignoreWalls && IsWalkable(xSearch, ySearch, levelData)) {
+    if (!ignoreWalls && !IsWalkable(xSearch, ySearch, levelData)) {
       break;
     }
 

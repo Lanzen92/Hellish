@@ -11,33 +11,35 @@
 namespace EDITOR {
   void DrawObjectPanel(Editor* editor, Sprite* spriteBuffer) {
     ImGui::Begin("Placeable objects");
-    ImVec2 size = {32, 32};
+    ImVec2 size = {64, 64};
+    
+    ImVec2 uv0 = ImVec2(0.0f, 0.0f);
     
     ImGui::SameLine();
-    if (ImGui::ImageButton("Rock", (ImTextureID)GetSpriteFromID(ENTITY_ID::ROCK, spriteBuffer)->texture, size)) {
+    if (ImGui::ImageButton("Rock", (ImTextureID)GetSprite(SPRITE_ID::Rock, spriteBuffer)->texture, size)) {
       editor->objectToPlaceId = ENTITY_ID::ROCK;
     }
     
     ImGui::SameLine();
-    if (ImGui::ImageButton("Demon", (ImTextureID)GetSpriteFromID(ENTITY_ID::DEMON, spriteBuffer)->texture, size)) {
+    if (ImGui::ImageButton("Demon", (ImTextureID)GetSprite(SPRITE_ID::Demon, spriteBuffer)->texture, size)) {
       editor->objectToPlaceId = ENTITY_ID::DEMON;
     }
     
     ImGui::SameLine();
-    if (ImGui::ImageButton("Golem", (ImTextureID)GetSpriteFromID(ENTITY_ID::GOLEM, spriteBuffer)->texture, size)) {
+    Sprite* golemSprite = GetSprite(SPRITE_ID::GolemRotate, spriteBuffer);
+    ImVec2 golemUv1 = ImVec2(1.0f / golemSprite->spriteCountX, 1.0f / golemSprite->spriteCountY);
+    if (ImGui::ImageButton("Golem", (ImTextureID)golemSprite->texture, size, uv0, golemUv1)) {   
       editor->objectToPlaceId = ENTITY_ID::GOLEM;
     }
 
     ImGui::SameLine();
-    if (ImGui::ImageButton("Medusa", (ImTextureID)GetSpriteFromID(ENTITY_ID::MEDUSA, spriteBuffer)->texture, size)) {
+    Sprite* medusaSprite = GetSprite(SPRITE_ID::MedusaRotate, spriteBuffer);
+    ImVec2 medusaUv1 = ImVec2(1.0f / medusaSprite->spriteCountX, 1.0f / medusaSprite->spriteCountY);
+    
+    if (ImGui::ImageButton("Medusa", (ImTextureID)medusaSprite->texture, size, uv0, medusaUv1)) {  
       editor->objectToPlaceId = ENTITY_ID::MEDUSA;
     }
-
-    ImGui::SameLine();
-    if (ImGui::ImageButton("Siren",(ImTextureID)GetSpriteFromID(ENTITY_ID::SIREN, spriteBuffer)->texture, size)) {
-      editor->objectToPlaceId = ENTITY_ID::SIREN;
-    }
-
+    
     ImGui::End();
   }
 
@@ -53,6 +55,9 @@ namespace EDITOR {
         int y;
 
         CAMERA::WorldToGrid(input->mouseX, input->mouseY, &x, &y, levelData);
+        x -= 1;
+        y -= 1;
+        
         PlaceObject(x, y, editor, levelData, commandBuffer);
       }
     }
@@ -62,6 +67,9 @@ namespace EDITOR {
         int y;
 
         CAMERA::WorldToGrid(input->mouseX, input->mouseY, &x, &y, levelData);
+        
+        x -= 1;
+        y -= 1;
         Entity* entity = GetEntity(levelData, x, y);
         if (entity == nullptr) {
           return;
@@ -77,12 +85,18 @@ namespace EDITOR {
   void DrawPreview(Editor* editor, Input* input, SDL_Renderer* renderer, LevelData* levelData, Camera* camera, Sprite* spriteBuffer) {
     int x;
     int y;
-
     CAMERA::WorldToGrid(input->mouseX, input->mouseY, &x, &y, levelData);
+
     Sprite* preview = GetSpriteFromID(editor->objectToPlaceId, spriteBuffer);
 
     if (preview != nullptr) {
-      RenderSpriteOnTile(preview, levelData, renderer, camera, x, y, 1, 0.5); 
+      x -= 1;
+      y -= 1;
+    
+      // Wrap the sprite in a SpriteRenderInfo and tell it to explicitly draw frame 0
+      SpriteRenderInfo spriteInfo = {0, preview, false};
+    
+      RenderSpriteOnTile(spriteInfo, levelData, renderer, camera, x, y, 1, 0.5); 
     }
   }
 }

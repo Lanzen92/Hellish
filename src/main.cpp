@@ -59,9 +59,6 @@ FILETIME GetTimestamp() {
   return timeOfLastChange;
 }
 
-
-
-// Load DLL and also load the functions from DLL.
 bool LoadDLL(DLL_INFO* info, int depth = 0) {
   printf("Loading DLL...\n");
 
@@ -96,16 +93,13 @@ bool LoadDLL(DLL_INFO* info, int depth = 0) {
   info->timestamp = GetTimestamp();
   return true;
 }
-//Handles unload dll
-//frees and deletes the temp-dll to allow a "refresh".
+
 void UnloadDLL(DLL_INFO* info) {
   FreeLibrary(info->dll);
   info->dll = nullptr;
   DeleteFile(NAME_OF_TEMP_DLL);
 }
 
-//Check if the timestamp of the dll has changed.
-//If it has, unload and load the new.
 void DLL_CheckStatus(DLL_INFO* dll) {
   FILETIME timestamp = GetTimestamp();
 
@@ -117,9 +111,6 @@ void DLL_CheckStatus(DLL_INFO* dll) {
   }
 }
 
-//Allocate memory
-//Gets void* to the free block
-//Which has been allocated to the program.
 void* AllocateGameMemory() {
   void* blob = malloc(GAME_MEMORY_ALLOWANCE);
 
@@ -132,12 +123,6 @@ void* AllocateGameMemory() {
   return blob;
 }
 
-//Prepare the SDL components
-//Create window and renderer.
-
-//Change resolution:
-// break out w / h to variables
-// make them "configurable"
 void SDL_Setup() {
   SDL_Init(SDL_INIT_EVENTS);
   SDL_SetLogPriorities(SDL_LOG_PRIORITY_VERBOSE);
@@ -148,7 +133,6 @@ void SDL_Setup() {
   renderer = SDL_CreateRenderer(window, NULL);
 }
 
-//Get delta
 void CalculateDeltaTime(float& dt, float scaler) {
   NOW = SDL_GetTicksNS();
   dt = NOW - PREV;
@@ -166,34 +150,28 @@ void CalculateRemainingFrameTime_MS(double* milliSeconds) {
   *milliSeconds = FRAME_TIME_MS - frameTimeSpentMS;
 }
 
-//Writing gamestate to bin file.
 void StoreGameState (Memory::Arena* arena) {
   std::ofstream file("temp_state.bin", std::ios::binary);
   file.write(reinterpret_cast<const char*>(arena->base), arena->size);
 }
 
-//Reading gamestate from bin file. 
 void RetrieveGameState(Memory::Arena* arena) {
   std::ifstream file("temp_state.bin", std::ios::binary);
   file.read(reinterpret_cast<char*>(arena->base), arena->size);
 }
 
 int main() {
-
   printf("Initializing... \n");
   
-  //Prepare the memory for usage.
   void* gameMemory = AllocateGameMemory();
-
   if (gameMemory == nullptr) {
     return 1;
   }
 
-  // ----- MemoryAllocation  ------
+
 
   printf("Allocating memory..  \n");
 
-  //Set up CPU / RAM memory
   Memory::Arena* arenaMain = new Memory::Arena();
   Memory::Initialize(arenaMain, gameMemory, GAME_MEMORY_ALLOWANCE);
   GameData* gameData = ALLOC_ARRAY(arenaMain, GameData, 1)
@@ -268,17 +246,11 @@ int main() {
 
   while (gameData->running) {
     
-    //Get Delta
     CalculateDeltaTime(dt, dtScaler);
-    
-    //Each frame, check if dll has changed. 
     DLL_CheckStatus(&dll);
-
     Reset(gameData->arenaScratch);
     
     SDL_Event event;
-
-    //Listen to events, and close if bool changes to false.
     while(SDL_PollEvent(&event)) {
       gameData->running = dll.handleEvents(gameData, event);
 
@@ -298,7 +270,6 @@ int main() {
       }
     }
 
-    //Mouse input
     gameData->input.keysCurrent = SDL_GetKeyboardState(nullptr);
     float* deltaX = &gameData->input.mouseXDelta;
     float* deltaY = &gameData->input.mouseYDelta;
@@ -319,25 +290,18 @@ int main() {
     UpdateMouse(&gameData->input, dt);
 
     dll.draw(gameData, renderer);
-
-    //Goal is to keep it as close as possible of the preset FPS. (common.h)
+    
     double timeToSleepMS;
     CalculateRemainingFrameTime_MS(&timeToSleepMS);
     if (timeToSleepMS > 0) {
-      //If greater than 1, subrtact 1. SDL may not sleep for exactly the amount
-      // of MS desired.
       if (timeToSleepMS > 1) {
         SDL_Delay(timeToSleepMS - 1);
       }
       
-      //Loop the last bit to be able to time the frame neatly.
       while (timeToSleepMS > 0) {
         CalculateRemainingFrameTime_MS(&timeToSleepMS);
       }
     }
-    // else {
-    //   printf("Missed frame.. \n");
-    // }
   }
   
   dll.quit(renderer);

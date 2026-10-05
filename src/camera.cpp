@@ -28,6 +28,7 @@ void CAMERA::WorldToGrid(float xWorld, float yWorld, int* x, int* y, const Level
   *x += level->w * TILE_SIZE_PX_SCALED / 2.0;
   *x -= SCREEN_WIDTH / 2.0;
   *x /= TILE_SIZE_PX_SCALED;
+  
 
   *y += level->h * TILE_SIZE_PX_SCALED / 2.0;
   *y -= SCREEN_HEIGHT / 2.0;

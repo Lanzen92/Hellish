@@ -19,11 +19,11 @@ static const SpriteDataEntry allSpriteData[] = {
   {   SPRITE_ID::Fallback,                  FALLBACK_PATH, 8, 8 },
   {   SPRITE_ID::Demon,                "assets/sprites/player.png"  },
   {   SPRITE_ID::Rock,                 "assets/sprites/rock.png", 10, 20 },
-  {   SPRITE_ID::Medusa_Rotate,        "assets/sprites/medusa_rotate.png", 12, 24, 8, 1 },
-  {   SPRITE_ID::Medusa_Idle_Left,     "assets/sprites/medusa_idle_left.png", 12, 24, 4, 1, 8 },
-  {   SPRITE_ID::Medusa_Idle_Front,    "assets/sprites/medusa_idle_front.png", 12,24, 4, 1, 8 },
-  {   SPRITE_ID::Medusa_Idle_Back,     "assets/sprites/medusa_idle_back.png", 12, 24, 4, 1, 8 },
-  // {   SPRITE_ID::Golem,                "assets/sprites/golem.png" },
+  {   SPRITE_ID::MedusaRotate,         "assets/sprites/medusa_rotate.png", 12, 24, 8, 1 },
+  {   SPRITE_ID::MedusaIdleLeft,       "assets/sprites/medusa_idle_left.png", 12, 24, 4, 1, 8 },
+  {   SPRITE_ID::MedusaIdleFront,      "assets/sprites/medusa_idle_front.png", 12,24, 4, 1, 8 },
+  {   SPRITE_ID::MedusaIdleBack,       "assets/sprites/medusa_idle_back.png", 12, 24, 4, 1, 8 },
+  {   SPRITE_ID::GolemRotate,          "assets/sprites/golem_rotate.png", 12, 24, 8, 1, 8 },
   {   SPRITE_ID::DropShadow,           "assets/sprites/dropshadow.png", 8, 8  },
   {   SPRITE_ID::SelectionMarker,      "assets/sprites/selection_marker.png",9,9  },
   {   SPRITE_ID::Siren,                "assets/sprites/siren.png"  },
@@ -31,15 +31,14 @@ static const SpriteDataEntry allSpriteData[] = {
   {   SPRITE_ID::MainMenuBackground,   "assets/sprites/mainmenu_background.png", 0,0  },
   {   SPRITE_ID::Black1x1             ,"assets/sprites/1x1black.png", 0,0  },
   {   SPRITE_ID::DungeonTileset       ,"assets/sprites/hell_of_a_time_dungeon_tileset.png", 0,0, 9, 9  },
-    //{   SPRITE_ID::Ghost,               "assets/sprites/ghost.png"     },
   {   SPRITE_ID::Goal,                 "assets/sprites/goal.png", 8, 8, 8, 1  },
-  {   SPRITE_ID::MenuHorizon,         "assets/sprites/mainmenu_background.png" },
+  {   SPRITE_ID::MenuHorizon,          "assets/sprites/mainmenu_background.png" },
   {   SPRITE_ID::MenuCloudBack,        "assets/sprites/mainmenu_cloud_back.png" },
-  {   SPRITE_ID::MenuCloudFront,     "assets/sprites/mainmenu_cloud_front.png"  },
-  {   SPRITE_ID::MenuMiddle,          "assets/sprites/mainmenu_middle.png" },
-  {   SPRITE_ID::MenuFront,           "assets/sprites/mainmenu_front.png"  },
-  {   SPRITE_ID::ButtonBasicBlue,           "assets/sprites/basic_button_blue.png", 0, 0, 3, 3  },
-  {   SPRITE_ID::ButtonBasicRed,           "assets/sprites/basic_button_red.png", 0, 0, 3, 3  },
+  {   SPRITE_ID::MenuCloudFront,       "assets/sprites/mainmenu_cloud_front.png"  },
+  {   SPRITE_ID::MenuMiddle,           "assets/sprites/mainmenu_middle.png" },
+  {   SPRITE_ID::MenuFront,            "assets/sprites/mainmenu_front.png"  },
+  {   SPRITE_ID::ButtonBasicBlue,      "assets/sprites/basic_button_blue.png", 0, 0, 3, 3  },
+  {   SPRITE_ID::ButtonBasicRed,       "assets/sprites/basic_button_red.png", 0, 0, 3, 3  },
 };
 
 Sprite* GetSprite(SPRITE_ID spriteId, Sprite* spriteBuffer) {
@@ -60,11 +59,11 @@ Sprite* GetSpriteFromID(ENTITY_ID id, Sprite* spriteBuffer) {
       break;
 
     case ENTITY_ID::MEDUSA:
-      spriteToReturn = nullptr;
+      spriteToReturn = &spriteBuffer[(int)SPRITE_ID::MedusaIdleFront];
       break;
-  
+
     case ENTITY_ID::GOLEM:
-      spriteToReturn = &spriteBuffer[(int)SPRITE_ID::Golem];
+      spriteToReturn = &spriteBuffer[(int)SPRITE_ID::GolemRotate];
       break;
 
     case ENTITY_ID::SIREN:
@@ -85,80 +84,95 @@ Sprite* GetSpriteFromID(ENTITY_ID id, Sprite* spriteBuffer) {
       return GetSprite(SPRITE_ID::Rock, spriteBuffer);
     }
 
-    if (entity->id == ENTITY_ID::MEDUSA && entity->action == Actions::ROTATING) {
-      Sprite* spritesheet = GetSprite(SPRITE_ID::Medusa_Rotate, spriteBuffer);
-    
+    if (entity->action == Actions::ROTATING) {
+      Sprite* spritesheet = nullptr;
       int start = 0;
       int end = 0;
-      switch(entity->facingPrevious){
-      case Direction::RIGHT:
-        start = 6;
-        break;
-      case Direction::LEFT:
-        start = 2;
-        break;
-      case Direction::UP:
-        start = 4;
-        break;
-      case Direction::DOWN:
-        start = 0;
-        break;
+
+      if (entity->id == ENTITY_ID::MEDUSA) {
+        spritesheet = GetSprite(SPRITE_ID::MedusaRotate, spriteBuffer);
+        switch(entity->facingPrevious){
+          case Direction::RIGHT: start = 6; break;
+          case Direction::LEFT:  start = 2; break;
+          case Direction::UP:    start = 4; break;
+          case Direction::DOWN:  start = 0; break;
+        }
+        switch(entity->facingCurrent){
+          case Direction::RIGHT: end = 6; break;
+          case Direction::LEFT:  end = 2; break;
+          case Direction::UP:    end = 4; break;
+          case Direction::DOWN:  end = 0; break;
+        }
+      } 
+      else if (entity->id == ENTITY_ID::GOLEM) {
+        spritesheet = GetSprite(SPRITE_ID::GolemRotate, spriteBuffer);
+        switch(entity->facingPrevious){
+          case Direction::UP:    start = 0; break;
+          case Direction::RIGHT: start = 8; break; 
+          case Direction::DOWN:  start = 4; break;
+          case Direction::LEFT:  start = 2; break; 
+        }
+        switch(entity->facingCurrent){
+          case Direction::UP:    start = 0; break;
+          case Direction::RIGHT: start = 8; break; 
+          case Direction::DOWN:  start = 4; break;
+          case Direction::LEFT:  start = 2; break; 
+        }
       }
-      switch(entity->facingCurrent){
-      case Direction::RIGHT:
-        end = 6;
-        break;
-      case Direction::LEFT:
-        end = 2;
-        break;
-      case Direction::UP:
-        end = 4;
-        break;
-      case Direction::DOWN:
-        end = 0;
-        break;
-      }
+      
+      if (spritesheet != nullptr) {
+        int spriteCount = GetSpriteCount(spritesheet);
+        int forward = ((end - start) % spriteCount + spriteCount) % spriteCount;
+        int backward = spriteCount - forward;
+        end = (forward <= backward) ? (start + forward) : (start - backward);
         
-      int spriteCount = GetSpriteCount(spritesheet);
-      int forward = ((end - start) % spriteCount + spriteCount) % spriteCount;
-      int backward = spriteCount - forward;
-      end = (forward <= backward) ? (start + forward) : (start - backward);
-      
-      float exactFrame = std::lerp((float)start, (float)end, entity->progress01);
-      int roundedFrame = (int)std::round(exactFrame);
-      int currentFrame = ((roundedFrame % spriteCount) + spriteCount) % spriteCount;
-      //int currentFrame = ((int)std::lerp(start, end, entity->progress01) % spriteCount);
-      
-      SDL_Log("Action: %d, Start: %d, End: %d, Progress: %f, Frame: %d\n", 
-       (int)entity->action, start, end, entity->progress01, currentFrame);
-      
-      return {currentFrame, spritesheet};
-    }
-  
-    switch (entity->id) {
-    case ENTITY_ID::MEDUSA:{
-      Sprite* sprite = nullptr;
-      int frame = 0;
-      switch (entity->facingCurrent) {
-      case Direction::RIGHT:
-        sprite = GetSprite(SPRITE_ID::Medusa_Idle_Left, spriteBuffer);
-        frame = (int)((*ticksTotal * sprite->framerate) / FPS % GetSpriteCount(sprite));
-        return {frame, sprite, true};
-      case Direction::LEFT:
-        sprite = GetSprite(SPRITE_ID::Medusa_Idle_Left, spriteBuffer);
-        frame = (int)((*ticksTotal * sprite->framerate) / FPS % GetSpriteCount(sprite));
-        return {frame, sprite};
-      case Direction::DOWN:
-        sprite = GetSprite(SPRITE_ID::Medusa_Idle_Back, spriteBuffer);
-        frame = (int)((*ticksTotal * sprite->framerate) / FPS % GetSpriteCount(sprite));
-        return {frame, sprite};
-      case Direction::UP:
-        sprite = GetSprite(SPRITE_ID::Medusa_Idle_Front, spriteBuffer);
-        frame = (int)((*ticksTotal * sprite->framerate) / FPS % GetSpriteCount(sprite));
-        return {frame, sprite};
+        float exactFrame = std::lerp((float)start, (float)end, entity->progress01);
+        int roundedFrame = (int)std::round(exactFrame);
+        int currentFrame = ((roundedFrame % spriteCount) + spriteCount) % spriteCount;
+        
+        return {currentFrame, spritesheet};
+        }
       }
-      break;
-    }
+  
+    //Idle
+    switch (entity->id) {
+      case ENTITY_ID::MEDUSA: {
+        Sprite* sprite = nullptr;
+        int frame = 0;
+        switch (entity->facingCurrent) {
+        case Direction::RIGHT:
+          sprite = GetSprite(SPRITE_ID::MedusaIdleLeft, spriteBuffer);
+          frame = (int)((*ticksTotal * sprite->framerate) / FPS % GetSpriteCount(sprite));
+          return {frame, sprite, true};
+        case Direction::LEFT:
+          sprite = GetSprite(SPRITE_ID::MedusaIdleLeft, spriteBuffer);
+          frame = (int)((*ticksTotal * sprite->framerate) / FPS % GetSpriteCount(sprite));
+          return {frame, sprite};
+        case Direction::DOWN:
+          sprite = GetSprite(SPRITE_ID::MedusaIdleBack, spriteBuffer);
+          frame = (int)((*ticksTotal * sprite->framerate) / FPS % GetSpriteCount(sprite));
+          return {frame, sprite};
+        case Direction::UP:
+          sprite = GetSprite(SPRITE_ID::MedusaIdleFront, spriteBuffer);
+          frame = (int)((*ticksTotal * sprite->framerate) / FPS % GetSpriteCount(sprite));
+          return {frame, sprite};
+        }
+        break;
+      }
+      case ENTITY_ID::GOLEM: {
+        Sprite* sprite = GetSprite(SPRITE_ID::GolemRotate, spriteBuffer);
+        int frame = 0;
+        bool flipped = false;
+        
+        switch (entity->facingCurrent) {
+          case Direction::UP:    frame = 4; break; 
+          case Direction::RIGHT: frame = 2; flipped = true; break;
+          case Direction::DOWN:  frame = 0; break;
+          case Direction::LEFT:  frame = 2; break; 
+          
+        }
+        return {frame, sprite, flipped};
+      }
     case ENTITY_ID::DEMON:
       return GetSprite(SPRITE_ID::Demon, spriteBuffer);
     case ENTITY_ID::ROCK:
